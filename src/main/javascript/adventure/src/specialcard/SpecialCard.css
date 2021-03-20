@@ -1,0 +1,46 @@
+.specialcard {
+  border-radius: .5rem;
+  border: solid thick black;
+
+  height: 26rem;
+  width: 20rem;
+
+  text-align: left;
+}
+
+.specialcard-name {
+  font-weight: bold;
+  margin: .5rem;
+  color: white;
+}
+
+.specialcard-image {
+  margin: .5rem;
+
+  height: 11rem;
+}
+
+.specialcard-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.specialcard-type {
+  margin: .5rem;
+
+  color: white;
+}
+
+.specialcard-body {
+  background-color: white;
+
+  border: solid thin black;
+  border-radius: .25rem;
+
+  margin: .5rem;
+  padding: 1rem;
+
+  height: 29%;
+
+  font-size: .9rem;
+}
