@@ -16,6 +16,9 @@ repositories {
 node {
     download = true
     version = '14.15.5'
+    nodeProjectDir = file("${project.projectDir}/src/main/javascript/adventure")
+    yarnVersion = "1.22.10"
+    yarnWorkDir = file("${project.projectDir}/src/main/javascript/adventure")
 }
 
 dependencies {
@@ -30,15 +33,20 @@ dependencies {
     testImplementation "org.assertj:assertj-core:3.11.1"
 }
 
-task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
-    script = project.file('node_modules/webpack/bin/webpack.js')
-    args = [
-            '--mode', 'development',
-            '--entry', './src/main/javascript/Main.jsx',
-            '-o', './src/main/resources/static'
-    ]
+task buildReactApp(type: YarnTask, dependsOn: 'npmInstall') {
+    args = ['build']
 }
 
+
+clean.delete << file('src/main/javascript/adventure/build')
+clean.delete << file('src/main/javascript/adventure/node_modules')
+clean.delete << file('src/main/resources/static')
+
+task copyReactApp(type: Copy) {
+    from file("src/main/javascript/adventure/build")
+    into file("src/main/resources/static")
+}
+copyReactApp.mustRunAfter 'buildReactApp'
+
 processResources.dependsOn 'buildReactApp'
-clean.delete << file('node_modules')
-clean.delete << file('src/main/resources/static/dist')
+processResources.dependsOn 'copyReactApp'
