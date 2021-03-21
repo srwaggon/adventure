@@ -1,11 +1,11 @@
 package com.github.srwaggon.adventure;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.stereotype.Component;
 
-@Component
-public class SecurityAdapter extends WebSecurityConfigurerAdapter {
+@Configuration
+public class SecurityOAuth2Configuration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
