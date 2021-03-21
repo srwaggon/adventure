@@ -1,12 +1,47 @@
 import './App.css';
 
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import Card from './card/Card.jsx';
 import SpecialCard from './specialcard/SpecialCard.jsx';
 import FlavorText from './flavor/FlavorText.jsx'
 import {D10} from './dice/DiceIcon.jsx';
+import CharacterPage from './character/page/CharacterPage.jsx';
 
 
 function App() {
+  return (
+    <div className="App">
+      <Router>
+        <nav>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/character">CharacterSheet</Link>
+          </li>
+        </nav>
+        <Switch>
+
+          <Route path="/character">
+            <CharacterPage />
+          </Route>
+          <Route path="/">
+            <Cards />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+
+function Cards() {
   const cardData = [
     {
       "name": "Longsword",
@@ -134,13 +169,9 @@ function App() {
     flexDirection: "row",
     flexWrap: "wrap"
   }
-  return (
-    <div className="App">
-      <div style={cardStyle}>
-        {cardsWithMargin}
-      </div>
-    </div>
-  );
+  return <div style={cardStyle}>
+    {cardsWithMargin}
+  </div>;
 }
 
 export default App;
