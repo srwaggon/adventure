@@ -16,6 +16,12 @@ import CharacterPage from './character/page/CharacterPage.jsx';
 
 
 function App() {
+
+  fetch('/players').then((response) => {
+    console.log(response);
+    response.json().then((data) => console.log(data));
+  });
+
   return (
     <div className="App">
       <div class="container unauthenticated">
