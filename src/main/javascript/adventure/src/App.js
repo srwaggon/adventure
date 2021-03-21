@@ -18,6 +18,11 @@ import CharacterPage from './character/page/CharacterPage.jsx';
 function App() {
   return (
     <div className="App">
+      <div class="container unauthenticated">
+        <div>
+          <a href="/logout">Logout</a>
+        </div>
+      </div>
       <Router>
         <nav>
           <li>
