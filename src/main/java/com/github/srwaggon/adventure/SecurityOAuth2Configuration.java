@@ -14,6 +14,7 @@ public class SecurityOAuth2Configuration extends WebSecurityConfigurerAdapter {
         .anyRequest().authenticated()
         .and().oauth2Login()
         .and().logout().invalidateHttpSession(true).clearAuthentication(true).deleteCookies("JSESSIONID")
+        .and().csrf().disable()
     ;
   }
 
