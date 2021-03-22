@@ -1,21 +1,62 @@
 import './CharacterPage.css';
 import {useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import {getCharacterById} from '../../../utilities/client';
+import {getCharacterById, postCharacter} from '../../../utilities/client';
+import {Button} from '@material-ui/core';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(blankCharacter());
+  const [character, setCharacter] = useState(null);
 
   useEffect(() => {
     if (!character) {
-      getCharacterById(characterId)
-        .then(data => data.json())
-        .then(json => setCharacter(json));
+      getCharacter();
     }
   });
+
+  function getCharacter() {
+    getCharacterById(characterId)
+      .then(data => data.json())
+      .then(json => setCharacter(json));
+  }
+
+  const CharacterAttribute = ({character, attribute}) => {
+    const value = character[attribute].value;
+    return (
+      <div className="character-attribute">
+        <div className="character-attribute-name">{attribute}</div>
+        <div className="character-attribute-value">
+          {[...Array(value).keys()].map((int) => <input type="checkbox" key={attribute} checked={int < value}/>)}
+        </div>
+      </div>
+    );
+  };
+
+  const CharacterResource = ({character, resource}) => {
+    const max = character[resource].maximum;
+    const value = character[resource].value;
+    return (
+      <div className="character-resource">
+        <div className={'character-resource-name'}>{resource}</div>
+        <div className="character-resource-value">
+          {[...Array(max).keys()].map(
+            (int) =>
+              <input
+                type={'checkbox'}
+                key={int}
+                checked={int < value}
+                disabled={int >= max}
+                onChange={(e) => {
+                  character[resource].value += e.target.checked ? 1 : -1;
+                  postCharacter(character).then(ignored => getCharacter())
+                }}
+              />)}
+        </div>
+      </div>
+    );
+  };
 
   return !character ? <div>Loading...</div> : (
     <div className="character-page">
@@ -47,41 +88,9 @@ const CharacterPage = () => {
           <CharacterResource character={character} resource={'health'}/>
           <CharacterResource character={character} resource={'willpower'}/>
         </div>
-        <div className={"character-edit-button-row"}>
-          <button className={"character-edit-button"}>Edit</button>
+        <div className={'character-edit-button-row'}>
+          <Button className={'character-edit-button'} variant={"contained"}>Edit</Button>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const CharacterAttribute = ({character, attribute}) => {
-  const value = character[attribute].value;
-  return (
-    <div className="character-attribute">
-      <div className="character-attribute-name">{attribute}</div>
-      <div className="character-attribute-value">
-        {[...Array(value).keys()].map((int) => <input type="checkbox" key={attribute} checked={int < value}/>)}
-      </div>
-    </div>
-  );
-};
-
-const CharacterResource = ({character, resource}) => {
-  const max = character[resource].maximum;
-  const value = character[resource].value;
-  return (
-    <div className="character-resource">
-      <div className={'character-resource-name'}>{resource}</div>
-      <div className="character-resource-value">
-        {[...Array(max).keys()].map(
-          (int) =>
-            <input
-              type={'checkbox'}
-              key={int}
-              checked={int < value}
-              disabled={int >= max}
-            />)}
       </div>
     </div>
   );

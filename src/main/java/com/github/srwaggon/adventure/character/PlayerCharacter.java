@@ -95,4 +95,8 @@ public class PlayerCharacter implements Identified<UUID> {
   public CharacterValue getHealth() {
     return health;
   }
+
+  public CharacterValue getWillpower() {
+    return willpower;
+  }
 }

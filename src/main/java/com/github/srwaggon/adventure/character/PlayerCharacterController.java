@@ -5,7 +5,9 @@ import com.github.srwaggon.adventure.util.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -28,6 +30,16 @@ public class PlayerCharacterController {
   @PutMapping("/characters")
   public PlayerCharacter newCharacter() {
     return playerCharacterService.saveNewCharacter();
+  }
+
+  @PostMapping("/characters/{id}")
+  public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID id) {
+    return characterRepository.findById(id).
+        map(character -> characterRepository.save(newCharacter))
+        .orElseGet(() -> {
+          newCharacter.setId(id);
+          return characterRepository.save(newCharacter);
+        });
   }
 
 }

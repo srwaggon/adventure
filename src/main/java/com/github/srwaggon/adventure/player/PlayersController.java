@@ -48,9 +48,7 @@ public class PlayersController {
   @PutMapping("/players/{id}")
   public Player replacePlayer(@RequestBody Player newPlayer, @PathVariable String id) {
     return playerRepository.findById(id)
-        .map(player -> {
-          return playerRepository.save(player);
-        })
+        .map(player -> playerRepository.save(player))
         .orElseGet(() -> {
           newPlayer.setId(id);
           return playerRepository.save(newPlayer);

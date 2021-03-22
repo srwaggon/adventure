@@ -2,7 +2,7 @@ import './HomePage.css';
 
 import React, {useEffect, useState} from 'react';
 
-import {getCurrentPlayersCharacters, postNewCharacter} from '../../utilities/client';
+import {getCurrentPlayersCharacters, putNewCharacter} from '../../utilities/client';
 import {Link} from 'react-router-dom';
 
 const HomePage = () => {
@@ -34,7 +34,7 @@ const CharacterSelectionPage = () => {
       {characterPanels}
       <div className={'character-new-panel character-panel'}>
         <div className={'character-new-panel-plus'}
-             onClick={() => postNewCharacter(newCharacter()).then(value => setCharacters(null))}>
+             onClick={() => putNewCharacter(newCharacter()).then(value => setCharacters(null))}>
           +
         </div>
       </div>
