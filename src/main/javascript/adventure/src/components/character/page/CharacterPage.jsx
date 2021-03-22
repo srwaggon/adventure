@@ -1,19 +1,22 @@
 import './CharacterPage.css';
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import {getCharacterById, postCharacter} from '../../../utilities/client';
+import {deleteCharacter, getCharacterById, postCharacter} from '../../../utilities/client';
 import {Checkbox, IconButton} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(blankCharacter);
+  const [character, setCharacter] = useState(null);
 
   const [isEditing, setEditing] = useState(false);
+
+  const history = useHistory();
 
   useEffect(() => {
     if (!character) {
@@ -135,6 +138,13 @@ const CharacterPage = () => {
         <div className={'character-page-header'}>
           <div className={'character-name'}>{character.name}</div>
           <div className={'character-edit-button-row'}>
+            {isEditing && <IconButton
+              aria-label={'delete'}
+              color={"secondary"}
+              onClick={() => deleteCharacter(character).then(() => history.push("/characters"))}
+            >
+              <DeleteIcon fontSize="small" />
+            </IconButton>}
             <IconButton
               className={'character-edit-button'}
               variant={'contained'}

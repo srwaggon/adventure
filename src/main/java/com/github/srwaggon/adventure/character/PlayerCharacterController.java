@@ -3,6 +3,7 @@ package com.github.srwaggon.adventure.character;
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,12 @@ public class PlayerCharacterController {
           newCharacter.setId(id);
           return characterRepository.save(newCharacter);
         });
+  }
+
+  @DeleteMapping("/characters/{id}")
+  public void deleteCharacter(@PathVariable UUID id) {
+    characterRepository.findById(id)
+        .ifPresent(character -> characterRepository.delete(character));
   }
 
 }
