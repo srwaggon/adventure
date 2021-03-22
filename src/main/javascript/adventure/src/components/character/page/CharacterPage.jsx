@@ -155,7 +155,7 @@ const CharacterPage = () => {
                 }
                 setEditing(!isEditing);
               }}>
-              {isEditing ? <EditIcon/> : <SaveIcon/>}
+              {isEditing ? <SaveIcon/> : <EditIcon/>}
             </IconButton>
           </div>
         </div>
