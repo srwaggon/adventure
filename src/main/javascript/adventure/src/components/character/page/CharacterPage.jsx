@@ -2,13 +2,18 @@ import './CharacterPage.css';
 import {useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {getCharacterById, postCharacter} from '../../../utilities/client';
-import {Button} from '@material-ui/core';
+import {Checkbox, IconButton} from '@material-ui/core';
+import {AddBox, Backspace} from '@material-ui/icons';
+import EditIcon from '@material-ui/icons/Edit';
+import SaveIcon from '@material-ui/icons/Save';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(null);
+  const [character, setCharacter] = useState(blankCharacter);
+
+  const [isEditing, setEditing] = useState(false);
 
   useEffect(() => {
     if (!character) {
@@ -24,11 +29,46 @@ const CharacterPage = () => {
 
   const CharacterAttribute = ({character, attribute}) => {
     const value = character[attribute].value;
+
+    function increaseValue() {
+      character[attribute].value += 1;
+      setCharacter({...character});
+    }
+
+    function reduceValue() {
+      character[attribute].value -= 1;
+      setCharacter({...character});
+    }
+
     return (
       <div className="character-attribute">
         <div className="character-attribute-name">{attribute}</div>
         <div className="character-attribute-value">
-          {[...Array(value).keys()].map((int) => <input type="checkbox" key={attribute} checked={int < value}/>)}
+          {[...Array(value).keys()].map((int) =>
+            <Checkbox
+              key={attribute}
+              color={'default'}
+              size={'small'}
+              style={{margin: '-9px'}}
+              checked={int < value}
+            />,
+          )}
+          {isEditing && value > 1 && <Checkbox
+            checked={false}
+            color={'default'}
+            size={'small'}
+            style={{margin: '-9px'}}
+            icon={<Backspace/>}
+            onClick={reduceValue}
+          />}
+          {isEditing && value < 5 && <Checkbox
+            checked={false}
+            color={'default'}
+            size={'small'}
+            style={{margin: '-9px'}}
+            icon={<AddBox/>}
+            onClick={increaseValue}
+          />}
         </div>
       </div>
     );
@@ -37,22 +77,53 @@ const CharacterPage = () => {
   const CharacterResource = ({character, resource}) => {
     const max = character[resource].maximum;
     const value = character[resource].value;
+
+    function setCharacterResource(number) {
+      character[resource].value += number;
+      postCharacter(character).then(ignored => getCharacter());
+    }
+
+    function increaseMaximum() {
+      character[resource].maximum += 1;
+      setCharacter({...character});
+    }
+
+    function reduceMaximum() {
+      character[resource].maximum -= 1;
+      setCharacter({...character});
+    }
+
     return (
       <div className="character-resource">
         <div className={'character-resource-name'}>{resource}</div>
         <div className="character-resource-value">
           {[...Array(max).keys()].map(
             (int) =>
-              <input
-                type={'checkbox'}
-                key={int}
+              <Checkbox
+                key={resource}
                 checked={int < value}
                 disabled={int >= max}
-                onChange={(e) => {
-                  character[resource].value += e.target.checked ? 1 : -1;
-                  postCharacter(character).then(ignored => getCharacter())
-                }}
+                color={'default'}
+                size={'small'}
+                style={{margin: '-9px'}}
+                onChange={(e) => setCharacterResource(e.target.checked ? 1 : -1)}
               />)}
+          {isEditing && <Checkbox
+            checked={false}
+            color={'default'}
+            size={'small'}
+            style={{margin: '-9px'}}
+            icon={<Backspace/>}
+            onClick={reduceMaximum}
+          />}
+          {isEditing && <Checkbox
+            checked={false}
+            color={'default'}
+            size={'small'}
+            style={{margin: '-9px'}}
+            icon={<AddBox/>}
+            onClick={increaseMaximum}
+          />}
         </div>
       </div>
     );
@@ -60,36 +131,53 @@ const CharacterPage = () => {
 
   return !character ? <div>Loading...</div> : (
     <div className="character-page">
-      <div className={'character-page-contents'}>
-        <div className={'character-name'}>{character.name}</div>
-        <div className="character-attributes">
-          <div className="character-attribute-col">
-            <CharacterAttribute character={character} attribute={'strength'}/>
-            <CharacterAttribute character={character} attribute={'dexterity'}/>
-            <CharacterAttribute character={character} attribute={'constitution'}/>
-          </div>
-          <div className="character-attribute-col">
-            <CharacterAttribute character={character} attribute={'presence'}/>
-            <CharacterAttribute character={character} attribute={'influence'}/>
-            <CharacterAttribute character={character} attribute={'composure'}/>
-          </div>
-          <div className="character-attribute-col">
-            <CharacterAttribute character={character} attribute={'intelligence'}/>
-            <CharacterAttribute character={character} attribute={'wits'}/>
-            <CharacterAttribute character={character} attribute={'resolve'}/>
+      <div className={'character-page-wrapper'}>
+        <div className={'character-page-header'}>
+          <div className={'character-name'}>{character.name}</div>
+          <div className={'character-edit-button-row'}>
+            <IconButton
+              className={'character-edit-button'}
+              variant={'contained'}
+              color={'default'}
+              onClick={ignored => {
+                if (isEditing) {
+                  postCharacter(character).then(ignored => getCharacter());
+                }
+                setEditing(!isEditing);
+              }}>
+              {isEditing ? <EditIcon/> : <SaveIcon/>}
+            </IconButton>
           </div>
         </div>
-        <div className="character-resource-row">
-          <CharacterResource character={character} resource={'stamina'}/>
-          <CharacterResource character={character} resource={'confidence'}/>
-          <CharacterResource character={character} resource={'focus'}/>
-        </div>
-        <div className="character-resource-row">
-          <CharacterResource character={character} resource={'health'}/>
-          <CharacterResource character={character} resource={'willpower'}/>
-        </div>
-        <div className={'character-edit-button-row'}>
-          <Button className={'character-edit-button'} variant={"contained"}>Edit</Button>
+        <div className={'character-page-content'}>
+          <div className="character-attributes">
+            <div className="character-attribute-col">
+              <CharacterAttribute character={character} attribute={'strength'}/>
+              <CharacterAttribute character={character} attribute={'dexterity'}/>
+              <CharacterAttribute character={character} attribute={'constitution'}/>
+            </div>
+            <div className="character-attribute-col">
+              <CharacterAttribute character={character} attribute={'presence'}/>
+              <CharacterAttribute character={character} attribute={'influence'}/>
+              <CharacterAttribute character={character} attribute={'composure'}/>
+            </div>
+            <div className="character-attribute-col">
+              <CharacterAttribute character={character} attribute={'intelligence'}/>
+              <CharacterAttribute character={character} attribute={'wits'}/>
+              <CharacterAttribute character={character} attribute={'resolve'}/>
+            </div>
+          </div>
+          <div className={'character-resources'}>
+            <div className="character-resource-row">
+              <CharacterResource character={character} resource={'stamina'}/>
+              <CharacterResource character={character} resource={'confidence'}/>
+              <CharacterResource character={character} resource={'focus'}/>
+            </div>
+            <div className="character-resource-row">
+              <CharacterResource character={character} resource={'health'}/>
+              <CharacterResource character={character} resource={'willpower'}/>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -5,17 +5,30 @@
   margin: 0 auto;
 }
 
-.character-page-contents {
+.character-page-wrapper {
+}
+
+.character-page-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: solid thin black;
+
+  padding: .5rem;
 }
 
 .character-name {
-  border-bottom: solid thin black;
   font-size: 2.5rem;
+}
+
+.character-page-content {
+  display: flex;
+  flex-direction: row;
 }
 
 .character-attributes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-bottom: solid thin black;
 }
 
@@ -25,7 +38,7 @@
 
   padding: .5rem;
 
-  width: 12.2rem;
+  width: 14rem;
 }
 
 .character-attribute {
@@ -45,9 +58,13 @@
   margin: 3px -3px 0 0;
 }
 
+.character-resources {
+  flex-direction: column;
+}
+
 .character-resource-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-bottom: solid thin black;
 }
 
