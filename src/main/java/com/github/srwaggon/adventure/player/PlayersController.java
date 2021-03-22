@@ -23,6 +23,9 @@ public class PlayersController {
   private ObjectMapper objectMapper;
 
   @Autowired
+  private PlayersService playersService;
+
+  @Autowired
   private Repository<Player, String> playerRepository;
 
   @GetMapping("/players")
@@ -54,9 +57,14 @@ public class PlayersController {
   }
 
   @DeleteMapping("/players/{id}")
-  void deletePlayer(@PathVariable String id) {
+  public void deletePlayer(@PathVariable String id) {
     playerRepository.findById(id)
         .ifPresent(player -> playerRepository.delete(player));
+  }
+
+  @GetMapping("/players/current")
+  public Player getCurrentPlayer() {
+    return playersService.getCurrentPlayer();
   }
 
   private Player newPlayer() {

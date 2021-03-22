@@ -2,18 +2,24 @@ package com.github.srwaggon.adventure.player;
 
 import com.github.srwaggon.adventure.util.Identified;
 
+import java.util.List;
+import java.util.UUID;
+
 public class Player implements Identified<String> {
 
   private String id;
 
   private String name;
 
+  private List<UUID> characters;
+
   public Player() {
   }
 
-  public Player(String id, String name) {
+  public Player(String id, String name, List<UUID> characters) {
     this.id = id;
     this.name = name;
+    this.characters = characters;
   }
 
   @Override
@@ -32,5 +38,9 @@ public class Player implements Identified<String> {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public List<UUID> getCharacters() {
+    return characters;
   }
 }
