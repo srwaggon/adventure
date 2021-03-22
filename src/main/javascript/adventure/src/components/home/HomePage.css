@@ -20,9 +20,27 @@
 }
 
 .character-selection-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.character-selection-panel-name {
+  background-color: black;
+  width: 100%;
+  padding: .5em 0;
 }
 
 .character-new-panel {
+}
+
+.character-new-panel:hover {
+  cursor: pointer;
 }
 
 .character-new-panel-plus {

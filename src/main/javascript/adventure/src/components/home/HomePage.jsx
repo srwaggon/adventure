@@ -24,9 +24,8 @@ const CharacterSelectionPage = () => {
       .then(json => setCharacters(json));
   });
 
-  const characterPanels = (characters || []).map(character => <Link to={`/character/${character.id}`}><CharacterPanel character={character}/></Link>);
-
-  const newCharacter = () => ({'name': 'Travin'});
+  const characterPanels = (characters || []).map(
+    character => <CharacterPanel character={character}/>);
 
   return <div className={'character-selection-page'}>
     <h1>Select a Character</h1>
@@ -34,7 +33,7 @@ const CharacterSelectionPage = () => {
       {characterPanels}
       <div className={'character-new-panel character-panel'}>
         <div className={'character-new-panel-plus'}
-             onClick={() => putNewCharacter(newCharacter()).then(value => setCharacters(null))}>
+             onClick={() => putNewCharacter().then(value => setCharacters(null))}>
           +
         </div>
       </div>
@@ -43,8 +42,18 @@ const CharacterSelectionPage = () => {
 };
 
 const CharacterPanel = ({character}) =>
-  <div className={'character-selection-panel character-panel'}>
-    {character.name}
-  </div>;
+  <Link
+    className={'character-selection-panel character-panel'}
+    to={`/character/${character.id}`}
+    style={{
+      backgroundImage: 'url("https://cdn.discordapp.com/attachments/823412384311279666/823443211988107264/Travin_the_Human.jpeg")',
+      backgroundSize: "170%"
+    }}
+  >
+    <div className={'character-selection-panel-name'}>
+      {character.name}
+    </div>
+  </Link>
+;
 
 export default HomePage;

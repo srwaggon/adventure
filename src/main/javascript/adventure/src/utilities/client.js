@@ -2,11 +2,11 @@ export const getCurrentPlayer = () => fetch('/players/current');
 
 export const getCurrentPlayersCharacters = () => fetch('/players/current/characters');
 
-export const putNewCharacter = character =>
+export const putNewCharacter = () =>
   fetch('/characters', {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(character),
+    body: JSON.stringify({}),
   });
 
 export const postCharacter = character =>
