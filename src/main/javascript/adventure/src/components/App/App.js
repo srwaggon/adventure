@@ -2,9 +2,9 @@ import './App.css';
 
 import React from 'react';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
-import CharacterPage from './character/page/CharacterPage.jsx';
-import Cards from './cards/Cards';
-import HomePage from './home/HomePage';
+import CharacterPage from '../character/page/CharacterPage.jsx';
+import Cards from '../cards/Cards';
+import HomePage from '../home/HomePage';
 
 const App = () => {
   return (<div className="App">
@@ -26,12 +26,9 @@ const App = () => {
 
 const Navigation = () => {
   return (<nav>
-    <li>
-      <Link to="/">Home</Link>
-    </li>
-    <li>
-      <Link to="/character">CharacterSheet</Link>
-    </li>
+    <li><Link to="/">Home</Link></li>
+    <li><Link to="/cards">Cards</Link></li>
+    <li><Link to="/character">CharacterSheet</Link></li>
   </nav>);
 };
 

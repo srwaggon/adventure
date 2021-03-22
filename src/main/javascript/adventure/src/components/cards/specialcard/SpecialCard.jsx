@@ -1,6 +1,6 @@
 import './SpecialCard.css'
 
-const SpecialCard = ({name, image, imageSize, type, body, flavorText}) => {
+const SpecialCard = ({name, image, imageSize, type, body}) => {
   const cardStyle = {
     backgroundImage: `url(${image})`,
     backgroundSize: imageSize,

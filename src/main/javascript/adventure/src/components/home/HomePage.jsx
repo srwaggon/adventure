@@ -2,7 +2,7 @@ import './HomePage.css';
 
 import React, {useEffect, useState} from 'react';
 
-import {getCurrentPlayersCharacters, postNewCharacter} from '../utilities/client';
+import {getCurrentPlayersCharacters, postNewCharacter} from '../../utilities/client';
 
 const HomePage = () => {
   return (<div className={'HomePage'}>

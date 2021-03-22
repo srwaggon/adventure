@@ -1,8 +1,9 @@
-import {D10} from '../dice/DiceIcon';
-import FlavorText from '../flavor/FlavorText';
-import Card from '../card/Card';
-import SpecialCard from '../specialcard/SpecialCard';
 import React from 'react';
+
+import {D10} from '../../dice/DiceIcon';
+import FlavorText from './flavor/FlavorText';
+import Card from './card/Card';
+import SpecialCard from './specialcard/SpecialCard';
 
 const Cards = () => {
   const cardData = [
