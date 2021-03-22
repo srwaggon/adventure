@@ -44,7 +44,7 @@ const CharacterSelectionPage = () => {
 const CharacterPanel = ({character}) =>
   <Link
     className={'character-selection-panel character-panel'}
-    to={`/character/${character.id}`}
+    to={`/characters/${character.id}`}
     style={{
       backgroundImage: 'url("https://cdn.discordapp.com/attachments/823412384311279666/823443211988107264/Travin_the_Human.jpeg")',
       backgroundSize: "170%"

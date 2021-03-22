@@ -17,7 +17,7 @@ const App = () => {
       <Navigation/>
       <Switch>
         <Route path="/cards"><Cards/></Route>
-        <Route path="/character/:characterId"><CharacterPage/></Route>
+        <Route path="/characters/:characterId"><CharacterPage/></Route>
         <Route path="/"><HomePage/></Route>
       </Switch>
     </Router>
@@ -28,7 +28,7 @@ const Navigation = () => {
   return (<nav>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/cards">Cards</Link></li>
-    <li><Link to="/character">CharacterSheet</Link></li>
+    <li><Link to="/characters">Characters</Link></li>
   </nav>);
 };
 
