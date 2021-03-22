@@ -7,7 +7,10 @@ import com.github.srwaggon.adventure.util.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerCharacterService {
@@ -26,5 +29,14 @@ public class PlayerCharacterService {
     PlayerCharacter savedCharacter = characterRepository.save(character);
     playersService.addCharacter(currentPlayer, character);
     return savedCharacter;
+  }
+
+  public List<PlayerCharacter> getCurrentPlayersCharacters() {
+    return playersService.getCurrentPlayer()
+        .getCharacters().stream()
+        .map(uuid -> characterRepository.findById(uuid))
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .collect(Collectors.toList());
   }
 }

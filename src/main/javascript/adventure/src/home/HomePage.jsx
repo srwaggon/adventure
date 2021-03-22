@@ -2,6 +2,8 @@ import './HomePage.css';
 
 import React, {useEffect, useState} from 'react';
 
+import {getCurrentPlayersCharacters, postNewCharacter} from '../utilities/client';
+
 const HomePage = () => {
   return (<div className={'HomePage'}>
     <CharacterSelectionPage/>
@@ -10,51 +12,30 @@ const HomePage = () => {
 
 const CharacterSelectionPage = () => {
 
-  const [player, setPlayer] = useState(null);
-
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState(null);
 
   useEffect(() => {
-    if (!player) {
-      fetch('/players/current')
-        .then(response => response.json())
-        .then(data => {
-          setPlayer(data);
-          requestCharacters(data);
-        });
+    if (characters !== null) {
+      return;
     }
+    getCurrentPlayersCharacters()
+      .then(response => response.json())
+      .then(json => setCharacters(json));
   });
 
-  function requestCharacters(player) {
-    if (player && player['characters'].length) {
-      const characterId = player['characters'][0];
-      fetch(`/characters/${characterId}`)
-        .then(response => response.json())
-        .then(data => {
-          setCharacters([data]);
-        });
-    }
-  }
-
-  const characterPanels = characters.map(character => <CharacterPanel character={character}/>);
+  const characterPanels = (characters || []).map(character => <CharacterPanel character={character}/>);
 
   const newCharacter = () => ({'name': 'Travin'});
-
-  const postNewCharacter = (character) => {
-    fetch('/characters', {
-      method: 'PUT',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(character),
-    })
-      .then(value => setPlayer(null));
-  };
 
   return <div className={'character-selection-page'}>
     <h1>Select a Character</h1>
     <div className={'character-selections-panel'}>
       {characterPanels}
       <div className={'character-new-panel character-panel'}>
-        <div onClick={() => postNewCharacter(newCharacter())} className={'character-new-panel-plus'}>+</div>
+        <div className={'character-new-panel-plus'}
+             onClick={() => postNewCharacter(newCharacter()).then(value => setCharacters(null))}>
+          +
+        </div>
       </div>
     </div>
   </div>;

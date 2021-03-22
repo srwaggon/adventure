@@ -1,7 +1,8 @@
 package com.github.srwaggon.adventure.player;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.srwaggon.adventure.character.PlayerCharacter;
+import com.github.srwaggon.adventure.character.PlayerCharacterService;
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,10 @@ import java.util.Random;
 public class PlayersController {
 
   @Autowired
-  private ObjectMapper objectMapper;
+  private PlayersService playersService;
 
   @Autowired
-  private PlayersService playersService;
+  private PlayerCharacterService characterService;
 
   @Autowired
   private Repository<Player, String> playerRepository;
@@ -65,6 +66,11 @@ public class PlayersController {
   @GetMapping("/players/current")
   public Player getCurrentPlayer() {
     return playersService.getCurrentPlayer();
+  }
+
+  @GetMapping("/players/current/characters")
+  public List<PlayerCharacter> getCurrentPlayersCharacters() {
+    return characterService.getCurrentPlayersCharacters();
   }
 
   private Player newPlayer() {
