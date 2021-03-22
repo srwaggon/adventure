@@ -21,10 +21,10 @@ public class PlayerCharacterService {
   @Autowired
   private PlayersService playersService;
 
-  public PlayerCharacter saveNewCharacter(PlayerCharacter character) {
+  public PlayerCharacter saveNewCharacter() {
     Player currentPlayer = playersService.getCurrentPlayer();
 
-    character.setId(UUID.randomUUID());
+    PlayerCharacter character = new PlayerCharacter();
 
     PlayerCharacter savedCharacter = characterRepository.save(character);
     playersService.addCharacter(currentPlayer, character);
@@ -39,4 +39,5 @@ public class PlayerCharacterService {
         .map(Optional::get)
         .collect(Collectors.toList());
   }
+
 }

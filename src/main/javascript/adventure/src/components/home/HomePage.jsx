@@ -3,6 +3,7 @@ import './HomePage.css';
 import React, {useEffect, useState} from 'react';
 
 import {getCurrentPlayersCharacters, postNewCharacter} from '../../utilities/client';
+import {Link} from 'react-router-dom';
 
 const HomePage = () => {
   return (<div className={'HomePage'}>
@@ -23,7 +24,7 @@ const CharacterSelectionPage = () => {
       .then(json => setCharacters(json));
   });
 
-  const characterPanels = (characters || []).map(character => <CharacterPanel character={character}/>);
+  const characterPanels = (characters || []).map(character => <Link to={`/character/${character.id}`}><CharacterPanel character={character}/></Link>);
 
   const newCharacter = () => ({'name': 'Travin'});
 

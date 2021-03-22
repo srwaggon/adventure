@@ -1,70 +1,85 @@
 .character-page {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
 
-  border: solid thin black;
-  width: 42.4rem;
+  margin: 0 auto;
 }
 
-.character-resources {
-  display: flex;
-  flex-direction: row;
+.character-page-contents {
 }
 
-.character-resource-group {
-  width: 15rem;
-}
-
-.character-resource {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  padding: .5rem;
-
-  text-align: left;
-
-  border: solid thin black;
-}
-
-.character-resource-value {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  margin: 0 -3px;
+.character-name {
+  border-bottom: solid thin black;
+  font-size: 2.5rem;
 }
 
 .character-attributes {
   display: flex;
   flex-direction: row;
+  border-bottom: solid thin black;
 }
 
-.character-attribute-group {
+.character-attribute-col {
   display: flex;
   flex-direction: column;
 
-  border: solid thin black;
   padding: .5rem;
 
-  text-align: left;
-
-  width: 13rem;
+  width: 12.2rem;
 }
 
 .character-attribute {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  width: 13rem;
 }
 
 .character-attribute-name {
+  text-align: left;
+  width: 6rem;
+  text-transform: capitalize;
 }
 
 .character-attribute-value {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin: 3px -3px 0 0;
 }
 
+.character-resource-row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid thin black;
+}
+
+.character-resource {
+  display: flex;
+  flex-direction: column;
+
+  padding: .5rem;
+
+  width: 12.2rem;
+
+  justify-content: flex-start;
+
+  text-align: left;
+}
+
+.character-resource-name {
+  text-transform: capitalize;
+}
+
+.character-resource-value {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -3px;
+}
+
+.character-resource-group-health {
+  width: 38.85rem;
+}
+
+.character-edit-button-row {
+  display: flex;
+  justify-content: flex-end;
+}

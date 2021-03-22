@@ -17,7 +17,7 @@ const App = () => {
       <Navigation/>
       <Switch>
         <Route path="/cards"><Cards/></Route>
-        <Route path="/character"><CharacterPage/></Route>
+        <Route path="/character/:characterId"><CharacterPage/></Route>
         <Route path="/"><HomePage/></Route>
       </Switch>
     </Router>

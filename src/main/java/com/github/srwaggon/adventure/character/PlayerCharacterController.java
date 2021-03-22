@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -27,8 +26,8 @@ public class PlayerCharacterController {
   }
 
   @PutMapping("/characters")
-  public PlayerCharacter newCharacter(@RequestBody PlayerCharacter character) {
-    return playerCharacterService.saveNewCharacter(character);
+  public PlayerCharacter newCharacter() {
+    return playerCharacterService.saveNewCharacter();
   }
 
 }
