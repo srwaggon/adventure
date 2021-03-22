@@ -11,15 +11,10 @@ public class SecurityOAuth2Configuration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
         .authorizeRequests()
-        .anyRequest()
-        .authenticated()
-        .and()
-        .oauth2Login()
-        .and()
-        .logout()
-        .invalidateHttpSession(true)
-        .clearAuthentication(true)
-        .deleteCookies("JSESSIONID")
-        .and().csrf().disable();
+        .anyRequest().authenticated()
+        .and().oauth2Login()
+        .and().logout().invalidateHttpSession(true).clearAuthentication(true).deleteCookies("JSESSIONID")
+    ;
   }
+
 }
