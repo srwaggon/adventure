@@ -8,7 +8,7 @@ const SpecialCard = ({name, image, imageSize, type, body}) => {
   return (
     <div style={cardStyle} className="specialcard">
       <div className="specialcard-name">{name}</div>
-      <div className="specialcard-image"></div>
+      <div className="specialcard-image" />
       <div className="specialcard-type">{type}</div>
       <div className="specialcard-body">{body}</div>
     </div>

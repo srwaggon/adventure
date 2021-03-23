@@ -12,6 +12,7 @@
   font-weight: bold;
   margin: .5rem;
   color: white;
+  text-transform: capitalize;
 }
 
 .specialcard-image {
@@ -29,6 +30,7 @@
   margin: .5rem;
 
   color: white;
+  text-transform: capitalize;
 }
 
 .specialcard-body {

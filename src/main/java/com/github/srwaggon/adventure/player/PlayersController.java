@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class PlayersController {
@@ -41,23 +42,20 @@ public class PlayersController {
 
   @PostMapping("/players")
   public Player newPlayer(@RequestBody Player player) {
+    player.setId(UUID.randomUUID().toString());
     return playerRepository.save(player);
   }
 
   @PutMapping("/players/{id}")
   public Player replacePlayer(@RequestBody Player newPlayer, @PathVariable String id) {
-    return playerRepository.findById(id)
-        .map(player -> playerRepository.save(player))
-        .orElseGet(() -> {
-          newPlayer.setId(id);
-          return playerRepository.save(newPlayer);
-        });
+    newPlayer.setId(id);
+    return playerRepository.save(newPlayer);
   }
 
   @DeleteMapping("/players/{id}")
   public void deletePlayer(@PathVariable String id) {
     playerRepository.findById(id)
-        .ifPresent(player -> playerRepository.delete(player));
+        .ifPresent(playerRepository::delete);
   }
 
   @GetMapping("/players/current")

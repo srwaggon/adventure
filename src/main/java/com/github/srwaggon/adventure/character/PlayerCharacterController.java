@@ -35,18 +35,14 @@ public class PlayerCharacterController {
 
   @PutMapping("/characters/{id}")
   public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID id) {
-    return characterRepository.findById(id).
-        map(character -> characterRepository.save(newCharacter))
-        .orElseGet(() -> {
-          newCharacter.setId(id);
-          return characterRepository.save(newCharacter);
-        });
+    newCharacter.setId(id);
+    return characterRepository.save(newCharacter);
   }
 
   @DeleteMapping("/characters/{id}")
   public void deleteCharacter(@PathVariable UUID id) {
     characterRepository.findById(id)
-        .ifPresent(character -> characterRepository.delete(character));
+        .ifPresent(characterRepository::delete);
   }
 
 }
