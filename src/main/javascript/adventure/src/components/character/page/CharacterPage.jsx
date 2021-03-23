@@ -11,13 +11,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
 
-const EditCharacterNameTextField = (character) => <TextField
-  id={'character-name'}
-  defaultValue={character.name}
-  variant={'filled'}
-  onChange={event => character.name = event.target.value}
-/>;
-
 const CharacterPage = () => {
 
   const {characterId} = useParams();
@@ -39,6 +32,16 @@ const CharacterPage = () => {
       .then(data => data.json())
       .then(json => setCharacter(json));
   }
+
+  const EditCharacterNameTextField = ({character}) => <TextField
+    id={'character-name'}
+    defaultValue={character.name}
+    variant={'filled'}
+    onChange={event => {
+      character.name = event.target.value;
+      setCharacter(character);
+    }}
+  />;
 
   const CharacterAttribute = ({character, attribute}) => {
     const value = character[attribute].value;
