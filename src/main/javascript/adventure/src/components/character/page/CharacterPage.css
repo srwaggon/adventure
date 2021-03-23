@@ -6,6 +6,7 @@
 }
 
 .character-page-wrapper {
+  padding: 3em;
 }
 
 .character-page-header {
@@ -15,6 +16,8 @@
   border-bottom: solid thin black;
 
   padding: .5rem;
+
+  height: 3rem;
 }
 
 .character-name {
@@ -38,7 +41,7 @@
 
   padding: .5rem;
 
-  width: 14rem;
+  width: 15rem;
 }
 
 .character-attribute {
@@ -55,7 +58,6 @@
 .character-attribute-value {
   display: flex;
   justify-content: flex-start;
-  margin: 3px -3px 0 0;
 }
 
 .character-resources {
@@ -74,7 +76,7 @@
 
   padding: .5rem;
 
-  width: 12.2rem;
+  width: 14rem;
 
   justify-content: flex-start;
 
@@ -97,6 +99,5 @@
 }
 
 .character-edit-button-row {
-  display: flex;
   justify-content: flex-end;
 }

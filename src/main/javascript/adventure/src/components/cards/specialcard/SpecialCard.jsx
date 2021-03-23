@@ -2,6 +2,7 @@ import './SpecialCard.css';
 import FlavorText from '../flavor/FlavorText';
 import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
+import {Card} from '@material-ui/core';
 
 const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
   const style = {
@@ -10,7 +11,7 @@ const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
   };
 
   return (
-    <div className="specialcard" {...{style}}>
+    <Card className="specialcard" {...{style}}>
       <div className="specialcard-name">{name}</div>
       <div className="specialcard-image" />
       <div className="specialcard-type">{type.toLowerCase()}</div>
@@ -18,7 +19,7 @@ const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
         {applyTransforms(body)}
         <FlavorText>{applyTransforms(flavor)}</FlavorText>
       </div>
-    </div>
+    </Card>
   );
 };
 

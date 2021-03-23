@@ -2,11 +2,21 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Checkbox, IconButton} from '@material-ui/core';
+import {Card, IconButton, Paper, TextField} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
+import CancelIcon from '@material-ui/icons/Cancel';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
-import DeleteIcon from '@material-ui/icons/Delete';
+
+const EditCharacterNameTextField = (character) => <TextField
+  id={'character-name'}
+  defaultValue={character.name}
+  variant={'filled'}
+  onChange={event => character.name = event.target.value}
+/>;
 
 const CharacterPage = () => {
 
@@ -48,30 +58,29 @@ const CharacterPage = () => {
         <div className="character-attribute-name">{attribute}</div>
         <div className="character-attribute-value">
           {[...Array(value).keys()].map((int) =>
-            <Checkbox
+            <IconButton
               key={attribute}
               color={'default'}
               size={'small'}
-              style={{margin: '-9px'}}
+              style={{margin: '-4px'}}
               checked={int < value}
-            />,
+            ><CheckBoxIcon/></IconButton>,
           )}
-          {isEditing && value > 1 && <Checkbox
+          {isEditing && value > 1 && <IconButton
             checked={false}
-            color={'default'}
+            color={'primary'}
             size={'small'}
-            style={{margin: '-9px'}}
-            icon={<Backspace/>}
+            style={{margin: '-4px'}}
             onClick={reduceValue}
-          />}
-          {isEditing && value < 5 && <Checkbox
+          ><Backspace/></IconButton>}
+          {isEditing && value < 5 && <IconButton
             checked={false}
-            color={'default'}
+            color={'primary'}
             size={'small'}
-            style={{margin: '-9px'}}
-            icon={<AddBox/>}
+            style={{margin: '-4px'}}
+            fullWidth={true}
             onClick={increaseValue}
-          />}
+          ><AddBox/></IconButton>}
         </div>
       </div>
     );
@@ -102,62 +111,92 @@ const CharacterPage = () => {
         <div className="character-resource-value">
           {[...Array(max).keys()].map(
             (int) =>
-              <Checkbox
+              <IconButton
                 key={resource}
                 checked={int < value}
                 disabled={int >= max}
                 color={'default'}
                 size={'small'}
-                style={{margin: '-9px'}}
-                onChange={(e) => setCharacterResource(e.target.checked ? 1 : -1)}
-              />)}
-          {isEditing && <Checkbox
+                style={{margin: '-4px'}}
+                onClick={(ignored) => setCharacterResource(int < value ? -1 : 1)}
+              >
+                {int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
+              </IconButton>)}
+
+          {isEditing && <IconButton
             checked={false}
-            color={'default'}
+            color={'primary'}
             size={'small'}
-            style={{margin: '-9px'}}
-            icon={<Backspace/>}
+            style={{margin: '-4px'}}
             onClick={reduceMaximum}
-          />}
-          {isEditing && <Checkbox
+          ><Backspace/></IconButton>}
+          {isEditing && <IconButton
             checked={false}
-            color={'default'}
+            color={'primary'}
             size={'small'}
-            style={{margin: '-9px'}}
-            icon={<AddBox/>}
+            style={{margin: '-4px'}}
+            fullWidth={true}
             onClick={increaseMaximum}
-          />}
+          ><AddBox/></IconButton>}
+
         </div>
       </div>
     );
   };
 
+  const DeleteCharacterButton = () => <IconButton
+    aria-label={'delete'}
+    color={'secondary'}
+    onClick={() => deleteCharacter(character).then(() => history.push('/characters'))}>
+    <DeleteIcon fontSize="small"/>
+  </IconButton>;
+
+  const CancelEditingButton = () => <IconButton
+    aria-label={'cancel'}
+    color={'default'}
+    onClick={ignored => {
+      setEditing(false);
+      getCharacter();
+    }}>
+    <CancelIcon/>
+  </IconButton>;
+
+  const SaveCharacterEditsButton = () => <IconButton
+    className={'character-edit-button'}
+    aria-label={'save'}
+    variant={'contained'}
+    color={'primary'}
+    onClick={ignored => {
+      setEditing(false);
+      replaceCharacter(character).then(ignored => getCharacter());
+    }}>
+    <SaveIcon/>
+  </IconButton>;
+
+  const EditCharacterButton = () => <IconButton
+    className={'character-edit-button'}
+    aria-label={'edit'}
+    variant={'contained'}
+    color={'default'}
+    onClick={ignored => setEditing(true)}>
+    <EditIcon/>
+  </IconButton>;
+
   return !character ? <div>Loading...</div> : (
-    <div className="character-page">
-      <div className={'character-page-wrapper'}>
+    <Paper className="character-page">
+      <Card className={'character-page-wrapper'}>
         <div className={'character-page-header'}>
-          <div className={'character-name'}>{character.name}</div>
+          {isEditing
+            ? <EditCharacterNameTextField character={character}/>
+            : <div className={'character-name'}>{character.name}</div>}
+
           <div className={'character-edit-button-row'}>
-            {isEditing && <IconButton
-              aria-label={'delete'}
-              color={"secondary"}
-              onClick={() => deleteCharacter(character).then(() => history.push("/characters"))}
-            >
-              <DeleteIcon fontSize="small" />
-            </IconButton>}
-            <IconButton
-              className={'character-edit-button'}
-              variant={'contained'}
-              color={'default'}
-              onClick={ignored => {
-                if (isEditing) {
-                  replaceCharacter(character).then(ignored => getCharacter());
-                }
-                setEditing(!isEditing);
-              }}>
-              {isEditing ? <SaveIcon/> : <EditIcon/>}
-            </IconButton>
+            {isEditing && <DeleteCharacterButton/>}
+            {isEditing && <CancelEditingButton/>}
+            {isEditing && <SaveCharacterEditsButton/>}
+            {!isEditing && <EditCharacterButton/>}
           </div>
+
         </div>
         <div className={'character-page-content'}>
           <div className="character-attributes">
@@ -189,8 +228,8 @@ const CharacterPage = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Card>
+    </Paper>
   );
 };
 
