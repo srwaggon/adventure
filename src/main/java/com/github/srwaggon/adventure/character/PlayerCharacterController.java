@@ -28,12 +28,12 @@ public class PlayerCharacterController {
         .orElseThrow(() -> new RuntimeException("Player Character not found with id " + id));
   }
 
-  @PutMapping("/characters")
+  @PostMapping("/characters")
   public PlayerCharacter newCharacter() {
     return playerCharacterService.saveNewCharacter();
   }
 
-  @PostMapping("/characters/{id}")
+  @PutMapping("/characters/{id}")
   public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID id) {
     return characterRepository.findById(id).
         map(character -> characterRepository.save(newCharacter))

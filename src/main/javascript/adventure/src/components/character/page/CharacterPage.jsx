@@ -1,7 +1,7 @@
 import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import {deleteCharacter, getCharacterById, postCharacter} from '../../../utilities/client';
+import {deleteCharacter, getCharacterById, putCharacter} from '../../../utilities/client';
 import {Checkbox, IconButton} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import EditIcon from '@material-ui/icons/Edit';
@@ -83,7 +83,7 @@ const CharacterPage = () => {
 
     function setCharacterResource(number) {
       character[resource].value += number;
-      postCharacter(character).then(ignored => getCharacter());
+      putCharacter(character).then(ignored => getCharacter());
     }
 
     function increaseMaximum() {
@@ -151,7 +151,7 @@ const CharacterPage = () => {
               color={'default'}
               onClick={ignored => {
                 if (isEditing) {
-                  postCharacter(character).then(ignored => getCharacter());
+                  putCharacter(character).then(ignored => getCharacter());
                 }
                 setEditing(!isEditing);
               }}>
