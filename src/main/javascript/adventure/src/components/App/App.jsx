@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import CharacterPage from '../character/page/CharacterPage.jsx';
-import Cards from '../cards/Cards';
+import CardsPage from '../cards/cardspage/CardsPage';
 import HomePage from '../home/HomePage';
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     <Router>
       <Navigation/>
       <Switch>
-        <Route path="/cards"><Cards/></Route>
+        <Route path="/cards"><CardsPage/></Route>
         <Route path="/characters/:characterId"><CharacterPage/></Route>
         <Route path="/"><HomePage/></Route>
       </Switch>

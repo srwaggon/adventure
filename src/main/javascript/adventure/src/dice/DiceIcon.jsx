@@ -1,6 +1,10 @@
-const DiceIcon = ({sides, size}) => {
-  return (<img src={`/dice/d${sides}.svg`} width={size} height={size} />);
-}
+import './DiceIcon.css';
+
+const DiceIcon = ({sides}) =>
+  <img
+    className={'dice-icon'}
+    alt={`${sides}-sided die icon`}
+    src={`/dice/d${sides}.svg`}/>;
 
 export default DiceIcon;
 

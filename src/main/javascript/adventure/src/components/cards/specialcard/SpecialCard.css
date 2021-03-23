@@ -35,6 +35,7 @@
 
 .specialcard-body {
   background-color: white;
+  opacity: 0.8;
 
   border: solid thin black;
   border-radius: .25rem;
@@ -44,5 +45,7 @@
 
   height: 29%;
 
-  font-size: .9rem;
+  font-size: 1em;
+
+  overflow: hidden;
 }
