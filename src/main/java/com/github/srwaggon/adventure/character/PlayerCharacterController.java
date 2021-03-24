@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/api/characters")
 public class PlayerCharacterController {
 
   @Autowired
@@ -23,34 +25,34 @@ public class PlayerCharacterController {
   @Autowired
   private PlayerCharacterService playerCharacterService;
 
-  @GetMapping("/characters")
+  @GetMapping
   public List<PlayerCharacter> getAll() {
     return characterRepository.findAll();
   }
 
-  @PostMapping("/characters")
+  @PostMapping
   public PlayerCharacter newCharacter() {
     return playerCharacterService.saveNewCharacter();
   }
 
-  @GetMapping("/characters/{playerId}")
+  @GetMapping("/{playerId}")
   public PlayerCharacter getById(@PathVariable UUID playerId) {
     return playerCharacterService.getCharacterById(playerId);
   }
 
-  @PutMapping("/characters/{playerId}")
+  @PutMapping("/{playerId}")
   public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID playerId) {
     newCharacter.setId(playerId);
     return characterRepository.save(newCharacter);
   }
 
-  @DeleteMapping("/characters/{playerId}")
+  @DeleteMapping("/{playerId}")
   public void deleteCharacter(@PathVariable UUID playerId) {
     characterRepository.findById(playerId)
         .ifPresent(characterRepository::delete);
   }
 
-  @PostMapping("/characters/{playerId}/cards/{cardId}")
+  @PostMapping("/{playerId}/cards/{cardId}")
   public PlayerCharacter addCardToPlayer(
       @PathVariable UUID playerId,
       @PathVariable String cardId) {

@@ -14,7 +14,7 @@ const _replace = (endpoint) => (item) =>
   });
 const _delete = (endpoint) => (item) => fetch(`${endpoint}/${item.id}`, {method: 'DELETE'})
 
-const playersEndpoint = '/players'
+const playersEndpoint = '/api/players';
 export const getAllPlayers = _getAll(playersEndpoint);
 export const getPlayerById = _getById(playersEndpoint);
 export const postNewPlayer = _postNew(playersEndpoint);
@@ -23,14 +23,14 @@ export const deletePlayer = _delete(playersEndpoint);
 export const getCurrentPlayer = _get(`${playersEndpoint}/current`);
 export const getCurrentPlayersCharacters = _get(`${playersEndpoint}/current/characters`);
 
-const charactersEndpoint = '/characters'
+const charactersEndpoint = '/api/characters';
 export const getAllCharacters = _getAll(charactersEndpoint);
 export const getCharacterById = _getById(charactersEndpoint);
 export const postNewCharacter = _postNew(charactersEndpoint);
 export const replaceCharacter = _replace(charactersEndpoint);
 export const deleteCharacter = _delete(charactersEndpoint);
 
-const cardsEndpoint = '/cards';
+const cardsEndpoint = '/api/cards';
 export const getAllCards = _getAll(cardsEndpoint);
 export const getCardById = _getById(cardsEndpoint);
 export const postNewCard = _postNew(cardsEndpoint);
