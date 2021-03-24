@@ -28,26 +28,26 @@ public class CardController {
     return cardRepository.findAll();
   }
 
-  @GetMapping("/cards/{id}")
-  public Card getById(@PathVariable String id) {
-    return cardRepository.findById(id).orElseThrow(() -> new RuntimeException("Card not found with id " + id));
-  }
-
   @PostMapping("/cards")
   public Card newCard(@RequestBody Card card) {
     card.setId(UUID.randomUUID().toString());
     return cardRepository.save(card);
   }
 
-  @PutMapping("/cards/{id}")
-  public Card replaceCard(@RequestBody Card newCard, @PathVariable String id) {
-    newCard.setId(id);
+  @GetMapping("/cards/{cardId}")
+  public Card getById(@PathVariable String cardId) {
+    return cardService.getById(cardId);
+  }
+
+  @PutMapping("/cards/{cardId}")
+  public Card replaceCard(@RequestBody Card newCard, @PathVariable String cardId) {
+    newCard.setId(cardId);
     return cardRepository.save(newCard);
   }
 
-  @DeleteMapping("/cards/{id}")
-  public void deleteById(@PathVariable String id) {
-    cardRepository.findById(id)
+  @DeleteMapping("/cards/{cardId}")
+  public void deleteById(@PathVariable String cardId) {
+    cardRepository.findById(cardId)
         .ifPresent(cardRepository::delete);
   }
 }

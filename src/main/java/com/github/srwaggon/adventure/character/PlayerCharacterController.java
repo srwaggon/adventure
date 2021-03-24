@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -22,10 +23,9 @@ public class PlayerCharacterController {
   @Autowired
   private PlayerCharacterService playerCharacterService;
 
-  @GetMapping("/characters/{id}")
-  public PlayerCharacter getById(@PathVariable UUID id) {
-    return characterRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("Player Character not found with id " + id));
+  @GetMapping("/characters")
+  public List<PlayerCharacter> getAll() {
+    return characterRepository.findAll();
   }
 
   @PostMapping("/characters")
@@ -33,16 +33,28 @@ public class PlayerCharacterController {
     return playerCharacterService.saveNewCharacter();
   }
 
-  @PutMapping("/characters/{id}")
-  public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID id) {
-    newCharacter.setId(id);
+  @GetMapping("/characters/{playerId}")
+  public PlayerCharacter getById(@PathVariable UUID playerId) {
+    return playerCharacterService.getCharacterById(playerId);
+  }
+
+  @PutMapping("/characters/{playerId}")
+  public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID playerId) {
+    newCharacter.setId(playerId);
     return characterRepository.save(newCharacter);
   }
 
-  @DeleteMapping("/characters/{id}")
-  public void deleteCharacter(@PathVariable UUID id) {
-    characterRepository.findById(id)
+  @DeleteMapping("/characters/{playerId}")
+  public void deleteCharacter(@PathVariable UUID playerId) {
+    characterRepository.findById(playerId)
         .ifPresent(characterRepository::delete);
+  }
+
+  @PostMapping("/characters/{playerId}/cards/{cardId}")
+  public PlayerCharacter addCardToPlayer(
+      @PathVariable UUID playerId,
+      @PathVariable String cardId) {
+    return playerCharacterService.addCardToPlayer(playerId, cardId);
   }
 
 }

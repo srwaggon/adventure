@@ -1,7 +1,10 @@
 package com.github.srwaggon.adventure.character;
 
+import com.google.common.collect.Lists;
+
 import com.github.srwaggon.adventure.util.Identified;
 
+import java.util.List;
 import java.util.UUID;
 
 public class PlayerCharacter implements Identified<UUID> {
@@ -22,6 +25,8 @@ public class PlayerCharacter implements Identified<UUID> {
   private final CharacterValue focus = new CharacterValue(0, 2, 1);
   private final CharacterValue health = new CharacterValue(0, 10, 10);
   private final CharacterValue willpower = new CharacterValue(0, 10, 10);
+
+  private final List<String> cards = Lists.newArrayList();
 
   public PlayerCharacter() {
   }
@@ -98,5 +103,9 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public CharacterValue getWillpower() {
     return willpower;
+  }
+
+  public List<String> getCards() {
+    return cards;
   }
 }

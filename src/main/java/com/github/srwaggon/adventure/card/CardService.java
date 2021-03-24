@@ -11,5 +11,9 @@ public class CardService {
   @Autowired
   private Repository<Card, String> cardRepository;
 
+  public Card getById(String cardId) {
+    return cardRepository.findById(cardId)
+        .orElseThrow(() -> new RuntimeException("Card not found with id " + cardId));
+  }
 
 }

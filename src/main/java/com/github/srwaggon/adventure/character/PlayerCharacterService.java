@@ -1,5 +1,7 @@
 package com.github.srwaggon.adventure.character;
 
+import com.github.srwaggon.adventure.card.Card;
+import com.github.srwaggon.adventure.card.CardService;
 import com.github.srwaggon.adventure.player.Player;
 import com.github.srwaggon.adventure.player.PlayersService;
 import com.github.srwaggon.adventure.util.Repository;
@@ -21,6 +23,9 @@ public class PlayerCharacterService {
   @Autowired
   private PlayersService playersService;
 
+  @Autowired
+  private CardService cardService;
+
   public PlayerCharacter saveNewCharacter() {
     Player currentPlayer = playersService.getCurrentPlayer();
 
@@ -40,4 +45,15 @@ public class PlayerCharacterService {
         .collect(Collectors.toList());
   }
 
+  public PlayerCharacter getCharacterById(UUID playerId) {
+    return characterRepository.findById(playerId)
+        .orElseThrow(() -> new RuntimeException("Player Character not found with id " + playerId));
+  }
+
+  public PlayerCharacter addCardToPlayer(UUID playerId, String cardId) {
+    Card card = cardService.getById(cardId);
+    PlayerCharacter character = getCharacterById(playerId);
+    character.getCards().add(card.getId());
+    return characterRepository.save(character);
+  }
 }
