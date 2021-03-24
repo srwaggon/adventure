@@ -11,10 +11,13 @@ import CardPage from '../cards/CardPage/CardPage';
 const Navigation = () => {
   const history = useHistory();
   return <Toolbar>
-    <Typography variant="h4" style={{flexGrow: 1}}>Adventure</Typography>
-    <Button color="inherit" onClick={() => history.push('/')}>Home</Button>
+    <Button color={'inherit'} onClick={() => history.push('/')}>
+      <Typography variant="h4">Alcheim Online</Typography>
+    </Button>
+    <div style={{flexGrow: 1}}/>
     <Button color="inherit" onClick={() => history.push('/cards')}>Cards</Button>
     <Button color="inherit" onClick={() => history.push('/characters')}>Characters</Button>
+    <Button color="inherit" onClick={() => history.push('/games')}>Games</Button>
     <Button color="inherit" href={'/logout'}>Logout</Button>
   </Toolbar>;
 };
