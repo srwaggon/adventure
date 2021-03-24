@@ -2,7 +2,7 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Box, Card, IconButton, TextField} from '@material-ui/core';
+import {Box, ButtonGroup, Card, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -10,6 +10,7 @@ import EditButton from '../../buttons/EditButton';
 import SaveButton from '../../buttons/SaveButton';
 import DeleteButton from '../../buttons/DeleteButton';
 import CancelButton from '../../buttons/CancelButton';
+import CharacterPortrait from '../CharacterPortrait';
 
 const CharacterPage = () => {
 
@@ -34,8 +35,10 @@ const CharacterPage = () => {
   }
 
   const EditCharacterNameTextField = ({character}) => <TextField
+    label={'Name'}
     defaultValue={character.name}
     variant={'filled'}
+    fullWidth
     onChange={event => {
       character.name = event.target.value;
       setCharacter(character);
@@ -108,7 +111,7 @@ const CharacterPage = () => {
     }
 
     return (
-      <div className="character-resource">
+      <Box className="character-resource" p={1}>
         <div className={'character-resource-name'}>{resource}</div>
         <div className="character-resource-value">
           {[...Array(max).keys()].map(
@@ -142,7 +145,7 @@ const CharacterPage = () => {
           ><AddBox/></IconButton>}
 
         </div>
-      </div>
+      </Box>
     );
   };
 
@@ -160,130 +163,60 @@ const CharacterPage = () => {
 
   const onEdit = ignored => setEditing(true);
 
-  return !character ? <div>Loading...</div> : (
-    <Box className="character-page" p={4}>
-      <Card className={'character-page-wrapper'} m={4}>
-        <div className={'character-page-header'}>
-          {isEditing
-            ? <EditCharacterNameTextField character={character}/>
-            : <div className={'character-name'}>{character.name}</div>}
+  return !character
+    ? <div>Loading...</div>
+    : <Box className="character-page" p={4}>
+      <Card className={'character-card'}>
+        <Box p={4}>
+          <Box className={'character-page-header'} p={1}>
+            {isEditing
+              ? <EditCharacterNameTextField character={character}/>
+              : <Typography variant={'h3'}>
+                {character.name}
+              </Typography>}
+            <ButtonGroup className={'character-edit-button-row'}>
+              {isEditing && <DeleteButton onClick={onDelete}/>}
+              {isEditing && <CancelButton onClick={onCancelEdit}/>}
+              {isEditing && <SaveButton onClick={onSave}/>}
+              {!isEditing && <EditButton onClick={onEdit}/>}
+            </ButtonGroup>
 
-          <div className={'character-edit-button-row'}>
-            {isEditing && <DeleteButton onClick={onDelete}/>}
-            {isEditing && <CancelButton onClick={onCancelEdit}/>}
-            {isEditing && <SaveButton onClick={onSave}/>}
-            {!isEditing && <EditButton onClick={onEdit}/>}
-          </div>
-
-        </div>
-        <div className={'character-page-content'}>
-          <div className="character-attributes">
-            <div className="character-attribute-col">
-              <CharacterAttribute character={character} attribute={'strength'}/>
-              <CharacterAttribute character={character} attribute={'dexterity'}/>
-              <CharacterAttribute character={character} attribute={'constitution'}/>
+          </Box>
+          <div className={'character-page-content'}>
+            <div className="character-attributes">
+              <Box className="character-attributes-group" padding={1}>
+                <CharacterAttribute character={character} attribute={'strength'}/>
+                <CharacterAttribute character={character} attribute={'dexterity'}/>
+                <CharacterAttribute character={character} attribute={'constitution'}/>
+              </Box>
+              <Box className="character-attributes-group" padding={1}>
+                <CharacterAttribute character={character} attribute={'presence'}/>
+                <CharacterAttribute character={character} attribute={'influence'}/>
+                <CharacterAttribute character={character} attribute={'composure'}/>
+              </Box>
+              <Box className="character-attributes-group" padding={1}>
+                <CharacterAttribute character={character} attribute={'intelligence'}/>
+                <CharacterAttribute character={character} attribute={'wits'}/>
+                <CharacterAttribute character={character} attribute={'resolve'}/>
+              </Box>
             </div>
-            <div className="character-attribute-col">
-              <CharacterAttribute character={character} attribute={'presence'}/>
-              <CharacterAttribute character={character} attribute={'influence'}/>
-              <CharacterAttribute character={character} attribute={'composure'}/>
-            </div>
-            <div className="character-attribute-col">
-              <CharacterAttribute character={character} attribute={'intelligence'}/>
-              <CharacterAttribute character={character} attribute={'wits'}/>
-              <CharacterAttribute character={character} attribute={'resolve'}/>
-            </div>
-          </div>
-          <div className={'character-resources'}>
-            <div className="character-resource-row">
-              <CharacterResource character={character} resource={'stamina'}/>
-              <CharacterResource character={character} resource={'confidence'}/>
-              <CharacterResource character={character} resource={'focus'}/>
-            </div>
-            <div className="character-resource-row">
-              <CharacterResource character={character} resource={'health'}/>
-              <CharacterResource character={character} resource={'willpower'}/>
+            <div className={'character-resources'}>
+              <div className="character-resource-row">
+                <CharacterResource character={character} resource={'stamina'}/>
+                <CharacterResource character={character} resource={'confidence'}/>
+                <CharacterResource character={character} resource={'focus'}/>
+              </div>
+              <div className="character-resource-row">
+                <CharacterResource character={character} resource={'health'}/>
+                <CharacterResource character={character} resource={'willpower'}/>
+              </div>
             </div>
           </div>
-        </div>
+        </Box>
       </Card>
-    </Box>
-  );
-};
+      <CharacterPortrait {...character}/>
 
-const blankCharacter = () => ({
-  'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
-  'name': 'New Character',
-  'strength': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'dexterity': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'constitution': {
-    'value': 3,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'presence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'influence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'composure': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'intelligence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'wits': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'resolve': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
-  },
-  'stamina': {
-    'value': 3,
-    'minimum': 1,
-    'maximum': 6,
-  },
-  'confidence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 2,
-  },
-  'focus': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 2,
-  },
-  'health': {
-    'value': 10,
-    'minimum': 1,
-    'maximum': 20,
-  },
-  'willpower': {
-    'value': 10,
-    'minimum': 1,
-    'maximum': 10,
-  },
-});
+    </Box>;
+};
 
 export default CharacterPage;

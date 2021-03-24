@@ -1,12 +1,10 @@
 .character-page {
   display: flex;
   justify-content: space-evenly;
-
-  margin: 0 auto;
 }
 
-.character-page-wrapper {
-  padding: 3em;
+.character-card {
+  max-width: 36em;
 }
 
 .character-page-header {
@@ -15,13 +13,11 @@
   justify-content: space-between;
   border-bottom: solid thin black;
 
-  padding: .5rem;
-
-  height: 3rem;
 }
 
-.character-name {
-  font-size: 2.5rem;
+.character-edit-button-row {
+  justify-content: flex-end;
+  height: 48px;
 }
 
 .character-page-content {
@@ -35,13 +31,8 @@
   border-bottom: solid thin black;
 }
 
-.character-attribute-col {
-  display: flex;
-  flex-direction: column;
-
-  padding: .5rem;
-
-  width: 15rem;
+.character-attributes-group {
+  min-width: 15rem;
 }
 
 .character-attribute {
@@ -50,37 +41,17 @@
 }
 
 .character-attribute-name {
-  text-align: left;
   width: 6rem;
   text-transform: capitalize;
 }
 
-.character-attribute-value {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.character-resources {
-  flex-direction: column;
-}
-
 .character-resource-row {
-  display: flex;
-  flex-direction: column;
   border-bottom: solid thin black;
+  border-left: solid thin black;
 }
 
 .character-resource {
-  display: flex;
-  flex-direction: column;
-
-  padding: .5rem;
-
   width: 14rem;
-
-  justify-content: flex-start;
-
-  text-align: left;
 }
 
 .character-resource-name {
@@ -88,16 +59,9 @@
 }
 
 .character-resource-value {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   margin: 0 -3px;
 }
 
 .character-resource-group-health {
   width: 38.85rem;
-}
-
-.character-edit-button-row {
-  justify-content: flex-end;
 }

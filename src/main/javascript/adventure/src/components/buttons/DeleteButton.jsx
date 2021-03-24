@@ -6,7 +6,7 @@ const DeleteButton = ({onClick}) => {
     aria-label={'delete'}
     color={'secondary'}
     onClick={onClick}>
-    <DeleteIcon fontSize="small"/>
+    <DeleteIcon/>
   </IconButton>;
 };
 
