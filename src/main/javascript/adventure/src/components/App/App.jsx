@@ -6,6 +6,7 @@ import CharacterPage from '../character/page/CharacterPage.jsx';
 import CardsPage from '../cards/cardspage/CardsPage';
 import HomePage from '../home/HomePage';
 import {AppBar, Button, Container, Paper, Toolbar, Typography} from '@material-ui/core';
+import CardPage from '../cards/CardPage/CardPage';
 
 const Navigation = () => {
   const history = useHistory();
@@ -27,6 +28,7 @@ const App = () => {
             <Navigation/>
           </AppBar>
           <Switch>
+            <Route path="/cards/:cardId"><CardPage/></Route>
             <Route path="/cards"><CardsPage/></Route>
             <Route path="/characters/:characterId"><CharacterPage/></Route>
             <Route path="/"><HomePage/></Route>
