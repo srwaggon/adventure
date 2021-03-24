@@ -4,13 +4,22 @@ import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
 import {Box, Typography} from '@material-ui/core';
 
-const SpecialCard = ({name, image, imageSize, type, body, flavor, author}) => {
+const SpecialCard = ({
+  name = '',
+  image = '',
+  imageSize = '100%',
+  type = '',
+  body = '',
+  flavor = '',
+  author = '',
+
+}) => {
   const size = 8;
   const height = size * 3;
   const width = .74 * height;
+  const backgroundStyles = image && image !== '' ? {backgroundImage: `url(${image})`, backgroundSize: imageSize} : {};
   const style = {
-    backgroundImage: `url(${image})`,
-    backgroundSize: imageSize,
+    ...backgroundStyles,
     height: `${height}rem`,
     width: `${width}rem`,
   };

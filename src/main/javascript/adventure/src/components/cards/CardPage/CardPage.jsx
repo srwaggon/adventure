@@ -29,30 +29,38 @@ const CardPage = () => {
 
   const {cardId} = useParams();
   const [card, setCard] = useState(null);
+
   useEffect(() => {
-    if (card !== null) {
+    function getCard() {
+      getCardById(cardId)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error(`${response.status}: ${response.statusText}`);
+        })
+        .then(json => {
+          console.log('setting', json);
+          setCard(json);
+        })
+        .catch((error) => {
+          console.log(error);
+          setCard({...newCard()});
+        });
+    }
+
+    if (card) {
       return;
     }
-    if (cardId === 'new') {
-      setCard(newCard());
-      return;
+    if (!cardId || cardId === 'new') {
+      setCard({...newCard()});
+    } else {
+      getCard();
     }
-    console.log('about to fetch', cardId, card);
-    getCardById(cardId)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error(`${response.status}: ${response.statusText}`);
-      })
-      .then(json => setCard(json))
-      .catch((error) => {
-        console.log(error);
-        setCard(newCard());
-      });
   }, [cardId, card]);
 
   const [author, setAuthor] = useState(undefined);
+
   useEffect(() => {
     if (!author) {
       getCurrentPlayer()
@@ -65,7 +73,7 @@ const CardPage = () => {
   const [isEditing, setEditing] = useState(false);
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => setEditing(false);
-  const onSave = () => (card.id ? postNewCard({...card, author}) : replaceCard(card))
+  const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
     .then(response => {
         if (!response.ok) {
           throw new Error(response.statusText);
