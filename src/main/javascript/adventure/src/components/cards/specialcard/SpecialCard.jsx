@@ -2,23 +2,32 @@ import './SpecialCard.css';
 import FlavorText from '../flavor/FlavorText';
 import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
-import {Card} from '@material-ui/core';
+import {Box, Card, Typography} from '@material-ui/core';
 
 const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
+  const size = 8;
+  const height = size * 3;
+  const width = .74 * height;
   const style = {
     backgroundImage: `url(${image})`,
     backgroundSize: imageSize,
+    height: `${height}rem`,
+    width: `${width}rem`,
   };
 
   return (
-    <Card className="specialcard" {...{style}}>
-      <div className="specialcard-name">{name}</div>
-      <div className="specialcard-image" />
-      <div className="specialcard-type">{type.toLowerCase()}</div>
-      <div className="specialcard-body">
-        {applyTransforms(body)}
-        <FlavorText>{applyTransforms(flavor)}</FlavorText>
-      </div>
+    <Card className="specialcard">
+      <Box p={1} display="flex" flexDirection="column" justifyContent={'flex-end'} flexGrow={1} {...{style}}>
+        <span className="specialcard-name">{name}</span>
+        <div style={{flexGrow: 1}}/>
+        <span className="specialcard-type">{type.toLowerCase()}</span>
+        <Box className="specialcard-text" p={2} mt={1} border={1}>
+          <Typography variant={'body2'}>
+            {applyTransforms(body)}
+            <FlavorText>{applyTransforms(flavor)}</FlavorText>
+          </Typography>
+        </Box>
+      </Box>
     </Card>
   );
 };
