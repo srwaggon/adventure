@@ -1,39 +1,21 @@
-.character-selections-panel {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  border: solid thin red;
-
-  margin: 0 auto;
-  max-width: 66rem;
-}
-
 .character-panel {
-  border: solid thick #404040;
-  border-radius: 1rem;
-
-  height: 30rem;
   width: 16rem;
-  margin: 3%;
+  height: 22rem;
+  text-align: center;
 }
 
 .character-selection-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  color: white;
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
 }
 
+.character-selection-panel-image {
+  width: 100%
+}
+
 .character-selection-panel-name {
-  background-color: black;
-  width: 100%;
-  padding: .5em 0;
+  padding: 0 0 .5em 0;
 }
 
 .character-new-panel {

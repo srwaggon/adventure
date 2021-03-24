@@ -2,20 +2,20 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Card, IconButton, Paper, TextField} from '@material-ui/core';
+import {Box, Card, IconButton, TextField} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
-import CancelIcon from '@material-ui/icons/Cancel';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Save';
+import EditButton from '../../buttons/EditButton';
+import SaveButton from '../../buttons/SaveButton';
+import DeleteButton from '../../buttons/DeleteButton';
+import CancelButton from '../../buttons/CancelButton';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(null);
+  const [character, setCharacter] = useState(blankCharacter());
 
   const [isEditing, setEditing] = useState(false);
 
@@ -34,7 +34,6 @@ const CharacterPage = () => {
   }
 
   const EditCharacterNameTextField = ({character}) => <TextField
-    id={'character-name'}
     defaultValue={character.name}
     variant={'filled'}
     onChange={event => {
@@ -147,57 +146,33 @@ const CharacterPage = () => {
     );
   };
 
-  const DeleteCharacterButton = () => <IconButton
-    aria-label={'delete'}
-    color={'secondary'}
-    onClick={() => deleteCharacter(character).then(() => history.push('/characters'))}>
-    <DeleteIcon fontSize="small"/>
-  </IconButton>;
+  const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
-  const CancelEditingButton = () => <IconButton
-    aria-label={'cancel'}
-    color={'default'}
-    onClick={ignored => {
-      setEditing(false);
-      getCharacter();
-    }}>
-    <CancelIcon/>
-  </IconButton>;
+  const onCancelEdit = ignored => {
+    setEditing(false);
+    getCharacter();
+  };
 
-  const SaveCharacterEditsButton = () => <IconButton
-    className={'character-edit-button'}
-    aria-label={'save'}
-    variant={'contained'}
-    color={'primary'}
-    onClick={ignored => {
-      setEditing(false);
-      replaceCharacter(character).then(ignored => getCharacter());
-    }}>
-    <SaveIcon/>
-  </IconButton>;
+  const onSave = ignored => {
+    setEditing(false);
+    replaceCharacter(character).then(ignored => getCharacter());
+  };
 
-  const EditCharacterButton = () => <IconButton
-    className={'character-edit-button'}
-    aria-label={'edit'}
-    variant={'contained'}
-    color={'default'}
-    onClick={ignored => setEditing(true)}>
-    <EditIcon/>
-  </IconButton>;
+  const onEdit = ignored => setEditing(true);
 
   return !character ? <div>Loading...</div> : (
-    <Paper className="character-page">
-      <Card className={'character-page-wrapper'}>
+    <Box className="character-page" p={4}>
+      <Card className={'character-page-wrapper'} m={4}>
         <div className={'character-page-header'}>
           {isEditing
             ? <EditCharacterNameTextField character={character}/>
             : <div className={'character-name'}>{character.name}</div>}
 
           <div className={'character-edit-button-row'}>
-            {isEditing && <DeleteCharacterButton/>}
-            {isEditing && <CancelEditingButton/>}
-            {isEditing && <SaveCharacterEditsButton/>}
-            {!isEditing && <EditCharacterButton/>}
+            {isEditing && <DeleteButton onClick={onDelete}/>}
+            {isEditing && <CancelButton onClick={onCancelEdit}/>}
+            {isEditing && <SaveButton onClick={onSave}/>}
+            {!isEditing && <EditButton onClick={onEdit}/>}
           </div>
 
         </div>
@@ -232,85 +207,83 @@ const CharacterPage = () => {
           </div>
         </div>
       </Card>
-    </Paper>
+    </Box>
   );
 };
 
-const blankCharacter = () => {
-  return {
-    'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
-    'name': 'New Character',
-    'strength': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'dexterity': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'constitution': {
-      'value': 3,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'presence': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'influence': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'composure': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'intelligence': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'wits': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'resolve': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 5,
-    },
-    'stamina': {
-      'value': 3,
-      'minimum': 1,
-      'maximum': 6,
-    },
-    'confidence': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 2,
-    },
-    'focus': {
-      'value': 1,
-      'minimum': 1,
-      'maximum': 2,
-    },
-    'health': {
-      'value': 10,
-      'minimum': 1,
-      'maximum': 20,
-    },
-    'willpower': {
-      'value': 10,
-      'minimum': 1,
-      'maximum': 10,
-    },
-  };
-};
+const blankCharacter = () => ({
+  'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
+  'name': 'New Character',
+  'strength': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'dexterity': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'constitution': {
+    'value': 3,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'presence': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'influence': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'composure': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'intelligence': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'wits': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'resolve': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 5,
+  },
+  'stamina': {
+    'value': 3,
+    'minimum': 1,
+    'maximum': 6,
+  },
+  'confidence': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 2,
+  },
+  'focus': {
+    'value': 1,
+    'minimum': 1,
+    'maximum': 2,
+  },
+  'health': {
+    'value': 10,
+    'minimum': 1,
+    'maximum': 20,
+  },
+  'willpower': {
+    'value': 10,
+    'minimum': 1,
+    'maximum': 10,
+  },
+});
 
 export default CharacterPage;
