@@ -1,7 +1,12 @@
 .specialcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background-color: black;
+
   border-radius: .5rem;
   border: solid thin black;
-
 }
 
 .specialcard-name {

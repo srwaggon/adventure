@@ -1,7 +1,11 @@
 const _get = (endpoint) => () => fetch(endpoint);
 const _getAll = _get;
-const _getById = (endpoint) => (id) => fetch(`${endpoint}/${id}`)
-const _postNew = (endpoint) => () => fetch(endpoint, {method: 'POST'});
+const _getById = (endpoint) => (id) => fetch(`${endpoint}/${id}`);
+const _postNew = (endpoint) => (item) => fetch(endpoint, {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(item),
+});
 const _replace = (endpoint) => (item) =>
   fetch(`${endpoint}/${item.id}`, {
     method: 'PUT',

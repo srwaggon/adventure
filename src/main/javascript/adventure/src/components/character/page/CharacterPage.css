@@ -15,11 +15,6 @@
 
 }
 
-.character-edit-button-row {
-  justify-content: flex-end;
-  height: 48px;
-}
-
 .character-page-content {
   display: flex;
   flex-direction: row;

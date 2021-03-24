@@ -3,16 +3,13 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {deleteCharacter, getAllCards, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Box, ButtonGroup, Card, Grid, IconButton, TextField, Typography} from '@material-ui/core';
+import {Box, Card, Grid, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import EditButton from '../../buttons/EditButton';
-import SaveButton from '../../buttons/SaveButton';
-import DeleteButton from '../../buttons/DeleteButton';
-import CancelButton from '../../buttons/CancelButton';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
+import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 
 const CharacterPage = () => {
 
@@ -185,12 +182,7 @@ const CharacterPage = () => {
                   : <Typography variant={'h3'}>
                     {character.name}
                   </Typography>}
-                <ButtonGroup className={'character-edit-button-row'}>
-                  {isEditing && <DeleteButton onClick={onDelete}/>}
-                  {isEditing && <CancelButton onClick={onCancelEdit}/>}
-                  {isEditing && <SaveButton onClick={onSave}/>}
-                  {!isEditing && <EditButton onClick={onEdit}/>}
-                </ButtonGroup>
+                <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
 
               </Box>
               <div className={'character-page-content'}>
