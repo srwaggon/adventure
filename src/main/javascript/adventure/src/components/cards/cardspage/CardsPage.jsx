@@ -1,12 +1,11 @@
 import './CardsPage.css';
 
 import React, {useEffect, useState} from 'react';
-import SpecialCard from '../specialcard/SpecialCard';
 import {getAllCards} from '../../../utilities/client';
-import {AppBar, Box, Grid, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Toolbar, Typography} from '@material-ui/core';
 import EditButton from '../../buttons/EditButton';
-import {Link} from 'react-router-dom';
 import AddButton from '../../buttons/AddButton';
+import CardsGrid from '../CardsGrid';
 
 const CardsPage = () => {
   const [cards, setCards] = useState(null);
@@ -28,14 +27,7 @@ const CardsPage = () => {
       </Toolbar>
     </AppBar>
     <Box p={4}>
-      <Grid container justify={'center'} spacing={4}>
-        {(cards || []).map((card) =>
-          <Grid item>
-            <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
-              <SpecialCard {...card} key={card.id}/>
-            </Link>
-          </Grid>)}
-      </Grid>
+      <CardsGrid cards={cards || []}/>
     </Box>
   </div>;
 };

@@ -8,7 +8,7 @@ export const demoCard0 = {
   'flavor': '"You aren\'t afraid of the dark, are you?"',
 };
 
-export const democard1 = {
+export const demoCard1 = {
   'id': '754ad33c-7233-4d6b-bd7f-8a073334f035',
   'name': 'Longsword',
   'image': 'https://cdn.cardsrealm.com/images/cartas/crop/m12-magic-2012/greatsword-209-med.jpeg',
@@ -18,7 +18,7 @@ export const democard1 = {
   'flavor': '',
 };
 
-export const democard2 = {
+export const demoCard2 = {
   'id': '3475aa37-f533-43b8-a804-ce8527545ec8',
   'name': 'Platemail',
   'image': 'https://i.pinimg.com/originals/f3/f1/af/f3f1af95d8109eaedd285a3dace1f7a2.jpg',
@@ -28,7 +28,7 @@ export const democard2 = {
   'flavor': '"Ahck! An itch!"',
 };
 
-export const democard3 = {
+export const demoCard3 = {
   'id': '92667992-3ae5-419d-8720-8d5bbf9b1324',
   'name': 'Gentle Persuasion',
   'image': 'https://i.pinimg.com/originals/05/b7/21/05b72118277d82225acbaf7b1bf69fb0.jpg',
@@ -38,11 +38,11 @@ export const democard3 = {
   'flavor': 'Sometimes, what you say is less important',
 };
 
-export const democards = [
+export const demoCards = [
   demoCard0,
-  democard1,
-  democard2,
-  democard3,
+  demoCard1,
+  demoCard2,
+  demoCard3,
 ];
 
 export const demoCharacter = {
@@ -118,4 +118,5 @@ export const demoCharacter = {
     'minimum': 1,
     'maximum': 10,
   },
+  'cards': demoCards,
 };

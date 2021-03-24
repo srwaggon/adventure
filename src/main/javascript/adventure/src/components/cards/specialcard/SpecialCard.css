@@ -1,15 +1,17 @@
 .specialcard {
   border-radius: .5rem;
   border: solid thin black;
-  color: white;
+
 }
 
 .specialcard-name {
   font-weight: bold;
+  color: white;
   text-transform: capitalize;
 }
 
 .specialcard-type {
+  color: white;
   text-transform: capitalize;
 }
 
