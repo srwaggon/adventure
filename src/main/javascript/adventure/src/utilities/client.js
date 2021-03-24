@@ -1,45 +1,48 @@
-export const getCurrentPlayer = () => fetch('/players/current');
-
-export const getCurrentPlayersCharacters = () => fetch('/players/current/characters');
-
-
-
-export const getCharacterById = characterId => fetch(`/characters/${characterId}`);
-
-export const postNewCharacter = () => fetch('/characters', {method: 'POST'});
-
-export const replaceCharacter = character =>
-  fetch(`/characters/${character.id}`, {
+const _get = (endpoint) => () => fetch(endpoint);
+const _getAll = _get;
+const _getById = (endpoint) => (id) => fetch(`${endpoint}/${id}`)
+const _postNew = (endpoint) => () => fetch(endpoint, {method: 'POST'});
+const _replace = (endpoint) => (item) =>
+  fetch(`${endpoint}/${item.id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(character),
+    body: JSON.stringify(item),
   });
+const _delete = (endpoint) => (item) => fetch(`${endpoint}/${item.id}`, {method: 'DELETE'})
 
-export const deleteCharacter = character => fetch(`/characters/${character.id}`, {method: 'DELETE'});
+const playersEndpoint = '/players'
+export const getAllPlayers = _getAll(playersEndpoint);
+export const getPlayerById = _getById(playersEndpoint);
+export const postNewPlayer = _postNew(playersEndpoint);
+export const replacePlayer = _replace(playersEndpoint);
+export const deletePlayer = _delete(playersEndpoint);
+export const getCurrentPlayer = _get(`${playersEndpoint}/current`);
+export const getCurrentPlayersCharacters = _get(`${playersEndpoint}/current/characters`);
 
+const charactersEndpoint = '/characters'
+export const getAllCharacters = _getAll(charactersEndpoint);
+export const getCharacterById = _getById(charactersEndpoint);
+export const postNewCharacter = _postNew(charactersEndpoint);
+export const replaceCharacter = _replace(charactersEndpoint);
+export const deleteCharacter = _delete(charactersEndpoint);
 
+const cardsEndpoint = '/cards';
+export const getAllCards = _getAll(cardsEndpoint);
+export const getCardById = _getById(cardsEndpoint);
+export const postNewCard = _postNew(cardsEndpoint);
+export const replaceCard = _replace(cardsEndpoint);
+export const deleteCard = _delete(cardsEndpoint);
 
-export const getAllCards = () => fetch('/cards');
-
-export const getCardById = (id) => fetch(`/cards/${id}`);
-
-export const postNewCard = () => fetch('/cards', {method: 'POST'});
-
-export const replaceCard = card =>
-  fetch(`/cards/${card.id}`, {
-    method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(card),
-  });
-
-export const deleteCard = character => fetch(`/characters/${character.id}`, {method: 'DELETE'});
-
-
-
-const client = {
+export const client = {
+  getAllPlayers,
+  getPlayerById,
+  postNewPlayer,
+  replacePlayer,
+  deletePlayer,
   getCurrentPlayer,
   getCurrentPlayersCharacters,
 
+  getAllCharacters,
   getCharacterById,
   postNewCharacter,
   replaceCharacter,
@@ -47,6 +50,7 @@ const client = {
 
   getAllCards,
   getCardById,
+  postNewCard,
   replaceCard,
   deleteCard,
 };
