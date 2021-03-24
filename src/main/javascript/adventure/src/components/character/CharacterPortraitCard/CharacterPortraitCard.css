@@ -1,0 +1,9 @@
+.character-portrait-card {
+  width: 16rem;
+  height: 21rem;
+  text-align: center;
+}
+
+.character-portrait-image {
+  width: 100%
+}

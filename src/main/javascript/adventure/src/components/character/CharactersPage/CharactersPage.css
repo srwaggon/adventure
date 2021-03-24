@@ -1,30 +1,9 @@
 .character-panel {
   width: 16rem;
-  height: 22rem;
+  height: 21rem;
   text-align: center;
 }
 
-.character-selection-panel {
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.character-selection-panel-image {
-  width: 100%
-}
-
-.character-selection-panel-name {
-  padding: 0 0 .5em 0;
-}
-
-.character-new-panel {
-}
-
-.character-new-panel:hover {
+.character-new-card:hover {
   cursor: pointer;
-}
-
-.character-new-panel-plus {
-  font-size: 16em;
 }

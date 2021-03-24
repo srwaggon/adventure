@@ -6,7 +6,8 @@ import {getCurrentPlayersCharacters, postNewCharacter} from '../../../utilities/
 import {Link} from 'react-router-dom';
 import {AppBar, Box, Card, Grid, Toolbar, Typography} from '@material-ui/core';
 import EditButton from '../../buttons/EditButton';
-import CharacterPortrait from '../CharacterPortrait';
+import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 const CharactersPage = () => {
   return (<div className={'HomePage'}>
@@ -27,8 +28,12 @@ const CharacterSelectionPage = () => {
       .then(json => setCharacters(json));
   });
 
-  const characterPanels = (characters || []).map(
-    character => <CharacterPanel character={character}/>);
+  const characterPortraits = (characters || []).map(character =>
+    <Grid item>
+      <Link to={`/characters/${character.id}`} style={{textDecoration: 'none'}}>
+        <CharacterPortraitCard {...(character)} />
+      </Link>
+    </Grid>);
 
   return <div className={'character-selection-page'}>
     <AppBar color="default" position={'static'}>
@@ -39,25 +44,19 @@ const CharacterSelectionPage = () => {
     </AppBar>
     <Box p={4}>
       <Grid className={'character-selections-panel'} container justify="center" spacing={4}>
-        {characterPanels} <Grid item>
-        <Card className={'character-new-panel character-panel'} item>
-          <div className={'character-new-panel-plus'}
-               onClick={() => postNewCharacter().then(value => setCharacters(null))}>
-            +
-          </div>
-        </Card>
-      </Grid>
+        {characterPortraits}
+        <Grid item>
+          <Card className={'character-new-card character-panel'}
+                onClick={() => postNewCharacter().then(ignored => setCharacters(null))}>
+            <Box flexDirection={'column'} justifyContent={'center'} height={'100%'}>
+              <PersonAddIcon style={{fontSize: 128, margin: '0 auto', height: '100%'}}/>
+            </Box>
+          </Card>
+        </Grid>
       </Grid>
     </Box>
   </div>;
 };
-
-const CharacterPanel = ({character}) =>
-  <Grid item>
-    <Link className={'character-selection-panel'} to={`/characters/${character.id}`}>
-      <CharacterPortrait {...character} />
-    </Link>
-  </Grid>;
 
 export default CharactersPage;
 

@@ -10,7 +10,7 @@ import EditButton from '../../buttons/EditButton';
 import SaveButton from '../../buttons/SaveButton';
 import DeleteButton from '../../buttons/DeleteButton';
 import CancelButton from '../../buttons/CancelButton';
-import CharacterPortrait from '../CharacterPortrait';
+import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 
 const CharacterPage = () => {
 
@@ -214,7 +214,7 @@ const CharacterPage = () => {
           </div>
         </Box>
       </Card>
-      <CharacterPortrait {...character}/>
+      <CharacterPortraitCard {...character}/>
 
     </Box>;
 };
