@@ -1,13 +1,13 @@
-import './HomePage.css';
+import './CharactersPage.css';
 
 import React, {useEffect, useState} from 'react';
 
-import {getCurrentPlayersCharacters, postNewCharacter} from '../../utilities/client';
+import {getCurrentPlayersCharacters, postNewCharacter} from '../../../utilities/client';
 import {Link} from 'react-router-dom';
 import {AppBar, Box, Card, Grid, Toolbar, Typography} from '@material-ui/core';
-import EditButton from '../buttons/EditButton';
+import EditButton from '../../buttons/EditButton';
 
-const HomePage = () => {
+const CharactersPage = () => {
   return (<div className={'HomePage'}>
     <CharacterSelectionPage/>
   </div>);
@@ -15,13 +15,7 @@ const HomePage = () => {
 
 const CharacterSelectionPage = () => {
 
-  const [characters, setCharacters] = useState([
-    blankCharacter(),
-    blankCharacter(),
-    blankCharacter(),
-    blankCharacter(),
-    blankCharacter(),
-  ]);
+  const [characters, setCharacters] = useState(null);
 
   useEffect(() => {
     if (characters !== null) {
@@ -73,9 +67,9 @@ const CharacterPanel = ({character}) =>
   </Grid>
 ;
 
-export default HomePage;
+export default CharactersPage;
 
-const blankCharacter = () => ({
+export const blankCharacter = () => ({
   'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
   'name': 'New Character',
   'strength': {

@@ -2,9 +2,9 @@ import './App.css';
 
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
-import CharacterPage from '../character/page/CharacterPage.jsx';
+import CharacterPage from '../character/page/CharacterPage';
+import CharactersPage from '../character/CharactersPage/CharactersPage';
 import CardsPage from '../cards/cardspage/CardsPage';
-import HomePage from '../home/HomePage';
 import {AppBar, Button, Container, Paper, Toolbar, Typography} from '@material-ui/core';
 import CardPage from '../cards/CardPage/CardPage';
 
@@ -34,7 +34,8 @@ const App = () => {
             <Route path="/cards/:cardId"><CardPage/></Route>
             <Route path="/cards"><CardsPage/></Route>
             <Route path="/characters/:characterId"><CharacterPage/></Route>
-            <Route path="/"><HomePage/></Route>
+            <Route path="/characters"><CharactersPage/></Route>
+            <Route path="/"><CharactersPage/></Route>
           </Switch>
         </Paper>
       </Container>

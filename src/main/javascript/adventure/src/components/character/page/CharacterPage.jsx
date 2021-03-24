@@ -15,7 +15,7 @@ const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(blankCharacter());
+  const [character, setCharacter] = useState(null);
 
   const [isEditing, setEditing] = useState(false);
 
