@@ -11,18 +11,9 @@ public class Card implements Identified<String> {
   private String imageSize;
   private String body;
   private String flavor;
+  private String author;
 
   public Card() {
-  }
-
-  public Card(String id, String name, CardType type, String image, String imageSize, String body, String flavor) {
-    this.id = id;
-    this.name = name;
-    this.type = type;
-    this.image = image;
-    this.imageSize = imageSize;
-    this.body = body;
-    this.flavor = flavor;
   }
 
   @Override
@@ -81,5 +72,13 @@ public class Card implements Identified<String> {
 
   public void setFlavor(String flavor) {
     this.flavor = flavor;
+  }
+
+  public String getAuthor() {
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
   }
 }

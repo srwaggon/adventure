@@ -30,3 +30,9 @@
   height: 30%;
   overflow: hidden;
 }
+
+.specialcard-author {
+  color: white;
+  height: .5em;
+  font-size: .5em;
+}

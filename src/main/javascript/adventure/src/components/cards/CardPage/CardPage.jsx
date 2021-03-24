@@ -13,7 +13,7 @@ import {
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import {deleteCard, getCardById, postNewCard, replaceCard} from '../../../utilities/client';
+import {deleteCard, getCardById, getCurrentPlayer, postNewCard, replaceCard} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 
 const newCard = () => ({
@@ -28,21 +28,16 @@ const newCard = () => ({
 const CardPage = () => {
 
   const {cardId} = useParams();
-
-  const history = useHistory();
-
-  const [card, setCard] = useState(undefined);
-
-  const [isEditing, setEditing] = useState(false);
-
+  const [card, setCard] = useState(null);
   useEffect(() => {
-    if (card) {
+    if (card !== null) {
       return;
     }
     if (cardId === 'new') {
       setCard(newCard());
       return;
     }
+    console.log('about to fetch', cardId, card);
     getCardById(cardId)
       .then(response => {
         if (response.ok) {
@@ -57,9 +52,31 @@ const CardPage = () => {
       });
   }, [cardId, card]);
 
+  const [author, setAuthor] = useState(undefined);
+  useEffect(() => {
+    if (!author) {
+      getCurrentPlayer()
+        .then((response) => response.json())
+        .then(json => setAuthor(json.name));
+    }
+  }, [author, setAuthor]);
+
+  const history = useHistory();
+  const [isEditing, setEditing] = useState(false);
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => setEditing(false);
-  const onSave = () => (card.id ? postNewCard(card) : replaceCard(card)).then(ignored => setEditing(false));
+  const onSave = () => (card.id ? postNewCard({...card, author}) : replaceCard(card))
+    .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      },
+    ).then(card => {
+      console.log('received back', card);
+      history.push(`/cards/${card.id}`);
+    })
+    .catch((error) => console.log(error));
   const onDelete = () => deleteCard(card).then(() => history.push('/cards'));
 
   return !card

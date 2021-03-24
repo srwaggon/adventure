@@ -4,7 +4,7 @@ import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
 import {Box, Typography} from '@material-ui/core';
 
-const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
+const SpecialCard = ({name, image, imageSize, type, body, flavor, author}) => {
   const size = 8;
   const height = size * 3;
   const width = .74 * height;
@@ -26,6 +26,7 @@ const SpecialCard = ({name, image, imageSize, type, body, flavor}) => {
           <FlavorText>{applyTransforms(flavor)}</FlavorText>
         </Typography>
       </Box>
+      <Box textAlign={'center'} className="specialcard-author">{author}</Box>
     </Box>
   );
 };

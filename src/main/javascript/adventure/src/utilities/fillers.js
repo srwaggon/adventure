@@ -6,6 +6,7 @@ export const demoCard0 = {
   'imageSize': '130%',
   'body': 'Provides light nearby for 1 hour.',
   'flavor': '"You aren\'t afraid of the dark, are you?"',
+  'author': 'Demo author',
 };
 
 export const demoCard1 = {
@@ -16,6 +17,7 @@ export const demoCard1 = {
   'type': 'EQUIPMENT',
   'body': 'Requires 3+ Strength to equip.\nWhen used to attack, roll [d10] equal to your Strength with a difficulty of 6 to attack the target for 3 damage.',
   'flavor': '',
+  'author': 'Demo author',
 };
 
 export const demoCard2 = {
@@ -26,6 +28,7 @@ export const demoCard2 = {
   'type': 'EQUIPMENT',
   'body': 'Requires 3+ Strength to equip.\nIncreases your maximum HP by 6.',
   'flavor': '"Ahck! An itch!"',
+  'author': 'Demo author',
 };
 
 export const demoCard3 = {
