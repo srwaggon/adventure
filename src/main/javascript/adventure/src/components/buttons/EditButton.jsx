@@ -4,7 +4,6 @@ import EditIcon from '@material-ui/icons/Edit';
 const EditButton = ({onClick}) => {
   return <IconButton
     aria-label={'edit'}
-    variant={'contained'}
     color={'default'}
     onClick={onClick}>
     <EditIcon/>
