@@ -2,7 +2,7 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
+import {deleteCharacter, getAllCards, getCharacterById, replaceCharacter} from '../../../utilities/client';
 import {Box, ButtonGroup, Card, Grid, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -18,7 +18,9 @@ const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(null);
+  const [character, setCharacter] = useState(undefined);
+
+  const [cards, setCards] = useState(undefined);
 
   const [isEditing, setEditing] = useState(false);
 
@@ -32,8 +34,13 @@ const CharacterPage = () => {
 
   function getCharacter() {
     getCharacterById(characterId)
-      .then(data => data.json())
-      .then(json => setCharacter(json));
+      .then(response => response.json())
+      .then(character => {
+        setCharacter(character);
+        getAllCards()
+          .then(response => response.json())
+          .then(cards => setCards(cards.filter(card => character.cards.includes(card.id))));
+      });
   }
 
   const EditCharacterNameTextField = ({character}) => <TextField
@@ -223,7 +230,7 @@ const CharacterPage = () => {
           <CharacterPortraitCard {...character}/>
         </Grid>
         <Grid item>
-          <CardsGrid cards={character.cards}/>
+          <CardsGrid cards={cards}/>
         </Grid>
       </Grid>
     </Box>;
