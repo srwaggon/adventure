@@ -7,14 +7,6 @@
   max-width: 36em;
 }
 
-.character-page-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom: solid thin black;
-
-}
-
 .character-page-content {
   display: flex;
   flex-direction: row;
@@ -23,7 +15,6 @@
 .character-attributes {
   display: flex;
   flex-direction: column;
-  border-bottom: solid thin black;
 }
 
 .character-attributes-group {
@@ -41,7 +32,6 @@
 }
 
 .character-resource-row {
-  border-bottom: solid thin black;
   border-left: solid thin black;
 }
 

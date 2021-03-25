@@ -3,7 +3,7 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 import {deleteCharacter, getAllCards, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Box, Card, Grid, IconButton, TextField, Typography} from '@material-ui/core';
+import {Box, Card, CardContent, CardHeader, Grid, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -175,16 +175,19 @@ const CharacterPage = () => {
       <Grid container spacing={4} justify={'center'}>
         <Grid item>
           <Card className={'character-card'}>
-            <Box p={4}>
-              <Box className={'character-page-header'} p={1}>
+
+            <CardHeader title={
+              <>
                 {isEditing
                   ? <EditCharacterNameTextField character={character}/>
                   : <Typography variant={'h3'}>
                     {character.name}
                   </Typography>}
                 <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
+              </>}
+            />
 
-              </Box>
+            <CardContent>
               <div className={'character-page-content'}>
                 <div className="character-attributes">
                   <Box className="character-attributes-group" padding={1}>
@@ -216,12 +219,12 @@ const CharacterPage = () => {
                   </div>
                 </div>
               </div>
-            </Box>
+            </CardContent>
           </Card>
         </Grid>
         <Grid item>
           <Card>
-            <Box p={4}>
+            <CardContent>
               <CharacterPortraitCard {...character}/>
               {isEditing && <TextField
                 label='Portrait URL'
@@ -229,11 +232,16 @@ const CharacterPage = () => {
                 margin='dense'
                 defaultValue={character['portraitUrl']}
                 onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
-            </Box>
+            </CardContent>
           </Card>
         </Grid>
         <Grid item>
-          <CardsGrid cards={cards}/>
+          <Card>
+            <CardHeader title='Owned Cards'/>
+            <CardContent>
+              <CardsGrid cards={cards}/>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Box>;
