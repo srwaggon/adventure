@@ -81,7 +81,7 @@ public class JsonRepository<T extends Identified<ID>, ID> implements Repository<
       e.printStackTrace();
       return null;
     }
-    return null;
+    return entity;
   }
 
   @Override
