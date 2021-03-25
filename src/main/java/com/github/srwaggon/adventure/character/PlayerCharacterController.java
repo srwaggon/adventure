@@ -1,5 +1,6 @@
 package com.github.srwaggon.adventure.character;
 
+import com.github.srwaggon.adventure.card.Card;
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,28 +36,33 @@ public class PlayerCharacterController {
     return playerCharacterService.saveNewCharacter();
   }
 
-  @GetMapping("/{playerId}")
-  public PlayerCharacter getById(@PathVariable UUID playerId) {
-    return playerCharacterService.getCharacterById(playerId);
+  @GetMapping("/{characterId}")
+  public PlayerCharacter getById(@PathVariable UUID characterId) {
+    return playerCharacterService.getCharacterById(characterId);
   }
 
-  @PutMapping("/{playerId}")
-  public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID playerId) {
-    newCharacter.setId(playerId);
+  @PutMapping("/{characterId}")
+  public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID characterId) {
+    newCharacter.setId(characterId);
     return characterRepository.save(newCharacter);
   }
 
-  @DeleteMapping("/{playerId}")
-  public void deleteCharacter(@PathVariable UUID playerId) {
-    characterRepository.findById(playerId)
+  @DeleteMapping("/{characterId}")
+  public void deleteCharacter(@PathVariable UUID characterId) {
+    characterRepository.findById(characterId)
         .ifPresent(characterRepository::delete);
   }
 
-  @PostMapping("/{playerId}/cards/{cardId}")
-  public PlayerCharacter addCardToPlayer(
-      @PathVariable UUID playerId,
+  @GetMapping("/{characterId}/cards")
+  public List<Card> getCharactersCards(@PathVariable UUID characterId) {
+    return playerCharacterService.getCharactersCards(characterId);
+  }
+
+  @PostMapping("/{characterId}/cards/{cardId}")
+  public PlayerCharacter addCardToCharacter(
+      @PathVariable UUID characterId,
       @PathVariable String cardId) {
-    return playerCharacterService.addCardToPlayer(playerId, cardId);
+    return playerCharacterService.addCardToCharacter(characterId, cardId);
   }
 
 }

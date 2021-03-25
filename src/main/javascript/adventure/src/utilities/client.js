@@ -29,6 +29,7 @@ export const getCharacterById = _getById(charactersEndpoint);
 export const postNewCharacter = _postNew(charactersEndpoint);
 export const replaceCharacter = _replace(charactersEndpoint);
 export const deleteCharacter = _delete(charactersEndpoint);
+export const getCharactersCards = (characterId) => _get(`${charactersEndpoint}/${characterId}/cards`)();
 
 const cardsEndpoint = '/api/cards';
 export const getAllCards = _getAll(cardsEndpoint);

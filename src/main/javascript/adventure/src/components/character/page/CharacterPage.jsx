@@ -2,7 +2,7 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {deleteCharacter, getAllCards, getCharacterById, replaceCharacter} from '../../../utilities/client';
+import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
 import {Box, Card, CardContent, CardHeader, Grid, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -23,10 +23,10 @@ const CharacterPage = () => {
 
   const history = useHistory();
 
-  function getCharactersCards(character) {
-    getAllCards()
+  function fetchCharactersCards(character) {
+    getCharactersCards(character.id)
       .then(response => response.json())
-      .then(cards => setCards(cards.filter(card => character.cards.includes(card.id))));
+      .then(setCards);
   }
 
   const shouldFetchCharacter = !character || characterId !== character.id;
@@ -36,7 +36,7 @@ const CharacterPage = () => {
         .then(response => response.json())
         .then(character => {
           setCharacter(character);
-          getCharactersCards(character);
+          fetchCharactersCards(character);
         });
     }
   }, [shouldFetchCharacter, characterId]);
@@ -108,7 +108,7 @@ const CharacterPage = () => {
         .then(response => response.json())
         .then(character => {
           setCharacter(character);
-          getCharactersCards(character);
+          fetchCharactersCards(character);
         });
     };
 
@@ -169,7 +169,7 @@ const CharacterPage = () => {
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
-        getCharactersCards(character);
+        fetchCharactersCards(character);
       });
   };
 
@@ -179,7 +179,7 @@ const CharacterPage = () => {
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
-        getCharactersCards(character);
+        fetchCharactersCards(character);
       });
   };
 

@@ -45,15 +45,22 @@ public class PlayerCharacterService {
         .collect(Collectors.toList());
   }
 
-  public PlayerCharacter getCharacterById(UUID playerId) {
-    return characterRepository.findById(playerId)
-        .orElseThrow(() -> new RuntimeException("Player Character not found with id " + playerId));
+  public PlayerCharacter getCharacterById(UUID characterId) {
+    return characterRepository.findById(characterId)
+        .orElseThrow(() -> new RuntimeException("Player Character not found with id " + characterId));
   }
 
-  public PlayerCharacter addCardToPlayer(UUID playerId, String cardId) {
+  public PlayerCharacter addCardToCharacter(UUID characterId, String cardId) {
     Card card = cardService.getById(cardId);
-    PlayerCharacter character = getCharacterById(playerId);
+    PlayerCharacter character = getCharacterById(characterId);
     character.getCards().add(card.getId());
     return characterRepository.save(character);
+  }
+
+  public List<Card> getCharactersCards(UUID characterId) {
+    return getCharacterById(characterId)
+        .getCards().stream()
+        .map(cardId -> cardService.getById(cardId))
+        .collect(Collectors.toList());
   }
 }
