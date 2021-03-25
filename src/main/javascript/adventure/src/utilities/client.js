@@ -3,16 +3,16 @@ const _getAll = _get;
 const _getById = (endpoint) => (id) => fetch(`${endpoint}/${id}`);
 const _postNew = (endpoint) => (item) => fetch(endpoint, {
   method: 'POST',
-  headers: {'Content-Type': 'application/json'},
+  headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
   body: JSON.stringify(item),
 });
 const _replace = (endpoint) => (item) =>
   fetch(`${endpoint}/${item.id}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
+    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
     body: JSON.stringify(item),
   });
-const _delete = (endpoint) => (item) => fetch(`${endpoint}/${item.id}`, {method: 'DELETE'})
+const _delete = (endpoint) => (item) => fetch(`${endpoint}/${item.id}`, {method: 'DELETE'});
 
 const playersEndpoint = '/api/players';
 export const getAllPlayers = _getAll(playersEndpoint);

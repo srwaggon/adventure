@@ -74,17 +74,9 @@ const CardPage = () => {
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => setEditing(false);
   const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
-    .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      },
-    ).then(card => {
-      console.log('received back', card);
-      history.push(`/cards/${card.id}`);
-    })
-    .catch((error) => console.log(error));
+    .then(response => response.ok ? response.json() : throw new Error(response.statusText))
+    .then(card => history.push(`/cards/${card.id}`))
+    .catch(error => console.log(error));
   const onDelete = () => deleteCard(card).then(() => history.push('/cards'));
 
   return !card
