@@ -11,6 +11,7 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private UUID id = UUID.randomUUID();
   private String name = "New Character";
+  private String portraitUrl;
   private final CharacterValue strength = new CharacterValue(1, 5, 1);
   private final CharacterValue dexterity = new CharacterValue(1, 5, 1);
   private final CharacterValue constitution = new CharacterValue(1, 5, 1);
@@ -48,6 +49,14 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getPortraitUrl() {
+    return portraitUrl;
+  }
+
+  public void setPortraitUrl(String portraitUrl) {
+    this.portraitUrl = portraitUrl;
   }
 
   public CharacterValue getStrength() {

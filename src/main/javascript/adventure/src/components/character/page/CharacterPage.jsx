@@ -220,7 +220,17 @@ const CharacterPage = () => {
           </Card>
         </Grid>
         <Grid item>
-          <CharacterPortraitCard {...character}/>
+          <Card>
+            <Box p={4}>
+              <CharacterPortraitCard {...character}/>
+              {isEditing && <TextField
+                label='Portrait URL'
+                variant='outlined'
+                margin='dense'
+                defaultValue={character['portraitUrl']}
+                onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
+            </Box>
+          </Card>
         </Grid>
         <Grid item>
           <CardsGrid cards={cards}/>
