@@ -1,4 +1,14 @@
-import {Box, Card, FormControl, InputLabel, MenuItem, Select, TextField} from '@material-ui/core';
+import {
+  Box,
+  Card,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  MenuItem,
+  Select,
+  Switch,
+  TextField,
+} from '@material-ui/core';
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
@@ -118,6 +128,14 @@ const CardPage = () => {
                        defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
             <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}
                        defaultValue={card.flavor} onChange={event => setCard({...card, flavor: event.target.value})}/>
+            <FormControlLabel
+              label="Dark Text"
+              control={
+                <Switch
+                  checked={card.isDarkText}
+                  onChange={event => setCard({...card, isDarkText: event.target.checked})}
+                  color="primary"
+                  inputProps={{'aria-label': 'primary checkbox'}}/>}/>
           </Box>
         </Card>
       </Box>

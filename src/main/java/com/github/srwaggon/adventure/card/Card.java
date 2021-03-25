@@ -12,6 +12,7 @@ public class Card implements Identified<String> {
   private String body;
   private String flavor;
   private String author;
+  private boolean isDarkText = false;
 
   public Card() {
   }
@@ -80,5 +81,13 @@ public class Card implements Identified<String> {
 
   public void setAuthor(String author) {
     this.author = author;
+  }
+
+  public boolean isDarkText() {
+    return isDarkText;
+  }
+
+  public void setDarkText(boolean isDarkText) {
+    this.isDarkText = isDarkText;
   }
 }
