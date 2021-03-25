@@ -1,7 +1,7 @@
 import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getAllCards, getCharacterById, replaceCharacter} from '../../../utilities/client';
 import {Box, Card, CardContent, CardHeader, Grid, IconButton, TextField, Typography} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
@@ -9,7 +9,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
-import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
+import PageHeaderBar from '../../Page/PageHeaderBar';
 
 const CharacterPage = () => {
 
@@ -171,80 +171,76 @@ const CharacterPage = () => {
 
   return !character
     ? <div>Loading...</div>
-    : <Box className="character-page" p={4}>
-      <Grid container spacing={4} justify={'center'}>
-        <Grid item>
-          <Card className={'character-card'}>
-
-            <CardHeader title={
-              <>
-                {isEditing
+    : <div>
+      <PageHeaderBar {...{title: 'Character Details', isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
+      <Box className="character-page" p={4}>
+        <Grid container spacing={4} justify={'center'}>
+          <Grid item>
+            <Card className={'character-card'}>
+              <CardHeader title={
+                isEditing
                   ? <EditCharacterNameTextField character={character}/>
-                  : <Typography variant={'h3'}>
-                    {character.name}
-                  </Typography>}
-                <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
-              </>}
-            />
-
-            <CardContent>
-              <div className={'character-page-content'}>
-                <div className="character-attributes">
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'strength'}/>
-                    <CharacterAttribute character={character} attribute={'dexterity'}/>
-                    <CharacterAttribute character={character} attribute={'constitution'}/>
-                  </Box>
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'presence'}/>
-                    <CharacterAttribute character={character} attribute={'influence'}/>
-                    <CharacterAttribute character={character} attribute={'composure'}/>
-                  </Box>
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'intelligence'}/>
-                    <CharacterAttribute character={character} attribute={'wits'}/>
-                    <CharacterAttribute character={character} attribute={'resolve'}/>
-                  </Box>
-                </div>
-                <div className={'character-resources'}>
-                  <div className="character-resource-row">
-                    <CharacterResource character={character} resource={'stamina'}/>
-                    <CharacterResource character={character} resource={'confidence'}/>
-                    <CharacterResource character={character} resource={'focus'}/>
+                  : <Typography variant={'h3'}>{character.name}</Typography>}
+              />
+              <CardContent>
+                <div className={'character-page-content'}>
+                  <div className="character-attributes">
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute character={character} attribute={'strength'}/>
+                      <CharacterAttribute character={character} attribute={'dexterity'}/>
+                      <CharacterAttribute character={character} attribute={'constitution'}/>
+                    </Box>
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute character={character} attribute={'presence'}/>
+                      <CharacterAttribute character={character} attribute={'influence'}/>
+                      <CharacterAttribute character={character} attribute={'composure'}/>
+                    </Box>
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute character={character} attribute={'intelligence'}/>
+                      <CharacterAttribute character={character} attribute={'wits'}/>
+                      <CharacterAttribute character={character} attribute={'resolve'}/>
+                    </Box>
                   </div>
-                  <div className="character-resource-row">
-                    <CharacterResource character={character} resource={'health'}/>
-                    <CharacterResource character={character} resource={'willpower'}/>
-                    <CharacterResource character={character} resource={'mana'}/>
+                  <div className={'character-resources'}>
+                    <div className="character-resource-row">
+                      <CharacterResource character={character} resource={'stamina'}/>
+                      <CharacterResource character={character} resource={'confidence'}/>
+                      <CharacterResource character={character} resource={'focus'}/>
+                    </div>
+                    <div className="character-resource-row">
+                      <CharacterResource character={character} resource={'health'}/>
+                      <CharacterResource character={character} resource={'willpower'}/>
+                      <CharacterResource character={character} resource={'mana'}/>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item>
+            <Card>
+              <CardContent>
+                <CharacterPortraitCard {...character}/>
+                {isEditing && <TextField
+                  label='Portrait URL'
+                  variant='outlined'
+                  margin='dense'
+                  defaultValue={character['portraitUrl']}
+                  onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item>
+            <Card>
+              <CardHeader title='Owned Cards'/>
+              <CardContent>
+                <CardsGrid cards={cards}/>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Card>
-            <CardContent>
-              <CharacterPortraitCard {...character}/>
-              {isEditing && <TextField
-                label='Portrait URL'
-                variant='outlined'
-                margin='dense'
-                defaultValue={character['portraitUrl']}
-                onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item>
-          <Card>
-            <CardHeader title='Owned Cards'/>
-            <CardContent>
-              <CardsGrid cards={cards}/>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </Box>;
+      </Box>
+    </div>;
 };
 
 export default CharacterPage;
