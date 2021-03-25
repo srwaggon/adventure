@@ -4,9 +4,12 @@ public enum CardType {
   ABILITY,
   ACTION,
   CLASS,
+  CREATURE,
+  ENCHANTMENT,
   EQUIPMENT,
   ITEM,
   PASSIVE_ABILITY,
   REACTION,
   SPELL,
+  STATUS,
 }
