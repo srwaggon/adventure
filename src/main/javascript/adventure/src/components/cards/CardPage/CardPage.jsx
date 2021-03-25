@@ -99,6 +99,7 @@ const CardPage = () => {
   const onCancelEdit = () => setEditing(false);
   const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
     .then(response => {
+      setEditing(false);
       if (response.ok) {
         return response.json();
       }
