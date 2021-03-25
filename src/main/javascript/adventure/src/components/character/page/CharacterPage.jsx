@@ -183,7 +183,7 @@ const CharacterPage = () => {
                   : <Typography variant={'h3'}>{character.name}</Typography>}
               />
               <CardContent>
-                <div className={'character-page-content'}>
+                <div className={'character-card-content'}>
                   <div className="character-attributes">
                     <Box className="character-attributes-group" padding={1}>
                       <CharacterAttribute character={character} attribute={'strength'}/>

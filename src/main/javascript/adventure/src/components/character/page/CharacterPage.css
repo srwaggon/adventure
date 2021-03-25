@@ -2,7 +2,7 @@
   max-width: 36em;
 }
 
-.character-page-content {
+.character-card-content {
   display: flex;
   flex-direction: row;
 }
