@@ -13,7 +13,7 @@ const SpecialCard = ({
   body = '',
   flavor = '',
   author = '',
-  isDarkText = false,
+  darkText = false,
 }) => {
   const size = 8;
   const height = size * 3;
@@ -25,7 +25,7 @@ const SpecialCard = ({
     width: `${width}rem`,
   };
 
-  const darkTextModifier = isDarkText ? ' darkText' : '';
+  const darkTextModifier = darkText ? ' darkText' : '';
 
   return (
     <Box className="specialcard" p={1} {...{style}}>

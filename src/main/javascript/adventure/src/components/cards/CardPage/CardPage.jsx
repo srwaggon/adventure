@@ -132,8 +132,8 @@ const CardPage = () => {
               label="Dark Text"
               control={
                 <Switch
-                  checked={card.isDarkText}
-                  onChange={event => setCard({...card, isDarkText: event.target.checked})}
+                  checked={card.darkText}
+                  onChange={event => setCard({...card, darkText: event.target.checked})}
                   color="primary"
                   inputProps={{'aria-label': 'primary checkbox'}}/>}/>
           </Box>
