@@ -43,7 +43,7 @@ const CharacterPage = () => {
   const EditCharacterNameTextField = ({character}) => <TextField
     label={'Name'}
     defaultValue={character.name}
-    variant={'filled'}
+    variant={'outlined'}
     fullWidth
     onChange={event => {
       character.name = event.target.value;
@@ -225,6 +225,7 @@ const CharacterPage = () => {
                   label='Portrait URL'
                   variant='outlined'
                   margin='dense'
+                  fullWidth
                   defaultValue={character['portraitUrl']}
                   onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
               </CardContent>
