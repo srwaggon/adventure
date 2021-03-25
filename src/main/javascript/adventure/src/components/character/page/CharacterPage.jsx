@@ -23,22 +23,23 @@ const CharacterPage = () => {
 
   const history = useHistory();
 
-  useEffect(() => {
-    if (!character) {
-      getCharacter();
-    }
-  });
-
-  function getCharacter() {
-    getCharacterById(characterId)
+  function getCharactersCards(character) {
+    getAllCards()
       .then(response => response.json())
-      .then(character => {
-        setCharacter(character);
-        getAllCards()
-          .then(response => response.json())
-          .then(cards => setCards(cards.filter(card => character.cards.includes(card.id))));
-      });
+      .then(cards => setCards(cards.filter(card => character.cards.includes(card.id))));
   }
+
+  const shouldFetchCharacter = !character || characterId !== character.id;
+  useEffect(() => {
+    if (shouldFetchCharacter) {
+      getCharacterById(characterId)
+        .then(response => response.json())
+        .then(character => {
+          setCharacter(character);
+          getCharactersCards(character);
+        });
+    }
+  }, [shouldFetchCharacter, characterId]);
 
   const EditCharacterNameTextField = ({character}) => <TextField
     label={'Name'}
@@ -103,7 +104,12 @@ const CharacterPage = () => {
 
     const setCharacterResource = number => {
       character[resource].value += number;
-      replaceCharacter(character).then(ignored => getCharacter());
+      replaceCharacter(character)
+        .then(response => response.json())
+        .then(character => {
+          setCharacter(character);
+          getCharactersCards(character);
+        });
     };
 
     const increaseMaximum = () => {
@@ -159,12 +165,22 @@ const CharacterPage = () => {
 
   const onCancelEdit = ignored => {
     setEditing(false);
-    getCharacter();
+    getCharacterById(character.id)
+      .then(response => response.json())
+      .then(character => {
+        setCharacter(character);
+        getCharactersCards(character);
+      });
   };
 
   const onSave = ignored => {
     setEditing(false);
-    replaceCharacter(character).then(ignored => getCharacter());
+    replaceCharacter(character)
+      .then(response => response.json())
+      .then(character => {
+        setCharacter(character);
+        getCharactersCards(character);
+      });
   };
 
   const onEdit = ignored => setEditing(true);
