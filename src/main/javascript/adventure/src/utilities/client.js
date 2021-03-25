@@ -36,6 +36,7 @@ export const getCardById = _getById(cardsEndpoint);
 export const postNewCard = _postNew(cardsEndpoint);
 export const replaceCard = _replace(cardsEndpoint);
 export const deleteCard = _delete(cardsEndpoint);
+export const getCardTypes = _get(`${cardsEndpoint}/types`);
 
 export const client = {
   getAllPlayers,

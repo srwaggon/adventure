@@ -3,6 +3,7 @@ import FlavorText from '../flavor/FlavorText';
 import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
 import {Box, Typography} from '@material-ui/core';
+import {prettifyCardType} from '../../../utilities/kitchen_sink';
 
 const SpecialCard = ({
   name = '',
@@ -28,7 +29,7 @@ const SpecialCard = ({
     <Box className="specialcard" p={1} {...{style}}>
       <span className="specialcard-name">{name}</span>
       <div style={{flexGrow: 1}}/>
-      <span className="specialcard-type">{type.toLowerCase()}</span>
+      <span className="specialcard-type">{prettifyCardType(type)}</span>
       <Box className="specialcard-text" p={2} mt={1} border={1}>
         <Typography variant={'body2'}>
           {applyTransforms(body)}

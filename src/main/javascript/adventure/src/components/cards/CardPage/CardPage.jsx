@@ -13,17 +13,41 @@ import {
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import {deleteCard, getCardById, getCurrentPlayer, postNewCard, replaceCard} from '../../../utilities/client';
+import {
+  deleteCard,
+  getCardById,
+  getCardTypes,
+  getCurrentPlayer,
+  postNewCard,
+  replaceCard,
+} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
+import {prettifyCardType} from '../../../utilities/kitchen_sink';
 
 const newCard = () => ({
   name: undefined,
-  image: undefined,
+  image: 'https://cdn.discordapp.com/attachments/783098091603361842/824651378960891904/unknown.png',
   imageSize: '100%',
   type: 'ABILITY',
   body: undefined,
   flavor: undefined,
 });
+
+const CardTypeSelect = ({card, setCard}) => {
+  const [cardTypes, setCardTypes] = useState([]);
+  useEffect(() => {
+    getCardTypes()
+      .then(response => response.json())
+      .then(json => setCardTypes(json));
+  }, []);
+
+  return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
+    <InputLabel>Type</InputLabel>
+    <Select label={'Type'} defaultValue={card.type} onChange={event => setCard({...card, type: event.target.value})}>
+      {cardTypes.map(cardType => <MenuItem value={cardType}>{prettifyCardType(cardType)}</MenuItem>)}
+    </Select>
+  </FormControl>;
+};
 
 const CardPage = () => {
 
@@ -104,16 +128,7 @@ const CardPage = () => {
             <TextField label={'Image size'} variant={'outlined'} fullWidth margin={'dense'}
                        defaultValue={card.imageSize}
                        onChange={event => setCard({...card, imageSize: event.target.value})}/>
-            <FormControl fullWidth variant={'outlined'} margin={'dense'}>
-              <InputLabel>Type</InputLabel>
-              <Select label={'Type'}
-                      defaultValue={card.type} onChange={event => setCard({...card, type: event.target.value})}>
-                <MenuItem value={'ABILITY'}>Ability</MenuItem>
-                <MenuItem value={'EQUIPMENT'}>Equipment</MenuItem>
-                <MenuItem value={'PASSIVE_ABILITY'}>Passive Ability</MenuItem>
-                <MenuItem value={'ITEM'}>Item</MenuItem>
-              </Select>
-            </FormControl>
+            <CardTypeSelect {...{card, setCard}} />
             <TextField label={'Body'} multiline variant={'outlined'} rows={4} fullWidth margin={'dense'}
                        defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
             <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}

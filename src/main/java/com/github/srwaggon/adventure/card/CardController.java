@@ -1,5 +1,7 @@
 package com.github.srwaggon.adventure.card;
 
+import com.google.common.collect.Lists;
+
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,4 +54,10 @@ public class CardController {
     cardRepository.findById(cardId)
         .ifPresent(cardRepository::delete);
   }
+
+  @GetMapping("/types")
+  public List<CardType> getTypes() {
+    return Lists.newArrayList(CardType.values());
+  }
+
 }
