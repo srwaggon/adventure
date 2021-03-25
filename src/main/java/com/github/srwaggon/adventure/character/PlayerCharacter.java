@@ -25,6 +25,7 @@ public class PlayerCharacter implements Identified<UUID> {
   private final CharacterValue focus = new CharacterValue(0, 2, 1);
   private final CharacterValue health = new CharacterValue(0, 10, 10);
   private final CharacterValue willpower = new CharacterValue(0, 10, 10);
+  private final CharacterValue mana = new CharacterValue(0, 10, 10);
 
   private final List<String> cards = Lists.newArrayList();
 
@@ -107,5 +108,9 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public List<String> getCards() {
     return cards;
+  }
+
+  public CharacterValue getMana() {
+    return mana;
   }
 }

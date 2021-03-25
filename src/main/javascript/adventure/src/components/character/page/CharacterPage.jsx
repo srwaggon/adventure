@@ -212,6 +212,7 @@ const CharacterPage = () => {
                   <div className="character-resource-row">
                     <CharacterResource character={character} resource={'health'}/>
                     <CharacterResource character={character} resource={'willpower'}/>
+                    <CharacterResource character={character} resource={'mana'}/>
                   </div>
                 </div>
               </div>
