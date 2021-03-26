@@ -31,7 +31,7 @@ public class PlayerCharacterService {
 
     PlayerCharacter character = new PlayerCharacter();
 
-    PlayerCharacter savedCharacter = characterRepository.save(character);
+    PlayerCharacter savedCharacter = save(character);
     playersService.addCharacter(currentPlayer, character);
     return savedCharacter;
   }
@@ -54,6 +54,10 @@ public class PlayerCharacterService {
     Card card = cardService.getById(cardId);
     PlayerCharacter character = getCharacterById(characterId);
     character.getCards().add(card.getId());
+    return save(character);
+  }
+
+  public PlayerCharacter save(PlayerCharacter character) {
     return characterRepository.save(character);
   }
 

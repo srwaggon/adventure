@@ -21,11 +21,13 @@ public class PlayerCharacter implements Identified<UUID> {
   private final CharacterValue intelligence = new CharacterValue(1, 5, 1);
   private final CharacterValue wits = new CharacterValue(1, 5, 1);
   private final CharacterValue resolve = new CharacterValue(1, 5, 1);
+
   private final CharacterValue stamina = new CharacterValue(0, 2, 1);
-  private final CharacterValue confidence = new CharacterValue(0, 2, 1);
+  private final CharacterValue reputation = new CharacterValue(0, 10, 10);
   private final CharacterValue focus = new CharacterValue(0, 2, 1);
+
   private final CharacterValue health = new CharacterValue(0, 10, 10);
-  private final CharacterValue willpower = new CharacterValue(0, 10, 10);
+  private final CharacterValue confidence = new CharacterValue(0, 2, 1);
   private final CharacterValue mana = new CharacterValue(0, 10, 10);
 
   private final List<String> cards = Lists.newArrayList();
@@ -111,8 +113,8 @@ public class PlayerCharacter implements Identified<UUID> {
     return health;
   }
 
-  public CharacterValue getWillpower() {
-    return willpower;
+  public CharacterValue getReputation() {
+    return reputation;
   }
 
   public List<String> getCards() {

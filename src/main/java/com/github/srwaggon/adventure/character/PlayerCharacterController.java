@@ -44,7 +44,7 @@ public class PlayerCharacterController {
   @PutMapping("/{characterId}")
   public PlayerCharacter replaceCharacter(@RequestBody PlayerCharacter newCharacter, @PathVariable UUID characterId) {
     newCharacter.setId(characterId);
-    return characterRepository.save(newCharacter);
+    return playerCharacterService.save(newCharacter);
   }
 
   @DeleteMapping("/{characterId}")

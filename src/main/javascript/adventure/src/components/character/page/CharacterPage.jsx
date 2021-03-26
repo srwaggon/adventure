@@ -220,12 +220,12 @@ const CharacterPage = () => {
                   <div className={'character-resources'}>
                     <div className="character-resource-row">
                       <CharacterResource character={character} resource={'stamina'}/>
-                      <CharacterResource character={character} resource={'confidence'}/>
+                      <CharacterResource character={character} resource={'reputation'}/>
                       <CharacterResource character={character} resource={'focus'}/>
                     </div>
                     <div className="character-resource-row">
                       <CharacterResource character={character} resource={'health'}/>
-                      <CharacterResource character={character} resource={'willpower'}/>
+                      <CharacterResource character={character} resource={'confidence'}/>
                       <CharacterResource character={character} resource={'mana'}/>
                     </div>
                   </div>
