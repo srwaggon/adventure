@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-d
 import CharacterPage from '../character/page/CharacterPage';
 import CharactersPage from '../character/CharactersPage/CharactersPage';
 import CardsPage from '../cards/cardspage/CardsPage';
-import {AppBar, Button, Container, Paper, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Button, Toolbar, Typography} from '@material-ui/core';
 import CardPage from '../cards/CardPage/CardPage';
 
 const Navigation = () => {
@@ -23,24 +23,21 @@ const Navigation = () => {
 };
 
 const App = () => {
-  return (<Paper className="App">
+  return (<Box className="App">
     <Router>
-      <Container style={{minHeight: '100vh'}}>
-        <Paper>
-          <AppBar position={'static'}>
-            <Navigation/>
-          </AppBar>
-          <Switch>
-            <Route path="/cards/:cardId"><CardPage/></Route>
-            <Route path="/cards"><CardsPage/></Route>
-            <Route path="/characters/:characterId"><CharacterPage/></Route>
-            <Route path="/characters"><CharactersPage/></Route>
-            <Route path="/"><CharactersPage/></Route>
-          </Switch>
-        </Paper>
-      </Container>
+      <AppBar position={'static'}>
+        <Navigation/>
+      </AppBar>
+      <Switch>
+        <Route path="/cards/:cardId"><CardPage/></Route>
+        <Route path="/cards"><CardsPage/></Route>
+        <Route path="/characters/:characterId"><CharacterPage/></Route>
+        <Route path="/characters"><CharactersPage/></Route>
+        <Route path="/"><CharactersPage/></Route>
+      </Switch>
     </Router>
-  </Paper>);
+  </Box>)
+    ;
 };
 
 export default App;
