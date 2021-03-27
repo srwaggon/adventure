@@ -26,7 +26,43 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
-import PageHeaderBar from '../../Page/PageHeaderBar';
+import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
+
+const AddCardToCharacterCard = ({characterId}) => {
+
+  const [cards, setCards] = useState([]);
+
+  const [filterTerm, setFilterTerm] = useState('');
+  
+  useEffect(() => {
+    getAllCards()
+      .then(response => response.json())
+      .then(setCards);
+  }, []);
+
+  return <Card>
+    <AppBar color='default' position='static'>
+      <Toolbar>
+        <Typography variant='h6'>Add to Character</Typography>
+        <div style={{flexGrow: 1}}/>
+        <TextField
+          label='Filter by name'
+          variant='outlined'
+          margin='dense'
+          defaultValue={filterTerm}
+          onChange={event => setFilterTerm(event.target.value.toLowerCase())}
+        />
+      </Toolbar>
+    </AppBar>
+    <CardContent>
+      <CardsGrid cards={
+        filterTerm.length > 0
+          ? cards.filter((card) => card.name.toLowerCase().includes(filterTerm))
+          : cards.slice(0,5)
+      }/>
+    </CardContent>
+  </Card>;
+};
 
 const CharacterPage = () => {
 
@@ -271,11 +307,19 @@ const CharacterPage = () => {
           </Grid>
           <Grid item>
             <Card>
-              <CardHeader title='Owned Cards'/>
+              <AppBar color='default' position='static'>
+                <Toolbar>
+                  <Typography variant='h6' style={{flexGrow: 1}}>Cards</Typography>
+                  <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+                </Toolbar>
+              </AppBar>
               <CardContent>
                 <CardsGrid cards={cards}/>
               </CardContent>
             </Card>
+          </Grid>
+          <Grid item>
+            <AddCardToCharacterCard characterId={characterId}/>
           </Grid>
         </Grid>
       </Box>
