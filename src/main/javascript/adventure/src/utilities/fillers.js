@@ -116,7 +116,12 @@ export const demoCharacter = {
     'minimum': 1,
     'maximum': 20,
   },
-  'willpower': {
+  'reputation': {
+    'value': 10,
+    'minimum': 1,
+    'maximum': 10,
+  },
+  'mana': {
     'value': 10,
     'minimum': 1,
     'maximum': 10,
