@@ -15,8 +15,8 @@ const SpecialCard = ({
   author = '',
   darkText = false,
 }) => {
-  const size = 8;
-  const height = size * 3;
+  const size = 22.5;
+  const height = size;
   const width = .74 * height;
   const backgroundStyles = image && image !== '' ? {backgroundImage: `url(${image})`, backgroundSize: imageSize} : {};
   const style = {
