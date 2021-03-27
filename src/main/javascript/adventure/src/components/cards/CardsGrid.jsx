@@ -4,7 +4,7 @@ import SpecialCard from './specialcard/SpecialCard';
 import React from 'react';
 
 const CardsGrid = ({cards = []}) =>
-  <Grid container justify={'space-evenly'} spacing={4}>
+  <Grid container justify={'center'} spacing={1}>
     {cards.map(card =>
       <Grid item>
         <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
