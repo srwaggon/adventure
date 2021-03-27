@@ -28,17 +28,19 @@ const SpecialCard = ({
   const darkTextModifier = darkText ? ' darkText' : '';
 
   return (
-    <Box className="specialcard" p={1} {...{style}}>
-      <span className={`specialcard-name${darkTextModifier}`}>{name}</span>
-      <div style={{flexGrow: 1}}/>
-      <span className={`specialcard-type${darkTextModifier}`}>{prettifyCardType(type)}</span>
-      <Box className='specialcard-text' p={2} mt={1} border={1}>
-        <Typography variant={'body2'}>
-          {applyTransforms(body)}
-          <FlavorText>{applyTransforms(flavor)}</FlavorText>
-        </Typography>
+    <Box className='specialcard'>
+      <Box className="specialcard-content" p={1} {...{style}}>
+        <span className={`specialcard-name${darkTextModifier}`}>{name}</span>
+        <div style={{flexGrow: 1}}/>
+        <span className={`specialcard-type${darkTextModifier}`}>{prettifyCardType(type)}</span>
+        <Box className='specialcard-text' p={2} mt={1} border={1}>
+          <Typography variant={'body2'}>
+            {applyTransforms(body)}
+            <FlavorText>{applyTransforms(flavor)}</FlavorText>
+          </Typography>
+        </Box>
+        <Box textAlign={'center'} className="specialcard-author">{author}</Box>
       </Box>
-      <Box textAlign={'center'} className="specialcard-author">{author}</Box>
     </Box>
   );
 };
