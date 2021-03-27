@@ -84,7 +84,7 @@ const CardPage = () => {
           <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
         </Toolbar>
       </AppBar>
-      <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly'>
+      <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
         <SpecialCard {...card} />
         <Card>
           <Box p={4} display='flex' flexDirection='column' width={'20rem'}>
