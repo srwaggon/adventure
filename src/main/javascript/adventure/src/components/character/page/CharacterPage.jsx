@@ -15,8 +15,9 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Grid,
+  Container,
   IconButton,
+  MenuItem,
   TextField,
   Toolbar,
   Typography,
@@ -27,41 +28,65 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
+import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
 
 const AddCardToCharacterCard = ({characterId}) => {
 
   const [cards, setCards] = useState([]);
 
-  const [filterTerm, setFilterTerm] = useState('');
-  
+  const [filter, setFilter] = useState({
+    name: '',
+    type: 'any',
+  });
+
   useEffect(() => {
     getAllCards()
       .then(response => response.json())
       .then(setCards);
   }, []);
 
-  return <Card>
-    <AppBar color='default' position='static'>
-      <Toolbar>
-        <Typography variant='h6'>Add to Character</Typography>
-        <div style={{flexGrow: 1}}/>
-        <TextField
-          label='Filter by name'
-          variant='outlined'
-          margin='dense'
-          defaultValue={filterTerm}
-          onChange={event => setFilterTerm(event.target.value.toLowerCase())}
-        />
-      </Toolbar>
-    </AppBar>
-    <CardContent>
-      <CardsGrid cards={
-        filterTerm.length > 0
-          ? cards.filter((card) => card.name.toLowerCase().includes(filterTerm))
-          : cards.slice(0,5)
-      }/>
-    </CardContent>
-  </Card>;
+  const filterName = (name) => name.toLowerCase().includes(filter.name);
+  const filterType = (type) => type === filter.type || filter.type === 'any';
+  const filterCard = ({name, type}) => filterName(name) && filterType(type);
+  return <Box minWidth={'100%'}>
+    <Card>
+      <AppBar color='default' position='static'>
+        <Toolbar>
+          <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
+            <Box flexGrow={1} flexShrink={0}>
+              <Typography variant='h6'>Add to Character</Typography>
+            </Box>
+            <Box display={'flex'} flexGrow={2} flexShrink={0} justifyContent={'flex-end'} flexWrap={'wrap'}>
+              <Box flexGrow={1} flexShrink={0}>
+                <CardTypeSelect
+                  defaultValue={'any'}
+                  onSelectType={(type) => setFilter({...filter, type})}>
+                  <MenuItem value={'any'}>Any</MenuItem>
+                </CardTypeSelect>
+              </Box>
+              <Box flexGrow={1} flexShrink={0} pl={1}>
+                <TextField
+                  label='Filter by name'
+                  variant='outlined'
+                  margin='dense'
+                  fullWidth
+                  defaultValue={filter.term}
+                  onChange={event => setFilter({...filter, name: event.target.value.toLowerCase()})}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <CardContent>
+        <CardsGrid cards={
+          filter.name.length > 0 || filter.type !== 'any'
+            ? cards.filter(filterCard)
+            : cards.slice(0, 5)
+        }/>
+      </CardContent>
+    </Card>
+  </Box>;
 };
 
 const CharacterPage = () => {
@@ -70,7 +95,7 @@ const CharacterPage = () => {
 
   const [character, setCharacter] = useState(undefined);
 
-  const [cards, setCards] = useState(undefined);
+  const [cards, setCards] = useState([]);
 
   const [isEditing, setEditing] = useState(false);
 
@@ -247,82 +272,80 @@ const CharacterPage = () => {
           <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
         </Toolbar>
       </AppBar>
-      <Box className="character-page" p={4}>
-        <Grid container spacing={4} justify={'center'}>
-          <Grid item>
-            <Card className={'character-card'}>
-              <CardHeader title={
-                isEditing
-                  ? <EditCharacterNameTextField character={character}/>
-                  : <Typography variant={'h3'}>{character.name}</Typography>}
-              />
-              <CardContent>
-                <div className={'character-card-content'}>
-                  <div className="character-attributes">
-                    <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute character={character} attribute={'strength'}/>
-                      <CharacterAttribute character={character} attribute={'dexterity'}/>
-                      <CharacterAttribute character={character} attribute={'constitution'}/>
-                    </Box>
-                    <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute character={character} attribute={'presence'}/>
-                      <CharacterAttribute character={character} attribute={'influence'}/>
-                      <CharacterAttribute character={character} attribute={'composure'}/>
-                    </Box>
-                    <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute character={character} attribute={'intelligence'}/>
-                      <CharacterAttribute character={character} attribute={'wits'}/>
-                      <CharacterAttribute character={character} attribute={'resolve'}/>
-                    </Box>
+      <Container>
+        <Box p={1}>
+          <Card className={'character-card'}>
+            <CardHeader title={
+              isEditing
+                ? <EditCharacterNameTextField character={character}/>
+                : <Typography variant={'h3'}>{character.name}</Typography>}
+            />
+            <CardContent>
+              <div className={'character-card-content'}>
+                <div className="character-attributes">
+                  <Box className="character-attributes-group" padding={1}>
+                    <CharacterAttribute character={character} attribute={'strength'}/>
+                    <CharacterAttribute character={character} attribute={'dexterity'}/>
+                    <CharacterAttribute character={character} attribute={'constitution'}/>
+                  </Box>
+                  <Box className="character-attributes-group" padding={1}>
+                    <CharacterAttribute character={character} attribute={'presence'}/>
+                    <CharacterAttribute character={character} attribute={'influence'}/>
+                    <CharacterAttribute character={character} attribute={'composure'}/>
+                  </Box>
+                  <Box className="character-attributes-group" padding={1}>
+                    <CharacterAttribute character={character} attribute={'intelligence'}/>
+                    <CharacterAttribute character={character} attribute={'wits'}/>
+                    <CharacterAttribute character={character} attribute={'resolve'}/>
+                  </Box>
+                </div>
+                <div className={'character-resources'}>
+                  <div className="character-resource-row">
+                    <CharacterResource character={character} resource={'stamina'}/>
+                    <CharacterResource character={character} resource={'reputation'}/>
+                    <CharacterResource character={character} resource={'focus'}/>
                   </div>
-                  <div className={'character-resources'}>
-                    <div className="character-resource-row">
-                      <CharacterResource character={character} resource={'stamina'}/>
-                      <CharacterResource character={character} resource={'reputation'}/>
-                      <CharacterResource character={character} resource={'focus'}/>
-                    </div>
-                    <div className="character-resource-row">
-                      <CharacterResource character={character} resource={'health'}/>
-                      <CharacterResource character={character} resource={'confidence'}/>
-                      <CharacterResource character={character} resource={'mana'}/>
-                    </div>
+                  <div className="character-resource-row">
+                    <CharacterResource character={character} resource={'health'}/>
+                    <CharacterResource character={character} resource={'confidence'}/>
+                    <CharacterResource character={character} resource={'mana'}/>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <CardContent>
-                <CharacterPortraitCard {...character}/>
-                {isEditing && <TextField
-                  label='Portrait URL'
-                  variant='outlined'
-                  margin='dense'
-                  fullWidth
-                  defaultValue={character['portraitUrl']}
-                  onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <AppBar color='default' position='static'>
-                <Toolbar>
-                  <Typography variant='h6' style={{flexGrow: 1}}>Cards</Typography>
-                  <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
-                </Toolbar>
-              </AppBar>
-              <CardContent>
-                <CardsGrid cards={cards}/>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <AddCardToCharacterCard characterId={characterId}/>
-          </Grid>
-        </Grid>
-      </Box>
+              </div>
+            </CardContent>
+          </Card>
+        </Box>
+        <Box p={1}>
+          <Card>
+            <CardContent>
+              <CharacterPortraitCard {...character}/>
+              {isEditing && <TextField
+                label='Portrait URL'
+                variant='outlined'
+                margin='dense'
+                fullWidth
+                defaultValue={character['portraitUrl']}
+                onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
+            </CardContent>
+          </Card>
+        </Box>
+        <Box p={1}>
+          <Card>
+            <AppBar color='default' position='static'>
+              <Toolbar>
+                <Typography variant='h6' style={{flexGrow: 1}}>Cards</Typography>
+                <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+              </Toolbar>
+            </AppBar>
+            <CardContent>
+              <CardsGrid cards={cards}/>
+            </CardContent>
+          </Card>
+        </Box>
+        <Box p={1}>
+          <AddCardToCharacterCard characterId={characterId}/>
+        </Box>
+      </Container>
     </div>;
 };
 
