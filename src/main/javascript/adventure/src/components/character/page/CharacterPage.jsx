@@ -2,8 +2,25 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {Box, Card, CardContent, CardHeader, Grid, IconButton, TextField, Typography} from '@material-ui/core';
+import {
+  deleteCharacter,
+  getAllCards,
+  getCharacterById,
+  getCharactersCards,
+  replaceCharacter,
+} from '../../../utilities/client';
+import {
+  AppBar,
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  IconButton,
+  TextField,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
 import {AddBox, Backspace} from '@material-ui/icons';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -188,7 +205,12 @@ const CharacterPage = () => {
   return !character
     ? <div>Loading...</div>
     : <div>
-      <PageHeaderBar {...{title: 'Character Details', isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
+      <AppBar color='default' position='static'>
+        <Toolbar>
+          <Typography variant='h6' style={{flexGrow: 1}}>Character Details</Typography>
+          <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+        </Toolbar>
+      </AppBar>
       <Box className="character-page" p={4}>
         <Grid container spacing={4} justify={'center'}>
           <Grid item>

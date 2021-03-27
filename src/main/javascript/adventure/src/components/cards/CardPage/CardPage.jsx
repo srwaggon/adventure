@@ -1,4 +1,5 @@
 import {
+  AppBar,
   Box,
   Card,
   FormControl,
@@ -8,6 +9,8 @@ import {
   Select,
   Switch,
   TextField,
+  Toolbar,
+  Typography,
 } from '@material-ui/core';
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
@@ -21,7 +24,7 @@ import {
   replaceCard,
 } from '../../../utilities/client';
 import {prettifyCardType} from '../../../utilities/kitchen_sink';
-import PageHeaderBar from '../../Page/PageHeaderBar';
+import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 
 const newCard = () => ({
   name: undefined,
@@ -111,7 +114,12 @@ const CardPage = () => {
   return !card
     ? <span>Loading...</span>
     : <div>
-      <PageHeaderBar {...{title: 'Card Details', isEditing, onEdit, onCancelEdit, onSave, onDelete}} />
+      <AppBar color='default' position='static'>
+        <Toolbar>
+          <Typography variant='h6' style={{flexGrow: 1}}>Card Details</Typography>
+          <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+        </Toolbar>
+      </AppBar>
       <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly'>
         <SpecialCard {...card} />
         <Card>
