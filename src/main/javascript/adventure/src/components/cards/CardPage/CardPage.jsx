@@ -1,30 +1,10 @@
-import {
-  AppBar,
-  Box,
-  Card,
-  FormControl,
-  FormControlLabel,
-  InputLabel,
-  MenuItem,
-  Select,
-  Switch,
-  TextField,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import {AppBar, Box, Card, FormControlLabel, Switch, TextField, Toolbar, Typography} from '@material-ui/core';
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import {
-  deleteCard,
-  getCardById,
-  getCardTypes,
-  getCurrentPlayer,
-  postNewCard,
-  replaceCard,
-} from '../../../utilities/client';
-import {prettifyCardType} from '../../../utilities/kitchen_sink';
+import {deleteCard, getCardById, getCurrentPlayer, postNewCard, replaceCard} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
+import CardTypeSelect from '../CardTypeSelect/CardTypeSelect';
 
 const newCard = () => ({
   name: undefined,
@@ -34,22 +14,6 @@ const newCard = () => ({
   body: undefined,
   flavor: undefined,
 });
-
-const CardTypeSelect = ({card, setCard}) => {
-  const [cardTypes, setCardTypes] = useState([]);
-  useEffect(() => {
-    getCardTypes()
-      .then(response => response.json())
-      .then(json => setCardTypes(json));
-  }, []);
-
-  return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
-    <InputLabel>Type</InputLabel>
-    <Select label={'Type'} defaultValue={card.type} onChange={event => setCard({...card, type: event.target.value})}>
-      {cardTypes.map(cardType => <MenuItem value={cardType}>{prettifyCardType(cardType)}</MenuItem>)}
-    </Select>
-  </FormControl>;
-};
 
 const CardPage = () => {
 
