@@ -2,7 +2,7 @@ import './App.css';
 
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
-import CharacterPage from '../character/page/CharacterPage';
+import CharacterPage from '../character/CharacterPage/CharacterPage';
 import CharactersPage from '../character/CharactersPage/CharactersPage';
 import CardsPage from '../cards/cardspage/CardsPage';
 import {AppBar, Box, Button, Toolbar, Typography} from '@material-ui/core';
