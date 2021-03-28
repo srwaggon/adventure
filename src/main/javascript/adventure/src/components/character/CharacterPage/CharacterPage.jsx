@@ -22,6 +22,7 @@ import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCar
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
+import CharacterAttribute from './CharacterAttribute';
 
 const CharacterPage = () => {
 
@@ -63,52 +64,6 @@ const CharacterPage = () => {
       setCharacter(character);
     }}
   />;
-
-  const CharacterAttribute = ({character, attribute}) => {
-    const value = character[attribute].value;
-
-    function increaseValue() {
-      character[attribute].value += 1;
-      setCharacter({...character});
-    }
-
-    function reduceValue() {
-      character[attribute].value -= 1;
-      setCharacter({...character});
-    }
-
-    return (
-      <div className="character-attribute">
-        <div className="character-attribute-name">{attribute}</div>
-        <div className="character-attribute-value">
-          {[...Array(value).keys()].map((int) =>
-            <IconButton
-              key={attribute}
-              color={'default'}
-              size={'small'}
-              style={{margin: '-4px'}}
-              checked={int < value}
-            ><CheckBoxIcon/></IconButton>,
-          )}
-          {isEditing && value > 1 && <IconButton
-            checked={false}
-            color={'primary'}
-            size={'small'}
-            style={{margin: '-4px'}}
-            onClick={reduceValue}
-          ><Backspace/></IconButton>}
-          {isEditing && value < 5 && <IconButton
-            checked={false}
-            color={'primary'}
-            size={'small'}
-            style={{margin: '-4px'}}
-            fullWidth={true}
-            onClick={increaseValue}
-          ><AddBox/></IconButton>}
-        </div>
-      </div>
-    );
-  };
 
   const CharacterResource = ({character, resource}) => {
     const max = character[resource].maximum;
@@ -218,19 +173,19 @@ const CharacterPage = () => {
               <div className={'character-card-content'}>
                 <div className="character-attributes">
                   <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'strength'}/>
-                    <CharacterAttribute character={character} attribute={'dexterity'}/>
-                    <CharacterAttribute character={character} attribute={'constitution'}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'strength'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'dexterity'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'constitution'}}/>
                   </Box>
                   <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'presence'}/>
-                    <CharacterAttribute character={character} attribute={'influence'}/>
-                    <CharacterAttribute character={character} attribute={'composure'}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'presence'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'influence'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'composure'}}/>
                   </Box>
                   <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute character={character} attribute={'intelligence'}/>
-                    <CharacterAttribute character={character} attribute={'wits'}/>
-                    <CharacterAttribute character={character} attribute={'resolve'}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'intelligence'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'wits'}}/>
+                    <CharacterAttribute {...{character, setCharacter, isEditing, attribute: 'resolve'}}/>
                   </Box>
                 </div>
                 <div className={'character-resources'}>
