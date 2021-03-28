@@ -35,7 +35,7 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
 
   return <Box minWidth={'100%'}>
     <Card>
-      <AppBarFilter filter={filter} setFilter={setFilter}/>
+      <AppBarFilter title={'Add to Character'} filter={filter} setFilter={setFilter}/>
       <CardContent>
         <CardsGrid
           cards={filteredCards}
@@ -52,12 +52,12 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
   </Box>;
 };
 
-const AppBarFilter = ({setFilter, filter}) =>
+const AppBarFilter = ({title, filter, setFilter}) =>
   <AppBar color='default' position='static'>
     <Toolbar>
       <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
         <Box flexGrow={1} flexShrink={0}>
-          <Typography variant='h6'>Add to Character</Typography>
+          <Typography variant='h6'>{title}</Typography>
         </Box>
         <Box display={'flex'} flexGrow={2} flexShrink={0} justifyContent={'flex-end'} flexWrap={'wrap'}>
           <Box flexGrow={1} flexShrink={0}>
