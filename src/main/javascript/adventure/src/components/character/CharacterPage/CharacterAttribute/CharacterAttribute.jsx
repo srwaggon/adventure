@@ -1,7 +1,7 @@
-import './CharacterAttribute.css'
+import './CharacterAttribute.css';
 
 import {IconButton} from '@material-ui/core';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
 
@@ -29,7 +29,7 @@ const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => 
             size={'small'}
             style={{margin: '-4px'}}
             checked={int < value}
-          ><RadioButtonCheckedIcon/></IconButton>,
+          ><FiberManualRecordIcon/></IconButton>,
         )}
         {isEditing && value > 1 && <IconButton
           checked={false}
