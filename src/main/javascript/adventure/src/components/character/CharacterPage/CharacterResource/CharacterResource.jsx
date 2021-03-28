@@ -7,6 +7,37 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
 
+const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
+  const decreaseMaximum = () => {
+    character[resource].maximum -= 1;
+    setCharacter({...character});
+  };
+
+  return <IconButton
+    checked={false}
+    color={'primary'}
+    size={'small'}
+    style={{margin: '-4px'}}
+    onClick={decreaseMaximum}
+  ><Backspace/></IconButton>;
+};
+
+const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
+  const increaseMaximum = () => {
+    character[resource].maximum += 1;
+    setCharacter({...character});
+  };
+
+  return <IconButton
+    checked={false}
+    color={'primary'}
+    size={'small'}
+    style={{margin: '-4px'}}
+    fullWidth={true}
+    onClick={increaseMaximum}
+  ><AddBox/></IconButton>;
+};
+
 const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
   const max = character[resource].maximum;
   const value = character[resource].value;
@@ -18,16 +49,6 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
       .then(character => {
         setCharacter(character);
       });
-  };
-
-  const increaseMaximum = () => {
-    character[resource].maximum += 1;
-    setCharacter({...character});
-  };
-
-  const reduceMaximum = () => {
-    character[resource].maximum -= 1;
-    setCharacter({...character});
   };
 
   return (
@@ -48,21 +69,8 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
               {int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
             </IconButton>)}
 
-        {isEditing && <IconButton
-          checked={false}
-          color={'primary'}
-          size={'small'}
-          style={{margin: '-4px'}}
-          onClick={reduceMaximum}
-        ><Backspace/></IconButton>}
-        {isEditing && <IconButton
-          checked={false}
-          color={'primary'}
-          size={'small'}
-          style={{margin: '-4px'}}
-          fullWidth={true}
-          onClick={increaseMaximum}
-        ><AddBox/></IconButton>}
+        {isEditing && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
+        {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
       </div>
     </Box>
   );
