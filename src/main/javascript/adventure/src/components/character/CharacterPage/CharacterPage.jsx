@@ -101,7 +101,7 @@ const CharacterPage = () => {
 
   const onEdit = ignored => setEditing(true);
 
-  const characterPageProps = {character, setCharacter, isEditing, setEditing};
+  const characterPageState = {character, setCharacter, cards, setCards, isEditing, setEditing};
 
   return !character
     ? <div>Loading...</div>
@@ -139,54 +139,54 @@ const CharacterPage = () => {
                   <Typography variant='h5'>Attributes</Typography>
                   <Box display='flex' flexWrap='wrap' justifyContent='center'>
                     <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute {...characterPageProps} attribute={'strength'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'dexterity'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'constitution'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'strength'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'dexterity'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'constitution'}/>
                     </Box>
                     <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute {...characterPageProps} attribute={'presence'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'influence'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'composure'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'presence'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'influence'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'composure'}/>
                     </Box>
                     <Box className="character-attributes-group" padding={1}>
-                      <CharacterAttribute {...characterPageProps} attribute={'intelligence'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'wits'}/>
-                      <CharacterAttribute {...characterPageProps} attribute={'resolve'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'intelligence'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'wits'}/>
+                      <CharacterAttribute {...characterPageState} attribute={'resolve'}/>
                     </Box>
                   </Box>
                   <Typography variant='h5'>Resources</Typography>
                   <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'stamina'}/></Box>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'confidence'}/></Box>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'focus'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'stamina'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'confidence'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'focus'}/></Box>
                   </Box>
                   <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'health'}/></Box>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'reputation'}/></Box>
-                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'mana'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'health'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'reputation'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'mana'}/></Box>
                   </Box>
                 </Box>
               </Box>
               <Typography variant='h5'>Proficiencies</Typography>
               <Box display='flex' flexWrap='wrap' flexDirection={'row'}>
-                <ProficiencyChip {...characterPageProps} proficiency={'acrobatics'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'animal handling'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'athletics'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'arcana'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'deception'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'history'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'investigation'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'insight'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'intimidation'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'medicine'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'nature'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'perception'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'religion'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'performance'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'persuasion'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'sleight of hand'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'stealth'}/>
-                <ProficiencyChip {...characterPageProps} proficiency={'survival'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'acrobatics'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'animal handling'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'athletics'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'arcana'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'deception'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'history'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'investigation'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'insight'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'intimidation'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'medicine'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'nature'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'perception'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'religion'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'performance'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'persuasion'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'sleight of hand'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'stealth'}/>
+                <ProficiencyChip {...characterPageState} proficiency={'survival'}/>
               </Box>
             </CardContent>
           </Card>
