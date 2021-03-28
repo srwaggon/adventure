@@ -22,21 +22,9 @@ import EditCharacterNameTextField from './EditCharacterNameTextField';
 const CharacterPage = () => {
 
   const {characterId} = useParams();
-
-  const [character, setCharacter] = useState(undefined);
-
-  const [cards, setCards] = useState([]);
-
-  const [isEditing, setEditing] = useState(false);
-
   const history = useHistory();
 
-  const fetchCharactersCards = character => {
-    getCharactersCards(character.id)
-      .then(response => response.json())
-      .then(setCards);
-  };
-
+  const [character, setCharacter] = useState(undefined);
   const shouldFetchCharacter = !character || characterId !== character.id;
   useEffect(() => {
     if (shouldFetchCharacter) {
@@ -49,12 +37,21 @@ const CharacterPage = () => {
     }
   }, [shouldFetchCharacter, characterId]);
 
+  const [cards, setCards] = useState([]);
+  const fetchCharactersCards = character => {
+    getCharactersCards(character.id)
+      .then(response => response.json())
+      .then(setCards);
+  };
+
   const [proficiencies, setProficiencies] = useState([]);
   useEffect(() => {
     getAllProficiencies()
       .then(response => response.json())
       .then(setProficiencies);
   }, []);
+
+  const [isEditing, setEditing] = useState(false);
 
   const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
