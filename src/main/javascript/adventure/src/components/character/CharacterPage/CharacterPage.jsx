@@ -10,13 +10,12 @@ import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
-import {demoCharacter} from '../../../utilities/fillers';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(demoCharacter);
+  const [character, setCharacter] = useState(undefined);
 
   const [cards, setCards] = useState([]);
 
