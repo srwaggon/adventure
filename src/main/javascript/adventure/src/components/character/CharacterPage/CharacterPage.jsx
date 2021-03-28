@@ -206,16 +206,18 @@ const CharacterPage = () => {
                 CardDecorator={({children, index}) =>
                   <Card>
                     {children}
-                    <DeleteButton onClick={() => {
-                      const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
-                      const newCharacter = {...character, cards: newCards};
-                      replaceCharacter(newCharacter)
-                        .then(response => response.json())
-                        .then(json => {
-                          setCharacter(json);
-                          fetchCharactersCards(character);
-                        });
-                    }}/>
+                    <DeleteButton
+                      disabled={!isEditing}
+                      onClick={() => {
+                        const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
+                        const newCharacter = {...character, cards: newCards};
+                        replaceCharacter(newCharacter)
+                          .then(response => response.json())
+                          .then(json => {
+                            setCharacter(json);
+                            fetchCharactersCards(character);
+                          });
+                      }}/>
                   </Card>
                 }
               />
