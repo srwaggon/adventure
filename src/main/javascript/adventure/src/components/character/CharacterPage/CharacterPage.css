@@ -19,19 +19,3 @@
 .character-resource-row {
   border-left: solid thin black;
 }
-
-.character-resource {
-  width: 14rem;
-}
-
-.character-resource-name {
-  text-transform: capitalize;
-}
-
-.character-resource-value {
-  margin: 0 -3px;
-}
-
-.character-resource-group-health {
-  width: 38.85rem;
-}
