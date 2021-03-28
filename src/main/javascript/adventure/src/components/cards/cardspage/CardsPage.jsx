@@ -2,7 +2,7 @@ import './CardsPage.css';
 
 import React, {useEffect, useState} from 'react';
 import {getAllCards} from '../../../utilities/client';
-import {AppBar, Box, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Container, Toolbar, Typography} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import CardsGrid from '../CardsGrid';
 import {useHistory} from 'react-router-dom';
@@ -28,9 +28,11 @@ const CardsPage = () => {
         <AddButton onClick={() => history.push('/cards/new')}/>
       </Toolbar>
     </AppBar>
-    <Box p={4}>
-      <CardsGrid cards={cards || []}/>
-    </Box>
+    <Container>
+      <Box p={4}>
+        <CardsGrid cards={cards || []}/>
+      </Box>
+    </Container>
   </div>;
 };
 

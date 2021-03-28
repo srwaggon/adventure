@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 
 import {getCurrentPlayersCharacters, postNewCharacter} from '../../../utilities/client';
 import {Link, useHistory} from 'react-router-dom';
-import {AppBar, Box, Card, Grid, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Card, Container, Grid, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import AddButton from '../../buttons/AddButton';
@@ -48,19 +48,21 @@ const CharacterSelectionPage = () => {
         <AddButton onClick={onClickCreateCharacter}/>
       </Toolbar>
     </AppBar>
-    <Box p={4}>
-      <Grid className={'character-selections-panel'} container justify="center" spacing={4}>
-        {characters && characters.length > 0
-          ? characterPortraits.map(x => <Grid item>{x}</Grid>)
-          : <Grid item>
-            <Card className={'character-new-card character-panel'} onClick={onClickCreateCharacter}>
-              <Box flexDirection={'column'} justifyContent={'center'} height={'100%'}>
-                <PersonAddIcon style={{fontSize: 128, margin: '0 auto', height: '100%'}}/>
-              </Box>
-            </Card>
-          </Grid>}
-      </Grid>
-    </Box>
+    <Container>
+      <Box p={4}>
+        <Grid className={'character-selections-panel'} container justify="center" spacing={4}>
+          {characters && characters.length > 0
+            ? characterPortraits.map(x => <Grid item>{x}</Grid>)
+            : <Grid item>
+              <Card className={'character-new-card character-panel'} onClick={onClickCreateCharacter}>
+                <Box flexDirection={'column'} justifyContent={'center'} height={'100%'}>
+                  <PersonAddIcon style={{fontSize: 128, margin: '0 auto', height: '100%'}}/>
+                </Box>
+              </Card>
+            </Grid>}
+        </Grid>
+      </Box>
+    </Container>
   </div>;
 };
 
