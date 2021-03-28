@@ -1,13 +1,15 @@
-import {IconButton} from '@material-ui/core';
+import {Box, IconButton} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const DeleteButton = ({onClick}) => {
-  return <IconButton
-    aria-label={'delete'}
-    color={'secondary'}
-    onClick={onClick}>
-    <DeleteIcon/>
-  </IconButton>;
+  return <Box>
+    <IconButton
+      aria-label={'delete'}
+      color={'secondary'}
+      onClick={onClick}>
+      <DeleteIcon/>
+    </IconButton>
+  </Box>;
 };
 
 export default DeleteButton;
