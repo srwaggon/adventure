@@ -3,37 +3,14 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {AppBar, Box, Card, CardContent, Chip, Container, TextField, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
-import {arrayRemoveAll, capitalize} from '../../../utilities/kitchen_sink';
 import CharacterCards from './CharacterCards';
-
-const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
-  const proficiencies = character.proficiencies || [];
-  const isProficient = proficiencies.indexOf(proficiency) > -1;
-  return (isEditing || isProficient) && <Box m={1}>
-    <Chip
-      label={capitalize(proficiency)}
-      clickable
-      color={isEditing && isProficient ? 'primary' : 'default'}
-      onClick={() => {
-        if (isEditing) {
-          if (isProficient) {
-            arrayRemoveAll(proficiencies, proficiency);
-          } else {
-            proficiencies.push(proficiency);
-          }
-        }
-        console.log(proficiencies);
-        setCharacter({...character, proficiencies});
-      }}
-    />
-  </Box>;
-};
+import ProficiencyChip from './ProficiencyChip';
 
 const CharacterPage = () => {
 
@@ -64,18 +41,6 @@ const CharacterPage = () => {
         });
     }
   }, [shouldFetchCharacter, characterId]);
-
-  const EditCharacterNameTextField = ({character}) =>
-    <TextField
-      label={'Name'}
-      defaultValue={character.name}
-      variant={'outlined'}
-      fullWidth
-      onChange={event => {
-        character.name = event.target.value;
-        setCharacter(character);
-      }}
-    />;
 
   const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
@@ -133,7 +98,7 @@ const CharacterPage = () => {
                 <Box>
                   <Box display='flex' flexGrow={3} p={1}>
                     {isEditing
-                      ? <EditCharacterNameTextField character={character}/>
+                      ? <EditCharacterNameTextField character={character} setCharacter={setCharacter}/>
                       : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
                   </Box>
                   <Typography variant='h5'>Attributes</Typography>
@@ -200,5 +165,18 @@ const CharacterPage = () => {
       </Container>
     </div>;
 };
+
+const EditCharacterNameTextField = ({character, setCharacter}) =>
+  <TextField
+    label={'Name'}
+    defaultValue={character.name}
+    variant={'outlined'}
+    fullWidth
+    onChange={event => {
+      character.name = event.target.value;
+      setCharacter(character);
+    }}
+  />;
+
 
 export default CharacterPage;
