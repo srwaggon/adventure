@@ -5,7 +5,7 @@ import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
 import CardsGrid from '../../cards/CardsGrid';
 import AddButton from '../../buttons/AddButton';
 
-const AddCardToCharacterCard = ({addCardToCharacter}) => {
+const AddCardToCharacterCard = ({character, setCharacter, cards:characterCards, setCards:setCharacterCards}) => {
 
   const [cards, setCards] = useState([]);
 
@@ -27,6 +27,11 @@ const AddCardToCharacterCard = ({addCardToCharacter}) => {
   const filteredCards = filter.name.length > 0 || filter.type !== 'any'
     ? cards.filter(filterCard)
     : cards.slice(0, 8);
+
+  const addCardToCharacter = (card) => {
+    setCharacter({...character, cards: [...character.cards, card.id]});
+    setCharacterCards([...characterCards, card]);
+  }
 
   const cardDecorator = ({children, card}) => {
     return <Box>

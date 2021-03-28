@@ -205,10 +205,7 @@ const CharacterPage = () => {
           </Card>
         </Box>
         {isEditing && <Box p={1}>
-          <AddCardToCharacterCard addCardToCharacter={(card) => {
-            setCharacter({...character, cards: [...character.cards, card.id]});
-            setCards([...cards, card]);
-          }}/>
+          <AddCardToCharacterCard {...characterPageState}/>
         </Box>}
       </Container>
     </div>;
