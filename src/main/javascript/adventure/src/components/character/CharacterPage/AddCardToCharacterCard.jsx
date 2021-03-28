@@ -5,7 +5,7 @@ import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
 import CardsGrid from '../../cards/CardsGrid';
 import AddButton from '../../buttons/AddButton';
 
-const AddCardToCharacterCard = ({character, setCharacter, cards:characterCards, setCards:setCharacterCards}) => {
+const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
 
   const [cards, setCards] = useState([]);
 
@@ -31,21 +31,22 @@ const AddCardToCharacterCard = ({character, setCharacter, cards:characterCards, 
   const addCardToCharacter = (card) => {
     setCharacter({...character, cards: [...character.cards, card.id]});
     setCharacterCards([...characterCards, card]);
-  }
-
-  const cardDecorator = ({children, card}) => {
-    return <Box>
-      <Card>
-        {children}
-        <AddButton onClick={() => addCardToCharacter(card)}/>
-      </Card>
-    </Box>;
   };
+
   return <Box minWidth={'100%'}>
     <Card>
       <AppBarFilter filter={filter} setFilter={setFilter}/>
       <CardContent>
-        <CardsGrid cards={filteredCards} CardDecorator={cardDecorator}/>
+        <CardsGrid
+          cards={filteredCards}
+          CardDecorator={({children, card}) =>
+            <Box>
+              <Card>
+                {children}
+                <AddButton onClick={() => addCardToCharacter(card)}/>
+              </Card>
+            </Box>
+          }/>
       </CardContent>
     </Card>
   </Box>;
