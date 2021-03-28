@@ -69,7 +69,7 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
               {int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
             </IconButton>)}
 
-        {isEditing && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
+        {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
         {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
       </div>
     </Box>
