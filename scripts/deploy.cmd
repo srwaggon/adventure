@@ -1,4 +1,4 @@
-call scripts\clean.bat
-call scripts\build.bat
-call scripts\docker_build.bat
-call scripts\docker_push.bat
+call scripts\clean.cmd
+call scripts\build.cmd
+call scripts\docker_build.cmd
+call scripts\docker_push.cmd
