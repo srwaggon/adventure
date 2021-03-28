@@ -1,0 +1,1 @@
+bash scripts/fetch_database.sh
