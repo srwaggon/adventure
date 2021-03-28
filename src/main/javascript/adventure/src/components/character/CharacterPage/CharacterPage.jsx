@@ -10,7 +10,8 @@ import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
-import {arrayRemoveAll, capitalize} from '../../../utilities/kitchen_sink';
+import {arrayRemoveAll, arrayRemoveAt, capitalize} from '../../../utilities/kitchen_sink';
+import DeleteButton from '../../buttons/DeleteButton';
 
 const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
   const proficiencies = character.proficiencies || [];
@@ -200,7 +201,24 @@ const CharacterPage = () => {
               </Toolbar>
             </AppBar>
             <CardContent>
-              <CardsGrid cards={cards}/>
+              <CardsGrid
+                cards={cards}
+                CardDecorator={({children, index}) =>
+                  <Card>
+                    {children}
+                    <DeleteButton onClick={() => {
+                      const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
+                      const newCharacter = {...character, cards: newCards};
+                      replaceCharacter(newCharacter)
+                        .then(response => response.json())
+                        .then(json => {
+                          setCharacter(json);
+                          fetchCharactersCards(character);
+                        });
+                    }}/>
+                  </Card>
+                }
+              />
             </CardContent>
           </Card>
         </Box>

@@ -19,3 +19,8 @@ export const arrayRemoveAll = (array, value) => {
   }
   return array;
 }
+
+export const arrayRemoveAt = (array, index) => {
+  array.splice(index, 1);
+  return array;
+}

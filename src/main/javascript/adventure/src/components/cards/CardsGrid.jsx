@@ -5,9 +5,9 @@ import React from 'react';
 
 const CardsGrid = ({cards = [], CardDecorator = ({children}) => children}) =>
   <Grid container justify={'center'} spacing={1}>
-    {cards.map(card =>
+    {cards.map((card, index) =>
       <Grid item>
-        <CardDecorator card={card}>
+        <CardDecorator card={card} index={index}>
           <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
             <SpecialCard {...card} key={card.id}/>
           </Link>
