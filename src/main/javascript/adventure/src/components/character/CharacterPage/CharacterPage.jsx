@@ -152,7 +152,7 @@ const CharacterPage = () => {
           </Card>
         </Box>
         <Box p={1}>
-          <CharacterCards {...characterPageState} {...{onEdit, onCancelEdit, onSave, onDelete, fetchCharactersCards}}/>
+          <CharacterCards {...characterPageState} {...{fetchCharactersCards}}/>
         </Box>
         {isEditing && <Box p={1}>
           <AddCardToCharacterCard {...characterPageState}/>
