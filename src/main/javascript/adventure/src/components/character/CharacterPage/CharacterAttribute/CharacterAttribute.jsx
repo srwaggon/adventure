@@ -1,7 +1,7 @@
 import './CharacterAttribute.css'
 
 import {IconButton} from '@material-ui/core';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
 
@@ -29,7 +29,7 @@ const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => 
             size={'small'}
             style={{margin: '-4px'}}
             checked={int < value}
-          ><CheckBoxIcon/></IconButton>,
+          ><RadioButtonCheckedIcon/></IconButton>,
         )}
         {isEditing && value > 1 && <IconButton
           checked={false}
