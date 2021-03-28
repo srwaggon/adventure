@@ -92,55 +92,57 @@ const CharacterPage = () => {
         <Box p={1}>
           <Card className={'character-card'}>
             <CardContent>
-                <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-evenly'>
-                  <Box>
-                    <CharacterPortraitCard {...character}/>
-                    {isEditing && <Box py={1}>
-                      <TextField
-                        label='Portrait URL'
-                        variant='outlined'
-                        margin='dense'
-                        fullWidth
-                        defaultValue={character['portraitUrl']}
-                        onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
-                    </Box>
-                    }
+              <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-evenly'>
+                <Box>
+                  <CharacterPortraitCard {...character}/>
+                  {isEditing && <Box py={1}>
+                    <TextField
+                      label='Portrait URL'
+                      variant='outlined'
+                      margin='dense'
+                      fullWidth
+                      defaultValue={character['portraitUrl']}
+                      onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
                   </Box>
-                  <Box>
-                    <Box display='flex' flexGrow={3} p={1} justifyContent={'center'}>
-                      {isEditing
-                        ? <EditCharacterNameTextField character={character}/>
-                        : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
+                  }
+                </Box>
+                <Box>
+                  <Box display='flex' flexGrow={3} p={1} justifyContent={'center'}>
+                    {isEditing
+                      ? <EditCharacterNameTextField character={character}/>
+                      : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
+                  </Box>
+                  <Typography variant='h5'>Attributes</Typography>
+                  <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute {...characterPageProps} attribute={'strength'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'dexterity'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'constitution'}/>
                     </Box>
-                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                      <Box className="character-attributes-group" padding={1}>
-                        <CharacterAttribute {...characterPageProps} attribute={'strength'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'dexterity'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'constitution'}/>
-                      </Box>
-                      <Box className="character-attributes-group" padding={1}>
-                        <CharacterAttribute {...characterPageProps} attribute={'presence'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'influence'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'composure'}/>
-                      </Box>
-                      <Box className="character-attributes-group" padding={1}>
-                        <CharacterAttribute {...characterPageProps} attribute={'intelligence'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'wits'}/>
-                        <CharacterAttribute {...characterPageProps} attribute={'resolve'}/>
-                      </Box>
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute {...characterPageProps} attribute={'presence'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'influence'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'composure'}/>
                     </Box>
-                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'stamina'}/></Box>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'confidence'}/></Box>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'focus'}/></Box>
+                    <Box className="character-attributes-group" padding={1}>
+                      <CharacterAttribute {...characterPageProps} attribute={'intelligence'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'wits'}/>
+                      <CharacterAttribute {...characterPageProps} attribute={'resolve'}/>
                     </Box>
-                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'health'}/></Box>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'reputation'}/></Box>
-                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'mana'}/></Box>
-                    </Box>
+                  </Box>
+                  <Typography variant='h5'>Resources</Typography>
+                  <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'stamina'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'confidence'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'focus'}/></Box>
+                  </Box>
+                  <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'health'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'reputation'}/></Box>
+                    <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'mana'}/></Box>
                   </Box>
                 </Box>
+              </Box>
             </CardContent>
           </Card>
         </Box>
