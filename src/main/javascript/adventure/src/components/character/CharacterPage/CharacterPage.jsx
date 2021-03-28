@@ -127,12 +127,12 @@ const CharacterPage = () => {
                 <div className={'character-resources'}>
                   <div className="character-resource-row">
                     <CharacterResource {...characterPageProps} resource={'stamina'}/>
-                    <CharacterResource {...characterPageProps} resource={'reputation'}/>
+                    <CharacterResource {...characterPageProps} resource={'confidence'}/>
                     <CharacterResource {...characterPageProps} resource={'focus'}/>
                   </div>
                   <div className="character-resource-row">
                     <CharacterResource {...characterPageProps} resource={'health'}/>
-                    <CharacterResource {...characterPageProps} resource={'confidence'}/>
+                    <CharacterResource {...characterPageProps} resource={'reputation'}/>
                     <CharacterResource {...characterPageProps} resource={'mana'}/>
                   </div>
                 </div>
