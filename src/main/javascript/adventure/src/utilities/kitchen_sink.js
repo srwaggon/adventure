@@ -1,5 +1,5 @@
 export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-export const prettifyCardType = (cardType) => cardType.toLowerCase().split('_').map(capitalize).join(' ');
+export const prettify = (cardType) => cardType.toLowerCase().split('_').map(capitalize).join(' ');
 export const arrayRemove = (array, value) => {
   const index = array.indexOf(value);
   if (index > -1) {

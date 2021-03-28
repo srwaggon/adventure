@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getCardTypes} from '../../../utilities/client';
 import {FormControl, InputLabel, MenuItem, Select} from '@material-ui/core';
-import {prettifyCardType} from '../../../utilities/kitchen_sink';
+import {prettify} from '../../../utilities/kitchen_sink';
 
 const CardTypeSelect = ({children, defaultValue, onSelectType}) => {
   const [cardTypes, setCardTypes] = useState([]);
@@ -16,7 +16,7 @@ const CardTypeSelect = ({children, defaultValue, onSelectType}) => {
     <Select label={'Type'} defaultValue={defaultValue} onChange={event => onSelectType(event.target.value)}>
       {children}
       {cardTypes.map(cardType =>
-        <MenuItem value={cardType}>{prettifyCardType(cardType)}</MenuItem>,
+        <MenuItem value={cardType}>{prettify(cardType)}</MenuItem>,
       )}
     </Select>
   </FormControl>;
