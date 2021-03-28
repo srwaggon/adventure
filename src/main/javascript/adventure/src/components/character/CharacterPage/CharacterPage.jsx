@@ -3,29 +3,20 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {
-  AppBar,
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Container,
-  TextField,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
+import {demoCharacter} from '../../../utilities/fillers';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
 
-  const [character, setCharacter] = useState(undefined);
+  const [character, setCharacter] = useState(demoCharacter);
 
   const [cards, setCards] = useState([]);
 
@@ -51,16 +42,17 @@ const CharacterPage = () => {
     }
   }, [shouldFetchCharacter, characterId]);
 
-  const EditCharacterNameTextField = ({character}) => <TextField
-    label={'Name'}
-    defaultValue={character.name}
-    variant={'outlined'}
-    fullWidth
-    onChange={event => {
-      character.name = event.target.value;
-      setCharacter(character);
-    }}
-  />;
+  const EditCharacterNameTextField = ({character}) =>
+    <TextField
+      label={'Name'}
+      defaultValue={character.name}
+      variant={'outlined'}
+      fullWidth
+      onChange={event => {
+        character.name = event.target.value;
+        setCharacter(character);
+      }}
+    />;
 
   const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
@@ -100,57 +92,56 @@ const CharacterPage = () => {
       <Container>
         <Box p={1}>
           <Card className={'character-card'}>
-            <CardHeader title={
-              isEditing
-                ? <EditCharacterNameTextField character={character}/>
-                : <Typography variant={'h3'}>{character.name}</Typography>}
-            />
             <CardContent>
-              <div className={'character-card-content'}>
-                <div className="character-attributes">
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute {...characterPageProps} attribute={'strength'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'dexterity'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'constitution'}/>
+                <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-evenly'>
+                  <Box>
+                    <CharacterPortraitCard {...character}/>
+                    {isEditing && <Box py={1}>
+                      <TextField
+                        label='Portrait URL'
+                        variant='outlined'
+                        margin='dense'
+                        fullWidth
+                        defaultValue={character['portraitUrl']}
+                        onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
+                    </Box>
+                    }
                   </Box>
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute {...characterPageProps} attribute={'presence'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'influence'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'composure'}/>
+                  <Box>
+                    <Box display='flex' flexGrow={3} p={1} justifyContent={'center'}>
+                      {isEditing
+                        ? <EditCharacterNameTextField character={character}/>
+                        : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
+                    </Box>
+                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                      <Box className="character-attributes-group" padding={1}>
+                        <CharacterAttribute {...characterPageProps} attribute={'strength'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'dexterity'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'constitution'}/>
+                      </Box>
+                      <Box className="character-attributes-group" padding={1}>
+                        <CharacterAttribute {...characterPageProps} attribute={'presence'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'influence'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'composure'}/>
+                      </Box>
+                      <Box className="character-attributes-group" padding={1}>
+                        <CharacterAttribute {...characterPageProps} attribute={'intelligence'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'wits'}/>
+                        <CharacterAttribute {...characterPageProps} attribute={'resolve'}/>
+                      </Box>
+                    </Box>
+                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'stamina'}/></Box>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'confidence'}/></Box>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'focus'}/></Box>
+                    </Box>
+                    <Box display='flex' flexWrap='wrap' justifyContent='center'>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'health'}/></Box>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'reputation'}/></Box>
+                      <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'mana'}/></Box>
+                    </Box>
                   </Box>
-                  <Box className="character-attributes-group" padding={1}>
-                    <CharacterAttribute {...characterPageProps} attribute={'intelligence'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'wits'}/>
-                    <CharacterAttribute {...characterPageProps} attribute={'resolve'}/>
-                  </Box>
-                </div>
-                <div className={'character-resources'}>
-                  <div className="character-resource-row">
-                    <CharacterResource {...characterPageProps} resource={'stamina'}/>
-                    <CharacterResource {...characterPageProps} resource={'confidence'}/>
-                    <CharacterResource {...characterPageProps} resource={'focus'}/>
-                  </div>
-                  <div className="character-resource-row">
-                    <CharacterResource {...characterPageProps} resource={'health'}/>
-                    <CharacterResource {...characterPageProps} resource={'reputation'}/>
-                    <CharacterResource {...characterPageProps} resource={'mana'}/>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </Box>
-        <Box p={1}>
-          <Card>
-            <CardContent>
-              <CharacterPortraitCard {...character}/>
-              {isEditing && <TextField
-                label='Portrait URL'
-                variant='outlined'
-                margin='dense'
-                fullWidth
-                defaultValue={character['portraitUrl']}
-                onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>}
+                </Box>
             </CardContent>
           </Card>
         </Box>

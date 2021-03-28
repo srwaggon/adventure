@@ -1,15 +1,4 @@
 .character-card {
-  max-width: 36em;
-}
-
-.character-card-content {
-  display: flex;
-  flex-direction: row;
-}
-
-.character-attributes {
-  display: flex;
-  flex-direction: column;
 }
 
 .character-attributes-group {
