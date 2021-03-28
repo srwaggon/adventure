@@ -60,13 +60,12 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
             <IconButton
               key={resource}
               checked={int < value}
-              disabled={int >= max}
+              disabled={isEditing}
               color={'default'}
               size={'small'}
               style={{margin: '-4px'}}
               onClick={(ignored) => setCharacterResource(int)}
-            >
-              {int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
+            >{int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
             </IconButton>)}
 
         {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
