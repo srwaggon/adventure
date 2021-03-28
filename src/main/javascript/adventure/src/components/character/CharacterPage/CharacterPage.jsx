@@ -5,13 +5,12 @@ import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
 import {AppBar, Box, Card, CardContent, Chip, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
-import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
-import {arrayRemoveAll, arrayRemoveAt, capitalize} from '../../../utilities/kitchen_sink';
-import DeleteButton from '../../buttons/DeleteButton';
+import {arrayRemoveAll, capitalize} from '../../../utilities/kitchen_sink';
+import CharacterCards from './CharacterCards';
 
 const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
   const proficiencies = character.proficiencies || [];
@@ -48,11 +47,11 @@ const CharacterPage = () => {
 
   const history = useHistory();
 
-  function fetchCharactersCards(character) {
+  const fetchCharactersCards = character => {
     getCharactersCards(character.id)
       .then(response => response.json())
       .then(setCards);
-  }
+  };
 
   const shouldFetchCharacter = !character || characterId !== character.id;
   useEffect(() => {
@@ -193,36 +192,7 @@ const CharacterPage = () => {
           </Card>
         </Box>
         <Box p={1}>
-          <Card>
-            <AppBar color='default' position='static'>
-              <Toolbar>
-                <Typography variant='h6' style={{flexGrow: 1}}>Cards</Typography>
-                <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
-              </Toolbar>
-            </AppBar>
-            <CardContent>
-              <CardsGrid
-                cards={cards}
-                CardDecorator={({children, index}) =>
-                  <Card>
-                    {children}
-                    <DeleteButton
-                      disabled={!isEditing}
-                      onClick={() => {
-                        const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
-                        const newCharacter = {...character, cards: newCards};
-                        replaceCharacter(newCharacter)
-                          .then(response => response.json())
-                          .then(json => {
-                            setCharacter(json);
-                            fetchCharactersCards(character);
-                          });
-                      }}/>
-                  </Card>
-                }
-              />
-            </CardContent>
-          </Card>
+          <CharacterCards {...characterPageState} {...{onEdit, onCancelEdit, onSave, onDelete, fetchCharactersCards}}/>
         </Box>
         {isEditing && <Box p={1}>
           <AddCardToCharacterCard {...characterPageState}/>
