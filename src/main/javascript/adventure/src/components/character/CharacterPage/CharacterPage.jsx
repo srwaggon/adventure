@@ -2,13 +2,7 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {
-  deleteCharacter,
-  getAllCards,
-  getCharacterById,
-  getCharactersCards,
-  replaceCharacter,
-} from '../../../utilities/client';
+import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
 import {
   AppBar,
   Box,
@@ -17,7 +11,6 @@ import {
   CardHeader,
   Container,
   IconButton,
-  MenuItem,
   TextField,
   Toolbar,
   Typography,
@@ -28,66 +21,7 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
-import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
-
-const AddCardToCharacterCard = ({characterId}) => {
-
-  const [cards, setCards] = useState([]);
-
-  const [filter, setFilter] = useState({
-    name: '',
-    type: 'any',
-  });
-
-  useEffect(() => {
-    getAllCards()
-      .then(response => response.json())
-      .then(setCards);
-  }, []);
-
-  const filterName = (name) => name.toLowerCase().includes(filter.name);
-  const filterType = (type) => type === filter.type || filter.type === 'any';
-  const filterCard = ({name, type}) => filterName(name) && filterType(type);
-  return <Box minWidth={'100%'}>
-    <Card>
-      <AppBar color='default' position='static'>
-        <Toolbar>
-          <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
-            <Box flexGrow={1} flexShrink={0}>
-              <Typography variant='h6'>Add to Character</Typography>
-            </Box>
-            <Box display={'flex'} flexGrow={2} flexShrink={0} justifyContent={'flex-end'} flexWrap={'wrap'}>
-              <Box flexGrow={1} flexShrink={0}>
-                <CardTypeSelect
-                  defaultValue={'any'}
-                  onSelectType={(type) => setFilter({...filter, type})}>
-                  <MenuItem value={'any'}>Any</MenuItem>
-                </CardTypeSelect>
-              </Box>
-              <Box flexGrow={1} flexShrink={0} pl={1}>
-                <TextField
-                  label='Filter by name'
-                  variant='outlined'
-                  margin='dense'
-                  fullWidth
-                  defaultValue={filter.term}
-                  onChange={event => setFilter({...filter, name: event.target.value.toLowerCase()})}
-                />
-              </Box>
-            </Box>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <CardContent>
-        <CardsGrid cards={
-          filter.name.length > 0 || filter.type !== 'any'
-            ? cards.filter(filterCard)
-            : cards.slice(0, 5)
-        }/>
-      </CardContent>
-    </Card>
-  </Box>;
-};
+import AddCardToCharacterCard from './AddCardToCharacterCard';
 
 const CharacterPage = () => {
 
