@@ -32,6 +32,8 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private final List<String> cards = Lists.newArrayList();
 
+  private final List<String> proficiencies = Lists.newArrayList();
+
   public PlayerCharacter() {
   }
 
@@ -123,5 +125,9 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public CharacterValue getMana() {
     return mana;
+  }
+
+  public List<String> getProficiencies() {
+    return proficiencies;
   }
 }

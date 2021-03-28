@@ -3,13 +3,37 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Card, CardContent, Chip, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource/CharacterResource';
+import {arrayRemoveAll, capitalize} from '../../../utilities/kitchen_sink';
+
+const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
+  const proficiencies = character.proficiencies || [];
+  const isProficient = proficiencies.indexOf(proficiency) > -1;
+  return (isEditing || isProficient) && <Box m={1}>
+    <Chip
+      label={capitalize(proficiency)}
+      clickable
+      color={isEditing && isProficient ? 'primary' : 'default'}
+      onClick={() => {
+        if (isEditing) {
+          if (isProficient) {
+            arrayRemoveAll(proficiencies, proficiency);
+          } else {
+            proficiencies.push(proficiency);
+          }
+        }
+        console.log(proficiencies);
+        setCharacter({...character, proficiencies});
+      }}
+    />
+  </Box>;
+};
 
 const CharacterPage = () => {
 
@@ -142,6 +166,27 @@ const CharacterPage = () => {
                     <Box pr={'16px'}><CharacterResource {...characterPageProps} resource={'mana'}/></Box>
                   </Box>
                 </Box>
+              </Box>
+              <Typography variant='h5'>Proficiencies</Typography>
+              <Box display='flex' flexWrap='wrap' flexDirection={'row'}>
+                <ProficiencyChip {...characterPageProps} proficiency={'acrobatics'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'animal handling'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'athletics'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'arcana'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'deception'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'history'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'investigation'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'insight'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'intimidation'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'medicine'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'nature'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'perception'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'religion'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'performance'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'persuasion'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'sleight of hand'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'stealth'}/>
+                <ProficiencyChip {...characterPageProps} proficiency={'survival'}/>
               </Box>
             </CardContent>
           </Card>

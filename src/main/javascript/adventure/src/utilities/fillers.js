@@ -127,4 +127,5 @@ export const demoCharacter = {
     'maximum': 10,
   },
   'cards': demoCards,
+  proficiencies: []
 };
