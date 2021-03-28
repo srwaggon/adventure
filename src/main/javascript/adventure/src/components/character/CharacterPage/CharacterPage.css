@@ -16,16 +16,6 @@
   min-width: 15rem;
 }
 
-.character-attribute {
-  display: flex;
-  flex-direction: row;
-}
-
-.character-attribute-name {
-  width: 6rem;
-  text-transform: capitalize;
-}
-
 .character-resource-row {
   border-left: solid thin black;
 }

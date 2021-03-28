@@ -18,7 +18,7 @@ import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCar
 import CardsGrid from '../../cards/CardsGrid';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
-import CharacterAttribute from './CharacterAttribute';
+import CharacterAttribute from './CharacterAttribute/CharacterAttribute';
 import CharacterResource from './CharacterResource';
 
 const CharacterPage = () => {

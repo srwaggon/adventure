@@ -1,3 +1,5 @@
+import './CharacterAttribute.css'
+
 import {IconButton} from '@material-ui/core';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import {AddBox, Backspace} from '@material-ui/icons';
