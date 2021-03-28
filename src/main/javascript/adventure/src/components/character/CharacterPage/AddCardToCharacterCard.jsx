@@ -30,7 +30,7 @@ const AddCardToCharacterCard = ({characterId}) => {
         <CardsGrid cards={
           filter.name.length > 0 || filter.type !== 'any'
             ? cards.filter(filterCard)
-            : cards.slice(0, 5)
+            : cards.slice(0, 8)
         }/>
       </CardContent>
     </Card>
