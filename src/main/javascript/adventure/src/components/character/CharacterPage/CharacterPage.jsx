@@ -116,7 +116,7 @@ const CharacterPage = () => {
         <Box p={1}>
           <Card className={'character-card'}>
             <CardContent>
-              <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-evenly'>
+              <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-between'>
                 <Box>
                   <CharacterPortraitCard {...character}/>
                   {isEditing && <Box py={1}>
@@ -131,7 +131,7 @@ const CharacterPage = () => {
                   }
                 </Box>
                 <Box>
-                  <Box display='flex' flexGrow={3} p={1} justifyContent={'center'}>
+                  <Box display='flex' flexGrow={3} p={1}>
                     {isEditing
                       ? <EditCharacterNameTextField character={character}/>
                       : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
