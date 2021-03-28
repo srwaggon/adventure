@@ -1,5 +1,5 @@
 import {Box, Chip} from '@material-ui/core';
-import {arrayRemoveAll, capitalize} from '../../../utilities/kitchen_sink';
+import {arrayRemoveAll, prettify} from '../../../utilities/kitchen_sink';
 import React from 'react';
 
 const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
@@ -7,7 +7,7 @@ const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
   const isProficient = proficiencies.indexOf(proficiency) > -1;
   return (isEditing || isProficient) && <Box m={1}>
     <Chip
-      label={capitalize(proficiency)}
+      label={prettify(proficiency)}
       clickable
       color={isEditing && isProficient ? 'primary' : 'default'}
       onClick={() => {
