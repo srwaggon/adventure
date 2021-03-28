@@ -40,7 +40,6 @@ const CharacterSelectionPage = () => {
       .then(response => response.json())
       .then(character => history.push(`/characters/${character.id}`));
 
-  console.log(characters, 'asdf', characters === []);
   return <div className={'character-selection-page'}>
     <AppBar color="default" position={'static'}>
       <Toolbar>
