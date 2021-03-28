@@ -5,7 +5,7 @@ import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
 import CardsGrid from '../../cards/CardsGrid';
 import AddButton from '../../buttons/AddButton';
 
-const AddCardToCharacterCard = ({character, setCharacter}) => {
+const AddCardToCharacterCard = ({addCardToCharacter}) => {
 
   const [cards, setCards] = useState([]);
 
@@ -32,11 +32,7 @@ const AddCardToCharacterCard = ({character, setCharacter}) => {
     return <Box>
       <Card>
         {children}
-        <AddButton onClick={() => {
-          const cards = character.cards;
-          cards.push(card.id);
-          setCharacter({...character, cards})
-        }}/>
+        <AddButton onClick={() => addCardToCharacter(card)}/>
       </Card>
     </Box>;
   };
