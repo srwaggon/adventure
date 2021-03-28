@@ -2,7 +2,13 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
+import {
+  deleteCharacter,
+  getAllProficiencies,
+  getCharacterById,
+  getCharactersCards,
+  replaceCharacter,
+} from '../../../utilities/client';
 import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
@@ -42,6 +48,13 @@ const CharacterPage = () => {
         });
     }
   }, [shouldFetchCharacter, characterId]);
+
+  const [proficiencies, setProficiencies] = useState([]);
+  useEffect(() => {
+    getAllProficiencies()
+      .then(response => response.json())
+      .then(setProficiencies);
+  }, []);
 
   const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
@@ -135,24 +148,8 @@ const CharacterPage = () => {
               </Box>
               <Typography variant='h5'>Proficiencies</Typography>
               <Box display='flex' flexWrap='wrap' flexDirection={'row'}>
-                <ProficiencyChip {...characterPageState} proficiency={'acrobatics'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'animal handling'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'athletics'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'arcana'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'deception'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'history'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'investigation'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'insight'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'intimidation'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'medicine'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'nature'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'perception'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'religion'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'performance'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'persuasion'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'sleight of hand'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'stealth'}/>
-                <ProficiencyChip {...characterPageState} proficiency={'survival'}/>
+                {proficiencies.map(proficiency =>
+                  <ProficiencyChip {...characterPageState} proficiency={proficiency}/>)}
               </Box>
             </CardContent>
           </Card>

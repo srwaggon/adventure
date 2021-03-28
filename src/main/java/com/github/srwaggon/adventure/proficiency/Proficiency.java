@@ -1,0 +1,23 @@
+package com.github.srwaggon.adventure.proficiency;
+
+public enum Proficiency {
+  ACROBATICS,
+  ANIMAL_HANDLING,
+  ATHLETICS,
+  ARCANA,
+  DECEPTION,
+  HISTORY,
+  INVESTIGATION,
+  INSIGHT,
+  INTIMIDATION,
+  MEDICINE,
+  NATURE,
+  PERCEPTION,
+  RELIGION,
+  PERFORMANCE,
+  PERSUASION,
+  SLEIGHT_OF_HAND,
+  STEALTH,
+  SURVIVAL,
+  ;
+}

@@ -39,6 +39,9 @@ export const replaceCard = _replace(cardsEndpoint);
 export const deleteCard = _delete(cardsEndpoint);
 export const getCardTypes = _get(`${cardsEndpoint}/types`);
 
+const proficienciesEndpoint = '/api/proficiencies';
+export const getAllProficiencies = _getAll(proficienciesEndpoint);
+
 export const client = {
   getAllPlayers,
   getPlayerById,
