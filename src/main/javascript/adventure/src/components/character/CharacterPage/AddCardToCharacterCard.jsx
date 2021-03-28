@@ -3,8 +3,9 @@ import {getAllCards} from '../../../utilities/client';
 import {AppBar, Box, Card, CardContent, MenuItem, TextField, Toolbar, Typography} from '@material-ui/core';
 import CardTypeSelect from '../../cards/CardTypeSelect/CardTypeSelect';
 import CardsGrid from '../../cards/CardsGrid';
+import AddButton from '../../buttons/AddButton';
 
-const AddCardToCharacterCard = ({characterId}) => {
+const AddCardToCharacterCard = ({character, setCharacter}) => {
 
   const [cards, setCards] = useState([]);
 
@@ -23,15 +24,27 @@ const AddCardToCharacterCard = ({characterId}) => {
   const filterName = (name) => name.toLowerCase().includes(filter.name);
   const filterType = (type) => type === filter.type || filter.type === 'any';
 
+  const filteredCards = filter.name.length > 0 || filter.type !== 'any'
+    ? cards.filter(filterCard)
+    : cards.slice(0, 8);
+
+  const cardDecorator = ({children, card}) => {
+    return <Box>
+      <Card>
+        {children}
+        <AddButton onClick={() => {
+          const cards = character.cards;
+          cards.push(card.id);
+          setCharacter({...character, cards})
+        }}/>
+      </Card>
+    </Box>;
+  };
   return <Box minWidth={'100%'}>
     <Card>
       <AppBarFilter filter={filter} setFilter={setFilter}/>
       <CardContent>
-        <CardsGrid cards={
-          filter.name.length > 0 || filter.type !== 'any'
-            ? cards.filter(filterCard)
-            : cards.slice(0, 8)
-        }/>
+        <CardsGrid cards={filteredCards} CardDecorator={cardDecorator}/>
       </CardContent>
     </Card>
   </Box>;
@@ -66,6 +79,5 @@ const AppBarFilter = ({setFilter, filter}) =>
       </Box>
     </Toolbar>
   </AppBar>;
-
 
 export default AddCardToCharacterCard;
