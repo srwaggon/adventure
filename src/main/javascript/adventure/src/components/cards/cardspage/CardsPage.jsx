@@ -1,6 +1,5 @@
-import './CardsPage.css';
-
 import React from 'react';
+
 import {AppBar, Box, Container, Toolbar, Typography} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import CardsGrid from '../CardsGrid';
@@ -13,7 +12,7 @@ const CardsPage = () => {
 
   const cards = useCards();
 
-  return <div className={'cards-page'}>
+  return <div>
     <AppBar color="default" position={'static'}>
       <Toolbar>
         <Typography variant={'h6'} style={{flexGrow: 1}}>Cards</Typography>
