@@ -16,28 +16,28 @@ const CharacterCards = ({
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
+  const cardDecorator = ({children, index}) =>
+    <Card>
+      {children}
+      <DeleteButton
+        disabled={!isEditing}
+        onClick={() => {
+          const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
+          const newCharacter = {...character, cards: newCards};
+          replaceCharacter(newCharacter)
+            .then(response => response.json())
+            .then(json => {
+              setCharacter(json);
+              fetchCharactersCards(character);
+            });
+        }}/>
+    </Card>;
   return <Card>
     <CardFilterAppBar title={'Cards'} setFilterFunc={setFilterFunc}/>
     <CardContent>
       <CardsGrid
         cards={filterFunc(cards)}
-        CardDecorator={({children, index}) =>
-          <Card>
-            {children}
-            <DeleteButton
-              disabled={!isEditing}
-              onClick={() => {
-                const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
-                const newCharacter = {...character, cards: newCards};
-                replaceCharacter(newCharacter)
-                  .then(response => response.json())
-                  .then(json => {
-                    setCharacter(json);
-                    fetchCharactersCards(character);
-                  });
-              }}/>
-          </Card>
-        }
+        CardDecorator={cardDecorator}
       />
     </CardContent>
   </Card>;

@@ -22,23 +22,21 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
     setCharacterCards([...characterCards, card]);
   };
 
-  return <Box minWidth={'100%'}>
-    <Card>
-      <CardFilterAppBar title={'Add to Character'} setFilterFunc={setFilterFunc}/>
-      <CardContent>
-        <CardsGrid
-          cards={filterFunc(cards)}
-          CardDecorator={({children, card}) =>
-            <Box>
-              <Card>
-                {children}
-                <AddButton onClick={() => addCardToCharacter(card)}/>
-              </Card>
-            </Box>
-          }/>
-      </CardContent>
-    </Card>
-  </Box>;
+  const cardDecorator = ({children, card}) =>
+    <Box>
+      <Card>
+        {children}
+        <AddButton onClick={() => addCardToCharacter(card)}/>
+      </Card>
+    </Box>;
+  return <Card>
+    <CardFilterAppBar title={'Add to Character'} setFilterFunc={setFilterFunc}/>
+    <CardContent>
+      <CardsGrid
+        cards={filterFunc(cards)}
+        CardDecorator={cardDecorator}/>
+    </CardContent>
+  </Card>;
 };
 
 export default AddCardToCharacterCard;
