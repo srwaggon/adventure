@@ -15,18 +15,7 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
       .then(setCards);
   }, []);
 
-  const [filter, setFilter] = useState({
-    name: '',
-    type: 'any',
-  });
-
-  const filterCard = ({name, type}) => filterName(name) && filterType(type);
-  const filterName = (name) => name.toLowerCase().includes(filter.name);
-  const filterType = (type) => type === filter.type || filter.type === 'any';
-
-  const filteredCards = filter.name.length > 0 || filter.type !== 'any'
-    ? cards.filter(filterCard)
-    : cards.slice(0, 8);
+  const [filterFunc, setFilterFunc] = useState(() => x => x);
 
   const addCardToCharacter = (card) => {
     setCharacter({...character, cards: [...character.cards, card.id]});
@@ -35,10 +24,10 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
 
   return <Box minWidth={'100%'}>
     <Card>
-      <AppBarFilter title={'Add to Character'} filter={filter} setFilter={setFilter}/>
+      <AppBarFilter title={'Add to Character'} setFilterFunc={setFilterFunc}/>
       <CardContent>
         <CardsGrid
-          cards={filteredCards}
+          cards={filterFunc(cards)}
           CardDecorator={({children, card}) =>
             <Box>
               <Card>
@@ -52,8 +41,24 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
   </Box>;
 };
 
-const AppBarFilter = ({title, filter, setFilter}) =>
-  <AppBar color='default' position='static'>
+const filterName = (name) => (card) => card.name.toLowerCase().includes(name);
+const filterType = (type) => (card) => 'any' === type || type === card.type;
+
+const AppBarFilter = ({title, setFilterFunc}) => {
+  const [filter, setFilter] = useState({
+    name: '',
+    type: 'any',
+  });
+
+  useEffect(() => {
+    const wholeFilter = (cards) =>
+      cards
+        .filter(filterName(filter.name))
+        .filter(filterType(filter.type));
+    setFilterFunc(() => wholeFilter);
+  }, [filter.name, filter.type, setFilterFunc]);
+
+  return <AppBar color='default' position='static'>
     <Toolbar>
       <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
         <Box flexGrow={1} flexShrink={0}>
@@ -81,5 +86,6 @@ const AppBarFilter = ({title, filter, setFilter}) =>
       </Box>
     </Toolbar>
   </AppBar>;
+};
 
 export default AddCardToCharacterCard;
