@@ -1,13 +1,13 @@
 import {Card, CardContent} from '@material-ui/core';
-import CardFilterAppBar from '../../cards/CardFilterAppBar';
+import TitledAppBar from '../../shared/TitledAppBar';
 import CardsGrid from '../../cards/CardsGrid';
 import React from 'react';
 
 const CardGridWithAppBar = ({cards, cardDecorator, children, title}) =>
   <Card>
-    <CardFilterAppBar title={title}>
+    <TitledAppBar title={title}>
       {children}
-    </CardFilterAppBar>
+    </TitledAppBar>
     <CardContent>
       <CardsGrid
         cards={cards}

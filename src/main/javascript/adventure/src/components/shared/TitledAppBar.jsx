@@ -2,7 +2,7 @@ import React from 'react';
 
 import {AppBar, Box, Toolbar, Typography} from '@material-ui/core';
 
-const CardFilterAppBar = ({children, title}) =>
+const TitledAppBar = ({children, title}) =>
   <AppBar color='default' position='static'>
     <Toolbar>
       <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
@@ -14,4 +14,4 @@ const CardFilterAppBar = ({children, title}) =>
     </Toolbar>
   </AppBar>;
 
-export default CardFilterAppBar;
+export default TitledAppBar;
