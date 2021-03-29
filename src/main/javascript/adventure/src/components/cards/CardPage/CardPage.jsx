@@ -1,20 +1,11 @@
-import {
-  AppBar,
-  Box,
-  Card,
-  Container,
-  FormControlLabel,
-  Switch,
-  TextField,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import {Box, Card, Container, FormControlLabel, Switch, TextField} from '@material-ui/core';
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 import {deleteCard, getCardById, getCurrentPlayer, postNewCard, replaceCard} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import CardTypeSelect from '../CardTypeSelect/CardTypeSelect';
+import TitledAppBar from '../../shared/TitledAppBar';
 
 const newCard = () => ({
   name: undefined,
@@ -88,12 +79,9 @@ const CardPage = () => {
   return !card
     ? <span>Loading...</span>
     : <div>
-      <AppBar color='default' position='static'>
-        <Toolbar>
-          <Typography variant='h6' style={{flexGrow: 1}}>Card Details</Typography>
-          <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
-        </Toolbar>
-      </AppBar>
+      <TitledAppBar title={'Card Details'}>
+        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+      </TitledAppBar>
       <Container>
         <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
           <SpecialCard {...card} />

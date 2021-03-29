@@ -3,7 +3,7 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
+import {Box, Card, CardContent, Container, TextField, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
@@ -13,6 +13,7 @@ import CharacterCards from './CharacterCards';
 import ProficiencyChip from './ProficiencyChip';
 import EditCharacterNameTextField from './EditCharacterNameTextField';
 import useProficiencies from '../../proficiency/useProficiencies';
+import TitledAppBar from '../../shared/TitledAppBar';
 
 const CharacterPage = () => {
 
@@ -72,12 +73,9 @@ const CharacterPage = () => {
   return !character
     ? <div>Loading...</div>
     : <div>
-      <AppBar color='default' position='static'>
-        <Toolbar>
-          <Typography variant='h6' style={{flexGrow: 1}}>Character Details</Typography>
-          <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
-        </Toolbar>
-      </AppBar>
+      <TitledAppBar title={'Character Details'}>
+        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+      </TitledAppBar>
       <Container>
         <Box p={1}>
           <Card className={'character-card'}>
