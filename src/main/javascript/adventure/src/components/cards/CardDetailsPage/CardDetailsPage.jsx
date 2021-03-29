@@ -16,7 +16,7 @@ const newCard = () => ({
   flavor: undefined,
 });
 
-const CardPage = () => {
+const CardDetailsPage = () => {
 
   const {cardId} = useParams();
   const [card, setCard] = useState(null);
@@ -114,4 +114,4 @@ const CardPage = () => {
     </div>;
 };
 
-export default CardPage;
+export default CardDetailsPage;
