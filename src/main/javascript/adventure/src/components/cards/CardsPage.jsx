@@ -1,10 +1,10 @@
 import React from 'react';
 
 import {AppBar, Box, Container, Toolbar, Typography} from '@material-ui/core';
-import AddButton from '../../buttons/AddButton';
-import CardsGrid from '../CardsGrid';
+import AddButton from '../buttons/AddButton';
+import CardsGrid from './CardsGrid';
 import {useHistory} from 'react-router-dom';
-import useCards from '../useCards';
+import useCards from './useCards';
 
 const CardsPage = () => {
 
