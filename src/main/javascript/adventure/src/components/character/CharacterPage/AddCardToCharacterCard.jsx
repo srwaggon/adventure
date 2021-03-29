@@ -1,19 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {getAllCards} from '../../../utilities/client';
+import React, {useState} from 'react';
 import {Box, Card, CardContent} from '@material-ui/core';
 import CardsGrid from '../../cards/CardsGrid';
 import AddButton from '../../buttons/AddButton';
 import CardFilterAppBar from '../../cards/CardFilterAppBar';
+import useCards from '../../cards/useCards';
 
 const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
 
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    getAllCards()
-      .then(response => response.json())
-      .then(setCards);
-  }, []);
+  const cards = useCards();
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 

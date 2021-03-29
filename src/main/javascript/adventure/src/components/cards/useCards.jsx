@@ -6,7 +6,7 @@ const useCards = () => {
 
   useEffect(() => {
     getAllCards()
-      .then(response=> response.json())
+      .then(response => response.json())
       .then(setCards);
 
   }, [setCards]);

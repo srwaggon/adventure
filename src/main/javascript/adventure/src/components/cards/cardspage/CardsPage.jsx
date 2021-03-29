@@ -1,25 +1,17 @@
 import './CardsPage.css';
 
-import React, {useEffect, useState} from 'react';
-import {getAllCards} from '../../../utilities/client';
+import React from 'react';
 import {AppBar, Box, Container, Toolbar, Typography} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import CardsGrid from '../CardsGrid';
 import {useHistory} from 'react-router-dom';
+import useCards from '../useCards';
 
 const CardsPage = () => {
 
   const history = useHistory();
 
-  const [cards, setCards] = useState(undefined);
-
-  useEffect(() => {
-    if (!cards) {
-      getAllCards()
-        .then(response => response.json())
-        .then(allCards => setCards(allCards));
-    }
-  });
+  const cards = useCards();
 
   return <div className={'cards-page'}>
     <AppBar color="default" position={'static'}>
