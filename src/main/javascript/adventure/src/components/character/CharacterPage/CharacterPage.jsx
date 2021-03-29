@@ -2,13 +2,7 @@ import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
-import {
-  deleteCharacter,
-  getAllProficiencies,
-  getCharacterById,
-  getCharactersCards,
-  replaceCharacter,
-} from '../../../utilities/client';
+import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
 import {AppBar, Box, Card, CardContent, Container, TextField, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
@@ -18,6 +12,7 @@ import CharacterResource from './CharacterResource/CharacterResource';
 import CharacterCards from './CharacterCards';
 import ProficiencyChip from './ProficiencyChip';
 import EditCharacterNameTextField from './EditCharacterNameTextField';
+import useProficiencies from '../../proficiency/useProficiencies';
 
 const CharacterPage = () => {
 
@@ -44,12 +39,7 @@ const CharacterPage = () => {
       .then(setCards);
   };
 
-  const [proficiencies, setProficiencies] = useState([]);
-  useEffect(() => {
-    getAllProficiencies()
-      .then(response => response.json())
-      .then(setProficiencies);
-  }, []);
+  const proficiencies = useProficiencies();
 
   const [isEditing, setEditing] = useState(false);
 
