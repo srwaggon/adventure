@@ -62,6 +62,8 @@ export const client = {
   postNewCard,
   replaceCard,
   deleteCard,
+
+  getAllProficiencies,
 };
 
 export default client;
