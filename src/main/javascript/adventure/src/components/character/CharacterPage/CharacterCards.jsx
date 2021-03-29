@@ -29,7 +29,7 @@ const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharact
 
   return <CardGridWithAppBar
     title={'Cards'}
-    cards={cards}
+    cards={filterFunc(cards)}
     filterFunc={filterFunc}
     setFilterFunc={setFilterFunc}
     cardDecorator={cardDecorator}

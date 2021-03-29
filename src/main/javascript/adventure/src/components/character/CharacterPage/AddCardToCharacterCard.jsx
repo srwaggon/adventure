@@ -4,6 +4,7 @@ import {Card} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import useCards from '../../cards/useCards';
 import CardGridWithAppBar from './CardGridWithAppBar';
+import CardFilter from '../../cards/CardFilter';
 
 const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
   const cards = useCards();
@@ -23,11 +24,11 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
 
   return <CardGridWithAppBar
     title={'Add to Character'}
-    cards={cards}
-    filterFunc={filterFunc}
-    setFilterFunc={setFilterFunc}
+    cards={filterFunc(cards)}
     cardDecorator={cardDecorator}
-  />;
+  >
+    <CardFilter {...{setFilterFunc}} />
+  </CardGridWithAppBar>;
 };
 
 export default AddCardToCharacterCard;
