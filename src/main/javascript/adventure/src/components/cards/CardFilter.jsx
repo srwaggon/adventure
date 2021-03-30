@@ -50,6 +50,7 @@ const CardFilter = ({setFilterFunc}) => {
         defaultValue={'any'}
         onSelect={(quality) => setFilter({...filter, quality})}>
         <MenuItem value={'any'}>Any</MenuItem>
+        <MenuItem value={null}>None</MenuItem>
       </CardQualitySelect>
     </Box>
 
