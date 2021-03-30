@@ -7,7 +7,7 @@ public class Card implements Identified<String> {
   private String id;
   private String name;
   private CardType type;
-  private Quality quality;
+  private CardQuality quality;
   private String image;
   private String imageSize;
   private String body;
@@ -44,11 +44,11 @@ public class Card implements Identified<String> {
     this.type = type;
   }
 
-  public Quality getQuality() {
+  public CardQuality getQuality() {
     return quality;
   }
 
-  public void setQuality(Quality quality) {
+  public void setQuality(CardQuality quality) {
     this.quality = quality;
   }
 

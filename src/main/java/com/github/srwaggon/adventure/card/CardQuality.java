@@ -1,6 +1,6 @@
 package com.github.srwaggon.adventure.card;
 
-public enum Quality {
+public enum CardQuality {
   COMMON,
   UNCOMMON,
   RARE,
