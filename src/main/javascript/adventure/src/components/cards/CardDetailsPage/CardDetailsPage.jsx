@@ -2,10 +2,11 @@ import {Box, Card, Container, FormControlLabel, Switch, TextField} from '@materi
 import SpecialCard from '../specialcard/SpecialCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import {deleteCard, getCardById, getCurrentPlayer, postNewCard, replaceCard} from '../../../utilities/client';
+import {deleteCard, getCardById, postNewCard, replaceCard} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import CardTypeSelect from '../CardTypeSelect/CardTypeSelect';
 import TitledAppBar from '../../shared/TitledAppBar';
+import useCurrentPlayer from './../../player/UseCurrentPlayer';
 
 const newCard = () => ({
   name: undefined,
@@ -50,15 +51,7 @@ const CardDetailsPage = () => {
     }
   }, [cardId, card]);
 
-  const [author, setAuthor] = useState(undefined);
-
-  useEffect(() => {
-    if (!author) {
-      getCurrentPlayer()
-        .then((response) => response.json())
-        .then(json => setAuthor(json.name));
-    }
-  }, [author, setAuthor]);
+  const {name: author} = useCurrentPlayer();
 
   const history = useHistory();
   const [isEditing, setEditing] = useState(false);
