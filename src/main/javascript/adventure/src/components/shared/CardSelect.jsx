@@ -7,10 +7,10 @@ const CardSelect = ({label, populator, defaultValue, onSelect, children}) => {
 
   useEffect(() => {
     populator(setValues);
-  }, []);
+  }, [populator]);
 
   return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
-    <InputLabel>Type</InputLabel>
+    <InputLabel>{label}</InputLabel>
     <Select label={label} defaultValue={defaultValue} onChange={event => onSelect(event.target.value)}>
       {children}
       {values.map(cardType =>
