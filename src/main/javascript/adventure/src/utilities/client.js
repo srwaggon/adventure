@@ -38,6 +38,7 @@ export const postNewCard = _postNew(cardsEndpoint);
 export const replaceCard = _replace(cardsEndpoint);
 export const deleteCard = _delete(cardsEndpoint);
 export const getCardTypes = _get(`${cardsEndpoint}/types`);
+export const getCardQualities = _get(`${cardsEndpoint}/qualities`);
 
 const proficienciesEndpoint = '/api/proficiencies';
 export const getAllProficiencies = _getAll(proficienciesEndpoint);

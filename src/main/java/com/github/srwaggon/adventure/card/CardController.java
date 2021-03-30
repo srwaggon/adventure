@@ -60,4 +60,9 @@ public class CardController {
     return Lists.newArrayList(CardType.values());
   }
 
+
+  @GetMapping("/qualities")
+  public List<CardQuality> getQualities() {
+    return Lists.newArrayList(CardQuality.values());
+  }
 }
