@@ -31,10 +31,7 @@ const CardDetailsPage = () => {
           }
           throw new Error(`${response.status}: ${response.statusText}`);
         })
-        .then(json => {
-          console.log('setting', json);
-          setCard(json);
-        })
+        .then(setCard)
         .catch((error) => {
           console.log(error);
           setCard({...newCard()});
