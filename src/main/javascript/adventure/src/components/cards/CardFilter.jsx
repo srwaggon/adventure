@@ -28,7 +28,7 @@ const CardFilter = ({setFilterFunc}) => {
 
     <Box flexGrow={1} flexShrink={0} pl={1}>
       <TextField
-        label='Filter by name'
+        label='Name'
         variant='outlined'
         margin='dense'
         fullWidth
