@@ -84,7 +84,7 @@ const CardDetailsPage = () => {
               <TextField label={'Image size'} variant={'outlined'} fullWidth margin={'dense'}
                          defaultValue={card.imageSize}
                          onChange={event => setCard({...card, imageSize: event.target.value})}/>
-              <CardTypeSelect defaultValue={card.type} onSelectType={(type) => setCard({...card, type: type})}/>
+              <CardTypeSelect defaultValue={card.type} onSelect={(selection) => setCard({...card, type: selection})}/>
               <TextField label={'Body'} multiline variant={'outlined'} rows={4} fullWidth margin={'dense'}
                          defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
               <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}
