@@ -22,6 +22,7 @@ export const replacePlayer = _replace(playersEndpoint);
 export const deletePlayer = _delete(playersEndpoint);
 export const getCurrentPlayer = _get(`${playersEndpoint}/current`);
 export const getCurrentPlayersCharacters = _get(`${playersEndpoint}/current/characters`);
+export const getCurrentPlayersGames = _get(`${playersEndpoint}/current/games`);
 
 const charactersEndpoint = '/api/characters';
 export const getAllCharacters = _getAll(charactersEndpoint);
@@ -42,6 +43,17 @@ export const getCardQualities = _get(`${cardsEndpoint}/qualities`);
 
 const proficienciesEndpoint = '/api/proficiencies';
 export const getAllProficiencies = _getAll(proficienciesEndpoint);
+
+const gamesEndpoint = '/api/games';
+export const getAllGames = _getAll(gamesEndpoint);
+export const getGameById = _getAll(gamesEndpoint);
+export const postNewGame = _postNew(gamesEndpoint);
+export const replaceGame = _replace(gamesEndpoint);
+export const deleteGame = _delete(gamesEndpoint);
+export const addPlayerToGame = (gameId, playerId) => fetch(`${gamesEndpoint}/${gameId}/players/${playerId}`,
+  {method: 'PUT'});
+export const removePlayerFromGame = (gameId, playerId) => fetch(`${gamesEndpoint}/${gameId}/players/${playerId}`,
+  {method: 'DELETE'});
 
 export const client = {
   getAllPlayers,

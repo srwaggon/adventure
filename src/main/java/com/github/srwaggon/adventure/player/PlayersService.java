@@ -47,4 +47,9 @@ public class PlayersService {
   private RuntimeException newPlayerDoesNotExistException() {
     return new RuntimeException("No current player exists.");
   }
+
+  public Player getById(String id) {
+    return playerRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Player not found with id" + id));
+  }
 }

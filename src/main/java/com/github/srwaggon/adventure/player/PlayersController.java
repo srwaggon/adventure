@@ -3,6 +3,8 @@ package com.github.srwaggon.adventure.player;
 
 import com.github.srwaggon.adventure.character.PlayerCharacter;
 import com.github.srwaggon.adventure.character.PlayerCharacterService;
+import com.github.srwaggon.adventure.game.Game;
+import com.github.srwaggon.adventure.game.GameService;
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class PlayersController {
   private PlayerCharacterService characterService;
 
   @Autowired
+  private GameService gameService;
+
+  @Autowired
   private Repository<Player, String> playerRepository;
 
   @GetMapping
@@ -44,8 +49,7 @@ public class PlayersController {
 
   @GetMapping("/{id}")
   public Player getPlayerById(String id) {
-    return playerRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("Player not found with id" + id));
+    return playersService.getById(id);
   }
 
   @PutMapping("/{id}")
@@ -68,6 +72,11 @@ public class PlayersController {
   @GetMapping("/current/characters")
   public List<PlayerCharacter> getCurrentPlayersCharacters() {
     return characterService.getCurrentPlayersCharacters();
+  }
+
+  @GetMapping("/current/games")
+  public List<Game> getCurrentPlayersGames() {
+    return gameService.getCurrentPlayersGames();
   }
 
 }
