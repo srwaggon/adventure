@@ -7,6 +7,7 @@ import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import CardTypeSelect from '../CardTypeSelect/CardTypeSelect';
 import TitledAppBar from '../../shared/TitledAppBar';
 import useCurrentPlayer from './../../player/UseCurrentPlayer';
+import CardQualitySelect from '../CardQualitySelect';
 
 const newCard = () => ({
   name: undefined,
@@ -85,6 +86,8 @@ const CardDetailsPage = () => {
                          defaultValue={card.imageSize}
                          onChange={event => setCard({...card, imageSize: event.target.value})}/>
               <CardTypeSelect defaultValue={card.type} onSelect={(selection) => setCard({...card, type: selection})}/>
+              <CardQualitySelect defaultValue={card.quality}
+                                 onSelect={(selection) => setCard({...card, quality: selection})}/>
               <TextField label={'Body'} multiline variant={'outlined'} rows={4} fullWidth margin={'dense'}
                          defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
               <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}
