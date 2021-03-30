@@ -1,13 +1,14 @@
 import './CharactersPage.css';
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-import {getCurrentPlayersCharacters, postNewCharacter} from '../../../utilities/client';
+import {postNewCharacter} from '../../../utilities/client';
 import {Link, useHistory} from 'react-router-dom';
 import {AppBar, Box, Card, Container, Grid, Toolbar, Typography} from '@material-ui/core';
 import CharacterPortraitCard from '../CharacterPortraitCard/CharacterPortraitCard';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import AddButton from '../../buttons/AddButton';
+import useCurrentPlayersCharacters from './UseCurrentPlayersCharacters';
 
 const CharactersPage = () => {
   return (<div className={'HomePage'}>
@@ -19,16 +20,7 @@ const CharacterSelectionPage = () => {
 
   const history = useHistory();
 
-  const [characters, setCharacters] = useState(null);
-
-  const shouldFetchCharacters = characters === null;
-  useEffect(() => {
-    if (shouldFetchCharacters) {
-      getCurrentPlayersCharacters()
-        .then(response => response.json())
-        .then(json => setCharacters(json));
-    }
-  }, [shouldFetchCharacters]);
+  const characters = useCurrentPlayersCharacters();
 
   const characterPortraits = (characters || []).map(character =>
     <Link to={`/characters/${character.id}`} style={{textDecoration: 'none'}}>
