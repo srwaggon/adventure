@@ -7,6 +7,7 @@ import CharactersPage from '../character/CharactersPage/CharactersPage';
 import CardsPage from '../cards/CardsPage';
 import {AppBar, Box, Button, Toolbar, Typography} from '@material-ui/core';
 import CardPage from '../cards/CardDetailsPage/CardDetailsPage';
+import GamesPage from '../game/GamesPage';
 
 const Navigation = () => {
   const history = useHistory();
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/cards"><CardsPage/></Route>
         <Route path="/characters/:characterId"><CharacterPage/></Route>
         <Route path="/characters"><CharactersPage/></Route>
+        <Route path="/games/"><GamesPage/></Route>
         <Route path="/"><CharactersPage/></Route>
       </Switch>
     </Router>
