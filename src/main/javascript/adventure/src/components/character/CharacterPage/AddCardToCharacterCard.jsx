@@ -26,13 +26,15 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
       <AddButton onClick={() => addCardToCharacter(card)}/>
     </Card>);
 
-  return <CenteredGridWithAppBar
-    title={'Add to Character'}
-    menuItems={
-      <CardFilter {...{setFilterFunc}} />
-    }>
-    {items}
-  </CenteredGridWithAppBar>;
+  return <Card>
+    <CenteredGridWithAppBar
+      title={'Add to Character'}
+      menuItems={
+        <CardFilter {...{setFilterFunc}} />
+      }>
+      {items}
+    </CenteredGridWithAppBar>
+  </Card>;
 };
 
 export default AddCardToCharacterCard;

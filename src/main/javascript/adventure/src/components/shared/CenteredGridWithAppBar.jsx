@@ -1,10 +1,10 @@
-import {Card, CardContent} from '@material-ui/core';
+import {Box, CardContent} from '@material-ui/core';
 import TitledAppBar from './TitledAppBar';
 import React from 'react';
 import CenteredGrid from './CenteredGrid';
 
 const CenteredGridWithAppBar = ({title, menuItems, children}) =>
-  <Card>
+  <Box>
     <TitledAppBar title={title}>
       {menuItems}
     </TitledAppBar>
@@ -13,6 +13,6 @@ const CenteredGridWithAppBar = ({title, menuItems, children}) =>
         {children}
       </CenteredGrid>
     </CardContent>
-  </Card>;
+  </Box>;
 
 export default CenteredGridWithAppBar;

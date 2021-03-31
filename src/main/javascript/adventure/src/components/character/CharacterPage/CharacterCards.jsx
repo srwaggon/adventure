@@ -32,13 +32,15 @@ const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharact
       <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(index)}/>
     </Card>);
 
-  return <CenteredGridWithAppBar
-    title={'Cards'}
-    menuItems={
-      <CardFilter {...{setFilterFunc}} />
-    }>
-    {items}
-  </CenteredGridWithAppBar>;
+  return <Card>
+    <CenteredGridWithAppBar
+      title={'Cards'}
+      menuItems={
+        <CardFilter {...{setFilterFunc}} />
+      }>
+      {items}
+    </CenteredGridWithAppBar>
+  </Card>;
 };
 
 export default CharacterCards;
