@@ -3,8 +3,10 @@ import React, {useState} from 'react';
 import {Card} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import useCards from '../../cards/useCards';
-import CardGridWithAppBar from './CardGridWithAppBar';
+import CenteredGridWithAppBar from './CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
+import {Link} from 'react-router-dom';
+import SpecialCard from '../../cards/specialcard/SpecialCard';
 
 const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
   const cards = useCards();
@@ -16,19 +18,17 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
     setCharacterCards([...characterCards, card]);
   };
 
-  const cardDecorator = ({children, card}) =>
+  const items = filterFunc(cards).map((card) =>
     <Card>
-      {children}
+      <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
+        <SpecialCard {...card}/>
+      </Link>
       <AddButton onClick={() => addCardToCharacter(card)}/>
-    </Card>;
+    </Card>);
 
-  return <CardGridWithAppBar
-    title={'Add to Character'}
-    cards={filterFunc(cards)}
-    cardDecorator={cardDecorator}
-  >
+  return <CenteredGridWithAppBar title={'Add to Character'} items={items}>
     <CardFilter {...{setFilterFunc}} />
-  </CardGridWithAppBar>;
+  </CenteredGridWithAppBar>;
 };
 
 export default AddCardToCharacterCard;

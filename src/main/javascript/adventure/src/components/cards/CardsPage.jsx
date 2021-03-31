@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import useCards from './useCards';
-import CardGridWithAppBar from '../character/CharacterPage/CardGridWithAppBar';
+import CenteredGridWithAppBar from '../character/CharacterPage/CenteredGridWithAppBar';
 import AddButton from '../buttons/AddButton';
 import CardFilter from './CardFilter';
+import SpecialCard from './specialcard/SpecialCard';
 
 const CardsPage = () => {
 
@@ -13,14 +14,15 @@ const CardsPage = () => {
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
-  return <CardGridWithAppBar
-    title={'Cards'}
-    cards={filterFunc(cards)}
-    setFilterFunc={setFilterFunc}
-  >
+  const items = filterFunc(cards).map((card) =>
+    <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
+      <SpecialCard {...card}/>
+    </Link>);
+
+  return <CenteredGridWithAppBar title={'Cards'} items={items}>
     <CardFilter {...{setFilterFunc}} />
     <AddButton onClick={() => history.push('/cards/new')}/>
-  </CardGridWithAppBar>;
+  </CenteredGridWithAppBar>;
 };
 
 export default CardsPage;

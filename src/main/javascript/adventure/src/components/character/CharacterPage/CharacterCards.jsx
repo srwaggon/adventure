@@ -4,7 +4,10 @@ import {Card} from '@material-ui/core';
 import DeleteButton from '../../buttons/DeleteButton';
 import {arrayRemoveAt} from '../../../utilities/kitchen_sink';
 import {replaceCharacter} from '../../../utilities/client';
-import CardGridWithAppBar from './CardGridWithAppBar';
+import CenteredGridWithAppBar from './CenteredGridWithAppBar';
+import CardFilter from '../../cards/CardFilter';
+import SpecialCard from '../../cards/specialcard/SpecialCard';
+import {Link} from 'react-router-dom';
 
 const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharactersCards}) => {
 
@@ -21,19 +24,17 @@ const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharact
       });
   };
 
-  const cardDecorator = ({children, index}) =>
+  const items = filterFunc(cards).map((card, index) =>
     <Card>
-      {children}
+      <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
+        <SpecialCard {...card}/>
+      </Link>
       <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(index)}/>
-    </Card>;
+    </Card>);
 
-  return <CardGridWithAppBar
-    title={'Cards'}
-    cards={filterFunc(cards)}
-    filterFunc={filterFunc}
-    setFilterFunc={setFilterFunc}
-    cardDecorator={cardDecorator}
-  />;
+  return <CenteredGridWithAppBar title={'Cards'} items={items}>
+    <CardFilter {...{setFilterFunc}} />
+  </CenteredGridWithAppBar>;
 };
 
 export default CharacterCards;

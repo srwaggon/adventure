@@ -1,18 +1,18 @@
 import {Card, CardContent} from '@material-ui/core';
 import TitledAppBar from '../../shared/TitledAppBar';
-import CardsGrid from '../../cards/CardsGrid';
 import React from 'react';
+import CenteredGrid from '../../shared/CenteredGrid';
 
-const CardGridWithAppBar = ({cards, cardDecorator, children, title}) =>
+const CenteredGridWithAppBar = ({children, title, items}) =>
   <Card>
     <TitledAppBar title={title}>
       {children}
     </TitledAppBar>
     <CardContent>
-      <CardsGrid
-        cards={cards}
-        CardDecorator={cardDecorator}/>
+      <CenteredGrid>
+        {items}
+      </CenteredGrid>
     </CardContent>
   </Card>;
 
-export default CardGridWithAppBar;
+export default CenteredGridWithAppBar;
