@@ -3,14 +3,14 @@ import TitledAppBar from './TitledAppBar';
 import React from 'react';
 import CenteredGrid from './CenteredGrid';
 
-const CenteredGridWithAppBar = ({children, title, items}) =>
+const CenteredGridWithAppBar = ({title, menuItems, children}) =>
   <Card>
     <TitledAppBar title={title}>
-      {children}
+      {menuItems}
     </TitledAppBar>
     <CardContent>
       <CenteredGrid>
-        {items}
+        {children}
       </CenteredGrid>
     </CardContent>
   </Card>;

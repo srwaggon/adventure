@@ -19,9 +19,14 @@ const CardsPage = () => {
       <VisualCard {...card}/>
     </Link>);
 
-  return <CenteredGridWithAppBar title={'Cards'} items={items}>
-    <CardFilter {...{setFilterFunc}} />
-    <AddButton onClick={() => history.push('/cards/new')}/>
+  return <CenteredGridWithAppBar
+    title={'Cards'}
+    menuItems={<>
+      <CardFilter {...{setFilterFunc}} />
+      <AddButton onClick={() => history.push('/cards/new')}/>
+    </>
+    }>
+    {items}
   </CenteredGridWithAppBar>;
 };
 
