@@ -1,11 +1,11 @@
-import './SpecialCard.css';
+import './VisualCard.css';
 import FlavorText from '../flavor/FlavorText';
 import {D10, D12, D20, D4, D6, D8} from '../../../dice/DiceIcon';
 import React from 'react';
 import {Box, Typography} from '@material-ui/core';
 import {prettify} from '../../../utilities/kitchen_sink';
 
-const SpecialCard = ({
+const VisualCard = ({
   name = '',
   image = '',
   imageSize = '100%',
@@ -28,18 +28,18 @@ const SpecialCard = ({
   const darkTextModifier = darkText ? ' darkText' : '';
 
   return (
-    <Box className='specialcard'>
-      <Box className="specialcard-content" p={1} {...{style}}>
-        <span className={`specialcard-name${darkTextModifier}`}>{name}</span>
+    <Box className='visualcard'>
+      <Box className="visualcard-content" p={1} {...{style}}>
+        <span className={`visualcard-name${darkTextModifier}`}>{name}</span>
         <div style={{flexGrow: 1}}/>
-        <span className={`specialcard-type${darkTextModifier}`}>{prettify(type)}</span>
-        <Box className='specialcard-text' p={2} mt={1} border={1}>
+        <span className={`visualcard-type${darkTextModifier}`}>{prettify(type)}</span>
+        <Box className='visualcard-text' p={2} mt={1} border={1}>
           <Typography variant={'body2'}>
             {applyTransforms(body)}
             <FlavorText>{applyTransforms(flavor)}</FlavorText>
           </Typography>
         </Box>
-        <Box textAlign={'center'} className="specialcard-author">{author}</Box>
+        <Box textAlign={'center'} className="visualcard-author">{author}</Box>
       </Box>
     </Box>
   );
@@ -79,4 +79,4 @@ const transformers = [
 
 const applyTransforms = value => transformers.reduce((acc, transformer) => transformer(acc), value);
 
-export default SpecialCard;
+export default VisualCard;

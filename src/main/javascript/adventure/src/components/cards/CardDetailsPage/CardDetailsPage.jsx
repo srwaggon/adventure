@@ -1,5 +1,5 @@
 import {Box, Card, Container, FormControlLabel, Switch, TextField} from '@material-ui/core';
-import SpecialCard from '../specialcard/SpecialCard';
+import VisualCard from '../VisualCard/VisualCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 import {deleteCard, getCardById, postNewCard, replaceCard} from '../../../utilities/client';
@@ -75,7 +75,7 @@ const CardDetailsPage = () => {
       </TitledAppBar>
       <Container>
         <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
-          <SpecialCard {...card} />
+          <VisualCard {...card} />
           <Card>
             <Box p={4} display='flex' flexDirection='column' width={'20rem'}>
               <TextField label={'Name'} variant={'outlined'} fullWidth margin={'dense'}

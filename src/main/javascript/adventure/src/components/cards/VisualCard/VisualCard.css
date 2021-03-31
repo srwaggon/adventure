@@ -1,4 +1,4 @@
-.specialcard-content {
+.visualcard-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,18 +10,18 @@
   border: solid thin black;
 }
 
-.specialcard-name {
+.visualcard-name {
   font-weight: bold;
   color: white;
   text-transform: capitalize;
 }
 
-.specialcard-type {
+.visualcard-type {
   color: white;
   text-transform: capitalize;
 }
 
-.specialcard-text {
+.visualcard-text {
   background-color: white;
   color: black;
   opacity: 0.8;
@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 
-.specialcard-author {
+.visualcard-author {
   color: white;
   height: .5em;
   font-size: .5em;

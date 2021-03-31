@@ -6,7 +6,7 @@ import useCards from '../../cards/useCards';
 import CenteredGridWithAppBar from './CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
 import {Link} from 'react-router-dom';
-import SpecialCard from '../../cards/specialcard/SpecialCard';
+import VisualCard from '../../cards/VisualCard/VisualCard';
 
 const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
   const cards = useCards();
@@ -21,7 +21,7 @@ const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards,
   const items = filterFunc(cards).map((card) =>
     <Card>
       <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
-        <SpecialCard {...card}/>
+        <VisualCard {...card}/>
       </Link>
       <AddButton onClick={() => addCardToCharacter(card)}/>
     </Card>);

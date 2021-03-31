@@ -4,7 +4,7 @@ import useCards from './useCards';
 import CenteredGridWithAppBar from '../character/CharacterPage/CenteredGridWithAppBar';
 import AddButton from '../buttons/AddButton';
 import CardFilter from './CardFilter';
-import SpecialCard from './specialcard/SpecialCard';
+import VisualCard from './VisualCard/VisualCard';
 
 const CardsPage = () => {
 
@@ -16,7 +16,7 @@ const CardsPage = () => {
 
   const items = filterFunc(cards).map((card) =>
     <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
-      <SpecialCard {...card}/>
+      <VisualCard {...card}/>
     </Link>);
 
   return <CenteredGridWithAppBar title={'Cards'} items={items}>

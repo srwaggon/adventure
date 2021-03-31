@@ -6,7 +6,7 @@ import {arrayRemoveAt} from '../../../utilities/kitchen_sink';
 import {replaceCharacter} from '../../../utilities/client';
 import CenteredGridWithAppBar from './CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
-import SpecialCard from '../../cards/specialcard/SpecialCard';
+import VisualCard from '../../cards/VisualCard/VisualCard';
 import {Link} from 'react-router-dom';
 
 const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharactersCards}) => {
@@ -27,7 +27,7 @@ const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharact
   const items = filterFunc(cards).map((card, index) =>
     <Card>
       <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
-        <SpecialCard {...card}/>
+        <VisualCard {...card}/>
       </Link>
       <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(index)}/>
     </Card>);
