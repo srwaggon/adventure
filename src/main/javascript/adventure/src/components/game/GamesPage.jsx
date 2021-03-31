@@ -12,7 +12,7 @@ function GameBox(game) {
     border={1}
     onClick={() => history.push(`/games/${game.id}`)}
   >
-    {game.name || game.id}
+    {game.name}
   </Box>;
 }
 

@@ -22,11 +22,11 @@ const GameDetailsPage = () => {
       label='Game name'
       variant='outlined'
       fullWidth margin='dense'
-      defaultValue={game.name || game.id}
+      defaultValue={game.name}
       onChange={event => setGame({...game, name: event.target.value})}
     />;
 
-  const title = isEditing ? editGameNameTextField : game.name || game.id;
+  const title = isEditing ? editGameNameTextField : game.name;
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => {
     setEditing(false);

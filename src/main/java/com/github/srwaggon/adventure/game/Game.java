@@ -11,7 +11,7 @@ public class Game implements Identified<UUID> {
 
   private UUID id = UUID.randomUUID();
 
-  private String name;
+  private String name = "New Game";
 
   private String owner;
 
