@@ -46,7 +46,7 @@ export const getAllProficiencies = _getAll(proficienciesEndpoint);
 
 const gamesEndpoint = '/api/games';
 export const getAllGames = _getAll(gamesEndpoint);
-export const getGameById = _getAll(gamesEndpoint);
+export const getGameById = _getById(gamesEndpoint);
 export const postNewGame = _postNew(gamesEndpoint);
 export const replaceGame = _replace(gamesEndpoint);
 export const deleteGame = _delete(gamesEndpoint);
