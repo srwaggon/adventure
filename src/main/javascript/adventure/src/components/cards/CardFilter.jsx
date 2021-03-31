@@ -1,5 +1,5 @@
 import {Box, MenuItem, TextField} from '@material-ui/core';
-import CardTypeSelect from './CardTypeSelect/CardTypeSelect';
+import CardTypeSelect from './CardTypeSelect';
 import React, {useEffect, useState} from 'react';
 import CardQualitySelect from './CardQualitySelect';
 

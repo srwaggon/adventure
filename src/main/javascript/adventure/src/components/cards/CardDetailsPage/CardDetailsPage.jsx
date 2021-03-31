@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 import {deleteCard, getCardById, postNewCard, replaceCard} from '../../../utilities/client';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
-import CardTypeSelect from '../CardTypeSelect/CardTypeSelect';
+import CardTypeSelect from '../CardTypeSelect';
 import TitledAppBar from '../../shared/TitledAppBar';
 import useCurrentPlayer from './../../player/UseCurrentPlayer';
 import CardQualitySelect from '../CardQualitySelect';
