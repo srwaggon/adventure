@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Card} from '@material-ui/core';
 import AddButton from '../../buttons/AddButton';
 import useCards from '../../cards/useCards';
-import CenteredGridWithAppBar from './CenteredGridWithAppBar';
+import CenteredGridWithAppBar from './../../shared/CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
 import {Link} from 'react-router-dom';
 import VisualCard from '../../cards/VisualCard/VisualCard';

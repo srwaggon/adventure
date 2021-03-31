@@ -4,7 +4,7 @@ import {Card} from '@material-ui/core';
 import DeleteButton from '../../buttons/DeleteButton';
 import {arrayRemoveAt} from '../../../utilities/kitchen_sink';
 import {replaceCharacter} from '../../../utilities/client';
-import CenteredGridWithAppBar from './CenteredGridWithAppBar';
+import CenteredGridWithAppBar from './../../shared/CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
 import VisualCard from '../../cards/VisualCard/VisualCard';
 import {Link} from 'react-router-dom';

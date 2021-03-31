@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import useCards from './useCards';
-import CenteredGridWithAppBar from '../character/CharacterPage/CenteredGridWithAppBar';
+import CenteredGridWithAppBar from '../shared/CenteredGridWithAppBar';
 import AddButton from '../buttons/AddButton';
 import CardFilter from './CardFilter';
 import VisualCard from './VisualCard/VisualCard';
