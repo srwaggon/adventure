@@ -3,10 +3,8 @@ import React from 'react';
 
 const CenteredGrid = ({children}) => {
   return <Grid container justify={'center'} spacing={1}>
-    {children.map(child =>
-      <Grid item>
-        {child}
-      </Grid>)}
+    {(Array.isArray(children) ? children : [children])
+      .map(child => <Grid item>{child}</Grid>)}
   </Grid>;
 };
 
