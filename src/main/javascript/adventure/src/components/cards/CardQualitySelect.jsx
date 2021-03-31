@@ -1,6 +1,6 @@
 import React from 'react';
 import {getCardQualities} from '../../utilities/client';
-import CardSelect from './../shared/CardSelect';
+import CardSelect from './CardSelect';
 
 const CardQualitySelect = ({children, defaultValue, onSelect}) => {
   const populator = (setValues) =>

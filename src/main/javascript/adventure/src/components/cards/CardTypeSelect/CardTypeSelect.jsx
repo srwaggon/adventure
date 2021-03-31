@@ -1,6 +1,6 @@
 import React from 'react';
 import {getCardTypes} from '../../../utilities/client';
-import CardSelect from './../../shared/CardSelect';
+import CardSelect from './../CardSelect';
 
 const CardTypeSelect = ({children, defaultValue, onSelect}) => {
   const populator = (setValues) =>
