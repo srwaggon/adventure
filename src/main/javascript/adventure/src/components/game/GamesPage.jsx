@@ -1,21 +1,18 @@
-import {Box, Container} from '@material-ui/core';
-import CenteredGrid from '../shared/CenteredGrid';
+import {Box} from '@material-ui/core';
 import useCurrentPlayersGames from './UseCurrentPlayersGames';
-import TitledAppBar from '../shared/TitledAppBar';
 import AddButton from '../buttons/AddButton';
+import CenteredGridWithAppBar from '../shared/CenteredGridWithAppBar';
 
 const GamesPage = () => {
+
   const games = useCurrentPlayersGames();
-  return <Box>
-    <TitledAppBar title={'Games'}>
-      <AddButton onClick={() => alert('phat booty')}/>
-    </TitledAppBar>
-    <Container>
-      <CenteredGrid>
-        {games.map(g => <Box p={1} border={1}>{g.name || g.id}</Box>)}
-      </CenteredGrid>
-    </Container>
-  </Box>;
+
+  return <CenteredGridWithAppBar
+    title={'Games'}
+    menuItems={<AddButton onClick={() => alert('phat booty')}/>}
+  >
+    {games.map(g => <Box p={1} border={1}>{g.name || g.id}</Box>)}
+  </CenteredGridWithAppBar>;
 };
 
 export default GamesPage;
