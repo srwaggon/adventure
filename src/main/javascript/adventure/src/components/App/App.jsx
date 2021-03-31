@@ -36,7 +36,7 @@ const App = () => {
         <Route path="/characters/:characterId"><CharacterPage/></Route>
         <Route path="/characters"><CharactersPage/></Route>
         <Route path="/games/:gameId"><GameDetailsPage/></Route>
-        <Route path="/games/"><GamesPage/></Route>
+        <Route path="/games"><GamesPage/></Route>
         <Route path="/"><CharactersPage/></Route>
       </Switch>
     </Router>

@@ -10,5 +10,5 @@ export function useGameWithId(gameId) {
       .then(setGame);
   }, [gameId, setGame]);
 
-  return game;
+  return [game, setGame];
 }
