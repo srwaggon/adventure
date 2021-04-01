@@ -7,6 +7,7 @@ import EditButtonRow from '../buttons/EditButtonRow/EditButtonRow';
 import {deleteGame, getGameById, replaceGame} from '../../utilities/client';
 import {CurrentPlayersCharactersSelect} from '../character/CharacterSelect';
 import {ChevronRightButton, FaceButton, MenuButton} from '../buttons/Buttons';
+import CharacterDetails from '../character/CharacterDetails';
 
 const GameDetailsPage = () => {
   const {gameId} = useParams();
@@ -85,6 +86,10 @@ const GameDetailsPage = () => {
               <ListItemText primary={
                 <CurrentPlayersCharactersSelect onSelect={setSelectedCharacter}/>
               }/>
+            </ListItem>
+            <ListItem>
+              {selectedCharacter && <CharacterDetails character={selectedCharacter}
+                                                      setCharacter={setSelectedCharacter}/>}
             </ListItem>
           </List>
         </Box>
