@@ -3,7 +3,7 @@ import './CharacterPage.css';
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {Box, Container} from '@material-ui/core';
+import {Box, Card, CardContent, Container} from '@material-ui/core';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterCards from './CharacterCards';
@@ -71,7 +71,11 @@ const CharacterPage = () => {
       </TitledAppBar>
       <Container>
         <Box p={1}>
-          <CharacterDetails character={character} setCharacter={setCharacter} isEditing={isEditing}/>
+          <Card>
+            <CardContent>
+              <CharacterDetails character={character} setCharacter={setCharacter} isEditing={isEditing}/>
+            </CardContent>
+          </Card>
         </Box>
         <Box p={1}>
           <CharacterCards {...characterPageState} {...{fetchCharactersCards}}/>
