@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {Card} from '@material-ui/core';
+import {Badge, Box, Card} from '@material-ui/core';
 import DeleteButton from '../../buttons/DeleteButton';
 import {arrayRemoveAt} from '../../../utilities/kitchen_sink';
 import {replaceCharacter} from '../../../utilities/client';
@@ -8,6 +8,9 @@ import CenteredGridWithAppBar from './../../shared/CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
 import VisualCard from '../../cards/VisualCard/VisualCard';
 import {Link} from 'react-router-dom';
+import PlayButton from '../../buttons/PlayButton';
+import SendButton from '../../buttons/SendButton';
+import BrokenImageButton from '../../buttons/BrokenImageButton';
 
 const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharactersCards}) => {
 
@@ -29,7 +32,14 @@ const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharact
       <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
         <VisualCard {...card}/>
       </Link>
-      <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(index)}/>
+      <Box display='flex' flexDirection='row'>
+        <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(index)}/>
+        <Badge badgeContent={4} color='secondary' overlap='circle'>
+          <BrokenImageButton/>
+        </Badge>
+        <PlayButton/>
+        <SendButton/>
+      </Box>
     </Card>);
 
   return <Card>
