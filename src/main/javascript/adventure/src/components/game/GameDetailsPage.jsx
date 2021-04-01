@@ -1,10 +1,12 @@
-import {Box, TextField} from '@material-ui/core';
+import {Box, Divider, Drawer, List, ListItem, ListItemText, TextField} from '@material-ui/core';
 import {useHistory, useParams} from 'react-router-dom';
 import {useGameWithId} from './UseGameWithId';
 import CenteredGridWithAppBar from '../shared/CenteredGridWithAppBar';
 import {useState} from 'react';
 import EditButtonRow from '../buttons/EditButtonRow/EditButtonRow';
 import {deleteGame, getGameById, replaceGame} from '../../utilities/client';
+import {CurrentPlayersCharactersSelect} from '../character/CharacterSelect';
+import {ChevronRightButton, FaceButton, MenuButton} from '../buttons/Buttons';
 
 const GameDetailsPage = () => {
   const {gameId} = useParams();
@@ -42,15 +44,52 @@ const GameDetailsPage = () => {
   };
   const onDelete = () => deleteGame(game).then(() => history.push('/games'));
 
+  const [isCharacterDrawerOpen, setCharacterDrawerOpen] = useState(false);
+  const openCharacterDrawer = () => setCharacterDrawerOpen(true);
+  const closeCharacterDrawer = () => setCharacterDrawerOpen(false);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+
   return !players
     ? 'Loading...'
     : <CenteredGridWithAppBar
       title={title}
       menuItems={
-        <EditButtonRow isEditing={isEditing} onDelete={onDelete} onCancelEdit={onCancelEdit} onEdit={onEdit}
-                       onSave={onSave}/>
+        <>
+          <EditButtonRow
+            isEditing={isEditing}
+            onDelete={onDelete}
+            onSave={onSave}
+            onCancelEdit={onCancelEdit}
+            onEdit={onEdit}
+          />
+          <FaceButton onClick={openCharacterDrawer}/>
+          <MenuButton onClick={openCharacterDrawer}/>
+        </>
       }>
       {players.map((player) => <Box p={1} border={1}>{player}</Box>)}
+      <Drawer
+        // className={classes.drawer}
+        // classes={{paper: classes.drawerPaper,}}
+        variant="persistent"
+        anchor="right"
+        open={isCharacterDrawerOpen}
+      >
+        <Box width={300}>
+          <Box p={1}>
+            <ChevronRightButton onClick={closeCharacterDrawer}/>
+          </Box>
+          <Divider/>
+          <List>
+            <ListItem>
+              {/*<ListItemIcon><FaceIcon/></ListItemIcon>*/}
+              <ListItemText primary={
+                <CurrentPlayersCharactersSelect onSelect={setSelectedCharacter}/>
+              }/>
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
+
     </CenteredGridWithAppBar>;
 };
 

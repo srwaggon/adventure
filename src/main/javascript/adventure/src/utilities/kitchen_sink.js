@@ -1,3 +1,7 @@
+export const noop = () => {
+};
+export const identity = x => x;
+
 export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 export const prettify = (cardType) => cardType.toLowerCase().split('_').map(capitalize).join(' ');
 export const arrayRemove = (array, value) => {
@@ -6,7 +10,7 @@ export const arrayRemove = (array, value) => {
     array.splice(index, 1);
   }
   return array;
-}
+};
 
 export const arrayRemoveAll = (array, value) => {
   let i = 0;
