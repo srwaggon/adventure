@@ -1,5 +1,6 @@
 import {Box, IconButton} from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import FaceIcon from '@material-ui/icons/Face';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -7,6 +8,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 export const AccountCircleButton = ({disabled, onClick}) =>
   <StandardIconButton disabled={disabled} onClick={onClick}>
     <AccountCircleIcon/>
+  </StandardIconButton>;
+
+export const ChevronLeftButton = ({disabled, onClick}) =>
+  <StandardIconButton disabled={disabled} onClick={onClick}>
+    <ChevronLeftIcon/>
   </StandardIconButton>;
 
 export const ChevronRightButton = ({disabled, onClick}) =>
