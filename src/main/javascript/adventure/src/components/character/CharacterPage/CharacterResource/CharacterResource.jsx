@@ -1,7 +1,7 @@
-import './CharacterResource.css'
+import './CharacterResource.css';
 
 import {replaceCharacter} from '../../../../utilities/client';
-import {Box, IconButton} from '@material-ui/core';
+import {Box, Button, IconButton, LinearProgress} from '@material-ui/core';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import {AddBox, Backspace} from '@material-ui/icons';
@@ -53,8 +53,11 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
 
   return (
     <Box className="character-resource" p={1}>
-      <div className={'character-resource-name'}>{resource}</div>
+      <Button>
+        <div className={'character-resource-name'}>{resource}</div>
+      </Button>
       <div className="character-resource-value">
+        <LinearProgress styles={{borderRadius: 5}} variant="determinate" value={value / max * 100}/>
         {[...Array(max).keys()].map(
           (int) =>
             <IconButton
