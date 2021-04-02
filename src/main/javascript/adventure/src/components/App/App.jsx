@@ -9,6 +9,7 @@ import {AppBar, Box, Button, Toolbar, Typography} from '@material-ui/core';
 import CardPage from '../cards/CardDetailsPage/CardDetailsPage';
 import GamesPage from '../game/GamesPage';
 import GameDetailsPage from '../game/GameDetailsPage';
+import {useStyles} from '../Styles';
 
 const Navigation = () => {
   const history = useHistory();
@@ -25,9 +26,10 @@ const Navigation = () => {
 };
 
 const App = () => {
+  const classes = useStyles();
   return (<Box className="App">
     <Router>
-      <AppBar position={'static'}>
+      <AppBar position={'relative'} className={classes.headerBar}>
         <Navigation/>
       </AppBar>
       <Switch>
