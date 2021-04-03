@@ -9,6 +9,7 @@ import TitledAppBar from '../../shared/TitledAppBar';
 import CharacterDetails from './../CharacterDetails';
 import {useCharacter} from '../UseCharacter';
 import {useCharactersCards} from '../UseCharactersCards';
+import {useDeleteDialog} from '../../shared/UseDeleteDialog';
 
 const CharacterPage = () => {
 
@@ -40,11 +41,13 @@ const CharacterPage = () => {
 
   const characterPageState = {character, setCharacter, cards, setCards, isEditing, setEditing};
 
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Really delete ${character?.name || ''}`, onDelete);
+
   return !character
     ? <CircularProgress/>
     : <div>
       <TitledAppBar title={'Character Details'}>
-        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
       <Container>
         <Box p={1}>
@@ -61,6 +64,7 @@ const CharacterPage = () => {
           <AddCardToCharacterCard {...characterPageState}/>
         </Box>}
       </Container>
+      <DeleteDialog/>
     </div>;
 };
 
