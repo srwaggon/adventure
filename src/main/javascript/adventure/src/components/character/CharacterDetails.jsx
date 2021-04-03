@@ -3,7 +3,7 @@ import {Box, Divider, TextField, Typography} from '@material-ui/core';
 import CharacterPortraitCard from './CharacterPortraitCard/CharacterPortraitCard';
 import EditCharacterNameTextField from './CharacterPage/EditCharacterNameTextField';
 import CharacterAttribute from './CharacterAttribute';
-import CharacterResource from './CharacterPage/CharacterResource/CharacterResource';
+import CharacterResource from './CharacterResource';
 import ProficiencyChip from './CharacterPage/ProficiencyChip';
 import React from 'react';
 
