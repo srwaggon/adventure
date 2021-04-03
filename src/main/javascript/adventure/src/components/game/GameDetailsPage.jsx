@@ -22,6 +22,7 @@ import CenteredGrid from '../shared/CenteredGrid';
 import clsx from 'clsx';
 import SendButton from '../buttons/SendButton';
 import {drawerWidth, useStyles} from '../Styles';
+import {useDeleteDialog} from '../shared/UseDeleteDialog';
 
 const GameDetailsPage = () => {
   const {gameId} = useParams();
@@ -82,6 +83,8 @@ const GameDetailsPage = () => {
   const drawerContent = <CharacterDetailsDrawerContent character={selectedCharacter}
                                                        setCharacter={setSelectedCharacter}/>;
 
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ''}`, onDelete);
+
   return !players
     ? 'Loading...'
     : <Box>
@@ -95,7 +98,7 @@ const GameDetailsPage = () => {
             </Box>
             <EditButtonRow
               isEditing={isEditing}
-              onDelete={onDelete}
+              onDelete={openDialog}
               onSave={onSave}
               onCancelEdit={onCancelEdit}
               onEdit={onEdit}
@@ -135,7 +138,7 @@ const GameDetailsPage = () => {
           {drawerContent}
         </Box>
       </Drawer>
-
+      <DeleteDialog/>
     </Box>;
 };
 
