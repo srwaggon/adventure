@@ -8,6 +8,7 @@ import CardTypeSelect from '../CardTypeSelect';
 import TitledAppBar from '../../shared/TitledAppBar';
 import useCurrentPlayer from './../../player/UseCurrentPlayer';
 import CardQualitySelect from '../CardQualitySelect';
+import {useDeleteDialog} from '../../shared/UseDeleteDialog';
 
 const newCard = () => ({
   name: undefined,
@@ -67,11 +68,13 @@ const CardDetailsPage = () => {
     .catch(error => console.log(error));
   const onDelete = () => deleteCard(card).then(() => history.push('/cards'));
 
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ''}?`, onDelete);
+
   return !card
     ? <span>Loading...</span>
     : <div>
       <TitledAppBar title={'Card Details'}>
-        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
+        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
       <Container>
         <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
@@ -104,6 +107,7 @@ const CardDetailsPage = () => {
           </Card>
         </Box>
       </Container>
+      <DeleteDialog/>
     </div>;
 };
 
