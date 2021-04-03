@@ -17,9 +17,8 @@ const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
           } else {
             proficiencies.push(proficiency);
           }
+          setCharacter({...character, proficiencies});
         }
-        console.log(proficiencies);
-        setCharacter({...character, proficiencies});
       }}
     />
   </Box>;
