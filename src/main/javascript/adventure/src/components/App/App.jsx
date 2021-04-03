@@ -15,7 +15,7 @@ const Navigation = () => {
   const history = useHistory();
   return <Toolbar>
     <Button color={'inherit'} onClick={() => history.push('/')}>
-      <Typography variant="h4">Alcheim Online</Typography>
+      <Typography variant="h4" style={{textTransform: 'capitalize'}}>Alcheim Online</Typography>
     </Button>
     <div style={{flexGrow: 1}}/>
     <Button color="inherit" onClick={() => history.push('/cards')}>Cards</Button>
