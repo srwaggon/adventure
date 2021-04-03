@@ -14,14 +14,17 @@ import {useStyles} from '../Styles';
 const Navigation = () => {
   const history = useHistory();
   return <Toolbar>
-    <Button color={'inherit'} onClick={() => history.push('/')}>
-      <Typography variant="h4" style={{textTransform: 'capitalize'}}>Alcheim Online</Typography>
-    </Button>
-    <div style={{flexGrow: 1}}/>
-    <Button color="inherit" onClick={() => history.push('/cards')}>Cards</Button>
-    <Button color="inherit" onClick={() => history.push('/characters')}>Characters</Button>
-    <Button color="inherit" onClick={() => history.push('/games')}>Games</Button>
-    <Button color="inherit" href={'/logout'}>Logout</Button>
+    <Box display='flex' justifyContent={'space-between'} width={1} alignItems={'center'} flexWrap={'wrap'} ml={-1}>
+      <Button color={'inherit'} onClick={() => history.push('/')}>
+        <Typography variant="h4" style={{textTransform: 'capitalize'}}>Alcheim Online</Typography>
+      </Button>
+      <Box>
+        <Button color="inherit" onClick={() => history.push('/cards')}>Cards</Button>
+        <Button color="inherit" onClick={() => history.push('/characters')}>Characters</Button>
+        <Button color="inherit" onClick={() => history.push('/games')}>Games</Button>
+        <Button color="inherit" href={'/logout'}>Logout</Button>
+      </Box>
+    </Box>
   </Toolbar>;
 };
 
