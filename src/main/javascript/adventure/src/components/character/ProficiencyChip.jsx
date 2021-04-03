@@ -1,5 +1,5 @@
 import {Box, Chip} from '@material-ui/core';
-import {arrayRemoveAll, prettify} from '../../../utilities/kitchen_sink';
+import {arrayRemoveAll, prettify} from '../../utilities/kitchen_sink';
 import React from 'react';
 
 const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {

@@ -4,7 +4,7 @@ import CharacterPortraitCard from './CharacterPortraitCard/CharacterPortraitCard
 import EditCharacterNameTextField from './CharacterPage/EditCharacterNameTextField';
 import CharacterAttribute from './CharacterAttribute';
 import CharacterResource from './CharacterResource';
-import ProficiencyChip from './CharacterPage/ProficiencyChip';
+import ProficiencyChip from './ProficiencyChip';
 import React from 'react';
 
 const CharacterDetails = ({character, setCharacter, isEditing}) => {
