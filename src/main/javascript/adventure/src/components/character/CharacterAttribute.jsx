@@ -2,7 +2,7 @@ import {Box, Button, IconButton} from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
-import {D10Icon} from '../../../icons/DiceIcons';
+import {D10Icon} from '../icons/DiceIcons';
 
 const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => {
   const value = character[attribute].value;

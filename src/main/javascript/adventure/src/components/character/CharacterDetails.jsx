@@ -2,7 +2,7 @@ import useProficiencies from '../proficiency/useProficiencies';
 import {Box, TextField, Typography} from '@material-ui/core';
 import CharacterPortraitCard from './CharacterPortraitCard/CharacterPortraitCard';
 import EditCharacterNameTextField from './CharacterPage/EditCharacterNameTextField';
-import CharacterAttribute from './CharacterPage/CharacterAttribute/CharacterAttribute';
+import CharacterAttribute from './CharacterAttribute';
 import CharacterResource from './CharacterPage/CharacterResource/CharacterResource';
 import ProficiencyChip from './CharacterPage/ProficiencyChip';
 import React from 'react';
