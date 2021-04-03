@@ -1,5 +1,3 @@
-import './CharacterResource.css';
-
 import {replaceCharacter} from '../../../../utilities/client';
 import {Box, Button, IconButton, LinearProgress} from '@material-ui/core';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
@@ -53,11 +51,11 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
   };
 
   return (
-    <Box className="character-resource" p={1}>
+    <Box className="character-resource" width={260} mb={2}>
       <Button startIcon={<D10Icon/>}>
-        <div className={'character-resource-name'}>{resource}</div>
+        <Box width={80} style={{textTransform: 'capitalize', textAlign: 'left'}}>{resource}</Box>
       </Button>
-      <div className="character-resource-value">
+      <Box width={220}>
         <LinearProgress styles={{borderRadius: 5}} variant="determinate" value={value / max * 100}/>
         {[...Array(max).keys()].map(
           (int) =>
@@ -74,7 +72,7 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
 
         {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
         {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
-      </div>
+      </Box>
     </Box>
   );
 };

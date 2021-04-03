@@ -20,8 +20,8 @@ const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => 
   return (
     <Box className="character-attribute" alignItems={'center'} width={260} display='flex'>
       <Button startIcon={<D10Icon/>}>
-        <Box width={80}>
-          <div style={{textTransform: 'capitalize'}}>{attribute}</div>
+        <Box width={80} style={{textTransform: 'capitalize', textAlign: 'left'}}>
+          {attribute}
         </Box>
       </Button>
       <div className="character-attribute-value">

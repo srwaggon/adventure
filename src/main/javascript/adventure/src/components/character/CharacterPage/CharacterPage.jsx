@@ -1,5 +1,3 @@
-import './CharacterPage.css';
-
 import {useHistory, useParams} from 'react-router-dom';
 import React, {useState} from 'react';
 import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';

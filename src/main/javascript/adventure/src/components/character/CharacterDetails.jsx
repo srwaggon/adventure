@@ -1,5 +1,5 @@
 import useProficiencies from '../proficiency/useProficiencies';
-import {Box, TextField, Typography} from '@material-ui/core';
+import {Box, Divider, TextField, Typography} from '@material-ui/core';
 import CharacterPortraitCard from './CharacterPortraitCard/CharacterPortraitCard';
 import EditCharacterNameTextField from './CharacterPage/EditCharacterNameTextField';
 import CharacterAttribute from './CharacterAttribute';
@@ -33,37 +33,40 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
             ? <EditCharacterNameTextField character={character} setCharacter={setCharacter}/>
             : <Typography align='center' variant={'h3'}>{character.name}</Typography>}
         </Box>
+        <Divider/>
         <Typography variant='h5'>Attributes</Typography>
-        <Box display='flex' flexWrap='wrap' justifyContent='center'>
-          <Box className="character-attributes-group" padding={1}>
+        <Box display='flex' flexWrap='wrap'>
+          <Box pr={2}>
             <CharacterAttribute {...characterPageState} attribute={'strength'}/>
             <CharacterAttribute {...characterPageState} attribute={'dexterity'}/>
             <CharacterAttribute {...characterPageState} attribute={'constitution'}/>
           </Box>
-          <Box className="character-attributes-group" padding={1}>
+          <Box pr={2}>
             <CharacterAttribute {...characterPageState} attribute={'presence'}/>
             <CharacterAttribute {...characterPageState} attribute={'influence'}/>
             <CharacterAttribute {...characterPageState} attribute={'composure'}/>
           </Box>
-          <Box className="character-attributes-group" padding={1}>
+          <Box pr={2}>
             <CharacterAttribute {...characterPageState} attribute={'intelligence'}/>
             <CharacterAttribute {...characterPageState} attribute={'wits'}/>
             <CharacterAttribute {...characterPageState} attribute={'resolve'}/>
           </Box>
         </Box>
+        <Divider/>
         <Typography variant='h5'>Resources</Typography>
-        <Box display='flex' flexWrap='wrap' justifyContent='center'>
+        <Box display='flex' flexWrap='wrap'>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'stamina'}/></Box>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'confidence'}/></Box>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'focus'}/></Box>
         </Box>
-        <Box display='flex' flexWrap='wrap' justifyContent='center'>
+        <Box display='flex' flexWrap='wrap'>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'health'}/></Box>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'reputation'}/></Box>
           <Box pr={'16px'}><CharacterResource {...characterPageState} resource={'mana'}/></Box>
         </Box>
       </Box>
     </Box>
+    <Divider/>
     <Typography variant='h5'>Proficiencies</Typography>
     <Box display='flex' flexWrap='wrap' flexDirection={'row'}>
       {proficiencies.map(proficiency =>
