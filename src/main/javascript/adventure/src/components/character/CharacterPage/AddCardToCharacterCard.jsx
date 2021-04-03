@@ -8,17 +8,14 @@ import CardFilter from '../../cards/CardFilter';
 import {Link} from 'react-router-dom';
 import VisualCard from '../../cards/VisualCard/VisualCard';
 
-const AddCardToCharacterCard = ({character, setCharacter, cards: characterCards, setCards: setCharacterCards}) => {
-  const cards = useCards();
+const AddCardToCharacterCard = ({cards: characterCards, setCards: setCharacterCards}) => {
+  const allCards = useCards();
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
-  const addCardToCharacter = card => {
-    setCharacter({...character, cards: [...character.cards, card.id]});
-    setCharacterCards([...characterCards, card]);
-  };
+  const addCardToCharacter = card => setCharacterCards([...characterCards, card]);
 
-  const items = filterFunc(cards).map((card) =>
+  const items = filterFunc(allCards).map((card) =>
     <Card>
       <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
         <VisualCard {...card}/>

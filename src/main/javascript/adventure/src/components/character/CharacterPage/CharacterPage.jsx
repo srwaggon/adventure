@@ -1,41 +1,26 @@
 import './CharacterPage.css';
 
 import {useHistory, useParams} from 'react-router-dom';
-import React, {useEffect, useState} from 'react';
-import {deleteCharacter, getCharacterById, getCharactersCards, replaceCharacter} from '../../../utilities/client';
-import {Box, Card, CardContent, Container} from '@material-ui/core';
+import React, {useState} from 'react';
+import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
+import {Box, Card, CardContent, CircularProgress, Container} from '@material-ui/core';
 import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
 import AddCardToCharacterCard from './AddCardToCharacterCard';
 import CharacterCards from './CharacterCards';
 import TitledAppBar from '../../shared/TitledAppBar';
 import CharacterDetails from './../CharacterDetails';
+import {useCharacter} from '../UseCharacter';
+import {useCharactersCards} from '../UseCharactersCards';
 
 const CharacterPage = () => {
 
   const {characterId} = useParams();
-  const history = useHistory();
-
-  const [character, setCharacter] = useState(undefined);
-  const shouldFetchCharacter = !character || characterId !== character.id;
-  useEffect(() => {
-    if (shouldFetchCharacter) {
-      getCharacterById(characterId)
-        .then(response => response.json())
-        .then(character => {
-          setCharacter(character);
-          fetchCharactersCards(character);
-        });
-    }
-  }, [shouldFetchCharacter, characterId]);
-
-  const [cards, setCards] = useState([]);
-  const fetchCharactersCards = character => {
-    getCharactersCards(character.id)
-      .then(response => response.json())
-      .then(setCards);
-  };
+  const {character, setCharacter} = useCharacter(characterId);
+  const {cards, setCards} = useCharactersCards(character);
 
   const [isEditing, setEditing] = useState(false);
+
+  const history = useHistory();
 
   const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
 
@@ -43,20 +28,14 @@ const CharacterPage = () => {
     setEditing(false);
     getCharacterById(character.id)
       .then(response => response.json())
-      .then(character => {
-        setCharacter(character);
-        fetchCharactersCards(character);
-      });
+      .then(setCharacter);
   };
 
   const onSave = ignored => {
     setEditing(false);
-    replaceCharacter(character)
+    replaceCharacter({...character, cards: cards.map(card => card.id)})
       .then(response => response.json())
-      .then(character => {
-        setCharacter(character);
-        fetchCharactersCards(character);
-      });
+      .then(setCharacter);
   };
 
   const onEdit = ignored => setEditing(true);
@@ -64,7 +43,7 @@ const CharacterPage = () => {
   const characterPageState = {character, setCharacter, cards, setCards, isEditing, setEditing};
 
   return !character
-    ? <div>Loading...</div>
+    ? <CircularProgress/>
     : <div>
       <TitledAppBar title={'Character Details'}>
         <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete}}/>
@@ -78,7 +57,7 @@ const CharacterPage = () => {
           </Card>
         </Box>
         <Box p={1}>
-          <CharacterCards {...characterPageState} {...{fetchCharactersCards}}/>
+          <CharacterCards {...characterPageState}/>
         </Box>
         {isEditing && <Box p={1}>
           <AddCardToCharacterCard {...characterPageState}/>

@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {Badge, Box, Card} from '@material-ui/core';
 import DeleteButton from '../../buttons/DeleteButton';
 import {arrayRemoveAt} from '../../../utilities/kitchen_sink';
-import {replaceCharacter} from '../../../utilities/client';
 import CenteredGridWithAppBar from './../../shared/CenteredGridWithAppBar';
 import CardFilter from '../../cards/CardFilter';
 import VisualCard from '../../cards/VisualCard/VisualCard';
@@ -12,20 +11,11 @@ import PlayButton from '../../buttons/PlayButton';
 import SendButton from '../../buttons/SendButton';
 import BrokenImageButton from '../../buttons/BrokenImageButton';
 
-const CharacterCards = ({isEditing, cards, character, setCharacter, fetchCharactersCards}) => {
+const CharacterCards = ({isEditing, cards, setCards}) => {
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
-  const removeCardFromCharacter = index => {
-    const newCards = arrayRemoveAt([...cards], index).map(x => x.id);
-    const newCharacter = {...character, cards: newCards};
-    replaceCharacter(newCharacter)
-      .then(response => response.json())
-      .then(json => {
-        setCharacter(json);
-        fetchCharactersCards(character);
-      });
-  };
+  const removeCardFromCharacter = index => setCards(arrayRemoveAt([...cards], index));
 
   const items = filterFunc(cards).map((card, index) =>
     <Card>
