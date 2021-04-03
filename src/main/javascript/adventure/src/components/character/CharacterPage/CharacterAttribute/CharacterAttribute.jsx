@@ -1,9 +1,8 @@
-import './CharacterAttribute.css';
-
-import {IconButton} from '@material-ui/core';
+import {Box, Button, IconButton} from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
+import {D10Icon} from '../../../icons/DiceIcons';
 
 const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => {
   const value = character[attribute].value;
@@ -19,8 +18,12 @@ const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => 
   };
 
   return (
-    <div className="character-attribute">
-      <div className="character-attribute-name">{attribute}</div>
+    <Box className="character-attribute" alignItems={'center'} width={260} display='flex'>
+      <Button startIcon={<D10Icon/>}>
+        <Box width={80}>
+          <div style={{textTransform: 'capitalize'}}>{attribute}</div>
+        </Box>
+      </Button>
       <div className="character-attribute-value">
         {[...Array(value).keys()].map((int) =>
           <IconButton
@@ -47,7 +50,7 @@ const CharacterAttribute = ({character, setCharacter, attribute, isEditing}) => 
           onClick={increaseValue}
         ><AddBox/></IconButton>}
       </div>
-    </div>
+    </Box>
   );
 };
 

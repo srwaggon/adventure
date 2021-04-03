@@ -1,9 +1,0 @@
-.character-attribute {
-  display: flex;
-  flex-direction: row;
-}
-
-.character-attribute-name {
-  width: 6rem;
-  text-transform: capitalize;
-}
