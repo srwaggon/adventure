@@ -16,16 +16,18 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
   return <Box>
     <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-between'>
       <Box display='flex' flexGrow={1} justifyContent='center'>
-        <CharacterPortraitCard {...character}/>
-        {isEditing && <Box py={1}>
-          <TextField
-            label='Portrait URL'
-            variant='outlined'
-            margin='dense'
-            fullWidth
-            defaultValue={character['portraitUrl']}
-            onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
-        </Box>}
+        <Box>
+          <CharacterPortraitCard {...character}/>
+          {isEditing && <Box py={1}>
+            <TextField
+              label='Portrait URL'
+              variant='outlined'
+              margin='dense'
+              fullWidth
+              defaultValue={character['portraitUrl']}
+              onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
+          </Box>}
+        </Box>
       </Box>
 
       <Box display='flex' flexGrow={1} justifyContent='center'>
