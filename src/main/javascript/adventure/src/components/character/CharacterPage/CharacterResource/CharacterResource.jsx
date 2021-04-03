@@ -6,6 +6,7 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import {AddBox, Backspace} from '@material-ui/icons';
 import React from 'react';
+import {D10Icon} from '../../../icons/DiceIcons';
 
 const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
   const decreaseMaximum = () => {
@@ -53,7 +54,7 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
 
   return (
     <Box className="character-resource" p={1}>
-      <Button>
+      <Button startIcon={<D10Icon/>}>
         <div className={'character-resource-name'}>{resource}</div>
       </Button>
       <div className="character-resource-value">
