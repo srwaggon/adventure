@@ -1,3 +1,4 @@
+import React from 'react';
 import useCurrentPlayersCharacters from './CharactersPage/UseCurrentPlayersCharacters';
 import {FormControl, InputLabel, MenuItem, Select} from '@material-ui/core';
 import {noop} from '../../utilities/kitchen_sink';
@@ -12,18 +13,22 @@ export const CurrentPlayersCharactersSelect = ({defaultValue, onSelect}) => {
   />;
 };
 
+const newMenuItem = (character) =>
+  <MenuItem key={character.id} value={character}>
+    {character.name}
+  </MenuItem>;
+
 export const CharacterSelect = ({
   characters = [],
   label = 'Character',
-  defaultValue = undefined,
+  defaultValue,
   onSelect = noop,
 }) => {
-  const menuItems = characters.map((character) => <MenuItem value={character}>{character.name}</MenuItem>);
 
   return <FormControl fullWidth variant='outlined' margin='dense'>
     <InputLabel>{label}</InputLabel>
-    <Select label={label} defaultValue={defaultValue} onChange={(event) => onSelect(event.target.value)}>
-      {menuItems}
+    <Select label={label} defaultValue={defaultValue} onChange={event => onSelect(event.target.value)}>
+      {characters.map(newMenuItem)}
     </Select>
   </FormControl>;
 };
