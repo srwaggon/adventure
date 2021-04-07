@@ -51,28 +51,29 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
   };
 
   return (
-    <Box className="character-resource" width={260} mb={2}>
-      <Button startIcon={<D10Icon/>}>
-        <Box width={80} style={{textTransform: 'capitalize', textAlign: 'left'}}>{resource}</Box>
-      </Button>
-      <Box width={220}>
-        <LinearProgress styles={{borderRadius: 5}} variant="determinate" value={value / max * 100}/>
-        {[...Array(max).keys()].map(
-          (int) =>
-            <IconButton
-              key={resource}
-              checked={int < value}
-              disabled={isEditing}
-              color={'default'}
-              size={'small'}
-              style={{margin: '-4px'}}
-              onClick={(ignored) => setCharacterResource(int)}
-            >{int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
-            </IconButton>)}
-
-        {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
-        {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
+    <Box width={220} mb={2} mr={5}>
+      <Box display='flex' flexDirection='row' justifyContent='space-between' alignItems='center'>
+        <Button width={80} startIcon={<D10Icon/>}>
+          <Box style={{textTransform: 'capitalize', textAlign: 'left'}}>{resource}</Box>
+        </Button>
+        {value + '/' + max}
       </Box>
+      <LinearProgress styles={{borderRadius: 5}} variant="determinate" value={value / max * 100}/>
+      {[...Array(max).keys()].map(
+        (int) =>
+          <IconButton
+            key={resource}
+            checked={int < value}
+            disabled={isEditing}
+            color={'default'}
+            size={'small'}
+            style={{margin: '-4px'}}
+            onClick={(ignored) => setCharacterResource(int)}
+          >{int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
+          </IconButton>)}
+
+      {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
+      {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
     </Box>
   );
 };
