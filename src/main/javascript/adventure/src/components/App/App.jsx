@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
 import CharacterPage from '../character/CharacterPage/CharacterPage';
 import CharactersPage from '../character/CharactersPage/CharactersPage';
@@ -28,8 +28,30 @@ const Navigation = () => {
   </Toolbar>;
 };
 
+class JsonMessage {
+
+  message;
+
+  constructor(message) {
+    this.message = message;
+  }
+
+  asJson = () => JSON.stringify(this);
+}
+
 const App = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    const webSocket = new WebSocket('ws://localhost:8080/jsonMessage');
+    webSocket.onopen = () => {
+      const data = new JsonMessage('Here\'s some text that the server is urgently awaiting!').asJson();
+      webSocket.send(data);
+    };
+
+    webSocket.onmessage = (event) => console.log(event);
+  });
+
   return (<Box className="App">
     <Router>
       <AppBar position={'relative'} className={classes.headerBar}>
