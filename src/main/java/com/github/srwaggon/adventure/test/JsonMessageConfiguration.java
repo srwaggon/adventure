@@ -30,6 +30,6 @@ public class JsonMessageConfiguration implements WebSocketConfigurer {
         System.out.println("Received: " + message);
         session.sendMessage(new TextMessage("Hello: " + message));
       }
-    }, "/jsonMessage");
+    }, "/games");
   }
 }

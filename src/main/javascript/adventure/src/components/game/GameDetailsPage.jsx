@@ -1,6 +1,7 @@
 import {
   AppBar,
   Box,
+  Button,
   Divider,
   Drawer,
   List,
@@ -12,7 +13,7 @@ import {
 } from '@material-ui/core';
 import {useHistory, useParams} from 'react-router-dom';
 import {useGameWithId} from './UseGameWithId';
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import EditButtonRow from '../buttons/EditButtonRow/EditButtonRow';
 import {deleteGame, getGameById, replaceGame} from '../../utilities/client';
 import {CurrentPlayersCharactersSelect} from '../character/CharacterSelect';
@@ -85,6 +86,19 @@ const GameDetailsPage = () => {
 
   const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ''}`, onDelete);
 
+  const webSocket = useRef(null);
+
+  useEffect(() => {
+    webSocket.current = new WebSocket('ws://localhost:8080/games');
+    webSocket.current.onopen = () => {
+      // const data = new JsonMessage('Here\'s some text that the server is urgently awaiting!').asJson();
+      // webSocket.current.send(data);
+      // webSocket.current.send(JSON.stringify({}));
+    };
+
+    webSocket.current.onmessage = (event) => console.log(event);
+  });
+
   return !players
     ? 'Loading...'
     : <Box>
@@ -138,6 +152,8 @@ const GameDetailsPage = () => {
           {drawerContent}
         </Box>
       </Drawer>
+      {webSocket.current && <Button
+        onClick={() => webSocket.current.send(JSON.stringify({'message': 'hello'}))}>greeting</Button>}
       <DeleteDialog/>
     </Box>;
 };
