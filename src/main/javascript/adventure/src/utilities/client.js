@@ -77,6 +77,14 @@ export const client = {
   deleteCard,
 
   getAllProficiencies,
+
+  getAllGames,
+  getGameById,
+  postNewGame,
+  replaceGame,
+  deleteGame,
+  addPlayerToGame,
+  removePlayerFromGame,
 };
 
 export default client;
