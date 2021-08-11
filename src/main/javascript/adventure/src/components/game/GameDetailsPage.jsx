@@ -24,6 +24,8 @@ import clsx from 'clsx';
 import SendButton from '../buttons/SendButton';
 import {drawerWidth, useStyles} from '../Styles';
 import {useDeleteDialog} from '../shared/UseDeleteDialog';
+import {useCharactersCards} from '../character/UseCharactersCards';
+import CharacterCards from '../character/CharacterPage/CharacterCards';
 
 const GameDetailsPage = () => {
   const {gameId} = useParams();
@@ -68,16 +70,25 @@ const GameDetailsPage = () => {
   const classes = useStyles();
 
   function CharacterDetailsDrawerContent({character, setCharacter}) {
+    const {cards} = useCharactersCards(character);
     return <List>
       <ListItem>
         <ListItemText primary={
           <CurrentPlayersCharactersSelect onSelect={setCharacter}/>
         }/>
       </ListItem>
-      <ListItem>
-        {selectedCharacter && <CharacterDetails character={character}
-                                                setCharacter={setCharacter}/>}
-      </ListItem>
+      {selectedCharacter && <ListItem>
+        <CharacterDetails character={character}
+                          setCharacter={setCharacter}/>
+      </ListItem>}
+      {selectedCharacter && <ListItem>
+        <CharacterCards
+          isEditing={false}
+          cards={cards}
+          setCards={() => {
+          }}
+        />
+      </ListItem>}
     </List>;
   }
 
