@@ -100,6 +100,9 @@ const GameDetailsPage = () => {
   const webSocket = useRef(null);
 
   useEffect(() => {
+    if (webSocket.current) {
+      return;
+    }
     webSocket.current = new WebSocket('ws://localhost:8080/games');
     webSocket.current.onopen = () => {
       // const data = new JsonMessage('Here\'s some text that the server is urgently awaiting!').asJson();
