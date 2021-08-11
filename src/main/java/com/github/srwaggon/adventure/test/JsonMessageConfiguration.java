@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
@@ -25,10 +24,15 @@ public class JsonMessageConfiguration implements WebSocketConfigurer {
       @Override
       public void handleMessage(WebSocketSession session, WebSocketMessage<?> webSocketMessage) throws Exception {
         Object payload = webSocketMessage.getPayload();
-        JsonMessage jsonMessage = objectMapper.readValue(payload.toString(), JsonMessage.class);
-        String message = jsonMessage.getMessage();
-        System.out.println("Received: " + message);
-        session.sendMessage(new TextMessage("Hello: " + message));
+        String content = payload.toString();
+        GameEvent gameEvent = objectMapper.readValue(content, GameEvent.class);
+
+        if (gameEvent.getEvent().equals(GameEventType.PLAY_CARD_EVENT.getIdentifier())) {
+          PlayCardEvent playCardEvent = objectMapper.readValue(content, PlayCardEvent.class);
+          System.out.println(playCardEvent);
+        }
+
+//        session.sendMessage(new TextMessage("Hello world"));
       }
     }, "/games");
   }
