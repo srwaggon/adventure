@@ -1,6 +1,6 @@
 import {makeStyles} from '@material-ui/core';
 
-export const drawerWidth = 300;
+export const drawerWidth = 316;
 export const useStyles = makeStyles((theme) => ({
   headerBar: {
     zIndex: theme.zIndex.drawer + 1,
