@@ -50,7 +50,7 @@ export const demoCards = [
 
 export const demoCharacter = {
   'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
-  'name': 'New Character',
+  'name': 'Demo Character',
   'strength': {
     'value': 1,
     'minimum': 1,
@@ -127,5 +127,14 @@ export const demoCharacter = {
     'maximum': 10,
   },
   'cards': demoCards,
-  proficiencies: []
+  proficiencies: [],
+};
+
+export const demoPlayer = {'id': '100131200358491013460', 'name': 'demo-player', 'characters': [demoCharacter.id]};
+
+export const demoGame = {
+  'id': '0dd03bb8-d1a9-49bb-a9da-62047332b102',
+  'name': 'Bowser\'s Big Bean Burrito',
+  'owner': demoPlayer.id,
+  'players': [demoPlayer.id],
 };
