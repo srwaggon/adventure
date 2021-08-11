@@ -24,9 +24,9 @@ const CardFilter = ({setFilterFunc}) => {
     );
   }, [filter.name, filter.type, filter.quality, setFilterFunc]);
 
-  return <Box display={'flex'} flexGrow={2} flexShrink={0} justifyContent={'flex-end'} flexWrap={'wrap'}>
+  return <Box display={'flex'} flexGrow={2} flexShrink={1} justifyContent={'flex-end'} flexWrap={'wrap'}>
 
-    <Box flexGrow={1} flexShrink={0} pl={1}>
+    <Box flexGrow={1} flexShrink={1} pl={1}>
       <TextField
         label='Name'
         variant='outlined'
@@ -37,7 +37,7 @@ const CardFilter = ({setFilterFunc}) => {
       />
     </Box>
 
-    <Box flexGrow={1} flexShrink={0} pl={1}>
+    <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardTypeSelect
         defaultValue={'any'}
         onSelect={(type) => setFilter({...filter, type})}>
@@ -45,7 +45,7 @@ const CardFilter = ({setFilterFunc}) => {
       </CardTypeSelect>
     </Box>
 
-    <Box flexGrow={1} flexShrink={0} pl={1}>
+    <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
         defaultValue={'any'}
         onSelect={(quality) => setFilter({...filter, quality})}>
