@@ -8,6 +8,7 @@ public enum CardType {
   ENCHANTMENT,
   EQUIPMENT,
   ITEM,
+  LAND,
   PASSIVE_ABILITY,
   REACTION,
   SPELL,
