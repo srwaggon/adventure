@@ -1,15 +1,4 @@
-import {
-  Box,
-  Card,
-  Container,
-  FormControl,
-  FormControlLabel,
-  InputLabel,
-  MenuItem,
-  Select,
-  Switch,
-  TextField,
-} from '@material-ui/core';
+import {Box, Card, Container, FormControlLabel, Switch, TextField} from '@material-ui/core';
 import VisualCard from '../VisualCard/VisualCard';
 import React, {useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
@@ -20,7 +9,7 @@ import TitledAppBar from '../../shared/TitledAppBar';
 import useCurrentPlayer from './../../player/UseCurrentPlayer';
 import CardQualitySelect from '../CardQualitySelect';
 import {useDeleteDialog} from '../../shared/UseDeleteDialog';
-import useEditions from '../../edition/useEditions';
+import CardEditionSelect from '../CardEditionSelect';
 
 const newCard = () => ({
   name: undefined,
@@ -31,30 +20,10 @@ const newCard = () => ({
   flavor: undefined,
 });
 
-const EditionSelect = ({defaultValue, onSelect}) => {
-  const editions = useEditions();
-
-  const label = 'Edition';
-
-  return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
-    <InputLabel>{label}</InputLabel>
-    <Select
-      label={label}
-      defaultValue={defaultValue}
-      onChange={event => onSelect(event.target.value)}>
-      {editions.map(edition =>
-        <MenuItem value={edition.id}>{edition.name}</MenuItem>,
-      )}
-    </Select>
-  </FormControl>;
-};
-
 const CardDetailsPage = () => {
 
   const {cardId} = useParams();
   const [card, setCard] = useState(null);
-
-  const editions = useEditions();
 
   useEffect(() => {
     function getCard() {
@@ -120,10 +89,10 @@ const CardDetailsPage = () => {
               <TextField label={'Image size'} variant={'outlined'} fullWidth margin={'dense'}
                          defaultValue={card.imageSize}
                          onChange={event => setCard({...card, imageSize: event.target.value})}/>
-              <EditionSelect defaultValue={editions.find(edition => edition.id === card.editionId)?.id || null}
-                             onSelect={editionId => setCard({...card, editionId})}/>
               <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
               <CardQualitySelect defaultValue={card.quality} onSelect={quality => setCard({...card, quality})}/>
+              <CardEditionSelect defaultValue={card.editionId}
+                                 onSelect={editionId => setCard({...card, editionId})}/>
               <TextField label={'Body'} multiline variant={'outlined'} rows={4} fullWidth margin={'dense'}
                          defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
               <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}

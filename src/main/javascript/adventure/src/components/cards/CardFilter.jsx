@@ -2,10 +2,12 @@ import {Box, MenuItem, TextField} from '@material-ui/core';
 import CardTypeSelect from './CardTypeSelect';
 import React, {useEffect, useState} from 'react';
 import CardQualitySelect from './CardQualitySelect';
+import CardEditionSelect from './CardEditionSelect';
 
 const filterName = (name) => (card) => card.name.toLowerCase().includes(name);
 const filterType = (type) => (card) => 'any' === type || type === card.type;
 const filterQuality = (quality) => (card) => 'any' === quality || quality === card.quality;
+const filterEdition = (editionId) => (card) => 'any' === editionId || editionId === card.editionId;
 
 const CardFilter = ({setFilterFunc}) => {
 
@@ -13,6 +15,7 @@ const CardFilter = ({setFilterFunc}) => {
     name: '',
     type: 'any',
     quality: 'any',
+    editionId: 'any',
   });
 
   useEffect(() => {
@@ -20,9 +23,10 @@ const CardFilter = ({setFilterFunc}) => {
       cards
         .filter(filterName(filter.name))
         .filter(filterType(filter.type))
-        .filter(filterQuality(filter.quality)),
+        .filter(filterQuality(filter.quality))
+        .filter(filterEdition(filter.editionId)),
     );
-  }, [filter.name, filter.type, filter.quality, setFilterFunc]);
+  }, [filter.name, filter.type, filter.quality, filter.editionId, setFilterFunc]);
 
   return <Box display={'flex'} flexGrow={2} flexShrink={1} justifyContent={'flex-end'} flexWrap={'wrap'}>
 
@@ -50,8 +54,17 @@ const CardFilter = ({setFilterFunc}) => {
         defaultValue={'any'}
         onSelect={(quality) => setFilter({...filter, quality})}>
         <MenuItem value={'any'}>Any</MenuItem>
-        <MenuItem value={null}>None</MenuItem>
+        <MenuItem value={'none'}>None</MenuItem>
       </CardQualitySelect>
+    </Box>
+
+    <Box flexGrow={1} flexShrink={1} pl={1}>
+      <CardEditionSelect
+        defaultValue={'any'}
+        onSelect={(editionId) => setFilter({...filter, editionId})}>
+        <MenuItem value={'any'}>Any</MenuItem>
+        <MenuItem value={'none'}>None</MenuItem>
+      </CardEditionSelect>
     </Box>
 
   </Box>;
