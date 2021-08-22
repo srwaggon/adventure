@@ -2,6 +2,8 @@ package com.github.srwaggon.adventure.card;
 
 import com.github.srwaggon.adventure.util.Identified;
 
+import java.util.UUID;
+
 public class Card implements Identified<String> {
 
   private String id;
@@ -14,6 +16,7 @@ public class Card implements Identified<String> {
   private String flavor;
   private String author;
   private boolean isDarkText = false;
+  private UUID editionId;
 
   public Card() {
   }
@@ -98,5 +101,13 @@ public class Card implements Identified<String> {
 
   public void setDarkText(boolean isDarkText) {
     this.isDarkText = isDarkText;
+  }
+
+  public UUID getEditionId() {
+    return editionId;
+  }
+
+  public void setEditionId(UUID editionId) {
+    this.editionId = editionId;
   }
 }

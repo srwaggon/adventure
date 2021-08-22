@@ -2,6 +2,8 @@ package com.github.srwaggon.adventure.card;
 
 import com.google.common.collect.Lists;
 
+import com.github.srwaggon.adventure.card.edition.Edition;
+import com.github.srwaggon.adventure.card.edition.EditionService;
 import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class CardController {
 
   @Autowired
   private Repository<Card, String> cardRepository;
+
+  @Autowired
+  private EditionService editionService;
 
   @GetMapping
   public List<Card> getAll() {
@@ -60,9 +65,13 @@ public class CardController {
     return Lists.newArrayList(CardType.values());
   }
 
-
   @GetMapping("/qualities")
   public List<CardQuality> getQualities() {
     return Lists.newArrayList(CardQuality.values());
+  }
+
+  @GetMapping("/editions")
+  public List<Edition> getEditions() {
+    return editionService.getAll();
   }
 }

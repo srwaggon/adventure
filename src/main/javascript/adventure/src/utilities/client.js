@@ -55,6 +55,9 @@ export const addPlayerToGame = (gameId, playerId) => fetch(`${gamesEndpoint}/${g
 export const removePlayerFromGame = (gameId, playerId) => fetch(`${gamesEndpoint}/${gameId}/players/${playerId}`,
   {method: 'DELETE'});
 
+const editionEndpoint = '/api/editions';
+export const getAllEditions = _getAll(editionEndpoint);
+
 export const client = {
   getAllPlayers,
   getPlayerById,
