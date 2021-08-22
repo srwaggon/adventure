@@ -54,7 +54,7 @@ const CardFilter = ({setFilterFunc}) => {
         defaultValue={'any'}
         onSelect={(quality) => setFilter({...filter, quality})}>
         <MenuItem value={'any'}>Any</MenuItem>
-        <MenuItem value={'none'}>None</MenuItem>
+        <MenuItem value={null}>None</MenuItem>
       </CardQualitySelect>
     </Box>
 
@@ -63,7 +63,7 @@ const CardFilter = ({setFilterFunc}) => {
         defaultValue={'any'}
         onSelect={(editionId) => setFilter({...filter, editionId})}>
         <MenuItem value={'any'}>Any</MenuItem>
-        <MenuItem value={'none'}>None</MenuItem>
+        <MenuItem value={null}>None</MenuItem>
       </CardEditionSelect>
     </Box>
 
