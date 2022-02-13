@@ -1,0 +1,12 @@
+{
+  "id": "a0489d94-1d16-4f85-b678-4fee3b51919e",
+  "name": "Medium Armor Proficiency",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/bc/87/37/bc87370c7946d62be16e13eb67ee4e9b.jpg",
+  "imageSize": "100%",
+  "body": "While you are wearing medium armor, piercing damage that you take from non magical weapons is reduced by 1.",
+  "flavor": null,
+  "author": null,
+  "darkText": true
+}

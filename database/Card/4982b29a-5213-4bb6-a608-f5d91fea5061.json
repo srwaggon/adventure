@@ -1,0 +1,12 @@
+{
+  "id": "4982b29a-5213-4bb6-a608-f5d91fea5061",
+  "name": "Smith Tools",
+  "type": "EQUIPMENT",
+  "quality": "COMMON",
+  "image": "https://images.squarespace-cdn.com/content/51b3dc8ee4b051b96ceb10de/1552437199668-8ICBAERZ9ZSJLGAE2DVR/witch%2Bcraft.jpg",
+  "imageSize": "140%",
+  "body": "Durability 10.\nRemove a damage counter from target equipment.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

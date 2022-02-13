@@ -1,0 +1,12 @@
+{
+  "id": "0a28d6e7-1ab4-449c-8491-1982e03f2307",
+  "name": "Mage Armor",
+  "type": "ENCHANTMENT",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/originals/cf/36/b8/cf36b804892cb3da99eac227c9732a1d.jpg",
+  "imageSize": "190%",
+  "body": "Pay 1 Mana.\nA willing, touched creature reduces all damage taken by 1 until the end of combat as long as they have no other armor equipped.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

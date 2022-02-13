@@ -1,0 +1,13 @@
+{
+  "id": "98f1f03a-4b00-4ecb-969e-7add6f71d7e4",
+  "name": "Revenge",
+  "type": "REACTION",
+  "quality": "UNCOMMON",
+  "image": "https://media.magic.wizards.com/image_legacy_migration/images/magic/daily/ftl/ftl151_sorinVengeance.jpg",
+  "imageSize": "108%",
+  "body": "Given you take damage from an opponent, you may make a standard attack against that opponent.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

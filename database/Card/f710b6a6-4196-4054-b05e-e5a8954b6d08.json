@@ -1,0 +1,12 @@
+{
+  "id": "f710b6a6-4196-4054-b05e-e5a8954b6d08",
+  "name": "Rally Speech",
+  "type": "WHIM",
+  "quality": "UNCOMMON",
+  "image": "https://static.wikia.nocookie.net/witcher/images/1/19/Gwent_cardart_scoiatael_barclay_els.jpg",
+  "imageSize": "100%",
+  "body": "Spend 1 Reputation.\nUntil your next turn, each ally gains +1 to damage and prevent the next 1 damage each ally takes.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

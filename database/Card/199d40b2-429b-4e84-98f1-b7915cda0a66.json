@@ -1,0 +1,12 @@
+{
+  "id": "199d40b2-429b-4e84-98f1-b7915cda0a66",
+  "name": "Death Knight",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://pbs.twimg.com/media/CXfvHZjVAAAFNJ0.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you take damage, you may choose to have the next damage you do become necrotic damage.",
+  "flavor": null,
+  "author": null,
+  "darkText": true
+}

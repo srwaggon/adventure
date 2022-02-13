@@ -1,0 +1,13 @@
+{
+  "id": "c1b1017f-cfc8-4cfa-806a-baddb948c292",
+  "name": "Evade",
+  "type": "REACTION",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/5d/8d/70/5d8d7085f3b1cae905d901d05c4d60d8.jpg",
+  "imageSize": "140%",
+  "body": "Given you take damage, you may reduce the amount by Dexterity[d10]7.",
+  "flavor": "",
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "33815448-77a5-404c-9a24-50aec00e4d67",
+  "name": "Fighting Style: Greatweapon",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://cdnb.artstation.com/p/assets/images/images/000/108/879/large/vadim-marchenkov-gwf.jpg",
+  "imageSize": "130%",
+  "body": null,
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "36a33ed1-5024-489c-9f73-fc276d9cf22b",
+  "name": "Decisive Strike",
+  "type": "ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://cdn.discordapp.com/attachments/824837570135457832/824844498193612820/unknown.png",
+  "imageSize": "100%",
+  "body": "Pay 2 Stamina.\nAttack for to 3 + Strength[d10]7 damage.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

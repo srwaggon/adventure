@@ -1,0 +1,12 @@
+{
+  "id": "165825cd-dcc7-478b-8497-0c9b2a475242",
+  "name": "Heavy Armor Proficiency",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/68/af/a0/68afa0e8ce73d105972cf49a1a41d9da.jpg",
+  "imageSize": "200%",
+  "body": "While you are wearing heavy armor, slashing damage that you take from non magical weapons is reduced by 1.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

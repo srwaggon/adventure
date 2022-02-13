@@ -1,0 +1,13 @@
+{
+  "id": "c2a286de-d0b8-4969-a08a-e34539615134",
+  "name": "Dagger Weapon Specialization",
+  "type": "PASSIVE_ABILITY",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/58/f0/18/58f0188ef2c4e353e837b3147ed31f5c.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you make an attack roll with a dagger and each roll is a success, you may add 1 to the damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

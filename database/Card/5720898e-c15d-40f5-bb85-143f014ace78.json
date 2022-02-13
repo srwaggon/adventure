@@ -1,0 +1,12 @@
+{
+  "id": "5720898e-c15d-40f5-bb85-143f014ace78",
+  "name": "Mace",
+  "type": "EQUIPMENT",
+  "quality": "COMMON",
+  "image": "https://static.wikia.nocookie.net/dnd4/images/1/1e/1e0542d25423e6194abfedb345a5ebb5.jpg",
+  "imageSize": "100%",
+  "body": "Requires Strength 2+\nDifficulty 6\nDeals 2 bashing damage",
+  "flavor": null,
+  "author": null,
+  "darkText": true
+}

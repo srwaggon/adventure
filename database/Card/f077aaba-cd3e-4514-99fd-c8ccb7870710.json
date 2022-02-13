@@ -1,0 +1,12 @@
+{
+  "id": "f077aaba-cd3e-4514-99fd-c8ccb7870710",
+  "name": "Historian",
+  "type": "PASSIVE_ABILITY",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/f4/ed/33/f4ed33c78b7c7651a963a036ce329271.jpg",
+  "imageSize": "142%",
+  "body": "Whenever you make a History check, you my add [d10].\n",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "9bbe2ec8-a9d2-4d3d-8c86-a1545b004089",
+  "name": "Thieves' Tools",
+  "type": "EQUIPMENT",
+  "quality": "COMMON",
+  "image": "https://static2.mtgarena.pro/mtg/pict/thieves-tools--122-afr-122-art.png",
+  "imageSize": "110%",
+  "body": "Durability 10\nWhen used, add [d10] to the appropriate roll (lockpicking, etc).",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

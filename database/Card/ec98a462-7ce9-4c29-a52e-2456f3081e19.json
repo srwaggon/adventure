@@ -1,0 +1,13 @@
+{
+  "id": "ec98a462-7ce9-4c29-a52e-2456f3081e19",
+  "name": "Following Strike",
+  "type": "REACTION",
+  "quality": "UNCOMMON",
+  "image": "https://mtgazone.com/wp-content/uploads/2021/07/afr-25-monk-of-the-open-hand.jpg",
+  "imageSize": "120%",
+  "body": "Given you successfully made a standard melee attack, you may make an additional melee standard attack.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "f8ae44fe-790b-4ad0-ac2d-41bbfe822fb0",
+  "name": "Meteor",
+  "type": "SPELL",
+  "quality": "RARE",
+  "image": "https://www.belloflostsouls.net/wp-content/uploads/2020/02/fireball-in-waterdeep.jpg",
+  "imageSize": "140%",
+  "body": "Pay 4 Mana.\nRoll Intelligence[d10]6.\nFor each success, choose a unique target you can see and deal it 5 fire damage.",
+  "flavor": "",
+  "author": null,
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "f4beec73-d2ef-4dc5-8384-dcecfdc3f8a6",
+  "name": "Leather Armor",
+  "type": "EQUIPMENT",
+  "quality": "UNCOMMON",
+  "image": "https://cdna.artstation.com/p/assets/images/images/009/892/248/large/alexandre-douanier-la-03.jpg",
+  "imageSize": "100%",
+  "body": "Light armor\nAbsorb the first 2 damage taken each combat.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": true
+}

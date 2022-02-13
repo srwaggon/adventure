@@ -1,0 +1,12 @@
+{
+  "id": "434758d2-6ae4-4d4a-9ac9-b34afebf287a",
+  "name": "Pray",
+  "type": "ABILITY",
+  "quality": "COMMON",
+  "image": "https://cdn.discordapp.com/attachments/824837570135457832/827657221633736774/unknown.png",
+  "imageSize": "100%",
+  "body": "Restore 1 Health to target you can see.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": "4412d8b7-4355-495e-b6fa-ca8244ca1031",
+  "name": "Mace Weapon Mastery",
+  "type": "PASSIVE_ABILITY",
+  "quality": "EPIC",
+  "image": "https://i.pinimg.com/736x/90/b9/8d/90b98d65b0baea3a6bd0b88782785ef7.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you make an attack roll with a mace, you may add 1 damage for each success.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

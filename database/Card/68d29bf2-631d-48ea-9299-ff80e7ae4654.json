@@ -1,0 +1,13 @@
+{
+  "id": "68d29bf2-631d-48ea-9299-ff80e7ae4654",
+  "name": "Shortbow Weapon Proficiency",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://www.mtgnexus.com/img/gallery/6117-elven-bow.jpg",
+  "imageSize": "110%",
+  "body": "When making attack rolls with a bow, roll [d10] equal to your Dexterity to determine success.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

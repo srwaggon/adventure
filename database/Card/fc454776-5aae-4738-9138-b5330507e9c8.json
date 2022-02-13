@@ -1,0 +1,13 @@
+{
+  "id": "fc454776-5aae-4738-9138-b5330507e9c8",
+  "name": "Axe Weapon Mastery",
+  "type": "PASSIVE_ABILITY",
+  "quality": "EPIC",
+  "image": "https://www.wallpaperup.com/uploads/wallpapers/2013/07/12/117275/442377ca73c4fb425adb32e9066864f5.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you make an attack roll with an axe, you may add 1 damage for each success.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

@@ -1,0 +1,12 @@
+{
+  "id": "114d9929-3c2f-4d5e-9a04-e453ba0d0cef",
+  "name": "Druid's Curse",
+  "type": "PASSIVE_ABILITY",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/474x/48/8a/3f/488a3fa6e0312fe0ad1b98360b6d8289.jpg",
+  "imageSize": "100%",
+  "body": "On each of turn of yours, lose 1 Mana if any of your active equipment is metal.",
+  "flavor": "The druids of Fodlin are assertive about reclaiming what was once theirs.",
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

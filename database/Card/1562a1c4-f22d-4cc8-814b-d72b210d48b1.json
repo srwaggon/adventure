@@ -1,0 +1,12 @@
+{
+  "id": "1562a1c4-f22d-4cc8-814b-d72b210d48b1",
+  "name": "Lance Weapon Proficiency",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://pbs.twimg.com/media/Dl5OwVpUwAAjZFO.jpg",
+  "imageSize": "100%",
+  "body": "When making attack rolls with a lance, roll [d10] equal to your Strength to determine success.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

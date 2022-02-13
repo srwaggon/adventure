@@ -1,0 +1,12 @@
+{
+  "id": "ab541add-2973-4a6c-a000-9a3e18d0e282",
+  "name": "Flamewing Devil",
+  "type": "CREATURE",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/61/b7/fc/61b7fc038a1ccbf0207a05cb9af0988d.jpg",
+  "imageSize": "100%",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "darkText": true
+}

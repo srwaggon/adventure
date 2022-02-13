@@ -1,0 +1,12 @@
+{
+  "id": "66719b62-28f2-460e-a73a-c5ffe6c8e1a4",
+  "name": "Fighting Style: Archery",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/736x/e4/79/a9/e479a92b9ba0f8a26c6cf13a4df09d95--mtg-art-fantasy-pictures.jpg",
+  "imageSize": "110%",
+  "body": "Whenever you make a ranged attack with a bow or crossbow, you my add [d10] to the attack roll.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

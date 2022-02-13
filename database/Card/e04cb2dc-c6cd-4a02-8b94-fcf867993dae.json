@@ -1,0 +1,12 @@
+{
+  "id": "e04cb2dc-c6cd-4a02-8b94-fcf867993dae",
+  "name": "Sleep",
+  "type": "ENCHANTMENT",
+  "quality": "UNCOMMON",
+  "image": "https://media.wizards.com/images/magic/daily/sf/sf206_sleep.jpg",
+  "imageSize": "200%",
+  "body": "Pay 3 Mana.\nTarget creature makes a Resolve[d10]8 save or is enchanted with sleep.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

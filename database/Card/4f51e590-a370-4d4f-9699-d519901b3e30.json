@@ -1,0 +1,12 @@
+{
+  "id": "4f51e590-a370-4d4f-9699-d519901b3e30",
+  "name": "Ranger Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/8f/06/16/8f06164066318688f9115f997e639f68.jpg",
+  "imageSize": "100%",
+  "body": "You may add [d10] equal to your Intelligence on any roll relating to your favored terrain.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

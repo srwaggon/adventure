@@ -1,0 +1,12 @@
+{
+  "id": "55203d68-e4cb-43b9-b899-d5dfd1106b6b",
+  "name": "Platemail Armor",
+  "type": "EQUIPMENT",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/f3/f1/af/f3f1af95d8109eaedd285a3dace1f7a2.jpg",
+  "imageSize": "100%",
+  "body": "Heavy armor\nRequires Strength 3+\nAbsorb the first 6 damage taken each combat.",
+  "flavor": "\"Ahck! An itch!\"",
+  "author": "Samuel Waggoner",
+  "darkText": true
+}

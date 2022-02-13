@@ -1,0 +1,12 @@
+{
+  "id": "0524ae6a-0551-4b37-abfc-2e34b626761b",
+  "name": "Red Dragon",
+  "type": "CREATURE",
+  "quality": "RARE",
+  "image": "https://cdn.discordapp.com/attachments/783098091603361842/824650624603914240/unknown.png",
+  "imageSize": "100%",
+  "body": "Every 3 turns, Red Dragon may attack using fire breath: Each opponent must make a Dexterity[d10]6 save or take 3 + 5[d10]6 damage.\n\n50❤️ 5⚔️ 1\uD83D\uDEE1️",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

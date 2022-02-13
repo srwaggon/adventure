@@ -1,0 +1,12 @@
+{
+  "id": "7e143f6a-aa76-4c18-8334-314579e7de7c",
+  "name": "Shortbow",
+  "type": "EQUIPMENT",
+  "quality": "COMMON",
+  "image": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/7/337/315/315/636284758221143167.jpeg",
+  "imageSize": "130%",
+  "body": "Requires Dexterity 2+\nRanged\nDifficulty 6\nDeals 1 piercing damage",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": true
+}

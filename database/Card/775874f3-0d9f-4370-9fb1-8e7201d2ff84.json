@@ -1,0 +1,12 @@
+{
+  "id": "775874f3-0d9f-4370-9fb1-8e7201d2ff84",
+  "name": "Climbing Gear",
+  "type": "EQUIPMENT",
+  "quality": "UNCOMMON",
+  "image": "https://cdnb.artstation.com/p/assets/images/images/001/233/237/large/anna-steinbauer-seekthewilds-posting.jpg",
+  "imageSize": "177%",
+  "body": "Durability 10.\nWhenever you make a Climb check, you my add [d10].\n",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

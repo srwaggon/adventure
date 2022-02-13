@@ -1,0 +1,12 @@
+{
+  "id": "3c2c75a2-b2f7-4618-96a1-f05e8d50fff7",
+  "name": "Furious Rage",
+  "type": "WHIM",
+  "quality": "RARE",
+  "image": "https://cdn.cardsrealm.com/images/cartas/crop/m10-magic-2010/kindled-fury-144-med.jpeg?5035",
+  "imageSize": "182%",
+  "body": "Requires Stamina 1+.\nExpend all of your Stamina.\nAdd +4 to damage to each melee attack you make this round.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

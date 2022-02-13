@@ -1,0 +1,12 @@
+{
+  "id": "990cb5c5-a038-494b-8120-774ceafdb342",
+  "name": "Chainmail Armor",
+  "type": "EQUIPMENT",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/5f/d5/b8/5fd5b84935c00aefcafd216dc5b06638.jpg",
+  "imageSize": "110%",
+  "body": "Medium armor\nRequires Strength 2+\nAbsorb the first 4 damage taken each combat.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}

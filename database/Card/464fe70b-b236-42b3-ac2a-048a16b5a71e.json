@@ -1,0 +1,12 @@
+{
+  "id": "464fe70b-b236-42b3-ac2a-048a16b5a71e",
+  "name": "Shortsword",
+  "type": "EQUIPMENT",
+  "quality": "COMMON",
+  "image": "https://static.wikia.nocookie.net/penrith/images/4/49/Flying_sword.jpg",
+  "imageSize": "90%",
+  "body": "Requires Strength 2+.\nWhen used to make a successful successful melee Strength[d10]6 attack, target takes 2 slashing damage.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": true
+}

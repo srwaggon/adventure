@@ -1,0 +1,13 @@
+{
+  "id": "1f465545-f182-452d-b982-2861a7912bf3",
+  "name": "Uncanny Dodge",
+  "type": "REACTION",
+  "quality": "COMMON",
+  "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9181d3c1-9308-4d2a-ae50-660f12f12a57/dc6erue-1ad69fbb-ab66-490f-86df-3a4dadc226dd.jpg/v1/fill/w_900,h_1125,q_75,strp/critical_role___beau_dodge_by_takayuuki_dc6erue-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMTI1IiwicGF0aCI6IlwvZlwvOTE4MWQzYzEtOTMwOC00ZDJhLWFlNTAtNjYwZjEyZjEyYTU3XC9kYzZlcnVlLTFhZDY5ZmJiLWFiNjYtNDkwZi04NmRmLTNhNGRhZGMyMjZkZC5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.eALDzdA3VvHMFgbvLEbtWUHlvqEvbNB_dXUxwyxkxB4",
+  "imageSize": "100%",
+  "body": "Given an attacker that you can see hits you with an attack, you can halve the attack’s damage against you, rounded up.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "darkText": false
+}

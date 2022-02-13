@@ -1,0 +1,12 @@
+{
+  "id": "cfe534ed-14ba-47ac-a724-1e79502ff59a",
+  "name": "Shortsword Weapon Proficiency",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://media.wizards.com/images/magic/daily/ur/ur202_call.jpg",
+  "imageSize": "125%",
+  "body": "Whenever you make an attack roll with a shortsword and each roll is a success, you may add 1 to the damage.",
+  "flavor": null,
+  "author": null,
+  "darkText": false
+}

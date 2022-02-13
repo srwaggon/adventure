@@ -1,0 +1,12 @@
+{
+  "id": "7f694355-0f33-4e74-bd45-b87c25c06a09",
+  "name": "Haste",
+  "type": "SPELL",
+  "quality": "RARE",
+  "image": "https://www.tribality.com/wp-content/uploads/2018/10/Deep-Magic-Cover-750x375.jpg",
+  "imageSize": "230%",
+  "body": "Pay 3 Mana.\nTarget you can touch takes an extra turn after this turn.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "darkText": false
+}
