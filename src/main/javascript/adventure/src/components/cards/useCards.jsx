@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getAllCards} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getAllCards} from "../../utilities/client";
 
 const useCards = () => {
   const [cards, setCards] = useState([]);

@@ -1,4 +1,4 @@
-.visualcard-content {
+.visual-card-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -10,32 +10,46 @@
   border: solid thin black;
 }
 
-.visualcard-name {
+.visual-card-name {
   font-weight: bold;
   color: white;
   text-transform: capitalize;
 }
 
-.visualcard-type {
+.visual-card-type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.visual-card-type {
   color: white;
   text-transform: capitalize;
 }
 
-.visualcard-text {
+.visual-card-rarity-dot {
+  display: inline-block;
+  height: .5em;
+  width: .5em;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.visual-card-body-box {
   background-color: white;
   color: black;
   opacity: 0.8;
 
+  border: solid thin black;
   border-radius: .25rem;
 
   height: 30%;
   overflow: hidden;
 }
 
-.visualcard-author {
-  color: white;
-  height: .5em;
-  font-size: .5em;
+.visual-card-body-text {
+  margin-bottom: 1em;
 }
 
 .darkText {

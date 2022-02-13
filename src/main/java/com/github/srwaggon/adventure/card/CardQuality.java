@@ -7,5 +7,6 @@ public enum CardQuality {
   RARE,
   EPIC,
   LEGENDARY,
-  ARTIFACT
+  ARTIFACT,
+  UNIQUE
 }
