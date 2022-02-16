@@ -57,6 +57,14 @@ const CardDetailsPage = () => {
   const [isEditing, setEditing] = useState(false);
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => setEditing(false);
+  const onCopy = () => postNewCard({...card, id: null, author})
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(card => history.push(`/cards/${card.id}`));
   const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
     .then(response => {
       setEditing(false);
@@ -75,7 +83,7 @@ const CardDetailsPage = () => {
     ? <span>Loading...</span>
     : <div>
       <TitledAppBar title={'Card Details'}>
-        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
+        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onCopy, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
       <Container>
         <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
