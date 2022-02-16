@@ -1,11 +1,11 @@
-import useProficiencies from '../proficiency/useProficiencies';
-import {Box, Divider, TextField, Typography} from '@material-ui/core';
-import CharacterPortraitCard from './CharacterPortraitCard/CharacterPortraitCard';
-import EditCharacterNameTextField from './CharacterPage/EditCharacterNameTextField';
-import CharacterAttribute from './CharacterAttribute';
-import CharacterResource from './CharacterResource';
-import ProficiencyChip from './ProficiencyChip';
-import React from 'react';
+import useProficiencies from "../proficiency/useProficiencies";
+import {Box, Divider, TextField, Typography} from "@mui/material";
+import CharacterPortraitCard from "./CharacterPortraitCard/CharacterPortraitCard";
+import EditCharacterNameTextField from "./CharacterPage/EditCharacterNameTextField";
+import CharacterAttribute from "./CharacterAttribute";
+import CharacterResource from "./CharacterResource";
+import ProficiencyChip from "./ProficiencyChip";
+import React from "react";
 
 const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
@@ -14,8 +14,8 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
   const characterPageState = {character, setCharacter, isEditing};
 
   return <Box>
-    <Box display='flex' flexDirection='row-reverse' flexWrap='wrap' justifyContent='space-between'>
-      <Box display='flex' flexGrow={1} justifyContent='center'>
+    <Box display="flex" flexDirection="row-reverse" flexWrap="wrap" justifyContent="space-between">
+      <Box display="flex" flexGrow={1} justifyContent="center">
         <Box display='block'>
           <CharacterPortraitCard {...character}/>
           {isEditing && <Box py={1}>

@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getAllEditions} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getAllEditions} from "../../utilities/client";
 
 const useEditions = () => {
   const [editions, setEditions] = useState([]);

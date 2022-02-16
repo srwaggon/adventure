@@ -1,6 +1,6 @@
-import {Box, Chip} from '@material-ui/core';
-import {arrayRemoveAll, prettify} from '../../utilities/kitchen_sink';
-import React from 'react';
+import {Box, Chip} from "@mui/material";
+import {arrayRemoveAll, prettify} from "../../utilities/kitchen_sink";
+import React from "react";
 
 const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
   const proficiencies = character.proficiencies || [];
@@ -9,7 +9,7 @@ const ProficiencyChip = ({proficiency, character, setCharacter, isEditing}) => {
     <Chip
       label={prettify(proficiency)}
       clickable
-      color={isEditing && isProficient ? 'primary' : 'default'}
+      color={isEditing && isProficient ? "primary" : "default"}
       onClick={() => {
         if (isEditing) {
           if (isProficient) {

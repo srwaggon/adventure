@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import {AppBar, Box, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Box, Toolbar, Typography} from "@mui/material";
 
 const TitledAppBar = ({children, title}) =>
   <AppBar color='default' position='relative' style={{zIndex: 1300}}>

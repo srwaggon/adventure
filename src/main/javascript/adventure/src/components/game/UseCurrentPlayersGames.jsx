@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getCurrentPlayersGames} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getCurrentPlayersGames} from "../../utilities/client";
 
 const useCurrentPlayersGames = () => {
   const [games, setGames] = useState([]);

@@ -1,11 +1,11 @@
-import {TextField} from '@material-ui/core';
-import React from 'react';
+import {TextField} from "@mui/material";
+import React from "react";
 
 const EditCharacterNameTextField = ({character, setCharacter}) =>
   <TextField
-    label={'Name'}
+    label={"Name"}
     defaultValue={character.name}
-    variant={'outlined'}
+    variant={"outlined"}
     fullWidth
     onChange={event => {
       character.name = event.target.value;

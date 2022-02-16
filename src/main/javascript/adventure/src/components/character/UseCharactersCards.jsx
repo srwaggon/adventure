@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getCharactersCards} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getCharactersCards} from "../../utilities/client";
 
 export function useCharactersCards(character) {
   const [cards, setCards] = useState([]);

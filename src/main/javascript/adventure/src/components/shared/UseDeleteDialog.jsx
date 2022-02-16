@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {Button, Dialog, DialogActions, DialogTitle} from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import React, {useState} from "react";
+import {Button, Dialog, DialogActions, DialogTitle} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export function useDeleteDialog(title, onDelete) {
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);

@@ -1,9 +1,9 @@
-import {Box, IconButton} from '@material-ui/core';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import FaceIcon from '@material-ui/icons/Face';
-import MenuIcon from '@material-ui/icons/Menu';
+import {Box, IconButton} from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import FaceIcon from "@mui/icons-material/Face";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export const AccountCircleButton = ({disabled, onClick, className}) =>
   <StandardIconButton disabled={disabled} onClick={onClick} className={className}>
@@ -35,15 +35,17 @@ export const MenuButton = ({disabled, onClick, className}) =>
   </StandardIconButton>;
 
 const StandardIconButton = ({children, disabled, onClick, className}) => {
-  return <Box>
-    <IconButton
-      aria-label={'cancel'}
-      color={'default'}
-      disabled={disabled}
-      onClick={onClick}
-      className={className}
-    >
-      {children}
-    </IconButton>
-  </Box>;
+  return (
+    <Box>
+      <IconButton
+        aria-label={"cancel"}
+        color={"default"}
+        disabled={disabled}
+        onClick={onClick}
+        className={className}
+        size="large">
+        {children}
+      </IconButton>
+    </Box>
+  );
 };

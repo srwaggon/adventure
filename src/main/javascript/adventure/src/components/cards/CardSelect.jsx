@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {FormControl, InputLabel, MenuItem, Select} from '@material-ui/core';
-import {prettify} from '../../utilities/kitchen_sink';
+import React, {useEffect, useState} from "react";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {prettify} from "../../utilities/kitchen_sink";
 
 const CardSelect = ({label, populator, defaultValue, onSelect, children}) => {
   const [values, setValues] = useState([]);
@@ -9,7 +9,7 @@ const CardSelect = ({label, populator, defaultValue, onSelect, children}) => {
     populator(setValues);
   }, [populator]);
 
-  return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
+  return <FormControl fullWidth variant={"outlined"} margin={"dense"}>
     <InputLabel>{label}</InputLabel>
     <Select label={label} defaultValue={defaultValue} onChange={event => onSelect(event.target.value)}>
       {children}

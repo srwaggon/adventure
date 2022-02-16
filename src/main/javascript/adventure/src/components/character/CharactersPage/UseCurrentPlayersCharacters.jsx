@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getCurrentPlayersCharacters} from '../../../utilities/client';
+import {useEffect, useState} from "react";
+import {getCurrentPlayersCharacters} from "../../../utilities/client";
 
 function useCurrentPlayersCharacters() {
   const [characters, setCharacters] = useState([]);

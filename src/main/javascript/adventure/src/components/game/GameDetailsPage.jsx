@@ -10,23 +10,23 @@ import {
   TextField,
   Toolbar,
   Typography,
-} from '@material-ui/core';
-import {useHistory, useParams} from 'react-router-dom';
-import {useGameWithId} from './UseGameWithId';
-import React, {useState} from 'react';
-import EditButtonRow from '../buttons/EditButtonRow/EditButtonRow';
-import {deleteGame, getGameById, replaceGame} from '../../utilities/client';
-import {CurrentPlayersCharactersSelect} from '../character/CharacterSelect';
-import {ChevronRightButton, FaceButton, MenuButton} from '../buttons/Buttons';
-import CharacterDetails from '../character/CharacterDetails';
-import CenteredGrid from '../shared/CenteredGrid';
-import clsx from 'clsx';
-import SendButton from '../buttons/SendButton';
-import {drawerWidth, useStyles} from '../Styles';
-import {useDeleteDialog} from '../shared/UseDeleteDialog';
-import {useCharactersCards} from '../character/UseCharactersCards';
-import CharacterCards from '../character/CharacterPage/CharacterCards';
-import {useWebSocket} from '../shared/UseWebSocket';
+} from "@mui/material";
+import {useHistory, useParams} from "react-router-dom";
+import {useGameWithId} from "./UseGameWithId";
+import React, {useState} from "react";
+import EditButtonRow from "../buttons/EditButtonRow/EditButtonRow";
+import {deleteGame, getGameById, replaceGame} from "../../utilities/client";
+import {CurrentPlayersCharactersSelect} from "../character/CharacterSelect";
+import {ChevronRightButton, FaceButton, MenuButton} from "../buttons/Buttons";
+import CharacterDetails from "../character/CharacterDetails";
+import CenteredGrid from "../shared/CenteredGrid";
+import clsx from "clsx";
+import SendButton from "../buttons/SendButton";
+import {drawerWidth, useStyles} from "../Styles";
+import {useDeleteDialog} from "../shared/UseDeleteDialog";
+import {useCharactersCards} from "../character/UseCharactersCards";
+import CharacterCards from "../character/CharacterPage/CharacterCards";
+import {useWebSocket} from "../shared/UseWebSocket";
 
 const GameDetailsPage = () => {
   const {gameId} = useParams();

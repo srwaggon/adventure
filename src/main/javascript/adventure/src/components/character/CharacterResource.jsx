@@ -1,10 +1,10 @@
-import {replaceCharacter} from '../../utilities/client';
-import {Box, Button, IconButton, LinearProgress} from '@material-ui/core';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import {AddBox, Backspace} from '@material-ui/icons';
-import React from 'react';
-import {D10Icon} from '../icons/DiceIcons';
+import {replaceCharacter} from "../../utilities/client";
+import {Box, Button, IconButton, LinearProgress} from "@mui/material";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import {AddBox, Backspace} from "@mui/icons-material";
+import React from "react";
+import {D10Icon} from "../icons/DiceIcons";
 
 const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
   const decreaseMaximum = () => {
@@ -14,7 +14,7 @@ const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
 
   return <IconButton
     checked={false}
-    color={'primary'}
+    color={"primary"}
     size={'small'}
     style={{margin: '-4px'}}
     onClick={decreaseMaximum}

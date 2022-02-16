@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getCurrentPlayer} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getCurrentPlayer} from "../../utilities/client";
 
 const useCurrentPlayer = () => {
   const [currentPlayer, setCurrentPlayer] = useState({});

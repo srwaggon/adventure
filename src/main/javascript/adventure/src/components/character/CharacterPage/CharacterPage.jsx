@@ -1,15 +1,15 @@
-import {useHistory, useParams} from 'react-router-dom';
-import React, {useState} from 'react';
-import {deleteCharacter, getCharacterById, replaceCharacter} from '../../../utilities/client';
-import {Box, Card, CardContent, CircularProgress, Container} from '@material-ui/core';
-import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
-import AddCardToCharacterCard from './AddCardToCharacterCard';
-import CharacterCards from './CharacterCards';
-import TitledAppBar from '../../shared/TitledAppBar';
-import CharacterDetails from './../CharacterDetails';
-import {useCharacter} from '../UseCharacter';
-import {useCharactersCards} from '../UseCharactersCards';
-import {useDeleteDialog} from '../../shared/UseDeleteDialog';
+import {useHistory, useParams} from "react-router-dom";
+import React, {useState} from "react";
+import {deleteCharacter, getCharacterById, replaceCharacter} from "../../../utilities/client";
+import {Box, Card, CardContent, CircularProgress, Container} from "@mui/material";
+import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
+import AddCardToCharacterCard from "./AddCardToCharacterCard";
+import CharacterCards from "./CharacterCards";
+import TitledAppBar from "../../shared/TitledAppBar";
+import CharacterDetails from "./../CharacterDetails";
+import {useCharacter} from "../UseCharacter";
+import {useCharactersCards} from "../UseCharactersCards";
+import {useDeleteDialog} from "../../shared/UseDeleteDialog";
 
 const CharacterPage = () => {
 

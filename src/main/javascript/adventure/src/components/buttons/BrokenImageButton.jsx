@@ -1,16 +1,19 @@
-import {Box, IconButton} from '@material-ui/core';
-import BrokenImageIcon from '@material-ui/icons/BrokenImage';
+import {Box, IconButton} from "@mui/material";
+import BrokenImageIcon from "@mui/icons-material/BrokenImage";
 
 const BrokenImageButton = ({disabled, onClick}) => {
-  return <Box>
-    <IconButton
-      aria-label={'damage'}
-      color={'default'}
-      disabled={disabled}
-      onClick={onClick}>
-      <BrokenImageIcon/>
-    </IconButton>
-  </Box>;
+  return (
+    <Box>
+      <IconButton
+        aria-label={"damage"}
+        color={"default"}
+        disabled={disabled}
+        onClick={onClick}
+        size="large">
+        <BrokenImageIcon/>
+      </IconButton>
+    </Box>
+  );
 };
 
 export default BrokenImageButton;

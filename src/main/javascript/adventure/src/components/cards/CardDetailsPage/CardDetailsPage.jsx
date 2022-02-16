@@ -1,21 +1,21 @@
-import {Box, Card, Container, FormControlLabel, Switch, TextField} from '@material-ui/core';
-import VisualCard from '../VisualCard/VisualCard';
-import React, {useEffect, useState} from 'react';
-import {useHistory, useParams} from 'react-router-dom';
-import {deleteCard, getCardById, postNewCard, replaceCard} from '../../../utilities/client';
-import EditButtonRow from '../../buttons/EditButtonRow/EditButtonRow';
-import CardTypeSelect from '../CardTypeSelect';
-import TitledAppBar from '../../shared/TitledAppBar';
-import useCurrentPlayer from './../../player/UseCurrentPlayer';
-import CardQualitySelect from '../CardQualitySelect';
-import {useDeleteDialog} from '../../shared/UseDeleteDialog';
-import CardEditionSelect from '../CardEditionSelect';
+import {Box, Card, Container, FormControlLabel, Switch, TextField} from "@mui/material";
+import VisualCard from "../VisualCard/VisualCard";
+import React, {useEffect, useState} from "react";
+import {useHistory, useParams} from "react-router-dom";
+import {deleteCard, getCardById, postNewCard, replaceCard} from "../../../utilities/client";
+import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
+import CardTypeSelect from "../CardTypeSelect";
+import TitledAppBar from "../../shared/TitledAppBar";
+import useCurrentPlayer from "./../../player/UseCurrentPlayer";
+import CardQualitySelect from "../CardQualitySelect";
+import {useDeleteDialog} from "../../shared/UseDeleteDialog";
+import CardEditionSelect from "../CardEditionSelect";
 
 const newCard = () => ({
   name: undefined,
-  image: 'https://cdn.discordapp.com/attachments/783098091603361842/824651378960891904/unknown.png',
-  imageSize: '100%',
-  type: 'ABILITY',
+  image: "https://cdn.discordapp.com/attachments/783098091603361842/824651378960891904/unknown.png",
+  imageSize: "100%",
+  type: "ABILITY",
   body: undefined,
   flavor: undefined,
 });

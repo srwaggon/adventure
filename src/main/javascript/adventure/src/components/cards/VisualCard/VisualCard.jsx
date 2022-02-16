@@ -2,7 +2,7 @@ import "./VisualCard.css";
 import FlavorText from "./flavor/FlavorText";
 import {D10, D12, D20, D4, D6, D8} from "../../../dice/DiceIcon";
 import React from "react";
-import {Box, Typography} from "@material-ui/core";
+import {Box, Typography} from "@mui/material";
 import {prettify} from "../../../utilities/kitchen_sink";
 import {RarityDot} from "./RarityDot";
 

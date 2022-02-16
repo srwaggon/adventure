@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getAllProficiencies} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getAllProficiencies} from "../../utilities/client";
 
 const useProficiencies = () => {
   const [proficiencies, setProficiencies] = useState([]);

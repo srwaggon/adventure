@@ -1,4 +1,4 @@
-import './Card.css'
+import "./Card.css"
 
 const Card = ({name, image, type, body}) => {
   return (

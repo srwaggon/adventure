@@ -1,9 +1,9 @@
-import {Box} from '@material-ui/core';
-import useCurrentPlayersGames from './UseCurrentPlayersGames';
-import AddButton from '../buttons/AddButton';
-import CenteredGridWithAppBar from '../shared/CenteredGridWithAppBar';
-import {useHistory} from 'react-router-dom';
-import {postNewGame} from '../../utilities/client';
+import {Box} from "@mui/material";
+import useCurrentPlayersGames from "./UseCurrentPlayersGames";
+import AddButton from "../buttons/AddButton";
+import CenteredGridWithAppBar from "../shared/CenteredGridWithAppBar";
+import {useHistory} from "react-router-dom";
+import {postNewGame} from "../../utilities/client";
 
 function GameBox(game) {
   const history = useHistory();

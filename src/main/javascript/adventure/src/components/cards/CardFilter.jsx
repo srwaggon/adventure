@@ -1,18 +1,18 @@
-import {Box, MenuItem, TextField} from '@material-ui/core';
-import CardTypeSelect from './CardTypeSelect';
-import React, {useEffect, useState} from 'react';
-import CardQualitySelect from './CardQualitySelect';
-import CardEditionSelect from './CardEditionSelect';
+import {Box, MenuItem, TextField} from "@mui/material";
+import CardTypeSelect from "./CardTypeSelect";
+import React, {useEffect, useState} from "react";
+import CardQualitySelect from "./CardQualitySelect";
+import CardEditionSelect from "./CardEditionSelect";
 
 const filterName = (name) => (card) => card.name.toLowerCase().includes(name);
-const filterType = (type) => (card) => 'any' === type || type === card.type;
-const filterQuality = (quality) => (card) => 'any' === quality || quality === card.quality;
-const filterEdition = (editionId) => (card) => 'any' === editionId || editionId === card.editionId;
+const filterType = (type) => (card) => "any" === type || type === card.type;
+const filterQuality = (quality) => (card) => "any" === quality || quality === card.quality;
+const filterEdition = (editionId) => (card) => "any" === editionId || editionId === card.editionId;
 
 const CardFilter = ({setFilterFunc}) => {
 
   const [filter, setFilter] = useState({
-    name: '',
+    name: "",
     type: 'any',
     quality: 'any',
     editionId: 'any',

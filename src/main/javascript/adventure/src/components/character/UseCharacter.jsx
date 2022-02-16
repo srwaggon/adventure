@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getCharacterById} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getCharacterById} from "../../utilities/client";
 
 export function useCharacter(characterId) {
   const [character, setCharacter] = useState(undefined);

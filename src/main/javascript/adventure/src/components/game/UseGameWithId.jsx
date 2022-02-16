@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {getGameById} from '../../utilities/client';
+import {useEffect, useState} from "react";
+import {getGameById} from "../../utilities/client";
 
 export function useGameWithId(gameId) {
   const [game, setGame] = useState({});

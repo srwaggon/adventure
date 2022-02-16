@@ -1,6 +1,6 @@
-import useEditions from '../edition/useEditions';
-import {FormControl, InputLabel, MenuItem, Select} from '@material-ui/core';
-import React from 'react';
+import useEditions from "../edition/useEditions";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import React from "react";
 
 export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
   const editions = useEditions();
@@ -9,7 +9,7 @@ export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
     return;
   }
 
-  const label = 'Edition';
+  const label = "Edition";
 
   return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
     <InputLabel>{label}</InputLabel>

@@ -1,4 +1,4 @@
-import './DiceIcon.css';
+import "./DiceIcon.css";
 
 const DiceIcon = ({sides}) =>
   <img

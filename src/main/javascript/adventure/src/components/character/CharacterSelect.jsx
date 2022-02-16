@@ -1,7 +1,7 @@
-import React from 'react';
-import useCurrentPlayersCharacters from './CharactersPage/UseCurrentPlayersCharacters';
-import {FormControl, InputLabel, MenuItem, Select} from '@material-ui/core';
-import {noop} from '../../utilities/kitchen_sink';
+import React from "react";
+import useCurrentPlayersCharacters from "./CharactersPage/UseCurrentPlayersCharacters";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {noop} from "../../utilities/kitchen_sink";
 
 export const CurrentPlayersCharactersSelect = ({defaultValue, onSelect}) => {
   const characters = useCurrentPlayersCharacters();
