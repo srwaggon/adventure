@@ -34,7 +34,7 @@ public class CardController {
 
   @GetMapping
   public List<Card> getAll() {
-    return cardRepository.findAll();
+    return cardService.getAll();
   }
 
   @PostMapping
