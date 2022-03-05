@@ -44,7 +44,7 @@ const CardDetailsPage = () => {
     if (card) {
       return;
     }
-    if (!cardId || cardId === 'new') {
+    if (!cardId || cardId === "new") {
       setCard({...newCard()});
     } else {
       getCard();
@@ -75,36 +75,52 @@ const CardDetailsPage = () => {
     })
     .then(card => history.push(`/cards/${card.id}`))
     .catch(error => console.log(error));
-  const onDelete = () => deleteCard(card).then(() => history.push('/cards'));
+  const onDelete = () => deleteCard(card).then(() => history.push("/cards"));
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ''}?`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ""}?`, onDelete);
 
   return !card
     ? <span>Loading...</span>
     : <div>
-      <TitledAppBar title={'Card Details'}>
+      <TitledAppBar title={"Card Details"}>
         <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onCopy, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
       <Container>
-        <Box p={4} display='flex' flexDirection='row' justifyContent='space-evenly' flexWrap='wrap'>
+        <Box p={4} display="flex" flexDirection="row" justifyContent="space-evenly" flexWrap="wrap">
           <VisualCard {...card} />
           <Card>
-            <Box p={4} display='flex' flexDirection='column' width={'20rem'}>
-              <TextField label={'Name'} variant={'outlined'} fullWidth margin={'dense'}
+            <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
+              <TextField label={"Name"} variant={"outlined"} fullWidth margin={"dense"}
                          defaultValue={card.name} onChange={event => setCard({...card, name: event.target.value})}/>
-              <TextField label={'Image URL'} variant={'outlined'} fullWidth margin={'dense'}
+              <TextField label={"Image URL"} variant={"outlined"} fullWidth margin={"dense"}
                          defaultValue={card.image} onChange={event => setCard({...card, image: event.target.value})}/>
-              <TextField label={'Image size'} variant={'outlined'} fullWidth margin={'dense'}
+              <TextField label={"Image size"} variant={"outlined"} fullWidth margin={"dense"}
                          defaultValue={card.imageSize}
                          onChange={event => setCard({...card, imageSize: event.target.value})}/>
               <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
               <CardQualitySelect defaultValue={card.quality} onSelect={quality => setCard({...card, quality})}/>
               <CardEditionSelect defaultValue={card.editionId}
                                  onSelect={editionId => setCard({...card, editionId})}/>
-              <TextField label={'Body'} multiline variant={'outlined'} rows={4} fullWidth margin={'dense'}
-                         defaultValue={card.body} onChange={event => setCard({...card, body: event.target.value})}/>
-              <TextField label={'Flavor'} multiline variant={'outlined'} rows={2} fullWidth margin={'dense'}
-                         defaultValue={card.flavor} onChange={event => setCard({...card, flavor: event.target.value})}/>
+              <TextField label={"Font Size"}
+                         variant={"outlined"}
+                         fullWidth margin={"dense"}
+                         defaultValue={card.fontSize}
+                         onChange={event => setCard({...card, fontSize: event.target.value})}/>
+              <TextField label={"Body"}
+                         multiline variant={"outlined"}
+                         rows={4}
+                         fullWidth
+                         margin={"dense"}
+                         defaultValue={card.body}
+                         onChange={event => setCard({...card, body: event.target.value})}/>
+              <TextField label={"Flavor"}
+                         multiline
+                         variant={"outlined"}
+                         rows={2}
+                         fullWidth
+                         margin={"dense"}
+                         defaultValue={card.flavor}
+                         onChange={event => setCard({...card, flavor: event.target.value})}/>
               <FormControlLabel
                 label="Dark Text"
                 control={
@@ -112,7 +128,7 @@ const CardDetailsPage = () => {
                     checked={card.darkText}
                     onChange={event => setCard({...card, darkText: event.target.checked})}
                     color="primary"
-                    inputProps={{'aria-label': 'primary checkbox'}}/>}/>
+                    inputProps={{"aria-label": "primary checkbox"}}/>}/>
             </Box>
           </Card>
         </Box>

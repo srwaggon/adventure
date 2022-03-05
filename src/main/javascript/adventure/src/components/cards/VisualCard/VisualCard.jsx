@@ -16,6 +16,7 @@ const VisualCard = ({
   author = "",
   darkText = false,
   quality = "COMMON",
+  fontSize = "10pt",
 }) => {
   const size = 22.5;
   const height = size;
@@ -47,12 +48,12 @@ const VisualCard = ({
           <RarityDot {...{quality}}/>
         </Box>
 
-        <Box className="visual-card-body-box" p={2} mt={1}>
+        <Box className="visual-card-body-box" p={1} mt={1}>
           <Typography variant={"body2"}>
             {body &&
-             <div className="visual-card-body-text" title={bodyElements}>
-               <span>{bodyElements}</span>
-             </div>}
+            <div className="visual-card-body-text" title={body} style={{fontSize}}>
+              <span>{bodyElements}</span>
+            </div>}
             <FlavorText>{applyTransforms(flavor)}</FlavorText>
           </Typography>
         </Box>

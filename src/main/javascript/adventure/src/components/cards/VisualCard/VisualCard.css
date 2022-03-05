@@ -44,12 +44,13 @@
   border: solid thin black;
   border-radius: .25rem;
 
-  height: 30%;
+  height: 33%;
   overflow: hidden;
 }
 
 .visual-card-body-text {
   margin-bottom: 1em;
+  font-size: 10pt;
 }
 
 .darkText {

@@ -17,6 +17,7 @@ public class Card implements Identified<String> {
   private String author;
   private boolean isDarkText = false;
   private UUID editionId;
+  private String fontSize = "10pt";
 
   public Card() {
   }
@@ -109,5 +110,13 @@ public class Card implements Identified<String> {
 
   public void setEditionId(UUID editionId) {
     this.editionId = editionId;
+  }
+
+  public String getFontSize() {
+    return fontSize;
+  }
+
+  public void setFontSize(String fontSize) {
+    this.fontSize = fontSize;
   }
 }
