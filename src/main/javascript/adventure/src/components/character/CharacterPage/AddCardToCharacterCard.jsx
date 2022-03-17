@@ -6,7 +6,7 @@ import useCards from "../../cards/useCards";
 import CenteredGridWithAppBar from "./../../shared/CenteredGridWithAppBar";
 import CardFilter from "../../cards/CardFilter";
 import {Link} from "react-router-dom";
-import VisualCard from "../../cards/VisualCard/VisualCard";
+import {VisualCard} from "../../cards/VisualCard/VisualCard.tsx";
 
 const AddCardToCharacterCard = ({cards: characterCards, setCards: setCharacterCards}) => {
   const allCards = useCards();

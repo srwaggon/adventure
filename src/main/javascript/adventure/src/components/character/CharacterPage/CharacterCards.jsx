@@ -5,7 +5,7 @@ import DeleteButton from "../../buttons/DeleteButton";
 import {arrayRemoveAt} from "../../../utilities/kitchen_sink";
 import CenteredGridWithAppBar from "./../../shared/CenteredGridWithAppBar";
 import CardFilter from "../../cards/CardFilter";
-import VisualCard from "../../cards/VisualCard/VisualCard";
+import {VisualCard} from "../../cards/VisualCard/VisualCard.tsx";
 import {Link} from "react-router-dom";
 import PlayButton from "../../buttons/PlayButton";
 import SendButton from "../../buttons/SendButton";

@@ -1,5 +1,5 @@
 import {Box, Card, Container, FormControlLabel, Switch, TextField} from "@mui/material";
-import VisualCard from "../VisualCard/VisualCard";
+import {VisualCard} from "../VisualCard/VisualCard.tsx";
 import React, {useEffect, useState} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {deleteCard, getCardById, postNewCard, replaceCard} from "../../../utilities/client";

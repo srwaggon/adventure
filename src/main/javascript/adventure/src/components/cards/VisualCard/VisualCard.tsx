@@ -1,22 +1,24 @@
 import "./VisualCard.css";
 import FlavorText from "./flavor/FlavorText";
-import {D10, D12, D20, D4, D6, D8} from "../../../dice/DiceIcon";
+
+// @ts-ignore
 import React from "react";
 import {Box, Typography} from "@mui/material";
 import {prettify} from "../../../utilities/kitchen_sink";
 import {RarityDot} from "./RarityDot";
+import {applyTransforms} from "../../../card/Text.tsx";
 
-const VisualCard = ({
-  name = "",
-  image = "",
-  imageSize = "100%",
-  type = "",
-  body = "",
-  flavor = "",
-  author = "",
-  darkText = false,
-  quality = "COMMON",
-  fontSize = "10pt",
+export const VisualCard = ({
+                               name = "",
+                               image = "",
+                               imageSize = "100%",
+                               type = "",
+                               body = "",
+                               flavor = "",
+                               author = "",
+                               darkText = false,
+                               quality = "COMMON",
+                               fontSize = "10pt",
 }) => {
   const size = 22.5;
   const height = size;
@@ -54,7 +56,7 @@ const VisualCard = ({
             <div className="visual-card-body-text" title={body} style={{fontSize}}>
               <span>{bodyElements}</span>
             </div>}
-            <FlavorText>{applyTransforms(flavor)}</FlavorText>
+              <FlavorText>{flavor}</FlavorText>
           </Typography>
         </Box>
 
@@ -63,39 +65,6 @@ const VisualCard = ({
   );
 };
 
-const wrapInList = s => [s];
 
-const isString = e => typeof e === "string";
-
-const replaceLineBreaks = (arr) => arr.map(e => isString(e) ? replaceLineBreaksInString(e) : e)
-  .flat();
-const replaceLineBreaksInString = str => str.split("\n").map(s => [s, <br/>]).flat();
-
-const replaceDiceSymbols = array => {
-  const replaceDiceSymbolInArray = (pattern, element) => array => {
-    const replaceDiceSymbolInString = str => {
-      const result = str.split(pattern).map(s => [s, element]).flat();
-      result.pop();
-      return result;
-    };
-    return array.map(e => isString(e) ? replaceDiceSymbolInString(e) : e).flat();
-  };
-  return [
-    replaceDiceSymbolInArray("[d4]", <D4/>),
-    replaceDiceSymbolInArray("[d6]", <D6/>),
-    replaceDiceSymbolInArray("[d8]", <D8/>),
-    replaceDiceSymbolInArray("[d10]", <D10/>),
-    replaceDiceSymbolInArray("[d12]", <D12/>),
-    replaceDiceSymbolInArray("[d20]", <D20/>),
-  ].reduce((acc, f) => f(acc), array);
-};
-
-const transformers = [
-  wrapInList,
-  replaceLineBreaks,
-  replaceDiceSymbols,
-];
-
-const applyTransforms = value => transformers.reduce((acc, transformer) => transformer(acc), value);
 
 export default VisualCard;
