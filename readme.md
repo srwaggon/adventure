@@ -53,3 +53,8 @@ Push an image to docker using this all-in-one command:
 ```shell
 ./scripts/docker/deploy.sh
 ```
+
+## Swagger
+
+http://<root>/swagger-ui (e.g.: http://localhost:8080/swagger-ui/
+or http://alcheim.online/swagger-ui/)
