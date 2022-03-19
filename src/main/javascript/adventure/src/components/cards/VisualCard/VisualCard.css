@@ -39,17 +39,14 @@
 .visual-card-body-box {
   background-color: white;
   color: black;
-  opacity: 0.8;
 
   border: solid thin black;
   border-radius: .25rem;
 
-  height: 33%;
   overflow: hidden;
 }
 
 .visual-card-body-text {
-  margin-bottom: 1em;
   font-size: 10pt;
 }
 

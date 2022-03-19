@@ -18,6 +18,7 @@ public class Card implements Identified<String> {
   private boolean isDarkText = false;
   private UUID editionId;
   private String fontSize = "10pt";
+  private double bodyOpacity = 1.0;
 
   public Card() {
   }
@@ -118,5 +119,13 @@ public class Card implements Identified<String> {
 
   public void setFontSize(String fontSize) {
     this.fontSize = fontSize;
+  }
+
+  public double getBodyOpacity() {
+    return bodyOpacity;
+  }
+
+  public void setBodyOpacity(double bodyOpacity) {
+    this.bodyOpacity = bodyOpacity;
   }
 }

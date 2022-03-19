@@ -106,6 +106,12 @@ const CardDetailsPage = () => {
                          fullWidth margin={"dense"}
                          defaultValue={card.fontSize}
                          onChange={event => setCard({...card, fontSize: event.target.value})}/>
+              <TextField label={"Body Opacity"}
+                         variant={"outlined"}
+                         fullWidth margin={"dense"}
+                         defaultValue={card.bodyOpacity}
+                         inputProps={{min: 0.0, step: 0.05, max: 1.0}}
+                         onChange={event => setCard({...card, bodyOpacity: event.target.value})}/>
               <TextField label={"Body"}
                          multiline variant={"outlined"}
                          rows={4}
