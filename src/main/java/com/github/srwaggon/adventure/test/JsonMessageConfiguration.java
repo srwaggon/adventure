@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
@@ -32,7 +33,7 @@ public class JsonMessageConfiguration implements WebSocketConfigurer {
           System.out.println(playCardEvent);
         }
 
-//        session.sendMessage(new TextMessage("Hello world"));
+        session.sendMessage(new TextMessage("Hello world"));
       }
     }, "/games");
   }

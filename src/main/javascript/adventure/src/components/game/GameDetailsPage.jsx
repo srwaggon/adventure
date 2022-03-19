@@ -37,13 +37,25 @@ const GameDetailsPage = () => {
 
   const [game, setGame] = useGameWithId(gameId);
 
-  const players = game['players'];
+  const players = game["players"];
+
+  const {webSocket, events} = useWebSocket();
+
+  const sendPayload = (card) => {
+    debugger;
+    console.log({selectedCharacter, game});
+    webSocket.current.send(JSON.stringify({
+      event: "playCardEvent",
+      characterId: selectedCharacter.id,
+      cardId: card.id,
+    }));
+  };
 
   const editGameNameTextField =
     <TextField
-      label='Game name'
-      variant='outlined'
-      fullWidth margin='dense'
+      label="Game name"
+      variant="outlined"
+      fullWidth margin="dense"
       defaultValue={game.name}
       onChange={event => setGame({...game, name: event.target.value})}
     />;
@@ -62,7 +74,7 @@ const GameDetailsPage = () => {
       .then(response => response.json())
       .then(setGame);
   };
-  const onDelete = () => deleteGame(game).then(() => history.push('/games'));
+  const onDelete = () => deleteGame(game).then(() => history.push("/games"));
 
   const [isCharacterDrawerOpen, setCharacterDrawerOpen] = useState(false);
   const openCharacterDrawer = () => setCharacterDrawerOpen(true);
@@ -88,6 +100,7 @@ const GameDetailsPage = () => {
           cards={cards}
           setCards={() => {
           }}
+          onPlay={sendPayload}
         />
       </ListItem>}
     </List>;
@@ -96,29 +109,20 @@ const GameDetailsPage = () => {
   const drawerContent = <CharacterDetailsDrawerContent character={selectedCharacter}
                                                        setCharacter={setSelectedCharacter}/>;
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ''}`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ""}`, onDelete);
 
-  const webSocket = useWebSocket();
 
-  const sendPayload = () => {
-    console.log({selectedCharacter, game});
-    webSocket.current.send(JSON.stringify({
-      event: 'playCardEvent',
-      characterId: selectedCharacter.id,
-      cardId: selectedCharacter.cards[0],
-    }));
-  };
 
   return !players
-    ? 'Loading...'
+    ? "Loading..."
     : <Box>
-      <AppBar color='default' position='static' className={clsx(classes.appBar, {
+      <AppBar color="default" position="static" className={clsx(classes.appBar, {
         [classes.appBarShift]: isCharacterDrawerOpen,
       })}>
         <Toolbar>
-          <Box display={'flex'} flexDirection={'row'} width={'100%'} alignItems={'center'} flexWrap={'wrap'}>
+          <Box display={"flex"} flexDirection={"row"} width={"100%"} alignItems={"center"} flexWrap={"wrap"}>
             <Box flexGrow={1} flexShrink={0}>
-              <Typography variant='h6'>{title}</Typography>
+              <Typography variant="h6">{title}</Typography>
             </Box>
             <EditButtonRow
               isEditing={isEditing}
@@ -162,7 +166,10 @@ const GameDetailsPage = () => {
           {drawerContent}
         </Box>
       </Drawer>
-      {webSocket.current && <Button onClick={sendPayload}>greeting</Button>}
+      {webSocket.current && <Button onClick={() => sendPayload(selectedCharacter.cards[0])}>greeting</Button>}
+      <Box>
+        {events.map(x => x.data)}
+      </Box>
       <DeleteDialog/>
     </Box>;
 };

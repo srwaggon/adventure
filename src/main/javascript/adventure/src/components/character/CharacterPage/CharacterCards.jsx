@@ -11,7 +11,13 @@ import PlayButton from "../../buttons/PlayButton";
 import SendButton from "../../buttons/SendButton";
 import BrokenImageButton from "../../buttons/BrokenImageButton";
 
-const CharacterCards = ({isEditing, cards, setCards}) => {
+const CharacterCards = ({
+  isEditing,
+  cards,
+  setCards,
+  onPlay = () => {
+  }
+}) => {
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
@@ -27,7 +33,7 @@ const CharacterCards = ({isEditing, cards, setCards}) => {
         <Badge badgeContent={4} color="secondary" overlap="circular">
           <BrokenImageButton/>
         </Badge>
-        <PlayButton/>
+        <PlayButton onClick={() => onPlay(card)}/>
         <SendButton/>
       </Box>
     </Card>);
