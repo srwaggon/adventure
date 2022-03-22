@@ -114,7 +114,7 @@ const GameDetailsPage = () => {
 
 
   return !players
-    ? "Loading..."
+    ? <span>"Loading..."</span>
     : <Box>
       <AppBar color="default" position="static" className={clsx(classes.appBar, {
         [classes.appBarShift]: isCharacterDrawerOpen,

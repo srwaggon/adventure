@@ -1,12 +1,11 @@
 import "./VisualCard.css";
 import FlavorText from "./flavor/FlavorText";
 
-// @ts-ignore
 import React from "react";
 import {Box, Typography} from "@mui/material";
 import {prettify} from "../../../utilities/kitchen_sink";
 import {RarityDot} from "./RarityDot";
-import {applyTransforms} from "../../../card/Text.tsx";
+import {applyTransforms} from "../../../card/Text";
 
 export const VisualCard = ({
   name = "",

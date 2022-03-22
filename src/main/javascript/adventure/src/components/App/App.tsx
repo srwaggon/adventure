@@ -1,32 +1,24 @@
-import './App.css';
+import "./App.css";
 
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom';
-import CharacterPage from '../character/CharacterPage/CharacterPage';
-import CharactersPage from '../character/CharactersPage/CharactersPage';
-import CardsPage from '../cards/CardsPage';
-import {
-    AppBar,
-    Box,
-    Button,
-    createTheme,
-    StyledEngineProvider,
-    Toolbar,
-    Typography
-} from '@mui/material';
-import CardPage from '../cards/CardDetailsPage/CardDetailsPage';
-import GamesPage from '../game/GamesPage';
-import GameDetailsPage from '../game/GameDetailsPage';
+import React from "react";
+import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
+import CharacterPage from "../character/CharacterPage/CharacterPage";
+import CharactersPage from "../character/CharactersPage/CharactersPage";
+import CardsPage from "../cards/CardsPage";
+import {AppBar, Box, Button, createTheme, StyledEngineProvider, Toolbar, Typography} from "@mui/material";
+import CardPage from "../cards/CardDetailsPage/CardDetailsPage";
+import GamesPage from "../game/GamesPage";
+import GameDetailsPage from "../game/GameDetailsPage";
 import {ThemeProvider} from "@mui/styles";
-import {useStyles} from '../Styles';
+import {useStyles} from "../Styles";
 
 const Navigation = () => {
-    const history = useHistory();
-    return <Toolbar>
-        <Box display='flex' justifyContent={'space-between'} width={1} alignItems={'center'}
-             flexWrap={'wrap'} ml={-1}>
-            <Button color={'inherit'} onClick={() => history.push('/')}>
-                <Typography variant="h4" style={{textTransform: 'capitalize'}}>Alcheim
+  const history = useHistory();
+  return <Toolbar>
+    <Box display="flex" justifyContent={"space-between"} width={1} alignItems={"center"}
+         flexWrap={"wrap"} ml={-1}>
+      <Button color={"inherit"} onClick={() => history.push("/")}>
+        <Typography variant="h4" style={{textTransform: "capitalize"}}>Alcheim
                     Online</Typography>
             </Button>
             <Box>
@@ -43,11 +35,11 @@ const Navigation = () => {
 
 class JsonMessage {
 
-    message;
+  message: string;
 
-    constructor(message) {
-        this.message = message;
-    }
+  constructor(message: string) {
+    this.message = message;
+  }
 
     asJson = () => JSON.stringify(this);
 }
