@@ -79,6 +79,13 @@ const CardDetailsPage = () => {
 
   const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ""}?`, onDelete);
 
+  const setBodyOpacity = event => {
+    const opacityText = event.target.value;
+    const opacityValue = parseInt(opacityText);
+    const bodyOpacity = Math.max(0, Math.min(opacityValue, 100));
+    setCard({...card, bodyOpacity: bodyOpacity / 100});
+  };
+
   return !card
     ? <span>Loading...</span>
     : <div>
@@ -106,12 +113,14 @@ const CardDetailsPage = () => {
                          fullWidth margin={"dense"}
                          defaultValue={card.fontSize}
                          onChange={event => setCard({...card, fontSize: event.target.value})}/>
-              <TextField label={"Body Opacity"}
+              <TextField label={"Body Background Opacity %"}
+                         type={"number"}
                          variant={"outlined"}
                          fullWidth margin={"dense"}
-                         defaultValue={card.bodyOpacity}
-                         inputProps={{min: 0.0, step: 0.05, max: 1.0}}
-                         onChange={event => setCard({...card, bodyOpacity: event.target.value})}/>
+                         defaultValue={card.bodyOpacity * 100}
+                         value={card.bodyOpacity * 100}
+                         inputProps={{min: 0, step: 1, max: 100}}
+                         onChange={event => setBodyOpacity(event)}/>
               <TextField label={"Body"}
                          multiline variant={"outlined"}
                          rows={4}
