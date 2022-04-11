@@ -1,12 +1,11 @@
 import React from "react";
-import {getCardTypes} from "../../utilities/client";
 import CardSelect from "./CardSelect";
+import useCardTypes from "./cardtype/UseCardTypes";
 
 const CardTypeSelect = ({children, defaultValue, onSelect}) => {
-  const populator = (setValues) =>
-    getCardTypes()
-      .then(response => response.json())
-      .then(json => setValues(json));
+  const cardTypes = useCardTypes();
+
+  const populator = (setValues) => setValues(cardTypes);
 
   return <CardSelect {...{populator, label: "Type", defaultValue, onSelect, children}}/>;
 };

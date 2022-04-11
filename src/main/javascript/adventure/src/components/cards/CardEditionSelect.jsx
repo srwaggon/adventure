@@ -5,10 +5,6 @@ import React from "react";
 export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
   const editions = useEditions();
 
-  if (!editions) {
-    return;
-  }
-
   const label = "Edition";
 
   return <FormControl fullWidth variant={'outlined'} margin={'dense'}>

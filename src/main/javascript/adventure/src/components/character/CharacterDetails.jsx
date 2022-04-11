@@ -1,4 +1,4 @@
-import useProficiencies from "../proficiency/useProficiencies";
+import useProficiencies from "../proficiency/UseProficiencies";
 import {Box, Divider, TextField, Typography} from "@mui/material";
 import CharacterPortraitCard from "./CharacterPortraitCard/CharacterPortraitCard";
 import EditCharacterNameTextField from "./CharacterPage/EditCharacterNameTextField";

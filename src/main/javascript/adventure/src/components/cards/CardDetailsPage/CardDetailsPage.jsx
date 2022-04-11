@@ -6,7 +6,7 @@ import {deleteCard, getCardById, postNewCard, replaceCard} from "../../../utilit
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
 import CardTypeSelect from "../CardTypeSelect";
 import TitledAppBar from "../../shared/TitledAppBar";
-import useCurrentPlayer from "./../../player/UseCurrentPlayer";
+import useCurrentPlayer from "../../player/UseCurrentPlayer";
 import CardQualitySelect from "../CardQualitySelect";
 import {useDeleteDialog} from "../../shared/UseDeleteDialog";
 import CardEditionSelect from "../CardEditionSelect";

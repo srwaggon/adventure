@@ -11,7 +11,10 @@ const CardSelect = ({label, populator, defaultValue, onSelect, children}) => {
 
   return <FormControl fullWidth variant={"outlined"} margin={"dense"}>
     <InputLabel>{label}</InputLabel>
-    <Select label={label} defaultValue={defaultValue} onChange={event => onSelect(event.target.value)}>
+    <Select
+      label={label}
+      defaultValue={defaultValue}
+      onChange={event => onSelect(event.target.value)}>
       {children}
       {values.map(cardType =>
         <MenuItem value={cardType}>{prettify(cardType)}</MenuItem>,

@@ -1,12 +1,12 @@
 import React from "react";
-import {getCardQualities} from "../../utilities/client";
 import CardSelect from "./CardSelect";
+import useQualities from "../quality/UseQualities";
 
 const CardQualitySelect = ({children, defaultValue, onSelect}) => {
-  const populator = (setValues) =>
-    getCardQualities()
-      .then(response => response.json())
-      .then(json => setValues(json));
+
+  const qualities = useQualities();
+
+  const populator = (setValues) => setValues(qualities);
 
   return <CardSelect {...{populator, label: "Quality", defaultValue, onSelect, children}}/>;
 };
