@@ -1,4 +1,18 @@
-import {Box, Card, Container, FormControlLabel, List, ListItem, Switch, TextField, Tooltip} from "@mui/material";
+import {
+  Autocomplete,
+  Box,
+  Card,
+  Container,
+  FormControlLabel,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Switch,
+  TextField,
+  Tooltip
+} from "@mui/material";
 import {VisualCard} from "../VisualCard/VisualCard.tsx";
 import React, {useEffect, useState} from "react";
 import {Link, useHistory, useParams} from "react-router-dom";
@@ -10,15 +24,43 @@ import useCurrentPlayer from "../../player/UseCurrentPlayer";
 import CardQualitySelect from "../CardQualitySelect";
 import {useDeleteDialog} from "../../shared/UseDeleteDialog";
 import CardEditionSelect from "../CardEditionSelect";
+import DeleteIcon from "@mui/icons-material/Delete";
+import useCards from "../useCards";
 
 const newCard = () => ({
   name: undefined,
   image: "https://cdn.discordapp.com/attachments/783098091603361842/824651378960891904/unknown.png",
   imageSize: "100%",
   type: "ABILITY",
-  body: undefined,
-  flavor: undefined,
+  body: null,
+  flavor: null,
+  author: null,
+  quality: "POOR",
+  costInExperience: 0,
+  prerequisites: {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  }
 });
+
+const AddCardAutocomplete = ({onChange}) => {
+  const cards = useCards();
+
+  const options = cards.map(card => ({label: card.name, id: card.id}));
+
+  return <Autocomplete
+    clearOnBlur
+    disablePortal
+    fullWidth
+    handleHomeEndKeys
+    selectOnFocus
+    options={options}
+    sx={{width: 1}}
+    renderInput={(params) => <TextField {...params} label={"Add Card Prerequisite"}/>}
+    onChange={onChange}
+  />;
+};
 
 const CardDetailsPage = () => {
 
@@ -45,7 +87,7 @@ const CardDetailsPage = () => {
         });
     }
 
-    if (card && card.id === cardId) {
+    if (card && (cardId === card.id || cardId === "new")) {
       return;
     }
     if (!cardId || cardId === "new") {
@@ -103,7 +145,7 @@ const CardDetailsPage = () => {
       return;
     }
     const prerequisites = card.prerequisites || {};
-    const cardPrerequisites = prerequisites.cardPrerequisites || ["0a28d6e7-1ab4-449c-8491-1982e03f2307"];
+    const cardPrerequisites = prerequisites.cardPrerequisites || [];
 
     if (cardPrerequisites.length > 0) {
       getCardsByIds(cardPrerequisites)
@@ -111,6 +153,21 @@ const CardDetailsPage = () => {
         .then(json => setCardPrerequisites(json));
     }
   }, [card, setCardPrerequisites]);
+
+  const removeCardPrerequisite = (cardPrerequisite) => {
+    const {prerequisites, ...other} = card;
+    const {cardPrerequisites, ...otherPrerequisites} = prerequisites;
+    const filteredCardPrerequisites = cardPrerequisites.filter(cp => cp !== cardPrerequisite.id);
+    const newCard = {
+      ...other,
+      prerequisites: {
+        ...otherPrerequisites,
+        cardPrerequisites: filteredCardPrerequisites
+      }
+    }
+    setCard(newCard);
+    setCardPrerequisites(filteredCardPrerequisites);
+  };
 
   return !card
     ? <span>Loading...</span>
@@ -176,14 +233,19 @@ const CardDetailsPage = () => {
           <Card>
             <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
               Prerequisites
-              <TextField label={"Cost in Experience"}
-                         type={"number"}
-                         variant={"outlined"}
-                         fullWidth margin={"dense"}
-                         defaultValue={card.costInExperience || 0}
-                         value={card.costInExperience}
-                         inputProps={{min: 0, step: 1}}
-                         onChange={setCostInExperience}/>
+              <TextField
+                label={"Cost in Experience"}
+                type={"number"}
+                variant={"outlined"}
+                fullWidth margin={"dense"}
+                defaultValue={card.costInExperience || 0}
+                value={card.costInExperience}
+                inputProps={{
+                  min: 0,
+                  step: 1,
+                  readOnly: !isEditing
+                }}
+                onChange={setCostInExperience}/>
               Attributes
               <List>
               </List>
@@ -194,14 +256,42 @@ const CardDetailsPage = () => {
               <List>
                 {
                   cardPrerequisites.map(cardPrerequisite =>
-                    <Link to={`/cards/${cardPrerequisite.id}`} style={{textDecoration: "none"}}>
-                      <ListItem>
-                        <Tooltip title={<VisualCard {...cardPrerequisite}/>}>
-                          <span>{cardPrerequisite.name}</span>
-                        </Tooltip>
-                      </ListItem>
-                    </Link>
-                  )}
+                    <ListItem
+                      key={cardPrerequisite.id}
+                      disablePadding
+                      secondaryAction={
+                        isEditing && <IconButton
+                          edge="end"
+                          aria-label="delete"
+                          onClick={() => removeCardPrerequisite(cardPrerequisite)}>
+                          <DeleteIcon/>
+                        </IconButton>
+                      }>
+                      <ListItemButton>
+                        <Link to={`/cards/${cardPrerequisite.id}`} style={{textDecoration: "none"}}>
+                          <Tooltip title={<VisualCard {...cardPrerequisite}/>}>
+                            <ListItemText>{cardPrerequisite.name}</ListItemText>
+                          </Tooltip>
+                        </Link>
+                      </ListItemButton>
+                    </ListItem>
+                  )
+                }
+                {isEditing && <AddCardAutocomplete onChange={(event, value) => {
+                  if (!value) {
+                    return;
+                  }
+                  const {prerequisites, ...otherCard} = card;
+                  const {cardPrerequisites, ...otherPrerequisites} = prerequisites;
+                  const newCard = {
+                    ...otherCard,
+                    prerequisites: {
+                      ...otherPrerequisites,
+                      cardPrerequisites: [...cardPrerequisites, value.id]
+                    }
+                  };
+                  setCard(newCard);
+                }}/>}
               </List>
             </Box>
           </Card>

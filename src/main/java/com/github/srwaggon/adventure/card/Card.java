@@ -21,7 +21,7 @@ public class Card implements Identified<String> {
   private double bodyOpacity = 1.0;
 
   private int costInExperience;
-  private Prerequisites prerequisites;
+  private Prerequisites prerequisites = new Prerequisites();
 
   public Card() {
   }

@@ -23,7 +23,7 @@ export const demoCard1 = {
   "prerequisites": {
     "attributePrerequisites": [],
     "skillPrerequisites": [],
-    "cardPrerequisites": ["3475aa37-f533-43b8-a804-ce8527545ec8"]
+    "cardPrerequisites": ["3475aa37-f533-43b8-a804-ce8527545ec8", "754ad33c-7233-4d6b-bd7f-8a073334f035"]
   }
 };
 
