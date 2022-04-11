@@ -8,7 +8,13 @@ const CardQualitySelect = ({children, defaultValue, onSelect}) => {
 
   const populator = (setValues) => setValues(qualities);
 
-  return <CardSelect {...{populator, label: "Quality", defaultValue, onSelect, children}}/>;
+  return <CardSelect {...{
+    populator,
+    label: "Quality",
+    defaultValue,
+    onSelect,
+    children
+  }}/>;
 };
 
 export default CardQualitySelect;

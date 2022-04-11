@@ -1,24 +1,22 @@
 import useEditions from "../edition/useEditions";
-import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import React from "react";
+import CardSelect from "./CardSelect";
 
 export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
   const editions = useEditions();
 
-  const label = "Edition";
+  const editionsByName = editions.reduce((acc, edition) => {
+    acc[edition.name] = edition;
+    return acc;
+  }, {});
 
-  return <FormControl fullWidth variant={'outlined'} margin={'dense'}>
-    <InputLabel>{label}</InputLabel>
-    <Select
-      label={label}
-      defaultValue={defaultValue}
-      onChange={event => onSelect(event.target.value)}>
-      {children}
-      {editions.map(edition =>
-        <MenuItem key={edition.id} value={edition.id}>{edition.name}</MenuItem>,
-      )}
-    </Select>
-  </FormControl>;
+  return <CardSelect {...{
+    populator: (setValues) => setValues(editions.map(edition => edition.name)),
+    label: "Edition",
+    defaultValue,
+    onSelect: (value) => onSelect(editionsByName[value] || value),
+    children
+  }} />
 };
 
 export default CardEditionSelect;

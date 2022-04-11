@@ -107,7 +107,7 @@ const CardDetailsPage = () => {
               <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
               <CardQualitySelect defaultValue={card.quality} onSelect={quality => setCard({...card, quality})}/>
               <CardEditionSelect defaultValue={card.editionId}
-                                 onSelect={editionId => setCard({...card, editionId})}/>
+                                 onSelect={edition => setCard({...card, editionId: edition.id})}/>
               <TextField label={"Font Size"}
                          variant={"outlined"}
                          fullWidth margin={"dense"}
