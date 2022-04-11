@@ -1,7 +1,10 @@
 import {Box, IconButton} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const DeleteButton = ({disabled, onClick}) => {
+const DeleteButton = ({
+  disabled = false, onClick = () => {
+  }
+}) => {
   return (
     <Box>
       <IconButton
