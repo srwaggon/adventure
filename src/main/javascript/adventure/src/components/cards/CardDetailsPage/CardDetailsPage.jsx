@@ -1,8 +1,8 @@
-import {Box, Card, Container, FormControlLabel, Switch, TextField} from "@mui/material";
+import {Box, Card, Container, FormControlLabel, List, ListItem, Switch, TextField, Tooltip} from "@mui/material";
 import {VisualCard} from "../VisualCard/VisualCard.tsx";
 import React, {useEffect, useState} from "react";
-import {useHistory, useParams} from "react-router-dom";
-import {deleteCard, getCardById, postNewCard, replaceCard} from "../../../utilities/client";
+import {Link, useHistory, useParams} from "react-router-dom";
+import {deleteCard, getCardById, getCardsByIds, postNewCard, replaceCard} from "../../../utilities/client";
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
 import CardTypeSelect from "../CardTypeSelect";
 import TitledAppBar from "../../shared/TitledAppBar";
@@ -23,7 +23,11 @@ const newCard = () => ({
 const CardDetailsPage = () => {
 
   const {cardId} = useParams();
+
+  const history = useHistory();
+
   const [card, setCard] = useState(null);
+  // const [card, setCard] = useState(demoCard0);
 
   useEffect(() => {
     function getCard() {
@@ -41,7 +45,7 @@ const CardDetailsPage = () => {
         });
     }
 
-    if (card) {
+    if (card && card.id === cardId) {
       return;
     }
     if (!cardId || cardId === "new") {
@@ -53,7 +57,6 @@ const CardDetailsPage = () => {
 
   const {name: author} = useCurrentPlayer();
 
-  const history = useHistory();
   const [isEditing, setEditing] = useState(false);
   const onEdit = () => setEditing(true);
   const onCancelEdit = () => setEditing(false);
@@ -86,6 +89,29 @@ const CardDetailsPage = () => {
     setCard({...card, bodyOpacity: bodyOpacity / 100});
   };
 
+  const setCostInExperience = event => {
+    const costInExperienceCost = event.target.value;
+    const costInExperienceValue = parseInt(costInExperienceCost);
+    const costInExperience = Math.max(0, costInExperienceValue);
+    setCard({...card, costInExperience});
+  }
+
+  const [cardPrerequisites, setCardPrerequisites] = useState([]);
+
+  useEffect(() => {
+    if (!card) {
+      return;
+    }
+    const prerequisites = card.prerequisites || {};
+    const cardPrerequisites = prerequisites.cardPrerequisites || ["0a28d6e7-1ab4-449c-8491-1982e03f2307"];
+
+    if (cardPrerequisites.length > 0) {
+      getCardsByIds(cardPrerequisites)
+        .then(response => response.json())
+        .then(json => setCardPrerequisites(json));
+    }
+  }, [card, setCardPrerequisites]);
+
   return !card
     ? <span>Loading...</span>
     : <div>
@@ -97,6 +123,7 @@ const CardDetailsPage = () => {
           <VisualCard {...card} />
           <Card>
             <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
+              Appearance
               <TextField label={"Name"} variant={"outlined"} fullWidth margin={"dense"}
                          defaultValue={card.name} onChange={event => setCard({...card, name: event.target.value})}/>
               <TextField label={"Image URL"} variant={"outlined"} fullWidth margin={"dense"}
@@ -120,7 +147,7 @@ const CardDetailsPage = () => {
                          defaultValue={card.bodyOpacity * 100}
                          value={card.bodyOpacity * 100}
                          inputProps={{min: 0, step: 1, max: 100}}
-                         onChange={event => setBodyOpacity(event)}/>
+                         onChange={setBodyOpacity}/>
               <TextField label={"Body"}
                          multiline variant={"outlined"}
                          rows={4}
@@ -144,6 +171,38 @@ const CardDetailsPage = () => {
                     onChange={event => setCard({...card, darkText: event.target.checked})}
                     color="primary"
                     inputProps={{"aria-label": "primary checkbox"}}/>}/>
+            </Box>
+          </Card>
+          <Card>
+            <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
+              Prerequisites
+              <TextField label={"Cost in Experience"}
+                         type={"number"}
+                         variant={"outlined"}
+                         fullWidth margin={"dense"}
+                         defaultValue={card.costInExperience || 0}
+                         value={card.costInExperience}
+                         inputProps={{min: 0, step: 1}}
+                         onChange={setCostInExperience}/>
+              Attributes
+              <List>
+              </List>
+              Skills
+              <List>
+              </List>
+              Cards
+              <List>
+                {
+                  cardPrerequisites.map(cardPrerequisite =>
+                    <Link to={`/cards/${cardPrerequisite.id}`} style={{textDecoration: "none"}}>
+                      <ListItem>
+                        <Tooltip title={<VisualCard {...cardPrerequisite}/>}>
+                          <span>{cardPrerequisite.name}</span>
+                        </Tooltip>
+                      </ListItem>
+                    </Link>
+                  )}
+              </List>
             </Box>
           </Card>
         </Box>

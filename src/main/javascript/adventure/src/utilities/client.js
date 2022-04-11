@@ -1,9 +1,10 @@
 const _get = (endpoint) => () => fetch(endpoint);
 const _getAll = _get;
 const _getById = (endpoint) => (id) => fetch(`${endpoint}/${id}`);
+const _getByIds = (endpoint) => (ids) => fetch(`${endpoint}?ids=${ids.join(",")}`);
 const _postNew = (endpoint) => (item) => fetch(endpoint, {
-  method: 'POST',
-  headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+  method: "POST",
+  headers: {"Accept": "application/json", "Content-Type": "application/json"},
   body: JSON.stringify(item),
 });
 const _replace = (endpoint) => (item) =>
@@ -35,6 +36,7 @@ export const getCharactersCards = (characterId) => _get(`${charactersEndpoint}/$
 const cardsEndpoint = '/api/cards';
 export const getAllCards = _getAll(cardsEndpoint);
 export const getCardById = _getById(cardsEndpoint);
+export const getCardsByIds = _getByIds(cardsEndpoint);
 export const postNewCard = _postNew(cardsEndpoint);
 export const replaceCard = _replace(cardsEndpoint);
 export const deleteCard = _delete(cardsEndpoint);

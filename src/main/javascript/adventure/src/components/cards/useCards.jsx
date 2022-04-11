@@ -3,6 +3,7 @@ import {getAllCards} from "../../utilities/client";
 
 const useCards = () => {
   const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState(demoCards);
 
   useEffect(() => {
     getAllCards()

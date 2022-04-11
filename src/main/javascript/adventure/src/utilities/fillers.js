@@ -2,12 +2,11 @@ export const demoCard0 = {
   "id": "4e4b3d60-7923-4fcf-8358-cb1dc0b59072",
   "name": "Torch",
   "type": "ITEM",
+  "quality": "COMMON",
   "image": "https://2.bp.blogspot.com/-nOw8qPiBJs0/WZMz4PNXbTI/AAAAAAAAJ-E/ZX14R-0AzwoCKdXmm9ojMqosMDqIwM1KQCLcBGAs/s1600/Efflam%2BMercier.jpg",
   "imageSize": "130%",
   "body": "Provides light nearby for 1 hour.",
-  "flavor": "\"You aren't afraid of the dark, are you?\"",
-  "author": "Demo author",
-  "quality": "COMMON",
+  "flavor": "\"You aren't afraid of the dark, are you?\"", "author": null, "darkText": false
 };
 
 export const demoCard1 = {
@@ -20,6 +19,12 @@ export const demoCard1 = {
   "flavor": "",
   "author": "Demo author",
   "quality": "UNCOMMON",
+  "costInExperience": 4,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": ["3475aa37-f533-43b8-a804-ce8527545ec8"]
+  }
 };
 
 export const demoCard2 = {
@@ -53,92 +58,92 @@ export const demoCards = [
 ];
 
 export const demoCharacter = {
-  'id': 'e24f5654-f4c1-4c71-acbe-1b795626a138',
-  'name': 'Demo Character',
-  'strength': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "id": "e24f5654-f4c1-4c71-acbe-1b795626a138",
+  "name": "Demo Character",
+  "strength": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'dexterity': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "dexterity": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'constitution': {
-    'value': 3,
-    'minimum': 1,
-    'maximum': 5,
+  "constitution": {
+    "value": 3,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'presence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "presence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'influence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "influence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'composure': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "composure": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'intelligence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "intelligence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'wits': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "wits": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'resolve': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 5,
+  "resolve": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5,
   },
-  'stamina': {
-    'value': 3,
-    'minimum': 1,
-    'maximum': 6,
+  "stamina": {
+    "value": 3,
+    "minimum": 1,
+    "maximum": 6,
   },
-  'confidence': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 2,
+  "confidence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 2,
   },
-  'focus': {
-    'value': 1,
-    'minimum': 1,
-    'maximum': 2,
+  "focus": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 2,
   },
-  'health': {
-    'value': 10,
-    'minimum': 1,
-    'maximum': 20,
+  "health": {
+    "value": 10,
+    "minimum": 1,
+    "maximum": 20,
   },
-  'reputation': {
-    'value': 10,
-    'minimum': 1,
-    'maximum': 10,
+  "reputation": {
+    "value": 10,
+    "minimum": 1,
+    "maximum": 10,
   },
-  'mana': {
-    'value': 10,
-    'minimum': 1,
-    'maximum': 10,
+  "mana": {
+    "value": 10,
+    "minimum": 1,
+    "maximum": 10,
   },
-  'cards': demoCards,
+  "cards": demoCards,
   proficiencies: [],
 };
 
-export const demoPlayer = {'id': '100131200358491013460', 'name': 'demo-player', 'characters': [demoCharacter.id]};
+export const demoPlayer = {"id": "100131200358491013460", "name": "demo-player", "characters": [demoCharacter.id]};
 
 export const demoGame = {
-  'id': '0dd03bb8-d1a9-49bb-a9da-62047332b102',
-  'name': 'Bowser\'s Big Bean Burrito',
-  'owner': demoPlayer.id,
-  'players': [demoPlayer.id],
+  "id": "0dd03bb8-d1a9-49bb-a9da-62047332b102",
+  "name": "Bowser's Big Bean Burrito",
+  "owner": demoPlayer.id,
+  "players": [demoPlayer.id],
 };

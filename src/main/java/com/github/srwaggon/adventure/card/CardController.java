@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -33,7 +35,13 @@ public class CardController {
   private EditionService editionService;
 
   @GetMapping
-  public List<Card> getAll() {
+  public List<Card> getAll(@RequestParam Optional<List<String>> ids) {
+    if (ids.isPresent()) {
+      List<String> idsList = ids.get();
+      if (!idsList.isEmpty()) {
+        return cardService.getByIds(idsList);
+      }
+    }
     return cardService.getAll();
   }
 

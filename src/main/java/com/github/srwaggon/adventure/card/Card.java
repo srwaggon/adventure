@@ -20,6 +20,9 @@ public class Card implements Identified<String> {
   private String fontSize = "10pt";
   private double bodyOpacity = 1.0;
 
+  private int costInExperience;
+  private Prerequisites prerequisites;
+
   public Card() {
   }
 
@@ -127,5 +130,21 @@ public class Card implements Identified<String> {
 
   public void setBodyOpacity(double bodyOpacity) {
     this.bodyOpacity = bodyOpacity;
+  }
+
+  public int getCostInExperience() {
+    return costInExperience;
+  }
+
+  public void setCostInExperience(int costInExperience) {
+    this.costInExperience = costInExperience;
+  }
+
+  public Prerequisites getPrerequisites() {
+    return prerequisites;
+  }
+
+  public void setPrerequisites(Prerequisites prerequisites) {
+    this.prerequisites = prerequisites;
   }
 }
