@@ -1,13 +1,24 @@
 import React from "react";
-import CardSelect from "./CardSelect";
 import useCardTypes from "./cardtype/UseCardTypes";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {prettify} from "../../utilities/kitchen_sink";
 
 const CardTypeSelect = ({children, defaultValue, onSelect}) => {
   const cardTypes = useCardTypes();
 
-  const populator = (setValues) => setValues(cardTypes);
+  const label = "Type";
 
-  return <CardSelect {...{populator, label: "Type", defaultValue, onSelect, children}}/>;
+  return <FormControl fullWidth variant={"outlined"} margin={"dense"}>
+    <InputLabel>{label}</InputLabel>
+    <Select {...{
+      label,
+      defaultValue,
+      onChange: (event) => onSelect(event.target.value)
+    }}>
+      {children}
+      {cardTypes.map(quality => <MenuItem value={quality}>{prettify(quality)}</MenuItem>)}
+    </Select>
+  </FormControl>;
 };
 
 export default CardTypeSelect;
