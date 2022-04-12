@@ -1,6 +1,7 @@
 import useEditions from "../edition/useEditions";
 import React from "react";
-import CardSelect from "./CardSelect";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {prettify} from "../../utilities/kitchen_sink";
 
 export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
   const editions = useEditions();
@@ -10,13 +11,22 @@ export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
     return acc;
   }, {});
 
-  return <CardSelect {...{
-    populator: (setValues) => setValues(editions.map(edition => edition.name)),
-    label: "Edition",
-    defaultValue,
-    onSelect: (value) => onSelect(editionsByName[value] || value),
-    children
-  }} />
+  const label = "Edition";
+
+  return <FormControl fullWidth variant={"outlined"} margin={"dense"}>
+    <InputLabel>{label}</InputLabel>
+    <Select {...{
+      label,
+      defaultValue,
+      onChange: (event) => {
+        const value = event.target.value;
+        onSelect(editionsByName[value] || value);
+      }
+    }}>
+      {children}
+      {editions.map(edition => <MenuItem value={edition}>{prettify(edition.name)}</MenuItem>)}
+    </Select>
+  </FormControl>;
 };
 
 export default CardEditionSelect;

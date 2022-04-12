@@ -14,13 +14,10 @@ const CardQualitySelect = ({defaultValue, onSelect, children}) => {
     <Select {...{
       label,
       defaultValue,
-      onChange: (event, value) => {
-        console.log(event.target.value, value);
-        return onSelect(event.target.value);
-      }
+      onChange: (event) => onSelect(event.target.value)
     }}>
       {children}
-      {qualities.map(value => <MenuItem value={value}>{prettify(value)}</MenuItem>)}
+      {qualities.map(quality => <MenuItem value={quality}>{prettify(quality)}</MenuItem>)}
     </Select>
   </FormControl>;
 };
