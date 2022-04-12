@@ -29,7 +29,7 @@ import useCards from "../useCards";
 
 const newCard = () => ({
   name: undefined,
-  image: "https://cdn.discordapp.com/attachments/783098091603361842/824651378960891904/unknown.png",
+  image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
   imageSize: "100%",
   type: "ABILITY",
   body: null,
