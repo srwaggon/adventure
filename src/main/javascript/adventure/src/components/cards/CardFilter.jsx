@@ -8,7 +8,10 @@ const filterName = (name) => (card) => card.name.toLowerCase().includes(name);
 
 const filterType = (type) => (card) => "any" === type || type === card.type;
 
-const filterQuality = (quality) => (card) => "any" === quality || quality === card.quality;
+const filterQuality = (quality) => (card) =>
+  "any" === quality
+  || ("none" === quality && card.quality === null)
+  || quality === card.quality;
 
 const filterEdition = (editionId) => (card) =>
   "any" === editionId
@@ -58,9 +61,14 @@ const CardFilter = ({setFilterFunc}) => {
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
         defaultValue={"any"}
-        onSelect={(quality) => setFilter({...filter, quality})}>
+        onSelect={(quality) => {
+          const qualityId = quality === "none" ? "none"
+            : quality === "any" ? "any"
+              : quality;
+          setFilter({...filter, quality: qualityId});
+        }}>
         <MenuItem value={"any"}>Any</MenuItem>
-        <MenuItem value={null}>None</MenuItem>
+        <MenuItem value={"none"}>None</MenuItem>
       </CardQualitySelect>
     </Box>
 
