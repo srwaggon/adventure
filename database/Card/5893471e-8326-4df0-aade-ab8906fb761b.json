@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/474x/d3/63/ba/d363ba218bb66036a66988284f5c7c1f.jpg",
   "imageSize": "120%",
-  "body": "Restore 3 Stamina.",
+  "body": "Consume to restore 3 Stamina.",
   "flavor": "\"-- or was this the poison?\"",
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

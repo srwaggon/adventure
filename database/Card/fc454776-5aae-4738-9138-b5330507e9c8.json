@@ -4,10 +4,12 @@
   "type": "PASSIVE_ABILITY",
   "quality": "EPIC",
   "image": "https://www.wallpaperup.com/uploads/wallpapers/2013/07/12/117275/442377ca73c4fb425adb32e9066864f5.jpg",
-  "imageSize": "100%",
+  "imageSize": "130%",
   "body": "Whenever you make an attack roll with an axe, you may add 1 damage for each success.",
   "flavor": null,
   "author": null,
   "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

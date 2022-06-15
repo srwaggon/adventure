@@ -4,9 +4,12 @@
   "type": "EQUIPMENT",
   "quality": "COMMON",
   "image": "https://static2.mtgarena.pro/mtg/pict/thieves-tools--122-afr-122-art.png",
-  "imageSize": "110%",
-  "body": "Durability 10\nWhen used, add [d10] to the appropriate roll (lockpicking, etc).",
+  "imageSize": "150%",
+  "body": "Add 1 [d10] to the appropriate skill check (lockpicking, etc).",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

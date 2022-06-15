@@ -4,10 +4,12 @@
   "type": "PASSIVE_ABILITY",
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/originals/b4/c0/10/b4c010f4a40d61648075ce9b7fa85d3b.png",
-  "imageSize": "105%",
+  "imageSize": "140%",
   "body": "When making attack rolls with an axe, roll [d10] equal to your Strength to determine success.",
   "flavor": null,
   "author": null,
   "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

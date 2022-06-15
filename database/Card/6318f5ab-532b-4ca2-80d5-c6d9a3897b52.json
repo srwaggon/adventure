@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://d.newsweek.com/en/full/1219986/smite-king-arthur.jpg",
   "imageSize": "250%",
-  "body": "Whenever you deal standard attack damage, you may pay 1 Mana to add Divine damage equal to your Resolve.",
+  "body": "Whenever you deal standard attack damage with a melee weapon, you may pay 1 Mana to increase the damage by your Resolve and make the damage Radiant in addition to its other damage types.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "8pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

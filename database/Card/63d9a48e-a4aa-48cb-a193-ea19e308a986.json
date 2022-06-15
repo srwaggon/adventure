@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://cdna.artstation.com/p/assets/images/images/026/493/020/large/brandon-lamb-458-4588429-dungeons-and-dragons-weapons-dagger-png-downlox-dungeons.jpg",
   "imageSize": "120%",
-  "body": "Finesse\nDifficulty 7\nDeals 2 piercing damage",
+  "body": "Finesse\nDifficulty 7\nDeals 1 piercing damage",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": true
 }

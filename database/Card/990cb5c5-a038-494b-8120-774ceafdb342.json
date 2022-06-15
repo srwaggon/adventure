@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/originals/5f/d5/b8/5fd5b84935c00aefcafd216dc5b06638.jpg",
   "imageSize": "110%",
-  "body": "Medium armor\nRequires Strength 2+\nAbsorb the first 4 damage taken each combat.",
+  "body": "Medium armor\nRequires Strength 2+ to equip.\nAttack rolls against the equipped character have +2 threshold (require 2 additional successes before damage is applied).\nSlashing attack damage taken by the equipped character is reduced by 1.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "8pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

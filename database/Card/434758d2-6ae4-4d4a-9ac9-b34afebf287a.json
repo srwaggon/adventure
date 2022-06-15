@@ -3,10 +3,13 @@
   "name": "Pray",
   "type": "ABILITY",
   "quality": "COMMON",
-  "image": "https://cdn.discordapp.com/attachments/824837570135457832/827657221633736774/unknown.png",
+  "image": "https://i.pinimg.com/originals/64/4c/aa/644caae6d5c587d0d756425e0c271f9d.jpg",
   "imageSize": "100%",
   "body": "Restore 1 Health to target you can see.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

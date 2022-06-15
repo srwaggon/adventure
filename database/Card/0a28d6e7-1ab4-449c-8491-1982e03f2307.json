@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://i.pinimg.com/originals/cf/36/b8/cf36b804892cb3da99eac227c9732a1d.jpg",
   "imageSize": "190%",
-  "body": "Pay 1 Mana.\nA willing, touched creature reduces all damage taken by 1 until the end of combat as long as they have no other armor equipped.",
+  "body": "Pay 1 Mana:\nAttacks against a willing, touched creature have +1 threshold until the end of combat.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

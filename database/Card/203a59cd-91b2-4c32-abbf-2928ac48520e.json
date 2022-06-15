@@ -5,8 +5,11 @@
   "quality": "RARE",
   "image": "https://i.pinimg.com/736x/6e/a6/ce/6ea6ce8286e431a6565215e116922c22.jpg",
   "imageSize": "100%",
-  "body": "Once between rests and on your turn during combat, you may take an additional action.",
+  "body": "Once after each rest, you may take an additional action on your turn during combat.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

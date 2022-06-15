@@ -8,5 +8,8 @@
   "body": "Mmm! Choccy Milkie make tummy feel yummy!",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "15pt",
+  "bodyOpacity": 1.0,
   "darkText": true
 }

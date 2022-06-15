@@ -5,8 +5,11 @@
   "quality": "RARE",
   "image": "https://www.tribality.com/wp-content/uploads/2014/10/vampire2.jpg",
   "imageSize": "270%",
-  "body": "Pay 3 mana.\nTarget creature you can touch makes a Resolve[d10]7 save or is enchanted with charm.",
+  "body": "Pay 3 mana.\nTarget creature you can touch makes a Resolve save with threshold equal to your Influence or is enchanted with charm.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

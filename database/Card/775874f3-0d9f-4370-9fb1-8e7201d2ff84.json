@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://cdnb.artstation.com/p/assets/images/images/001/233/237/large/anna-steinbauer-seekthewilds-posting.jpg",
   "imageSize": "177%",
-  "body": "Durability 10.\nWhenever you make a Climb check, you my add [d10].\n",
+  "body": "Whenever you make a Climb check you may add [d10].",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

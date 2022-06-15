@@ -1,12 +1,13 @@
 {
   "id": "8707279d-8f2c-40d7-a07f-9986887f9192",
-  "name": "Islands",
-  "type": "ABILITY",
+  "name": "Island Affinity",
+  "type": "LAND",
   "quality": "COMMON",
   "image": "https://product-images.tcgplayer.com/fit-in/400x558/223461.jpg",
   "imageSize": "103%",
-  "body": "Water attacks and spells receive +1.",
+  "body": "Water attacks and spells receive +1[d10] to rolls and +1 effect (e.g. +1 damage)",
   "flavor": null,
   "author": null,
+  "editionId": null,
   "darkText": false
 }

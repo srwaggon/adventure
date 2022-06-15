@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/originals/ed/fb/02/edfb023fc8730e52974b69f6607cc8a4.jpg",
   "imageSize": "100%",
-  "body": "Restore 3 health.",
+  "body": "Consume to restore 5 health.",
   "flavor": "\"'Tis but a flesh wound.\"",
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://i2.wp.com/dmsworkshop.com/wp-content/uploads/2018/10/MTG-sphere-of-safety-rc267_sphereofsafety-lrg.jpg",
   "imageSize": "200%",
-  "body": null,
+  "body": "Pay 4 Mana.\nUntil your next turn or the end of next round, prevent all damage from attacks and spells to target that you can see.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

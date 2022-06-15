@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/7/337/315/315/636284758221143167.jpeg",
   "imageSize": "130%",
-  "body": "Requires Dexterity 2+\nRanged\nDifficulty 6\nDeals 1 piercing damage",
+  "body": "Ranged\nDifficulty 6\nDeals 1 piercing damage",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
   "darkText": true
 }

@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://i.pinimg.com/564x/ca/c8/fd/cac8fd9a2b94878dc3b1842c8accaa67.jpg",
   "imageSize": "142%",
-  "body": "When used during a rest, restores 5 health.",
+  "body": "When consumed during a rest, restores 3 + Medicine[d10] health to a willing character you can touch.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

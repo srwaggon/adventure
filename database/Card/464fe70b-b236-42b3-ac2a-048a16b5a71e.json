@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://static.wikia.nocookie.net/penrith/images/4/49/Flying_sword.jpg",
   "imageSize": "90%",
-  "body": "Requires Strength 2+.\nWhen used to make a successful successful melee Strength[d10]6 attack, target takes 2 slashing damage.",
+  "body": "Requires Strength 2 or higher.\nWhen used to make a successful Strength[d10]6 melee attack, target takes 2 slashing damage.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
   "darkText": true
 }

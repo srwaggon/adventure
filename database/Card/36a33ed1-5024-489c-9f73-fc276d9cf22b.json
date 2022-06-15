@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://cdn.discordapp.com/attachments/824837570135457832/824844498193612820/unknown.png",
   "imageSize": "100%",
-  "body": "Pay 2 Stamina.\nAttack for to 3 + Strength[d10]7 damage.",
+  "body": "Pay 2 Stamina.\nMake a standard melee attack and add 1 + Strength[d10]7 damage.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

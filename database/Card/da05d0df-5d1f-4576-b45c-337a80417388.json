@@ -5,8 +5,11 @@
   "quality": "COMMON",
   "image": "https://cdn.discordapp.com/attachments/783098091603361842/824712890240991322/unknown.png",
   "imageSize": "100%",
-  "body": "When used during a rest, restores 5 Stamina.",
+  "body": "When consumed during a rest, restores 5 Stamina.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

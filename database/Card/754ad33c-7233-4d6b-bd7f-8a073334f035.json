@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://static.wikia.nocookie.net/forgottenrealms/images/9/90/Moonblade-5e.jpg",
   "imageSize": "133%",
-  "body": "Requires Strength 3+.\nWhen used to make a successful Strength[d10]7 melee attack, target takes 3 slashing damage.",
+  "body": "Requires Strength 3 or higher.\nWhen used to make a successful Strength[d10]7 melee attack, target takes 3 slashing damage.",
   "flavor": "",
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": true
 }

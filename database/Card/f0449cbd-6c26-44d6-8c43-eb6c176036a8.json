@@ -1,12 +1,15 @@
 {
   "id": "f0449cbd-6c26-44d6-8c43-eb6c176036a8",
   "name": "Counterspell",
-  "type": "REACTION",
+  "type": "SPELL",
   "quality": "UNCOMMON",
   "image": "https://cdn.vox-cdn.com/uploads/chorus_image/image/58842537/Counterspell___Zack_Stella_copy.0.jpg",
   "imageSize": "182%",
-  "body": "Pay 5 mana.\nCounter target spell.\nThis counts as a spell.",
+  "body": "Pay 5 mana.\nCounter target spell.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

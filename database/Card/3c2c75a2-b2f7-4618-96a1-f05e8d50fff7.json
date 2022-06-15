@@ -5,8 +5,11 @@
   "quality": "RARE",
   "image": "https://cdn.cardsrealm.com/images/cartas/crop/m10-magic-2010/kindled-fury-144-med.jpeg?5035",
   "imageSize": "182%",
-  "body": "Requires Stamina 1+.\nExpend all of your Stamina.\nAdd +4 to damage to each melee attack you make this round.",
+  "body": "Requires Stamina 1+.\nExpend all of your Stamina.\nAdd +4 damage to each melee attack you make this round.",
   "flavor": null,
   "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

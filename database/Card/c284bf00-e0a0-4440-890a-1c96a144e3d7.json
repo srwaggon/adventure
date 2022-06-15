@@ -8,5 +8,8 @@
   "body": "Pay 1 Mana.\nLightning Bolt deals 3 lightning damage to target creature you can see.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

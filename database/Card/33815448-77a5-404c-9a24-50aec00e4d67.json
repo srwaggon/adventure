@@ -5,8 +5,11 @@
   "quality": "UNCOMMON",
   "image": "https://cdnb.artstation.com/p/assets/images/images/000/108/879/large/vadim-marchenkov-gwf.jpg",
   "imageSize": "130%",
-  "body": null,
+  "body": "Whenever you make a standard melee attack with a weapon with the property Heavy, before you roll you may choose to increase the threshold by 1 and also add 1 damage if the attack is successful.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }

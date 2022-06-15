@@ -5,8 +5,9 @@
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/564x/85/9d/18/859d184458d49481de630477e74efb7e.jpg",
   "imageSize": "173%",
-  "body": "Whenever you receive physical damage while wearing armor, you may reduce the damage taken by 1.",
+  "body": "Whenever you receive standard attack damage while wearing armor, you may reduce the physical damage taken by 1.",
   "flavor": null,
   "author": "Samuel Waggoner",
+  "editionId": null,
   "darkText": false
 }

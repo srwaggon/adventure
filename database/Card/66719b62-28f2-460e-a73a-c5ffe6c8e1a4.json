@@ -4,9 +4,12 @@
   "type": "PASSIVE_ABILITY",
   "quality": "UNCOMMON",
   "image": "https://i.pinimg.com/736x/e4/79/a9/e479a92b9ba0f8a26c6cf13a4df09d95--mtg-art-fantasy-pictures.jpg",
-  "imageSize": "110%",
+  "imageSize": "124%",
   "body": "Whenever you make a ranged attack with a bow or crossbow, you my add [d10] to the attack roll.",
-  "flavor": null,
+  "flavor": "Idk some\nflavor text",
   "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
   "darkText": false
 }
