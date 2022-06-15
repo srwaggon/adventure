@@ -3,6 +3,7 @@ import {getCharactersCards} from "../../utilities/client";
 
 export function useCharactersCards(character) {
   const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState(demoCards);
 
   useEffect(() => {
     const fetchCharactersCards = characterId => {
