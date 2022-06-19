@@ -1,3 +1,29 @@
+:root {
+  --dark-mode-black: #222;
+  --light-mode-white: #ddd;
+  --neutral-mode-grey: #666;
+}
+
+.dark-mode {
+  color: var(--light-mode-white);
+  background-color: var(--dark-mode-black);
+  border: solid thin var(--neutral-mode-grey);
+}
+
+.light-mode {
+  color: var(--dark-mode-black);
+  background-color: var(--light-mode-white);
+  border: solid thin var(--neutral-mode-grey);
+}
+
+.visual-card-text-box {
+  padding: 4px; /* .25rem */
+
+  border-radius: 4px; /* .25rem */
+
+  overflow: hidden;
+}
+
 .visual-card-content {
   display: flex;
   flex-direction: column;
@@ -14,22 +40,15 @@
 
 .visual-card-name {
   font-weight: bold;
-  color: white;
   text-transform: capitalize;
-}
-
-.visual-card-type-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .visual-card-type {
-  color: white;
   text-transform: capitalize;
+  font-size: 10pt;
 }
 
-.visual-card-rarity-dot {
+.visual-card-quality-dot {
   display: inline-block;
   height: .5em;
   width: .5em;
@@ -38,20 +57,12 @@
   border-radius: 50%;
 }
 
-.visual-card-body-box {
-  background-color: white;
-  color: black;
-
-  border: solid thin black;
-  border-radius: .25rem;
-
-  overflow: hidden;
-}
-
 .visual-card-body-text {
   font-size: 10pt;
 }
 
-.darkText {
-  color: black;
+.flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

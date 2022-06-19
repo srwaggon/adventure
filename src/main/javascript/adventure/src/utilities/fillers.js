@@ -6,6 +6,7 @@ export const demoCard0 = {
   "image": "https://2.bp.blogspot.com/-nOw8qPiBJs0/WZMz4PNXbTI/AAAAAAAAJ-E/ZX14R-0AzwoCKdXmm9ojMqosMDqIwM1KQCLcBGAs/s1600/Efflam%2BMercier.jpg",
   "imageSize": "130%",
   "body": "Provides light nearby for 1 hour.",
+  "bodyOpacity": 0.5,
   "flavor": "\"You aren't afraid of the dark, are you?\"", "author": null, "darkText": false
 };
 
