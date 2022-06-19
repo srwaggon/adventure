@@ -46,10 +46,10 @@ const CharacterPage = () => {
   return !character
     ? <CircularProgress/>
     : <div>
-      <TitledAppBar title={'Character Details'}>
+      <TitledAppBar title={"Character Details"}>
         <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
-      <Container>
+      <Container maxWidth={false}>
         <Box p={1}>
           <Card>
             <CardContent>
