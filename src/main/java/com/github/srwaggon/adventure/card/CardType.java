@@ -18,6 +18,7 @@ public enum CardType {
   LAND,
   PASSIVE_ABILITY,
   PROFICIENCY,
+  QUEST,
   REACTION,
   RESOURCE,
   SPELL,
