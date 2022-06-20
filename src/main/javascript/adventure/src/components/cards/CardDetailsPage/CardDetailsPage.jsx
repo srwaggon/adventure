@@ -35,7 +35,7 @@ const newCard = () => ({
   body: null,
   flavor: null,
   author: null,
-  quality: "POOR",
+  quality: "COMMON",
   costInExperience: 0,
   prerequisites: {
     "attributePrerequisites": [],
@@ -69,7 +69,7 @@ const CardDetailsPage = () => {
   const history = useHistory();
 
   const [card, setCard] = useState(null);
-  // const [card, setCard] = useState(demoCard0);
+  // const [card, setCard] = useState(demoCard2);
 
   useEffect(() => {
     function getCard() {
