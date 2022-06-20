@@ -1,7 +1,7 @@
 :root {
-  --dark-mode-black: #222;
-  --light-mode-white: #ddd;
+  --dark-mode-black: #111111;
   --neutral-mode-grey: #666;
+  --light-mode-white: #f8f8f8;
 }
 
 .dark-mode {

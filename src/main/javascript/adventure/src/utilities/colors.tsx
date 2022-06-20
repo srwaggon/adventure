@@ -13,7 +13,7 @@ export const COMMON_WHITE = "#ffffff"
 
 export const DARK_MODE_BLACK = "#222222";
 export const NEUTRAL_MODE_GREY = "#666666";
-export const LIGHT_MODE_WHITE = "#dddddd";
+export const LIGHT_MODE_WHITE = "#f8f8f8";
 
 export const Colors = {
   BLACK,
