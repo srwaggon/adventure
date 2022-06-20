@@ -4,6 +4,7 @@ export const BROWN = "sienna";
 export const UNCOMMON_GREEN = "#00bb00";
 export const POOR_GREY = "#9d9d9d";
 export const ARTIFACT_LIGHT_GOLD = "#e6cc80";
+export const ARTIFACT_BRONZE = "#BE8972";
 export const LEGENDARY_ORANGE = "#ff8000";
 export const EPIC_PURPLE = "#a335ee";
 export const RED = "#b6372b";
@@ -26,6 +27,7 @@ export const Colors = {
   LEGENDARY_ORANGE,
   MYTHIC_RED,
   ARTIFACT_LIGHT_GOLD,
+  ARTIFACT_BRONZE,
   RED,
   SILVER,
 }
@@ -43,7 +45,7 @@ export const getQualityColor = (quality: string): string => {
     "EPIC": Colors.EPIC_PURPLE,
     "LEGENDARY": Colors.LEGENDARY_ORANGE,
     "MYTHIC": Colors.MYTHIC_RED,
-    "ARTIFACT": Colors.ARTIFACT_LIGHT_GOLD,
+    "ARTIFACT": Colors.ARTIFACT_BRONZE,
     "UNIQUE": Colors.RED,
   };
 
