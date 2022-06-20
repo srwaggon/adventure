@@ -1,14 +1,11 @@
 import useProficiencies from "../proficiency/UseProficiencies";
-import {Box, Button, Divider, IconButton, TextField, Typography} from "@mui/material";
+import {Box, Divider, TextField, Typography} from "@mui/material";
 import CharacterPortraitCard from "./CharacterPortraitCard/CharacterPortraitCard";
 import EditCharacterNameTextField from "./CharacterPage/EditCharacterNameTextField";
 import CharacterAttribute from "./CharacterAttribute";
 import CharacterResource from "./CharacterResource";
 import ProficiencyChip from "./ProficiencyChip";
 import React from "react";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
-import {D10Icon} from "../icons/DiceIcons";
 
 const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
@@ -95,51 +92,8 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
             <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
 
-              <Box className="character-skill" alignItems={"center"} width={260} display="flex">
-
-                <Button startIcon={<D10Icon/>}>
-                  <Box width={80} style={{textTransform: "capitalize", textAlign: "left"}}>
-                    {"Animal Handling"}
-                  </Box>
-                </Button>
-
-                {[...Array(Math.max(5, 3)).keys()].map((int) =>
-                  <IconButton
-                    key={"Animal Handling"}
-                    color={"default"}
-                    size={"small"}
-                    style={{margin: "-4px"}}
-                    checked={int < 5}
-                  >{int < 3
-                    ? <FiberManualRecordIcon/>
-                    : <FiberManualRecordOutlinedIcon/>}
-                  </IconButton>,
-                )}
-
-              </Box>
-
-              <Box className="character-skill" alignItems={"center"} width={260} display="flex">
-
-                <Button startIcon={<D10Icon/>}>
-                  <Box width={80} style={{textTransform: "capitalize", textAlign: "left"}}>
-                    {"Sailing"}
-                  </Box>
-                </Button>
-
-                {[...Array(Math.max(5, 4)).keys()].map((int) =>
-                  <IconButton
-                    key={"Sailing"}
-                    color={"default"}
-                    size={"small"}
-                    style={{margin: "-4px"}}
-                    checked={int < 5}
-                  >{int < 4
-                    ? <FiberManualRecordIcon/>
-                    : <FiberManualRecordOutlinedIcon/>}
-                  </IconButton>,
-                )}
-
-              </Box>
+              <CharacterAttribute {...characterPageState} attribute={"animal handling"}/>
+              <CharacterAttribute {...characterPageState} attribute={"sailing"}/>
 
             </Box>
 

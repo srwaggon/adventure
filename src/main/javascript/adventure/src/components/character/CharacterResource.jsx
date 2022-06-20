@@ -62,7 +62,7 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
       {[...Array(max).keys()].map(
         (int) =>
           <IconButton
-            key={resource}
+            key={`${resource}-${int}`}
             checked={int < value}
             disabled={isEditing}
             color={'default'}
