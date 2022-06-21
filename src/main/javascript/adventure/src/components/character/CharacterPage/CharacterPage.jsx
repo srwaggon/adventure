@@ -1,7 +1,7 @@
 import {useHistory, useParams} from "react-router-dom";
 import React, {useState} from "react";
 import {deleteCharacter, getCharacterById, replaceCharacter} from "../../../utilities/client";
-import {Box, Card, CardContent, CircularProgress, Container} from "@mui/material";
+import {Box, CircularProgress, Container} from "@mui/material";
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
 import AddCardToCharacterCard from "./AddCardToCharacterCard";
 import CharacterCards from "./CharacterCards";
@@ -21,7 +21,7 @@ const CharacterPage = () => {
 
   const history = useHistory();
 
-  const onDelete = () => deleteCharacter(character).then(() => history.push('/characters'));
+  const onDelete = () => deleteCharacter(character).then(() => history.push("/characters"));
 
   const onCancelEdit = ignored => {
     setEditing(false);
@@ -41,7 +41,7 @@ const CharacterPage = () => {
 
   const characterPageState = {character, setCharacter, cards, setCards, isEditing, setEditing};
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Really delete ${character?.name || ''}`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(`Really delete ${character?.name || ""}`, onDelete);
 
   return !character
     ? <CircularProgress/>
@@ -51,11 +51,7 @@ const CharacterPage = () => {
       </TitledAppBar>
       <Container maxWidth={false}>
         <Box p={1}>
-          <Card>
-            <CardContent>
-              <CharacterDetails character={character} setCharacter={setCharacter} isEditing={isEditing}/>
-            </CardContent>
-          </Card>
+          <CharacterDetails character={character} setCharacter={setCharacter} isEditing={isEditing}/>
         </Box>
         <Box p={1}>
           <CharacterCards {...characterPageState}/>
