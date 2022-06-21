@@ -1,9 +1,13 @@
+import React from "react";
+
 import {Box, Button, IconButton} from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 import {AddBox, Backspace} from "@mui/icons-material";
-import React from "react";
+
 import {D10Icon} from "../icons/DiceIcons";
+
+import "./CharacterAttribute.css";
 
 const CharacterAttribute = (props) => {
   const {character, setCharacter, attribute, isEditing} = props;
@@ -21,9 +25,13 @@ const CharacterAttribute = (props) => {
   };
 
   return (
-    <Box className="character-attribute" alignItems={"center"} width={260} display="flex">
+    <Box className="character-attribute"
+         alignItems={"center"}
+         width={265}
+         display="flex"
+         justifyContent="space-between">
       <Button startIcon={<D10Icon/>}>
-        <Box width={80} style={{textTransform: "capitalize", textAlign: "left"}}>
+        <Box width={125} style={{textTransform: "capitalize", textAlign: "left"}}>
           {attribute}
         </Box>
       </Button>
@@ -35,7 +43,7 @@ const CharacterAttribute = (props) => {
           checked={false}
           color={"primary"}
           size={"small"}
-          style={{margin: "-4px"}}
+          style={{marginLeft: "-4px", padding: 0}}
           onClick={reduceValue}
         ><Backspace/></IconButton>}
 
@@ -43,7 +51,7 @@ const CharacterAttribute = (props) => {
           checked={false}
           color={"primary"}
           size={"small"}
-          style={{margin: "-4px"}}
+          style={{margin: "-2px", padding: 0}}
           fullWidth={true}
           onClick={increaseValue}
         ><AddBox/></IconButton>}
@@ -59,7 +67,7 @@ const DotArray = ({name, value}) =>
       key={`dot-${name}-${int}`}
       color={"default"}
       size={"small"}
-      style={{margin: "-4px"}}
+      style={{margin: "-2px", padding: 0}}
     >
       {int < value
         ? <FiberManualRecordIcon/>

@@ -1,11 +1,15 @@
-import useProficiencies from "../proficiency/UseProficiencies";
+import React from "react";
+
 import {Box, Card, CardContent, Divider, Typography} from "@mui/material";
+
 import CharacterPortraitCard from "./CharacterPortraitCard/CharacterPortraitCard";
+import useProficiencies from "../proficiency/UseProficiencies";
 import EditCharacterNameTextField from "./CharacterPage/EditCharacterNameTextField";
 import CharacterAttribute from "./CharacterAttribute";
 import CharacterResource from "./CharacterResource";
 import ProficiencyChip from "./ProficiencyChip";
-import React from "react";
+
+import SkillsSection from "./CharacterPage/SkillsSection/SkillsSection";
 
 const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
@@ -82,8 +86,6 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
             <Divider/>
 
             <SkillsSection {...characterPageState}/>
-
-
           </Box>
 
         </CardContent></Card>
@@ -92,25 +94,5 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
     </Box>
   </Box>;
 };
-
-const SkillsSection = ({character, setCharacter, isEditing}) => {
-
-  const characterPageState = {character, setCharacter, isEditing};
-
-  return (
-    <Box>
-      <Typography variant="h5">Skills</Typography>
-
-      <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
-
-        {(character.skills || [])
-          .map(({name, value, minimum, maximum}) =>
-            <CharacterAttribute {...characterPageState} attribute={name}/>
-          )}
-
-      </Box>
-    </Box>
-  );
-}
 
 export default CharacterDetails;
