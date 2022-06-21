@@ -27,11 +27,11 @@ const CharacterAttribute = (props) => {
   return (
     <Box className="character-attribute"
          alignItems={"center"}
-         width={265}
+         width={260}
          display="flex"
          justifyContent="space-between">
       <Button startIcon={<D10Icon/>}>
-        <Box width={125} style={{textTransform: "capitalize", textAlign: "left"}}>
+        <Box width={120} style={{textTransform: "capitalize", textAlign: "left"}}>
           {attribute}
         </Box>
       </Button>

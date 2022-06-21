@@ -16,13 +16,14 @@ const SkillsSection = (props: SkillsSectionProps) => {
   const characterPageState = {character, setCharacter, isEditing};
 
   return (
-    <Box>
+    <Box p={1}>
       <Typography variant="h5">Skills</Typography>
 
       <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
         <ul className={"character-skills-list"}>
 
           {(character.skills || [])
+            .filter((value: number) => isEditing || value > 0)
             .map(({name, value, minimum, maximum}: CharacterValue) =>
               <li><CharacterAttribute {...characterPageState} attribute={name}/></li>
             )}
