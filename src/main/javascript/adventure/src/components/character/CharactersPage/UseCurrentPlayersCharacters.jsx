@@ -3,6 +3,7 @@ import {getCurrentPlayersCharacters} from "../../../utilities/client";
 
 function useCurrentPlayersCharacters() {
   const [characters, setCharacters] = useState([]);
+  // const [characters, setCharacters] = useState([demoCharacter]);
 
   useEffect(() => {
     getCurrentPlayersCharacters()

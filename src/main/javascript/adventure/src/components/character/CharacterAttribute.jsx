@@ -56,7 +56,7 @@ const CharacterAttribute = (props) => {
 const DotArray = ({name, value}) =>
   [...Array(Math.max(5, value)).keys()].map((int) =>
     <IconButton
-      key={`${name}-${int}`}
+      key={`dot-${name}-${int}`}
       color={"default"}
       size={"small"}
       style={{margin: "-4px"}}

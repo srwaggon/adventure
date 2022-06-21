@@ -1,8 +1,11 @@
 package com.github.srwaggon.adventure.character;
 
-import static java.lang.Math.*;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class CharacterValue {
+
+  private String name;
   private int value;
   private int minimum;
   private int maximum;
@@ -10,10 +13,19 @@ public class CharacterValue {
   public CharacterValue() {
   }
 
-  public CharacterValue(int minimum, int maximum, int value) {
+  public CharacterValue(String name, int minimum, int maximum, int value) {
+    this.name = name;
     this.minimum = minimum;
     this.maximum = maximum;
     this.value = min(max(minimum, value), maximum);
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public int getValue() {

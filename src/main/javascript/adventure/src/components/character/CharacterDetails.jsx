@@ -87,22 +87,32 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
           <Divider/>
 
-          <Box>
-            <Typography variant="h5">Skills</Typography>
-
-            <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
-
-              <CharacterAttribute {...characterPageState} attribute={"animal handling"}/>
-              <CharacterAttribute {...characterPageState} attribute={"sailing"}/>
-
-            </Box>
-
-          </Box>
+          <SkillsSection {...characterPageState}/>
 
         </Box>
       </Box>
     </Box>
   </Box>;
 };
+
+const SkillsSection = ({character, setCharacter, isEditing}) => {
+
+  const characterPageState = {character, setCharacter, isEditing};
+
+  return (
+    <Box>
+      <Typography variant="h5">Skills</Typography>
+
+      <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
+
+        {character.skills
+          .map(({name, value, minimum, maximum}) =>
+            <CharacterAttribute {...characterPageState} attribute={name}/>
+          )}
+
+      </Box>
+    </Box>
+  );
+}
 
 export default CharacterDetails;
