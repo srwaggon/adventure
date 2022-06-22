@@ -192,10 +192,14 @@ const CardDetailsPage = () => {
               <TextField label={"Image size"} variant={"outlined"} fullWidth margin={"dense"}
                          defaultValue={card.imageSize}
                          onChange={event => setCard({...card, imageSize: event.target.value})}/>
-              <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
+
               <CardQualitySelect defaultValue={card.quality} onSelect={quality => setCard({...card, quality})}/>
+
+              <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
+
               <CardEditionSelect defaultValue={card.editionId}
                                  onSelect={edition => setCard({...card, editionId: edition.id})}/>
+
               <TextField label={"Font Size"}
                          variant={"outlined"}
                          fullWidth margin={"dense"}

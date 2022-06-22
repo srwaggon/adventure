@@ -51,14 +51,6 @@ const CardFilter = ({setFilterFunc}) => {
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
-      <CardTypeSelect
-        defaultValue={"any"}
-        onSelect={(type) => setFilter({...filter, type})}>
-        <MenuItem value={"any"}>Any</MenuItem>
-      </CardTypeSelect>
-    </Box>
-
-    <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
         defaultValue={"any"}
         onSelect={(quality) => {
@@ -70,6 +62,14 @@ const CardFilter = ({setFilterFunc}) => {
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
       </CardQualitySelect>
+    </Box>
+
+    <Box flexGrow={1} flexShrink={1} pl={1}>
+      <CardTypeSelect
+        defaultValue={"any"}
+        onSelect={(type) => setFilter({...filter, type})}>
+        <MenuItem value={"any"}>Any</MenuItem>
+      </CardTypeSelect>
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
