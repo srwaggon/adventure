@@ -26,9 +26,10 @@ import {useDeleteDialog} from "../../shared/UseDeleteDialog";
 import CardEditionSelect from "../CardEditionSelect";
 import DeleteIcon from "@mui/icons-material/Delete";
 import useCards from "../useCards";
+import OpacityInput from "./OpacityInput";
 
 const newCard = () => ({
-  name: undefined,
+  name: "New Card",
   image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
   imageSize: "100%",
   type: "ABILITY",
@@ -36,7 +37,10 @@ const newCard = () => ({
   flavor: null,
   author: null,
   quality: "COMMON",
+  edition: null,
   costInExperience: 0,
+  darkText: false,
+  bodyOpacity: 80,
   prerequisites: {
     "attributePrerequisites": [],
     "skillPrerequisites": [],
@@ -124,12 +128,12 @@ const CardDetailsPage = () => {
 
   const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ""}?`, onDelete);
 
-  const setBodyOpacity = event => {
-    const opacityText = event.target.value;
-    const opacityValue = parseInt(opacityText);
-    const bodyOpacity = Math.max(0, Math.min(opacityValue, 100));
-    setCard({...card, bodyOpacity: bodyOpacity / 100});
-  };
+  const setOpacity = (value) => {
+    if (0 < value && value < 1) {
+      value *= 100;
+    }
+    setCard({...card, bodyOpacity: value});
+  }
 
   const setCostInExperience = event => {
     const costInExperienceCost = event.target.value;
@@ -196,15 +200,11 @@ const CardDetailsPage = () => {
                          variant={"outlined"}
                          fullWidth margin={"dense"}
                          defaultValue={card.fontSize}
-                         onChange={event => setCard({...card, fontSize: event.target.value})}/>
-              <TextField label={"Body Background Opacity %"}
-                         type={"number"}
-                         variant={"outlined"}
-                         fullWidth margin={"dense"}
-                         defaultValue={card.bodyOpacity * 100}
-                         value={card.bodyOpacity * 100}
-                         inputProps={{min: 0, step: 1, max: 100}}
-                         onChange={setBodyOpacity}/>
+                         onChange={event => setCard({...card, fontSize: event.target.value})}
+              />
+
+              <OpacityInput defaultValue={card.bodyOpacity} onChange={setOpacity}/>
+
               <TextField label={"Body"}
                          multiline variant={"outlined"}
                          rows={4}

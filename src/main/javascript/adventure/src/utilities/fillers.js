@@ -38,6 +38,8 @@ export const demoCard2 = {
   "flavor": "\"Ahck! An itch!\"",
   "author": "Demo author",
   "quality": "RARE",
+  "darkText": true,
+  "bodyOpacity": 80
 };
 
 export const demoCard3 = {

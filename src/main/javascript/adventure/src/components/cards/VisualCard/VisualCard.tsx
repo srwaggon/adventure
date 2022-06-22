@@ -8,6 +8,21 @@ import {CardQualityDot} from "./CardQualityDot";
 import {applyTransforms} from "../../../card/Text";
 import {DARK_MODE_BLACK, getQualityColor, LIGHT_MODE_WHITE} from "../../../utilities/colors";
 
+const getClampedBodyOpacity = (bodyOpacity: number) => {
+  if (bodyOpacity > 100) {
+    bodyOpacity %= 100;
+  }
+  if (bodyOpacity > 1) {
+    bodyOpacity /= 100;
+  }
+  return bodyOpacity;
+};
+
+const getOpacityHex = (bodyOpacity: number) => {
+  const result = Math.floor(getClampedBodyOpacity(bodyOpacity) * 255).toString(16);
+  return result === "0" ? "00" : result;
+};
+
 export const VisualCard = ({
   name = "",
   image = "",
@@ -19,7 +34,7 @@ export const VisualCard = ({
   darkText = false,
   quality = "COMMON",
   fontSize = "10pt",
-  bodyOpacity = 1.0,
+  bodyOpacity = 80,
 }) => {
   const size = 22.5;
   const height = size;
@@ -44,7 +59,7 @@ export const VisualCard = ({
 
   const typeText = prettify(type);
   const bodyElements = applyTransforms(body);
-  const backgroundColor = (darkText ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + Math.floor(bodyOpacity * 255).toString(16);
+  const backgroundColor = (darkText ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(bodyOpacity);
 
   return (
     <Box className="visualcard">

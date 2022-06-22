@@ -18,7 +18,7 @@ public class Card implements Identified<String> {
   private boolean isDarkText = false;
   private UUID editionId;
   private String fontSize = "10pt";
-  private double bodyOpacity = 1.0;
+  private double bodyOpacity = 80;
 
   private int costInExperience;
   private Prerequisites prerequisites = new Prerequisites();
