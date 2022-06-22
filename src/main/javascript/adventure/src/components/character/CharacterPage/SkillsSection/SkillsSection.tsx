@@ -36,6 +36,13 @@ const SkillsSection = (props: SkillsSectionProps) => {
 
   const setSkills = (skills: CharacterSkills) => setCharacter({...character, skills});
 
+  const setSkillValue = (skillName: string) => {
+    return (value: number) => {
+      character.skills[skillName].value = value;
+      setCharacter({...character});
+    }
+  }
+
   return (
     <Box p={1}>
       <Typography variant="h5">Skills</Typography>
@@ -46,8 +53,15 @@ const SkillsSection = (props: SkillsSectionProps) => {
           {Object.values(skills || {})
             .filter((skill: CharacterValue) => isEditing || skill.value > 0)
             .sort(byRankThenName)
-            .map(({name, value, minimum, maximum}: CharacterValue) =>
-              <li><CharacterAttribute {...characterPageState} attribute={name}/></li>
+            .map((characterValue) =>
+              <li>
+                <CharacterAttribute
+                  isEditing={isEditing}
+                  valueName={characterValue.name}
+                  characterValue={characterValue}
+                  setValue={setSkillValue(characterValue.name)}
+                />
+              </li>
             )}
 
           {isEditing && <li>

@@ -11,24 +11,46 @@ import ProficiencyChip from "./ProficiencyChip";
 
 import SkillsSection from "./CharacterPage/SkillsSection/SkillsSection";
 
-const CharacterAttributesSection = ({characterPageState}) => {
+const CharacterAttributesSection = (props) => {
+
+  const {characterPageState} = props;
+
+  const {character, setCharacter, isEditing} = characterPageState;
+
+  const ActuallyCharacterAttribute = ({valueName}) => {
+
+    const setAttributeValue = (attribute) => {
+      return (value) => {
+        character[attribute].value = value;
+        setCharacter({...character});
+      }
+    }
+
+    return <CharacterAttribute
+      isEditing={isEditing}
+      valueName={valueName}
+      characterValue={character[valueName]}
+      setValue={setAttributeValue(valueName)}
+    />;
+  }
+
   return <Box p={1}>
     <Typography variant="h5">Attributes</Typography>
     <Box display="flex" flexWrap="wrap">
       <Box pr={2}>
-        <CharacterAttribute {...characterPageState} attribute={"strength"}/>
-        <CharacterAttribute {...characterPageState} attribute={"dexterity"}/>
-        <CharacterAttribute {...characterPageState} attribute={"constitution"}/>
+        <ActuallyCharacterAttribute valueName={"strength"}/>
+        <ActuallyCharacterAttribute valueName={"dexterity"}/>
+        <ActuallyCharacterAttribute valueName={"constitution"}/>
       </Box>
       <Box pr={2}>
-        <CharacterAttribute {...characterPageState} attribute={"presence"}/>
-        <CharacterAttribute {...characterPageState} attribute={"influence"}/>
-        <CharacterAttribute {...characterPageState} attribute={"composure"}/>
+        <ActuallyCharacterAttribute valueName={"presence"}/>
+        <ActuallyCharacterAttribute valueName={"influence"}/>
+        <ActuallyCharacterAttribute valueName={"composure"}/>
       </Box>
       <Box pr={2}>
-        <CharacterAttribute {...characterPageState} attribute={"intelligence"}/>
-        <CharacterAttribute {...characterPageState} attribute={"wits"}/>
-        <CharacterAttribute {...characterPageState} attribute={"resolve"}/>
+        <ActuallyCharacterAttribute valueName={"intelligence"}/>
+        <ActuallyCharacterAttribute valueName={"wits"}/>
+        <ActuallyCharacterAttribute valueName={"resolve"}/>
       </Box>
     </Box>
   </Box>;
