@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 
 import {Box, Typography} from "@mui/material";
 
 import CharacterAttribute from "../../CharacterAttribute";
 import "./SkillsSection.css";
 import AlcheimTextField from "../../../input/AlcheimTextField";
+import EditButtonRow from "../../../buttons/EditButtonRow/EditButtonRow";
+import Row from "../../../Row/Row";
+import {replaceCharacter} from "../../../../utilities/client";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 type CharacterSkills = { [key: string]: CharacterValue }
@@ -26,45 +29,81 @@ const byRankThenName = (a: RankedNamed, b: RankedNamed) => {
   return rank === 0 ? byName(a, b) : rank;
 }
 
+const copyCharacterValue = (characterValue: CharacterValue) => {
+  return {...characterValue}
+}
+
+const copySkills = (skills: CharacterSkills): CharacterSkills => {
+  const skillsCopy: CharacterSkills = {};
+  Object.entries(skills).forEach(([key, value]) => {
+    skillsCopy[key] = copyCharacterValue(value);
+  })
+  return skillsCopy;
+}
+
 const SkillsSection = (props: SkillsSectionProps) => {
 
-  const {character, setCharacter, isEditing} = props;
+  const {character, setCharacter} = props;
 
-  const characterPageState = {character, setCharacter, isEditing};
+  const [isEditingSkills, setEditingSkills] = useState(false);
 
-  const skills = character.skills;
-
-  const setSkills = (skills: CharacterSkills) => setCharacter({...character, skills});
+  const [skills, setSkills] = useState(copySkills(character.skills));
 
   const setSkillValue = (skillName: string) => {
     return (value: number) => {
-      character.skills[skillName].value = value;
-      setCharacter({...character});
+      const updatedSkills = {...skills}
+      updatedSkills[skillName].value = value;
+      setSkills(updatedSkills);
     }
   }
 
+  const onCancelEdit = () => {
+    setSkills(copySkills(character.skills))
+    setEditingSkills(false);
+  };
+
+  const onEdit = () => setEditingSkills(true);
+
+  const onSave = () => {
+    const newCharacter = {...character, skills};
+    setCharacter(newCharacter)
+    replaceCharacter(newCharacter)
+      .then(response => response.json())
+      .then(setCharacter);
+    setEditingSkills(false);
+  };
+
   return (
     <Box p={1}>
-      <Typography variant="h5">Skills</Typography>
+      <Row>
+        <Typography variant="h5">Skills</Typography>
+
+        <EditButtonRow
+          isEditing={isEditingSkills}
+          onEdit={onEdit}
+          onCancelEdit={onCancelEdit}
+          onSave={onSave}
+        />
+      </Row>
 
       <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
         <ul className={"character-skills-list"}>
 
           {Object.values(skills || {})
-            .filter((skill: CharacterValue) => isEditing || skill.value > 0)
-            .sort(byRankThenName)
-            .map((characterValue) =>
+            .filter((skill: CharacterValue) => isEditingSkills || skill.value > 0)
+            .sort(isEditingSkills ? byName : byRankThenName)
+            .map((skill) =>
               <li>
                 <CharacterAttribute
-                  isEditing={isEditing}
-                  valueName={characterValue.name}
-                  characterValue={characterValue}
-                  setValue={setSkillValue(characterValue.name)}
+                  isEditing={isEditingSkills}
+                  valueName={skill.name}
+                  characterValue={skill}
+                  setValue={setSkillValue(skill.name)}
                 />
               </li>
             )}
 
-          {isEditing && <li>
+          {isEditingSkills && <li>
             <AlcheimTextField
               label={"Add new skill"}
               onKeyDown={(e: any) => {

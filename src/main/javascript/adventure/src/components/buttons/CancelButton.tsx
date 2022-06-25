@@ -1,7 +1,10 @@
 import {Box, IconButton} from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
+import {MouseEventHandler} from "react";
 
-const CancelButton = ({disabled, onClick}) => {
+type CancelButtonParams = { disabled?: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined };
+
+const CancelButton = ({disabled, onClick}: CancelButtonParams) => {
   return (
     <Box>
       <IconButton

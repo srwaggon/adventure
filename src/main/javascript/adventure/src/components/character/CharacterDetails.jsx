@@ -119,7 +119,7 @@ const CharacterDetails = ({character, setCharacter, isEditing}) => {
 
             <Divider/>
 
-            <SkillsSection {...characterPageState}/>
+            <SkillsSection character={character} setCharacter={setCharacter}/>
           </Box>
 
         </CardContent></Card>

@@ -2,7 +2,9 @@ import {Box, IconButton} from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import {MouseEventHandler} from "react";
 
-const CopyButton = ({disabled, onClick}: { disabled: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined }) => {
+type CopyButtonParams = { disabled?: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined };
+
+const CopyButton = ({disabled = false, onClick}: CopyButtonParams) => {
   return (
     <Box>
       <IconButton
