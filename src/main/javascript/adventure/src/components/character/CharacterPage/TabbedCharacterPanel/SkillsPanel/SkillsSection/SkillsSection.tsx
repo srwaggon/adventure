@@ -11,7 +11,7 @@ import "./SkillsSection.css";
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 type CharacterSkills = { [key: string]: CharacterValue }
 type Character = { skills: CharacterSkills };
-type SkillsSectionProps = { character: Character, setCharacter: (character: Character) => void, isEditing: boolean };
+type SkillsSectionProps = { character: Character, setCharacter: (character: Character) => void };
 
 const newSkill = (skillName: string) => ({name: skillName, value: 0, minimum: 0, maximum: 5});
 

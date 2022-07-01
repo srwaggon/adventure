@@ -4,7 +4,7 @@ import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCard} from "./CharacterCard";
 
 export const INVENTORY_TAB = "inventory";
-export const InventoryPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) => {
+export const InventoryPanel = ({cards, onDelete, onPlay, selectedTab}) => {
   const isItem = (card) => ["ARMOR", "CONSUMABLE", "CURRENCY", "EQUIPMENT", "ITEM", "RESOURCE", "TOOL", "TREASURE",
     "WEAPON"].indexOf(card.type) > -1;
   const [selectedSubTab, setSelectedSubTab] = useState("all");
@@ -38,7 +38,7 @@ export const InventoryPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}
           .filter(isItem)
           .filter(bySubType)
           .map(card =>
-            <CharacterCard {...{card, isEditing, onDelete, onPlay}} />)}
+            <CharacterCard {...{card, onDelete, onPlay}} />)}
       </CenteredGrid>
     </CardContent>
   </>;

@@ -5,7 +5,7 @@ import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCard} from "./CharacterCard";
 
 export const SPELLS_TAB = "spells";
-export const SpellsPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) => {
+export const SpellsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
   const isSpell = (card) => ["SPELL", "CANTRIP", "CURSE", "ENCHANTMENT", "SPELL_COMPONENT"].indexOf(card.type) > -1;
   const [selectedSubTab, setSelectedSubTab] = useState("all");
   const bySubType = (card) =>
@@ -35,7 +35,7 @@ export const SpellsPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) =
           .filter(isSpell)
           .filter(bySubType)
           .map(card =>
-            <CharacterCard {...{card, isEditing, onDelete, onPlay}} />)}
+            <CharacterCard {...{card, onDelete, onPlay}} />)}
       </CenteredGrid>
     </CardContent>
   </>;

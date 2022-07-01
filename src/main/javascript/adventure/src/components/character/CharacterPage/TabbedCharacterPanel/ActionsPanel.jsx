@@ -5,7 +5,7 @@ import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCard} from "./CharacterCard";
 
 export const ACTIONS_TAB = "abilities";
-export const ActionsPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) => {
+export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
   const [selectedSubTab, setSelectedSubTab] = useState("all");
 
   const actionCards = useCards().filter(card => card.type === "ACTION");
@@ -45,7 +45,7 @@ export const ActionsPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) 
     <Divider/>
     <CardContent>
       <CenteredGrid>
-        {cardsToDisplay.map(card => <CharacterCard {...{card, isEditing, onDelete, onPlay}} />)}
+        {cardsToDisplay.map(card => <CharacterCard {...{card, onDelete, onPlay}} />)}
       </CenteredGrid>
     </CardContent>
   </>;

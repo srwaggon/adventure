@@ -52,7 +52,7 @@ export const CharacterPage = () => {
       <Container maxWidth={false}>
         <Box p={1}>
           <CharacterDetailsContainer {...{character, setCharacter, isEditing, onSave}}>
-            <TabbedCharacterPanels {...characterPageState}/>
+            <TabbedCharacterPanels {...{character, setCharacter, cards, setCards}}/>
           </CharacterDetailsContainer>
         </Box>
         {isEditing && <Box p={1}>

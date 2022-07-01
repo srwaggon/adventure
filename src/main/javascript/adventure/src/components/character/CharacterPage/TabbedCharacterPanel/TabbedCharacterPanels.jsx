@@ -11,7 +11,6 @@ import {ATTRIBUTES_TAB, AttributesPanel} from "./AttributesPanel/AttributesPanel
 export const TabbedCharacterPanels = ({
   character,
   setCharacter,
-  isEditing,
   cards,
   setCards,
   onPlay = () => {
@@ -39,14 +38,12 @@ export const TabbedCharacterPanels = ({
     <Divider/>
 
     <Box minHeight={"476px"}>
-      <AttributesPanel {...{character, setCharacter, isEditing, selectedTab}}/>
-      <SkillsPanel {...{isEditing, selectedTab}} />
-      <ActionsPanel {...{cards, isEditing, onDelete, onPlay, selectedTab}}/>
-      <FeaturesPanel {...{cards, isEditing, onDelete, onPlay, selectedTab}}/>
-      <InventoryPanel {...{cards, isEditing, onDelete, onPlay, selectedTab}}/>
-      <SpellsPanel {...{cards, isEditing, onDelete, onPlay, selectedTab}}/>
+      <AttributesPanel {...{character, setCharacter, selectedTab}}/>
+      <SkillsPanel {...{selectedTab}} />
+      <ActionsPanel {...{cards, onDelete, onPlay, selectedTab}}/>
+      <FeaturesPanel {...{cards, onDelete, onPlay, selectedTab}}/>
+      <InventoryPanel {...{cards, onDelete, onPlay, selectedTab}}/>
+      <SpellsPanel {...{cards, onDelete, onPlay, selectedTab}}/>
     </Box>
   </>;
 };
-
-export default TabbedCharacterPanels;

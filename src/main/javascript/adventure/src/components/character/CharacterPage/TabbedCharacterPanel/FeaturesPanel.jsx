@@ -4,7 +4,7 @@ import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCard} from "./CharacterCard";
 
 export const FEATURES_TAB = "features";
-export const FeaturesPanel = ({cards, isEditing, onDelete, onPlay, selectedTab}) => {
+export const FeaturesPanel = ({cards, onDelete, onPlay, selectedTab}) => {
 
   const [selectedSubTab, setSelectedSubTab] = useState("all");
 
@@ -40,7 +40,7 @@ export const FeaturesPanel = ({cards, isEditing, onDelete, onPlay, selectedTab})
         {cards
           .filter(isFeature)
           .filter(bySubType)
-          .map(card => <CharacterCard {...{card, isEditing, onDelete, onPlay}} />)}
+          .map(card => <CharacterCard {...{card, onDelete, onPlay}} />)}
       </CenteredGrid>
     </CardContent>
   </>;

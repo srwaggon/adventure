@@ -7,13 +7,13 @@ import PlayButton from "../../../buttons/PlayButton";
 import SendButton from "../../../buttons/SendButton";
 import React from "react";
 
-export const CharacterCard = ({card, isEditing, removeCardFromCharacter, onPlay}) =>
+export const CharacterCard = ({card, removeCardFromCharacter, onPlay}) =>
   <Card>
     <Link to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
       <VisualCard {...card}/>
     </Link>
     <Box display="flex" flexDirection="row">
-      <DeleteButton disabled={!isEditing} onClick={() => removeCardFromCharacter(card)}/>
+      <DeleteButton onClick={() => removeCardFromCharacter(card)}/>
       <Badge badgeContent={4} color="secondary" overlap="circular">
         <BrokenImageButton/>
       </Badge>
