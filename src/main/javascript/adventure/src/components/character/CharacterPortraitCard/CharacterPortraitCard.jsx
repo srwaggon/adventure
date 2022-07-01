@@ -3,7 +3,7 @@ import "./CharacterPortraitCard.css";
 import {Box, Card, Divider, TextField, Typography} from "@mui/material";
 import React from "react";
 
-const CharacterPortraitCard = ({name, portraitUrl, character, setCharacter, isEditing}) =>
+export const CharacterPortraitCard = ({name, portraitUrl, character, setCharacter, isEditing}) =>
   <Card className={"character-portrait-card"}>
     <Box className={"character-portrait-image-container"}>
       <img className={"character-portrait-image"} alt={"character portrait"}
@@ -27,8 +27,4 @@ const CharacterPortraitCard = ({name, portraitUrl, character, setCharacter, isEd
           onChange={event => setCharacter({...character, portraitUrl: event.target.value})}/>
       </Box>
     </>}
-
-
   </Card>;
-
-export default CharacterPortraitCard;

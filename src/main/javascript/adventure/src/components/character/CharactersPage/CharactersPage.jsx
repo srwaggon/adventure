@@ -5,13 +5,13 @@ import React from "react";
 import {postNewCharacter} from "../../../utilities/client";
 import {Link, useHistory} from "react-router-dom";
 import {Box, Card} from "@mui/material";
-import CharacterPortraitCard from "../CharacterPortraitCard/CharacterPortraitCard";
+import {CharacterPortraitCard} from "../CharacterPortraitCard/CharacterPortraitCard";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AddButton from "../../buttons/AddButton";
 import useCurrentPlayersCharacters from "./UseCurrentPlayersCharacters";
 import CenteredGridWithAppBar from "../../shared/CenteredGridWithAppBar";
 
-const CharactersPage = () => {
+export const CharactersPage = () => {
   return (<div className={"HomePage"}>
     <CharacterSelectionPage/>
   </div>);
@@ -45,7 +45,3 @@ const CharacterSelectionPage = () => {
       </Card>}
   </CenteredGridWithAppBar>;
 };
-
-export default CharactersPage;
-
-

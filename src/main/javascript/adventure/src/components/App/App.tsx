@@ -2,8 +2,8 @@ import "./App.css";
 
 import React from "react";
 import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
-import CharacterPage from "../character/CharacterPage/CharacterPage";
-import CharactersPage from "../character/CharactersPage/CharactersPage";
+import {CharacterPage} from "../character/CharacterPage/CharacterPage";
+import {CharactersPage} from "../character/CharactersPage/CharactersPage";
 import CardsPage from "../cards/CardsPage";
 import {AppBar, Box, Button, createTheme, StyledEngineProvider, Toolbar, Typography} from "@mui/material";
 import CardPage from "../cards/CardDetailsPage/CardDetailsPage";

@@ -4,14 +4,14 @@ import {deleteCharacter, getCharacterById, replaceCharacter} from "../../../util
 import {Box, CircularProgress, Container} from "@mui/material";
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
 import AddCardToCharacterCard from "./AddCardToCharacterCard";
-import CharacterCards from "./CharacterCards";
+import {TabbedCharacterPanels} from "./TabbedCharacterPanel/TabbedCharacterPanels";
 import TitledAppBar from "../../shared/TitledAppBar";
-import CharacterDetails from "./../CharacterDetails";
+import {CharacterDetailsContainer} from "./CharacterDetailsContainer";
 import {useCharacter} from "../UseCharacter";
 import {useCharactersCards} from "../UseCharactersCards";
 import {useDeleteDialog} from "../../shared/UseDeleteDialog";
 
-const CharacterPage = () => {
+export const CharacterPage = () => {
 
   const {characterId} = useParams();
   const {character, setCharacter} = useCharacter(characterId);
@@ -51,10 +51,9 @@ const CharacterPage = () => {
       </TitledAppBar>
       <Container maxWidth={false}>
         <Box p={1}>
-          <CharacterDetails character={character} setCharacter={setCharacter} isEditing={isEditing}/>
-        </Box>
-        <Box p={1}>
-          <CharacterCards {...characterPageState}/>
+          <CharacterDetailsContainer {...{character, setCharacter, isEditing}}>
+            <TabbedCharacterPanels {...characterPageState}/>
+          </CharacterDetailsContainer>
         </Box>
         {isEditing && <Box p={1}>
           <AddCardToCharacterCard {...characterPageState}/>
@@ -63,5 +62,3 @@ const CharacterPage = () => {
       <DeleteDialog/>
     </div>;
 };
-
-export default CharacterPage;

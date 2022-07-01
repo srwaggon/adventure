@@ -1,10 +1,10 @@
-import {replaceCharacter} from "../../utilities/client";
+import {replaceCharacter} from "../../../../../utilities/client";
 import {Box, Button, IconButton, LinearProgress} from "@mui/material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import {AddBox, Backspace} from "@mui/icons-material";
 import React from "react";
-import {D10Icon} from "../icons/DiceIcons";
+import {D10Icon} from "../../../../icons/DiceIcons";
 
 const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
   const decreaseMaximum = () => {
@@ -37,7 +37,7 @@ const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
   ><AddBox/></IconButton>;
 };
 
-const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
+export const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
   const max = character[resource].maximum;
   const value = character[resource].value;
 
@@ -77,5 +77,3 @@ const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
     </Box>
   );
 };
-
-export default CharacterResource;

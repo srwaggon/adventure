@@ -5,7 +5,7 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 import {AddBox, Backspace} from "@mui/icons-material";
 
-import {D10Icon} from "../icons/DiceIcons";
+import {D10Icon} from "../../../../../icons/DiceIcons";
 
 import "./CharacterAttribute.css";
 
@@ -13,7 +13,7 @@ type CharacterValue = { name: string, value: number, minimum: number, maximum: n
 
 type CharacterAttributeParams = { valueName: string; isEditing: boolean; characterValue: CharacterValue; setValue: (value: number) => void; };
 
-const CharacterAttribute = (props: CharacterAttributeParams) => {
+export const CharacterAttribute = (props: CharacterAttributeParams) => {
   const {valueName, isEditing, characterValue, setValue} = props;
 
   const increaseValue = () => {
@@ -87,5 +87,3 @@ const DotArray = (props: any) => {
       )}
   </>;
 };
-
-export default CharacterAttribute;

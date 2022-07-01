@@ -2,12 +2,12 @@ import React, {useState} from "react";
 
 import {Box, Typography} from "@mui/material";
 
-import CharacterAttribute from "../../CharacterAttribute";
+import {CharacterAttribute} from "../../AttributesPanel/CharacterAttribute/CharacterAttribute";
 import "./SkillsSection.css";
-import AlcheimTextField from "../../../input/AlcheimTextField";
-import EditButtonRow from "../../../buttons/EditButtonRow/EditButtonRow";
-import Row from "../../../Row/Row";
-import {replaceCharacter} from "../../../../utilities/client";
+import AlcheimTextField from "../../../../../input/AlcheimTextField";
+import EditButtonRow from "../../../../../buttons/EditButtonRow/EditButtonRow";
+import Row from "../../../../../Row/Row";
+import {replaceCharacter} from "../../../../../../utilities/client";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 type CharacterSkills = { [key: string]: CharacterValue }
@@ -33,7 +33,7 @@ const copyCharacterValue = (characterValue: CharacterValue) => {
   return {...characterValue}
 }
 
-const copySkills = (skills: CharacterSkills): CharacterSkills => {
+const copySkills = (skills: CharacterSkills = {}): CharacterSkills => {
   const skillsCopy: CharacterSkills = {};
   Object.entries(skills).forEach(([key, value]) => {
     skillsCopy[key] = copyCharacterValue(value);

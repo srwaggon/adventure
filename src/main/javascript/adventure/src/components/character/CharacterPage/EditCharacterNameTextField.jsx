@@ -1,7 +1,7 @@
 import {TextField} from "@mui/material";
 import React from "react";
 
-const EditCharacterNameTextField = ({character, setCharacter}) =>
+export const EditCharacterNameTextField = ({character, setCharacter}) =>
   <TextField
     label={"Name"}
     defaultValue={character.name}
@@ -12,5 +12,3 @@ const EditCharacterNameTextField = ({character, setCharacter}) =>
       setCharacter(character);
     }}
   />;
-
-export default EditCharacterNameTextField;

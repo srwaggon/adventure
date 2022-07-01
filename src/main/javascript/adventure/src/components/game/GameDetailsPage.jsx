@@ -18,14 +18,14 @@ import EditButtonRow from "../buttons/EditButtonRow/EditButtonRow";
 import {deleteGame, getGameById, replaceGame} from "../../utilities/client";
 import {CurrentPlayersCharactersSelect} from "../character/CharacterSelect";
 import {ChevronRightButton, FaceButton, MenuButton} from "../buttons/Buttons";
-import CharacterDetails from "../character/CharacterDetails";
+import {CharacterDetailsContainer} from "../character/CharacterPage/CharacterDetailsContainer";
 import CenteredGrid from "../shared/CenteredGrid";
 import clsx from "clsx";
 import SendButton from "../buttons/SendButton";
 import {drawerWidth, useStyles} from "../Styles";
 import {useDeleteDialog} from "../shared/UseDeleteDialog";
 import {useCharactersCards} from "../character/UseCharactersCards";
-import CharacterCards from "../character/CharacterPage/CharacterCards";
+import {TabbedCharacterPanels} from "../character/CharacterPage/TabbedCharacterPanel/TabbedCharacterPanels";
 import {useWebSocket} from "../shared/UseWebSocket";
 
 const GameDetailsPage = () => {
@@ -91,11 +91,11 @@ const GameDetailsPage = () => {
         }/>
       </ListItem>
       {selectedCharacter && <ListItem>
-        <CharacterDetails character={character}
-                          setCharacter={setCharacter}/>
+        <CharacterDetailsContainer character={character}
+                                   setCharacter={setCharacter}/>
       </ListItem>}
       {selectedCharacter && <ListItem>
-        <CharacterCards
+        <TabbedCharacterPanels
           isEditing={false}
           cards={cards}
           setCards={() => {
