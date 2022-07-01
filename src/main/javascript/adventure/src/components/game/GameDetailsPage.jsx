@@ -125,7 +125,6 @@ const GameDetailsPage = () => {
               <Typography variant="h6">{title}</Typography>
             </Box>
             <EditButtonRow
-              isEditing={isEditing}
               onDelete={openDialog}
               onSave={onSave}
               onCancelEdit={onCancelEdit}

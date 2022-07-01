@@ -1,13 +1,12 @@
-import React, {useState} from "react";
-
 import {Box, Typography} from "@mui/material";
+import React, {useState} from "react";
+import {replaceCharacter} from "../../../../../../utilities/client";
+import EditButtonRow from "../../../../../buttons/EditButtonRow/EditButtonRow";
+import AlcheimTextField from "../../../../../input/AlcheimTextField";
+import {Row} from "../../../../../Row/Row";
 
 import {CharacterAttribute} from "../../AttributesPanel/CharacterAttribute/CharacterAttribute";
 import "./SkillsSection.css";
-import AlcheimTextField from "../../../../../input/AlcheimTextField";
-import EditButtonRow from "../../../../../buttons/EditButtonRow/EditButtonRow";
-import Row from "../../../../../Row/Row";
-import {replaceCharacter} from "../../../../../../utilities/client";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 type CharacterSkills = { [key: string]: CharacterValue }
@@ -79,7 +78,6 @@ const SkillsSection = (props: SkillsSectionProps) => {
         <Typography variant="h5">Skills</Typography>
 
         <EditButtonRow
-          isEditing={isEditingSkills}
           onEdit={onEdit}
           onCancelEdit={onCancelEdit}
           onSave={onSave}

@@ -1,14 +1,17 @@
+import {Box} from "@mui/material";
 import React from "react";
 
-import {Box} from "@mui/material";
-
 type RowProps = any
-const Row = ({children, ...props}: RowProps) =>
+export const Row = ({children, ...props}: RowProps) =>
   <Box
+    className={"row"}
     display="flex"
     flexDirection="row"
-    justifyContent="spaceBetween" {...props}>
+    alignItems={"center"}
+    justifyContent="space-between"
+    width={"100%"}
+    {...props}
+  >
     {children}
   </Box>;
 
-export default Row;

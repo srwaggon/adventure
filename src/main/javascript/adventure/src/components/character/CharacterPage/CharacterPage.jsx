@@ -47,11 +47,11 @@ export const CharacterPage = () => {
     ? <CircularProgress/>
     : <div>
       <TitledAppBar title={"Character Details"}>
-        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
+        <EditButtonRow {...{onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
       </TitledAppBar>
       <Container maxWidth={false}>
         <Box p={1}>
-          <CharacterDetailsContainer {...{character, setCharacter, isEditing}}>
+          <CharacterDetailsContainer {...{character, setCharacter, isEditing, onSave}}>
             <TabbedCharacterPanels {...characterPageState}/>
           </CharacterDetailsContainer>
         </Box>

@@ -179,7 +179,13 @@ const CardDetailsPage = () => {
     ? <span>Loading...</span>
     : <div>
       <TitledAppBar title={"Card Details"}>
-        <EditButtonRow {...{isEditing, onEdit, onCancelEdit, onCopy, onSave, onDelete: openDialog}}/>
+        <EditButtonRow {...{
+          onEdit,
+          onCancelEdit,
+          onCopy,
+          onSave,
+          onDelete: openDialog
+        }}/>
       </TitledAppBar>
       <Container>
         <Box p={4} display="flex" flexDirection="row" justifyContent="space-evenly" flexWrap="wrap">
