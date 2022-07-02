@@ -31,10 +31,8 @@ export const CharacterDetailsContainer = ({character, setCharacter, isEditing, c
           }/>
 
           <CardContent>
+            <Divider/>
             <Box width={902}>
-
-              <Divider/>
-
               {children}
             </Box>
           </CardContent>

@@ -1,13 +1,13 @@
-import React from "react";
-
-import {Box, Button, IconButton} from "@mui/material";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 import {AddBox, Backspace} from "@mui/icons-material";
 
-import {D10Icon} from "../../../../../icons/DiceIcons";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 
-import "./CharacterAttribute.css";
+import {Box, Button, IconButton} from "@mui/material";
+import React from "react";
+
+import {D10Icon} from "../../../../icons/DiceIcons";
+import {Row} from "../../../../Row/Row";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 
@@ -44,17 +44,15 @@ export const CharacterAttribute = (props: CharacterAttributeParams) => {
   ><AddBox/></IconButton>;
 
   return (
-    <Box className="character-attribute"
-         alignItems={"center"}
-         width={260}
-         display="flex"
-         justifyContent="space-between">
-      <Button startIcon={<D10Icon/>}>
-        <Box width={120} style={{textTransform: "capitalize", textAlign: "left"}}>
-          {valueName}
-        </Box>
-      </Button>
-      <div className="character-attribute-value">
+    <Row className="character-attribute">
+      <Box flexGrow={1}>
+        <Button fullWidth={true} startIcon={<D10Icon/>}>
+          <Box width={"100%"} style={{textTransform: "capitalize", textAlign: "left"}}>
+            {valueName}
+          </Box>
+        </Button>
+      </Box>
+      <Box width={"105px"}>
 
         <DotArray {...{name: valueName, value: characterValue.value}} />
 
@@ -62,8 +60,8 @@ export const CharacterAttribute = (props: CharacterAttributeParams) => {
 
         {IncreaseButton}
 
-      </div>
-    </Box>
+      </Box>
+    </Row>
   );
 };
 

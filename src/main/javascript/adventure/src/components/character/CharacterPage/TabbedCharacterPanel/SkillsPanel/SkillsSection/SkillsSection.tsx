@@ -5,7 +5,7 @@ import EditButtonRow from "../../../../../buttons/EditButtonRow/EditButtonRow";
 import AlcheimTextField from "../../../../../input/AlcheimTextField";
 import {Row} from "../../../../../Row/Row";
 
-import {CharacterAttribute} from "../../AttributesPanel/CharacterAttribute/CharacterAttribute";
+import {CharacterAttribute} from "../../AttributesPanel/CharacterAttribute";
 import "./SkillsSection.css";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };

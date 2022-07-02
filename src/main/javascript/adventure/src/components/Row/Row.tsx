@@ -2,9 +2,9 @@ import {Box} from "@mui/material";
 import React from "react";
 
 type RowProps = any
-export const Row = ({children, ...props}: RowProps) =>
+export const Row = ({children, className, ...props}: RowProps) =>
   <Box
-    className={"row"}
+    className={`row ${className}`.trim()}
     display="flex"
     flexDirection="row"
     alignItems={"center"}
