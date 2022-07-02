@@ -140,6 +140,62 @@ export const demoCharacter = {
   },
   "cards": demoCards,
   proficiencies: [],
+  skills: {
+    "fun": {
+      "name": "fun",
+      "value": 4,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "amazing": {
+      "name": "amazing",
+      "value": 3,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "heroics": {
+      "name": "heroics",
+      "value": 3,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "mercantile": {
+      "name": "mercantile",
+      "value": 3,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "beastmastery": {
+      "name": "beastmastery",
+      "value": 2,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "trickery": {
+      "name": "trickery",
+      "value": 2,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "card games": {
+      "name": "card games",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "storytelling": {
+      "name": "storytelling",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5,
+    },
+    "bravado": {
+      "name": "bravado",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5,
+    }
+  }
 };
 
 export const demoPlayer = {"id": "100131200358491013460", "name": "demo-player", "characters": [demoCharacter.id]};
