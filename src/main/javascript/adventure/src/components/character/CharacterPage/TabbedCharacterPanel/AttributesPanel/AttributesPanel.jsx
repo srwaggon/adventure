@@ -57,12 +57,12 @@ const CharacterResourcesSection = ({character, setCharacter, isEditing}) => {
   return <Box p={1}>
     <Typography variant="h5">Resources</Typography>
     <ul className={"character-attributes-list"}>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"stamina"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"confidence"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"focus"}/></li>
       <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"health"}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"stamina"}/></li>
       <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"reputation"}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"confidence"}/></li>
       <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"mana"}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"focus"}/></li>
     </ul>
   </Box>;
 }
