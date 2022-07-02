@@ -19,7 +19,7 @@ export const CharacterDetailsContainer = ({character, setCharacter, isEditing, c
       </Box>
 
       <Box display="flex" flexGrow={1} justifyContent="center">
-        <Card>
+        <Card sx={{width: "934px"}}>
           <CardHeader title={
             <CharacterNameField
               character={character}
