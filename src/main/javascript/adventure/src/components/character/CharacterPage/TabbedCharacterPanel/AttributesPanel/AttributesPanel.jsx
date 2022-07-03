@@ -19,26 +19,50 @@ export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
   </>;
 };
 
+const copyCharacterValue = attribute => ({...attribute});
+
+const copyCharacterAttributes = ({
+  strength, dexterity, constitution,
+  presence, influence, composure,
+  intelligence, wits, resolve
+}) => {
+  return {
+    strength: copyCharacterValue(strength),
+    dexterity: copyCharacterValue(dexterity),
+    constitution: copyCharacterValue(constitution),
+    presence: copyCharacterValue(presence),
+    influence: copyCharacterValue(influence),
+    composure: copyCharacterValue(composure),
+    intelligence: copyCharacterValue(intelligence),
+    wits: copyCharacterValue(wits),
+    resolve: copyCharacterValue(resolve)
+  };
+};
+
 const CharacterAttributesSection = (props) => {
 
   const {character, setCharacter} = props;
 
+  const [attributes, setAttributes] = useState(copyCharacterAttributes(character));
+
   const [isEditing, setIsEditing] = useState(false);
 
-  const CharacterAttributeWrapper = ({valueName}) => {
+  const CharacterAttributeWrapper = ({attribute}) => {
 
     const setAttributeValue = (attribute) => {
       return (value) => {
-        character[attribute].value = value;
-        setCharacter({...character});
+        attribute.value = value;
+        const newAttributes = {...attributes};
+        newAttributes[attribute.name] = attribute;
+        setAttributes(newAttributes);
       }
     }
 
     return <CharacterAttribute
       isEditing={isEditing}
-      valueName={valueName}
-      characterValue={character[valueName]}
-      setValue={setAttributeValue(valueName)}
+      valueName={attribute.name}
+      characterValue={attribute}
+      setValue={setAttributeValue(attribute)}
     />;
   }
 
@@ -48,12 +72,12 @@ const CharacterAttributesSection = (props) => {
 
   const onCancelEdit = () => {
     setIsEditing(false);
-    setCharacter({...character});
+    setAttributes(copyCharacterAttributes(character));
   };
 
   const onSave = () => {
     setIsEditing(false);
-    replaceCharacter(character)
+    replaceCharacter({...character, ...attributes})
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
@@ -70,15 +94,15 @@ const CharacterAttributesSection = (props) => {
       />
     </Row>
     <ul className={"character-attributes-list"}>
-      <li><CharacterAttributeWrapper valueName={"strength"}/></li>
-      <li><CharacterAttributeWrapper valueName={"dexterity"}/></li>
-      <li><CharacterAttributeWrapper valueName={"constitution"}/></li>
-      <li><CharacterAttributeWrapper valueName={"presence"}/></li>
-      <li><CharacterAttributeWrapper valueName={"influence"}/></li>
-      <li><CharacterAttributeWrapper valueName={"composure"}/></li>
-      <li><CharacterAttributeWrapper valueName={"intelligence"}/></li>
-      <li><CharacterAttributeWrapper valueName={"wits"}/></li>
-      <li><CharacterAttributeWrapper valueName={"resolve"}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.strength}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.dexterity}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.constitution}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.presence}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.influence}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.composure}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.intelligence}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.wits}/></li>
+      <li><CharacterAttributeWrapper attribute={attributes.resolve}/></li>
     </ul>
   </Box>;
 }
