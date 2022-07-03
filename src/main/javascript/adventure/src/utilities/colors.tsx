@@ -32,7 +32,7 @@ export const Colors = {
   SILVER,
 }
 
-export const getQualityColor = (quality: string): string => {
+export const getQualityColor = (quality: string | null): string => {
   if (quality === null) {
     return Colors.COMMON_WHITE;
   }

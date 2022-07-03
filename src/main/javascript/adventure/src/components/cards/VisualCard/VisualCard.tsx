@@ -1,12 +1,12 @@
-import "./VisualCard.css";
-import FlavorText from "./flavor/FlavorText";
+import {Box, Divider, Typography} from "@mui/material";
 
 import React from "react";
-import {Box, Divider, Typography} from "@mui/material";
-import {prettify} from "../../../utilities/kitchen_sink";
-import {CardQualityDot} from "./CardQualityDot";
 import {applyTransforms} from "../../../card/Text";
 import {DARK_MODE_BLACK, getQualityColor, LIGHT_MODE_WHITE} from "../../../utilities/colors";
+import {prettify} from "../../../utilities/kitchen_sink";
+import {CardQualityDot} from "./CardQualityDot";
+import FlavorText from "./flavor/FlavorText";
+import "./VisualCard.css";
 
 const getClampedBodyOpacity = (bodyOpacity: number) => {
   if (bodyOpacity > 100) {
@@ -26,13 +26,13 @@ const getOpacityHex = (bodyOpacity: number) => {
 export const VisualCard = ({
   name = "",
   image = "",
-  imageSize = "100%",
+  imageSize = "cover",
   type = "",
   body = "",
   flavor = "",
   author = "",
   darkText = false,
-  quality = "COMMON",
+  quality = null,
   fontSize = "10pt",
   bodyOpacity = 80,
 }) => {
@@ -51,7 +51,7 @@ export const VisualCard = ({
 
   const darkTextModifier = darkText ? "dark-mode" : "light-mode";
 
-  const titleColor = quality !== "COMMON"
+  const titleColor = quality && quality !== "COMMON"
     ? getQualityColor(quality)
     : darkText
       ? LIGHT_MODE_WHITE
@@ -70,7 +70,7 @@ export const VisualCard = ({
 
           <Box className="flex-center-space-between" color={titleColor}>
             <span className={"visual-card-name"} title={name}>{name}</span>
-            <CardQualityDot {...{quality}}/>
+            {quality && <CardQualityDot {...{quality}}/>}
           </Box>
 
           <Box className="flex-center-space-between">

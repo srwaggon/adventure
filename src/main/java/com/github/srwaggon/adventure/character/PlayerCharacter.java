@@ -15,7 +15,7 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private UUID id = UUID.randomUUID();
   private String name = "New Character";
-  private String portraitUrl;
+  private String portraitUrl = "https://i1.wp.com/nerdarchy.com/wp-content/uploads/2020/04/dd-fighters.jpg";
   private final CharacterValue strength = new CharacterValue("strength", 1, 5, 1);
   private final CharacterValue dexterity = new CharacterValue("dexterity", 1, 5, 1);
   private final CharacterValue constitution = new CharacterValue("constitution", 1, 5, 1);

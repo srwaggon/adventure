@@ -5,11 +5,11 @@ import React from "react";
 import {postNewCharacter} from "../../../utilities/client";
 import {Link, useHistory} from "react-router-dom";
 import {Box, Card} from "@mui/material";
-import {CharacterPortraitCard} from "../CharacterPortraitCard/CharacterPortraitCard";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import AddButton from "../../buttons/AddButton";
 import useCurrentPlayersCharacters from "./UseCurrentPlayersCharacters";
 import CenteredGridWithAppBar from "../../shared/CenteredGridWithAppBar";
+import {CharacterPortraitCard} from "../CharacterPortraitCard";
 
 export const CharactersPage = () => {
   return (<div className={"HomePage"}>
@@ -25,7 +25,7 @@ const CharacterSelectionPage = () => {
 
   const characterPortraits = (characters || []).map(character =>
     <Link to={`/characters/${character.id}`} style={{textDecoration: 'none'}}>
-      <CharacterPortraitCard {...(character)} />
+      <CharacterPortraitCard characterName={character.name} portraitUrl={character.portraitUrl}/>
     </Link>);
 
   const onClickCreateCharacter = () =>

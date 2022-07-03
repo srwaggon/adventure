@@ -33,7 +33,7 @@ import AlcheimTextField from "../../input/AlcheimTextField";
 const newCard = () => ({
   name: "New Card",
   image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
-  imageSize: "100%",
+  imageSize: "cover",
   type: "ABILITY",
   body: null,
   flavor: null,
