@@ -1,6 +1,5 @@
 import React, {ReactElement} from "react";
-
-import {D10, D12, D20, D4, D6, D8} from "../dice/DiceIcon";
+import {D10Icon, D12Icon, D20Icon, D4Icon, D6Icon, D8Icon} from "../components/icons/DiceIcons";
 
 const wrapInList = (s: string) => [s];
 
@@ -10,31 +9,35 @@ const replaceLineBreaks = (arr: ReactElement[]) => arr.map((e: any) => isString(
   .flat();
 const replaceLineBreaksInString = (str: string) => str.split("\n").map(s => [s, <br/>]).flat();
 
-const replaceDiceSymbols = (array: ReactElement[]) => {
-  const replaceDiceSymbolInArray = (pattern: string, element: ReactElement) => (array: ReactElement[]) => {
-    const replaceDiceSymbolInString = (str: string) => {
-      const result = str.split(pattern).map(s => [s, element]).flat();
-      result.pop();
-      return result;
+const replaceDiceSymbols = (fontSize: string) => {
+  return (array: ReactElement[]) => {
+    const replaceDiceSymbolInArray = (pattern: string, element: ReactElement) => (array: ReactElement[]) => {
+      const replaceDiceSymbolInString = (str: string) => {
+        const result = str.split(pattern).map(s => [s, element]).flat();
+        result.pop();
+        return result;
+      };
+      return array.map((e: any) => isString(e) ? replaceDiceSymbolInString(e) : e).flat();
     };
-    return array.map((e: any) => isString(e) ? replaceDiceSymbolInString(e) : e).flat();
+    return [
+      replaceDiceSymbolInArray("[d4]", <D4Icon fontSize={fontSize}/>),
+      replaceDiceSymbolInArray("[d6]", <D6Icon fontSize={fontSize}/>),
+      replaceDiceSymbolInArray("[d8]", <D8Icon fontSize={fontSize}/>),
+      replaceDiceSymbolInArray("[d10]", <D10Icon fontSize={fontSize}/>),
+      replaceDiceSymbolInArray("[d12]", <D12Icon fontSize={fontSize}/>),
+      replaceDiceSymbolInArray("[d20]", <D20Icon fontSize={fontSize}/>),
+    ].reduce((acc, f) => f(acc), array);
   };
-  return [
-    replaceDiceSymbolInArray("[d4]", <D4/>),
-    replaceDiceSymbolInArray("[d6]", <D6/>),
-    replaceDiceSymbolInArray("[d8]", <D8/>),
-    replaceDiceSymbolInArray("[d10]", <D10/>),
-    replaceDiceSymbolInArray("[d12]", <D12/>),
-    replaceDiceSymbolInArray("[d20]", <D20/>),
-  ].reduce((acc, f) => f(acc), array);
 };
 
-const transformers = [
-  wrapInList,
-  replaceLineBreaks,
-  replaceDiceSymbols,
-];
+const transformers = (fontSize: string) => {
+  return [
+    wrapInList,
+    replaceLineBreaks,
+    replaceDiceSymbols(fontSize),
+  ];
+};
 
-export const applyTransforms = (value: string | ReactElement) =>
-  transformers.reduce((acc, transformer: (a: any) => any) => transformer(acc), value);
+export const applyTransforms = (value: string | ReactElement, fontSize: string) =>
+  transformers(fontSize).reduce((acc, transformer: (a: any) => any) => transformer(acc), value);
 

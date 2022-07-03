@@ -58,7 +58,7 @@ export const VisualCard = ({
       : DARK_MODE_BLACK;
 
   const typeText = prettify(type);
-  const bodyElements = applyTransforms(body);
+  const bodyElements = applyTransforms(body, fontSize);
   const backgroundColor = (darkText ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(bodyOpacity);
 
   return (

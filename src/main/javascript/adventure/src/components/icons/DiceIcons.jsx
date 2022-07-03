@@ -7,9 +7,11 @@ import {ReactComponent as D10Svg} from "../../svgs/dice/d10.svg";
 import {ReactComponent as D12Svg} from "../../svgs/dice/d12.svg";
 import {ReactComponent as D20Svg} from "../../svgs/dice/d20.svg";
 
-export const D4Icon = () => <SvgIcon component={D4Svg} viewBox="7 7 93 93"/>;
-export const D6Icon = () => <SvgIcon component={D6Svg} viewBox="7 7 93 93"/>;
-export const D8Icon = () => <SvgIcon component={D8Svg} viewBox="7 7 93 93"/>;
-export const D10Icon = () => <SvgIcon component={D10Svg} viewBox="7 7 93 93"/>;
-export const D12Icon = () => <SvgIcon component={D12Svg} viewBox="7 7 93 93"/>;
-export const D20Icon = () => <SvgIcon component={D20Svg} viewBox="7 7 93 93"/>;
+const DiceIcon = (svg) => (props) => <SvgIcon component={svg} viewBox="7 7 93 93" {...props}/>;
+
+export const D4Icon = (props) => DiceIcon(D4Svg)(props);
+export const D6Icon = (props) => DiceIcon(D6Svg)(props);
+export const D8Icon = (props) => DiceIcon(D8Svg)(props);
+export const D10Icon = (props) => DiceIcon(D10Svg)(props);
+export const D12Icon = (props) => DiceIcon(D12Svg)(props);
+export const D20Icon = (props) => DiceIcon(D20Svg)(props);
