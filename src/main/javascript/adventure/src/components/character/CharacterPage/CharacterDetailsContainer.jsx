@@ -2,11 +2,10 @@ import React from "react";
 
 import {Box, Card, CardContent, CardHeader, Divider} from "@mui/material";
 
-import {CharacterPortrait} from "../CharacterPortraitCard/CharacterPortrait";
 import {CharacterNameField} from "./CharacterName/CharacterNameField";
 import {CharacterPortraitCard} from "../CharacterPortraitCard";
 
-export const CharacterDetailsContainer = ({character, setCharacter, isEditing, children, onSave}) => {
+export const CharacterDetailsContainer = ({character, setCharacter, children, onSave}) => {
   const setName = (name) => {
     character.name = name;
     setCharacter(character);
@@ -20,12 +19,6 @@ export const CharacterDetailsContainer = ({character, setCharacter, isEditing, c
 
   return <Box>
     <Box display="flex" flexDirection="row-reverse" flexWrap="wrap" justifyContent="space-between">
-
-      <Box display="flex" flexGrow={1} justifyContent="center">
-        <Box display="block">
-          <CharacterPortrait {...{character, setCharacter, isEditing, name: character.name, portraitUrl: character.portraitUrl}}/>
-        </Box>
-      </Box>
 
       <Box display="flex" flexGrow={1} justifyContent="center">
         <Box display="block">
