@@ -1,4 +1,4 @@
-call scripts\clean.bat
+call scripts\clean.cmd
 
 @echo off
 echo Building...
