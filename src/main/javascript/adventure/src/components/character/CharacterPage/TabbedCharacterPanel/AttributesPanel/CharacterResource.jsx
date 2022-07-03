@@ -8,8 +8,8 @@ import {Row} from "../../../../Row/Row";
 
 const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
   const decreaseMaximum = () => {
-    character[resource].maximum -= 1;
-    character[resource].value = Math.min(character[resource].value, character[resource].maximum);
+    resource.maximum -= 1;
+    resource.value = Math.min(resource.value, resource.maximum);
     setCharacter({...character});
   };
 
@@ -24,10 +24,10 @@ const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
 
 const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
   const increaseMaximum = () => {
-    const value = character[resource].value;
-    const max = character[resource].maximum;
-    character[resource].value = value + (value === max ? 1 : 0);
-    character[resource].maximum += 1;
+    const value = resource.value;
+    const max = resource.maximum;
+    resource.value = value + (value === max ? 1 : 0);
+    resource.maximum += 1;
     setCharacter({...character});
   };
 
@@ -42,11 +42,12 @@ const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
 };
 
 export const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
-  const max = character[resource].maximum;
-  const value = character[resource].value;
+  const max = resource.maximum;
+  const value = resource.value;
 
   const setCharacterResource = number => {
-    character[resource].value += number < character[resource].value ? -1 : 1;
+    resource.value += number < resource.value ? -1 : 1;
+    character[resource.name] = resource;
     replaceCharacter(character)
       .then(response => response.json())
       .then(character => {
@@ -59,7 +60,7 @@ export const CharacterResource = ({character, setCharacter, isEditing, resource}
       <Box p={1}>
         <Row>
           <Box style={{textTransform: "capitalize", textAlign: "left"}}>
-            {resource}
+            {resource.name}
           </Box>
           {value + "/" + max}
         </Row>
@@ -68,7 +69,7 @@ export const CharacterResource = ({character, setCharacter, isEditing, resource}
       {[...Array(max).keys()].map(
         (int) =>
           <IconButton
-            key={`${resource}-${int}`}
+            key={`${resource.name}-${int}`}
             checked={int < value}
             disabled={isEditing}
             color={"default"}

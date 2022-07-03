@@ -19,7 +19,7 @@ export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
   </>;
 };
 
-const copyCharacterValue = attribute => ({...attribute});
+const copyCharacterValue = characterValue => ({...characterValue});
 
 const copyCharacterAttributes = ({
   strength, dexterity, constitution,
@@ -39,9 +39,7 @@ const copyCharacterAttributes = ({
   };
 };
 
-const CharacterAttributesSection = (props) => {
-
-  const {character, setCharacter} = props;
+const CharacterAttributesSection = ({character, setCharacter}) => {
 
   const [attributes, setAttributes] = useState(copyCharacterAttributes(character));
 
@@ -107,34 +105,52 @@ const CharacterAttributesSection = (props) => {
   </Box>;
 }
 
+const copyResources = ({health, stamina, confidence, reputation, mana, focus}) => {
+  return {
+    health: copyCharacterValue(health),
+    stamina: copyCharacterValue(stamina),
+    confidence: copyCharacterValue(confidence),
+    reputation: copyCharacterValue(reputation),
+    mana: copyCharacterValue(mana),
+    focus: copyCharacterValue(focus),
+  }
+};
+
 const CharacterResourcesSection = ({character, setCharacter}) => {
+  const [resources, setResources] = useState(copyResources(character));
+
   const [isEditing, setIsEditing] = useState(false);
 
   const onSave = () => {
     setIsEditing(false);
-    replaceCharacter(character)
+    replaceCharacter({...character, ...resources})
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
       });
-  }
+  };
+
+  const onCancelEdit = () => {
+    setIsEditing(false);
+    setResources(copyResources(character))
+  };
 
   return <Box p={1}>
     <Row>
       <Typography variant="h5">Resources</Typography>
       <EditButtonRow
         onEdit={() => setIsEditing(true)}
-        onCancelEdit={() => setIsEditing(false)}
+        onCancelEdit={onCancelEdit}
         onSave={onSave}
       />
     </Row>
     <ul className={"character-attributes-list"}>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"health"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"stamina"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"reputation"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"confidence"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"mana"}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={"focus"}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.health}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.stamina}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.reputation}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.confidence}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.mana}/></li>
+      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.focus}/></li>
     </ul>
   </Box>;
 }
