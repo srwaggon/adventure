@@ -21,7 +21,9 @@ export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
 
 const CharacterAttributesSection = (props) => {
 
-  const {character, setCharacter, isEditing} = props;
+  const {character, setCharacter} = props;
+
+  const [isEditing, setIsEditing] = useState(false);
 
   const CharacterAttributeWrapper = ({valueName}) => {
 
@@ -40,8 +42,33 @@ const CharacterAttributesSection = (props) => {
     />;
   }
 
+  const onEdit = () => {
+    setIsEditing(true);
+  };
+
+  const onCancelEdit = () => {
+    setIsEditing(false);
+    setCharacter({...character});
+  };
+
+  const onSave = () => {
+    setIsEditing(false);
+    replaceCharacter(character)
+      .then(response => response.json())
+      .then(character => {
+        setCharacter(character);
+      });
+  };
+
   return <Box p={1}>
-    <Typography variant="h5">Attributes</Typography>
+    <Row>
+      <Typography variant="h5">Attributes</Typography>
+      <EditButtonRow
+        onEdit={onEdit}
+        onCancelEdit={onCancelEdit}
+        onSave={onSave}
+      />
+    </Row>
     <ul className={"character-attributes-list"}>
       <li><CharacterAttributeWrapper valueName={"strength"}/></li>
       <li><CharacterAttributeWrapper valueName={"dexterity"}/></li>
