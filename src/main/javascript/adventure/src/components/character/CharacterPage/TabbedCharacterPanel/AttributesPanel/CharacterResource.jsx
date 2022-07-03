@@ -1,37 +1,41 @@
 import {replaceCharacter} from "../../../../../utilities/client";
-import {Box, Button, IconButton, LinearProgress} from "@mui/material";
+import {Box, IconButton, LinearProgress} from "@mui/material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import {AddBox, Backspace} from "@mui/icons-material";
 import React from "react";
-import {D10Icon} from "../../../../icons/DiceIcons";
+import {Row} from "../../../../Row/Row";
 
 const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
   const decreaseMaximum = () => {
     character[resource].maximum -= 1;
+    character[resource].value = Math.min(character[resource].value, character[resource].maximum);
     setCharacter({...character});
   };
 
   return <IconButton
     checked={false}
     color={"primary"}
-    size={'small'}
-    style={{margin: '-4px'}}
+    size={"small"}
+    style={{margin: "-4px"}}
     onClick={decreaseMaximum}
   ><Backspace/></IconButton>;
 };
 
 const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
   const increaseMaximum = () => {
+    const value = character[resource].value;
+    const max = character[resource].maximum;
+    character[resource].value = value + (value === max ? 1 : 0);
     character[resource].maximum += 1;
     setCharacter({...character});
   };
 
   return <IconButton
     checked={false}
-    color={'primary'}
-    size={'small'}
-    style={{margin: '-4px'}}
+    color={"primary"}
+    size={"small"}
+    style={{margin: "-4px"}}
     fullWidth={true}
     onClick={increaseMaximum}
   ><AddBox/></IconButton>;
@@ -51,12 +55,14 @@ export const CharacterResource = ({character, setCharacter, isEditing, resource}
   };
 
   return (
-    <Box width={220} mb={2} mr={5}>
-      <Box display='flex' flexDirection='row' justifyContent='space-between' alignItems='center'>
-        <Button width={80} startIcon={<D10Icon/>}>
-          <Box style={{textTransform: 'capitalize', textAlign: 'left'}}>{resource}</Box>
-        </Button>
-        {value + '/' + max}
+    <Box>
+      <Box p={1}>
+        <Row>
+          <Box style={{textTransform: "capitalize", textAlign: "left"}}>
+            {resource}
+          </Box>
+          {value + "/" + max}
+        </Row>
       </Box>
       <LinearProgress styles={{borderRadius: 5}} variant="determinate" value={value / max * 100}/>
       {[...Array(max).keys()].map(
@@ -65,9 +71,9 @@ export const CharacterResource = ({character, setCharacter, isEditing, resource}
             key={`${resource}-${int}`}
             checked={int < value}
             disabled={isEditing}
-            color={'default'}
-            size={'small'}
-            style={{margin: '-4px'}}
+            color={"default"}
+            size={"small"}
+            style={{margin: "-4px"}}
             onClick={(ignored) => setCharacterResource(int)}
           >{int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
           </IconButton>)}
