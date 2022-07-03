@@ -51,7 +51,7 @@ export const CharacterPage = () => {
       </TitledAppBar>
       <Container maxWidth={false}>
         <Box p={1}>
-          <CharacterDetailsContainer {...{character, setCharacter, isEditing, onSave}}>
+          <CharacterDetailsContainer {...{character, setCharacter, onSave}}>
             <TabbedCharacterPanels {...{character, setCharacter, cards, setCards}}/>
           </CharacterDetailsContainer>
         </Box>
