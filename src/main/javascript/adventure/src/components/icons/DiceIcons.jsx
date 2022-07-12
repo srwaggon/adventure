@@ -7,7 +7,8 @@ import {ReactComponent as D10Svg} from "../../svgs/dice/d10.svg";
 import {ReactComponent as D12Svg} from "../../svgs/dice/d12.svg";
 import {ReactComponent as D20Svg} from "../../svgs/dice/d20.svg";
 
-const DiceIcon = (svg) => (props) => <SvgIcon component={svg} viewBox="7 7 93 93" {...props}/>;
+const DiceIcon = (svg) => (props) => <SvgIcon sx={{fontSize: "14pt", marginBottom: "-6px"}} component={svg}
+                                              viewBox="7 7 93 93" {...props}/>;
 
 export const D4Icon = (props) => DiceIcon(D4Svg)(props);
 export const D6Icon = (props) => DiceIcon(D6Svg)(props);

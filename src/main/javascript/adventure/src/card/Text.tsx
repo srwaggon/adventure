@@ -9,35 +9,33 @@ const replaceLineBreaks = (arr: ReactElement[]) => arr.map((e: any) => isString(
   .flat();
 const replaceLineBreaksInString = (str: string) => str.split("\n").map(s => [s, <br/>]).flat();
 
-const replaceDiceSymbols = (fontSize: string) => {
-  return (array: ReactElement[]) => {
-    const replaceDiceSymbolInArray = (pattern: string, element: ReactElement) => (array: ReactElement[]) => {
-      const replaceDiceSymbolInString = (str: string) => {
-        const result = str.split(pattern).map(s => [s, element]).flat();
-        result.pop();
-        return result;
-      };
-      return array.map((e: any) => isString(e) ? replaceDiceSymbolInString(e) : e).flat();
+const replaceDiceSymbols = (array: ReactElement[]) => {
+  const replaceDiceSymbolInArray = (pattern: string, element: ReactElement) => (array: ReactElement[]) => {
+    const replaceDiceSymbolInString = (str: string) => {
+      const result = str.split(pattern).map(s => [s, element]).flat();
+      result.pop();
+      return result;
     };
-    return [
-      replaceDiceSymbolInArray("[d4]", <D4Icon fontSize={fontSize}/>),
-      replaceDiceSymbolInArray("[d6]", <D6Icon fontSize={fontSize}/>),
-      replaceDiceSymbolInArray("[d8]", <D8Icon fontSize={fontSize}/>),
-      replaceDiceSymbolInArray("[d10]", <D10Icon fontSize={fontSize}/>),
-      replaceDiceSymbolInArray("[d12]", <D12Icon fontSize={fontSize}/>),
-      replaceDiceSymbolInArray("[d20]", <D20Icon fontSize={fontSize}/>),
-    ].reduce((acc, f) => f(acc), array);
+    return array.map((e: any) => isString(e) ? replaceDiceSymbolInString(e) : e).flat();
   };
+  return [
+    replaceDiceSymbolInArray("[d4]", <D4Icon/>),
+    replaceDiceSymbolInArray("[d6]", <D6Icon/>),
+    replaceDiceSymbolInArray("[d8]", <D8Icon/>),
+    replaceDiceSymbolInArray("[d10]", <D10Icon/>),
+    replaceDiceSymbolInArray("[d12]", <D12Icon/>),
+    replaceDiceSymbolInArray("[d20]", <D20Icon/>),
+  ].reduce((acc, f) => f(acc), array);
 };
 
-const transformers = (fontSize: string) => {
+const transformers = () => {
   return [
     wrapInList,
     replaceLineBreaks,
-    replaceDiceSymbols(fontSize),
+    replaceDiceSymbols,
   ];
 };
 
-export const applyTransforms = (value: string | ReactElement, fontSize: string) =>
-  transformers(fontSize).reduce((acc, transformer: (a: any) => any) => transformer(acc), value);
+export const applyTransforms = (value: string | ReactElement) =>
+  transformers().reduce((acc, transformer: (a: any) => any) => transformer(acc), value);
 

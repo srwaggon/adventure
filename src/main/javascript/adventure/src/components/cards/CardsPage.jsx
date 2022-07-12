@@ -15,15 +15,15 @@ const CardsPage = () => {
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
   const items = filterFunc(cards).map((card) =>
-    <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
-      <VisualCard {...card}/>
+    <Link to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
+      <VisualCard {...card} />
     </Link>);
 
   return <CenteredGridWithAppBar
-    title={'Cards'}
+    title={"Cards"}
     menuItems={<>
       <CardFilter {...{setFilterFunc}} />
-      <AddButton onClick={() => history.push('/cards/new')}/>
+      <AddButton onClick={() => history.push("/cards/new")}/>
     </>
     }>
     {items}

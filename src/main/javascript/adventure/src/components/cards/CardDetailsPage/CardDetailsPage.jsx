@@ -29,6 +29,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import useCards from "../useCards";
 import OpacityInput from "./OpacityInput";
 import AlcheimTextField from "../../input/AlcheimTextField";
+import {ZoomingToolTip} from "../../ZoomingToolTip";
 
 const newCard = () => ({
   name: "New Card",
@@ -39,6 +40,7 @@ const newCard = () => ({
   flavor: null,
   author: null,
   quality: "COMMON",
+  fontSize: "10pt",
   edition: null,
   costInExperience: 0,
   darkText: false,
@@ -189,7 +191,9 @@ const CardDetailsPage = () => {
       </TitledAppBar>
       <Container>
         <Box p={4} display="flex" flexDirection="row" justifyContent="space-evenly" flexWrap="wrap">
-          <VisualCard {...card} />
+          <ZoomingToolTip>
+            <VisualCard {...card}/>
+          </ZoomingToolTip>
           <Card>
             <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
 

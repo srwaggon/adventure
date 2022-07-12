@@ -10,7 +10,11 @@ export const CardQualityDot = ({quality}) => {
   return <Box width={10} height={10}>
     <span
       className="visual-card-quality-dot"
-      style={{backgroundColor: getQualityColor(quality)}}
+      style={{
+        backgroundColor: getQualityColor(quality),
+        height: "0.5rem",
+        width: "0.5rem",
+      }}
       title={prettify(quality)}
     />
   </Box>;

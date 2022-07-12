@@ -16,14 +16,6 @@
   border: solid thin var(--neutral-mode-grey);
 }
 
-.visual-card-text-box {
-  padding: 4px; /* .25rem */
-
-  border-radius: 4px; /* .25rem */
-
-  overflow: hidden;
-}
-
 .visual-card-content {
   display: flex;
   flex-direction: column;
@@ -38,27 +30,11 @@
   font-size: 1rem;
 }
 
-.visual-card-name {
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-.visual-card-type {
-  text-transform: capitalize;
-  font-size: 10pt;
-}
-
 .visual-card-quality-dot {
   display: inline-block;
-  height: .5em;
-  width: .5em;
   background-color: black;
   border: 1px solid black;
   border-radius: 50%;
-}
-
-.visual-card-body-text {
-  font-size: 10pt;
 }
 
 .flex-center-space-between {
