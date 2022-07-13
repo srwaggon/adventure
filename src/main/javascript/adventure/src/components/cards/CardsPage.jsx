@@ -17,17 +17,21 @@ const CardsPage = () => {
   const items = filterFunc(cards).map((card) =>
     <Link to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
       <VisualCard {...card} />
-    </Link>);
+    </Link>
+  );
 
-  return <CenteredGridWithAppBar
-    title={"Cards"}
-    menuItems={<>
+  const menuItems = (
+    <>
       <CardFilter {...{setFilterFunc}} />
       <AddButton onClick={() => history.push("/cards/new")}/>
     </>
-    }>
-    {items}
-  </CenteredGridWithAppBar>;
+  );
+
+  return (
+    <CenteredGridWithAppBar title={"Cards"} menuItems={menuItems}>
+      {items}
+    </CenteredGridWithAppBar>
+  );
 };
 
 export default CardsPage;
