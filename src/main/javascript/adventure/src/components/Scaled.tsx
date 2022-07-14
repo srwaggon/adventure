@@ -1,11 +1,11 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
 type Props = {
-  children: React.ReactElement,
+  children: ReactNode,
   scale: number,
 }
 
-export const Scaled = (props: Props): React.ReactElement => {
+export const Scaled = (props: Props) => {
   const {children, scale} = props;
   return (
     <div style={{transform: `scale(${scale})`}}>

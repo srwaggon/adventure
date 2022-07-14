@@ -1,13 +1,13 @@
 import Tooltip from "@mui/material/Tooltip";
-import React, {ReactElement} from "react";
+import React, {ReactNode} from "react";
 import {Scaled} from "./Scaled";
 
 type Props = {
-  children: ReactElement,
+  children: ReactNode,
   scale?: number
 };
 
-export const ZoomingToolTip = (props: Props): ReactElement => {
+export const ZoomingToolTip = (props: Props) => {
   const {children, scale = 1.5} = props;
   return (
     <div className={"super-necessary-div-else-the-tooltipable-area-is-oversized"}>
