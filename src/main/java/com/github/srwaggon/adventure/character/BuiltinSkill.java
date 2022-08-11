@@ -19,6 +19,7 @@ public enum BuiltinSkill {
   PERFORMANCE("performance"),
   PERSUASION("persuasion"),
 
+  EXPEDITION("expedition"),
   INVESTIGATION("investigation"),
   PERCEPTION("perception"),
   SLEIGHT_OF_HAND("sleight of hand"),
