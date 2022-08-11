@@ -34,4 +34,33 @@ public class CardService {
         .map(Optional::get)
         .collect(Collectors.toList());
   }
+
+  public List<Card> loadAndSaveAll() {
+    List<Card> allCards = getAll();
+    return saveAll(allCards);
+  }
+
+  public Card saveNewCard(String cardId, Card card) {
+    cardRepository.findById(cardId).ifPresent(card1 -> {
+      throw new CardWithIdAlreadyExistsException(cardId);
+    });
+    return saveCardWithId(cardId, card);
+  }
+
+  public Card saveCardWithId(String cardId, Card card) {
+    card.setId(cardId);
+    return save(card);
+  }
+
+  public Card save(Card card) {
+    return cardRepository.save(card);
+  }
+
+  public List<Card> saveAll(List<Card> cards) {
+    return cards.stream().map(card -> cardRepository.save(card)).toList();
+  }
+
+  public void deleteById(String cardId) {
+    cardRepository.findById(cardId).ifPresent(cardRepository::delete);
+  }
 }

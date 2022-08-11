@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 
 import com.github.srwaggon.adventure.card.edition.Edition;
 import com.github.srwaggon.adventure.card.edition.EditionService;
-import com.github.srwaggon.adventure.util.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,9 +28,6 @@ public class CardController {
   private CardService cardService;
 
   @Autowired
-  private Repository<Card, String> cardRepository;
-
-  @Autowired
   private EditionService editionService;
 
   @GetMapping
@@ -47,8 +43,8 @@ public class CardController {
 
   @PostMapping
   public Card newCard(@RequestBody Card card) {
-    card.setId(UUID.randomUUID().toString());
-    return cardRepository.save(card);
+    String cardId = UUID.randomUUID().toString();
+    return cardService.saveNewCard(cardId, card);
   }
 
   @GetMapping("/{cardId}")
@@ -58,14 +54,12 @@ public class CardController {
 
   @PutMapping("/{cardId}")
   public Card replaceCard(@RequestBody Card newCard, @PathVariable String cardId) {
-    newCard.setId(cardId);
-    return cardRepository.save(newCard);
+    return cardService.saveCardWithId(cardId, newCard);
   }
 
   @DeleteMapping("/{cardId}")
   public void deleteById(@PathVariable String cardId) {
-    cardRepository.findById(cardId)
-        .ifPresent(cardRepository::delete);
+    cardService.deleteById(cardId);
   }
 
   @GetMapping("/types")
@@ -81,5 +75,10 @@ public class CardController {
   @GetMapping("/editions")
   public List<Edition> getEditions() {
     return editionService.getAll();
+  }
+
+  @PostMapping("/loadAndSaveAll")
+  public List<Card> loadAndSaveAll() {
+    return cardService.loadAndSaveAll();
   }
 }
