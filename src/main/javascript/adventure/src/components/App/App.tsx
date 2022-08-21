@@ -2,7 +2,8 @@ import {AppBar, Box, Button, createTheme, StyledEngineProvider, Toolbar, Typogra
 import {ThemeProvider} from "@mui/styles";
 
 import React from "react";
-import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
+import {BrowserRouter, Route, Switch, useHistory} from "react-router-dom";
+import {CompatRouter} from "react-router-dom-v5-compat";
 import CardPage from "../cards/CardDetailsPage/CardDetailsPage";
 import CardsPage from "../cards/CardsPage";
 import {CharacterPage} from "../character/CharacterPage/CharacterPage";
@@ -46,20 +47,22 @@ class JsonMessage {
 const AppContent = () => {
   const classes = useStyles();
   return (<Box className="App">
-      <Router>
-        <AppBar position={"relative"} className={classes.headerBar}>
-          <Navigation/>
-        </AppBar>
-        <Switch>
-          <Route path="/cards/:cardId"><CardPage/></Route>
-          <Route path="/cards"><CardsPage/></Route>
-          <Route path="/characters/:characterId"><CharacterPage/></Route>
-          <Route path="/characters"><CharactersPage/></Route>
-          <Route path="/games/:gameId"><GameDetailsPage/></Route>
-          <Route path="/games"><GamesPage/></Route>
-          <Route path="/"><CharactersPage/></Route>
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <CompatRouter>
+          <AppBar position={"relative"} className={classes.headerBar}>
+            <Navigation/>
+          </AppBar>
+          <Switch>
+            <Route path="/cards/:cardId"><CardPage/></Route>
+            <Route path="/cards"><CardsPage/></Route>
+            <Route path="/characters/:characterId"><CharacterPage/></Route>
+            <Route path="/characters"><CharactersPage/></Route>
+            <Route path="/games/:gameId"><GameDetailsPage/></Route>
+            <Route path="/games"><GamesPage/></Route>
+            <Route path="/"><CharactersPage/></Route>
+          </Switch>
+        </CompatRouter>
+      </BrowserRouter>
     </Box>
   );
 };
