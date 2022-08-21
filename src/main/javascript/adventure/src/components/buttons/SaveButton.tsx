@@ -1,5 +1,5 @@
-import {Box, IconButton} from "@mui/material";
 import SaveIcon from "@mui/icons-material/Save";
+import {Box, IconButton} from "@mui/material";
 import {MouseEventHandler} from "react";
 
 type SaveButtonParams = { disabled?: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined };

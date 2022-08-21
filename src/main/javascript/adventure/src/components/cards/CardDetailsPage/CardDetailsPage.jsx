@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import {VisualCard} from "../VisualCard/VisualCard.tsx";
 import React, {useEffect, useState} from "react";
-import {Link, useHistory, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {deleteCard, getCardById, getCardsByIds, postNewCard, replaceCard} from "../../../utilities/client";
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
 import CardTypeSelect from "../CardTypeSelect";
@@ -74,7 +74,7 @@ const CardDetailsPage = () => {
 
   const {cardId} = useParams();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [card, setCard] = useState(null);
   // const [card, setCard] = useState(demoCard2);
@@ -117,7 +117,7 @@ const CardDetailsPage = () => {
       }
       throw new Error(response.statusText);
     })
-    .then(card => history.push(`/cards/${card.id}`));
+    .then(card => navigate(`/cards/${card.id}`));
   const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
     .then(response => {
       setEditing(false);
@@ -126,9 +126,9 @@ const CardDetailsPage = () => {
       }
       throw new Error(response.statusText);
     })
-    .then(card => history.push(`/cards/${card.id}`))
+    .then(card => navigate(`/cards/${card.id}`))
     .catch(error => console.log(error));
-  const onDelete = () => deleteCard(card).then(() => history.push("/cards"));
+  const onDelete = () => deleteCard(card).then(() => navigate("/cards"));
 
   const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ""}?`, onDelete);
 
@@ -137,14 +137,14 @@ const CardDetailsPage = () => {
       value *= 100;
     }
     setCard({...card, bodyOpacity: value});
-  }
+  };
 
   const setCostInExperience = event => {
     const costInExperienceCost = event.target.value;
     const costInExperienceValue = parseInt(costInExperienceCost);
     const costInExperience = Math.max(0, costInExperienceValue);
     setCard({...card, costInExperience});
-  }
+  };
 
   const [cardPrerequisites, setCardPrerequisites] = useState([]);
 
@@ -172,7 +172,7 @@ const CardDetailsPage = () => {
         ...otherPrerequisites,
         cardPrerequisites: filteredCardPrerequisites
       }
-    }
+    };
     setCard(newCard);
     setCardPrerequisites(filteredCardPrerequisites);
   };

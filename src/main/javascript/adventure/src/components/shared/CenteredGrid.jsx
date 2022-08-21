@@ -3,7 +3,7 @@ import React from "react";
 
 const CenteredGrid = ({children}) => {
   const items = Array.isArray(children) ? children : [children];
-  const gridItem = child => <Grid item>{child}</Grid>;
+  const gridItem = child => <Grid key={Math.random()} item>{child}</Grid>;
   return (
     <Grid container justifyContent={"center"} spacing={1}>
       {items.map(gridItem)}

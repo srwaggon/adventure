@@ -16,8 +16,8 @@ const AddCardToCharacterCard = ({cards: characterCards, setCards: setCharacterCa
   const addCardToCharacter = card => setCharacterCards([...characterCards, card]);
 
   const items = filterFunc(allCards).map((card) =>
-    <Card>
-      <Link to={`/cards/${card.id}`} style={{textDecoration: 'none'}}>
+    <Card key={card.id}>
+      <Link to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
         <VisualCard {...card}/>
       </Link>
       <AddButton onClick={() => addCardToCharacter(card)}/>
@@ -25,7 +25,7 @@ const AddCardToCharacterCard = ({cards: characterCards, setCards: setCharacterCa
 
   return <Card>
     <CenteredGridWithAppBar
-      title={'Add to Character'}
+      title={"Add to Character"}
       menuItems={
         <CardFilter {...{setFilterFunc}} />
       }>

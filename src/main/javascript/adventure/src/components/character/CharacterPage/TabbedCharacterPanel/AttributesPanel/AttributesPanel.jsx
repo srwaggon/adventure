@@ -3,7 +3,7 @@ import {Box, Divider, Typography} from "@mui/material";
 import {CharacterResource} from "./CharacterResource";
 import {CharacterAttribute} from "./CharacterAttribute";
 
-import "./AttributesPanel.css"
+import "./AttributesPanel.css";
 import EditButtonRow from "../../../../buttons/EditButtonRow/EditButtonRow";
 import {Row} from "../../../../Row/Row";
 import {replaceCharacter} from "../../../../../utilities/client";
@@ -53,8 +53,8 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
         const newAttributes = {...attributes};
         newAttributes[attribute.name] = attribute;
         setAttributes(newAttributes);
-      }
-    }
+      };
+    };
 
     return <CharacterAttribute
       isEditing={isEditing}
@@ -62,7 +62,7 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
       characterValue={attribute}
       setValue={setAttributeValue(attribute)}
     />;
-  }
+  };
 
   const onEdit = () => {
     setIsEditing(true);
@@ -103,7 +103,7 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
       <li><CharacterAttributeWrapper attribute={attributes.resolve}/></li>
     </ul>
   </Box>;
-}
+};
 
 const copyResources = ({health, stamina, confidence, reputation, mana, focus}) => {
   return {
@@ -113,7 +113,7 @@ const copyResources = ({health, stamina, confidence, reputation, mana, focus}) =
     reputation: copyCharacterValue(reputation),
     mana: copyCharacterValue(mana),
     focus: copyCharacterValue(focus),
-  }
+  };
 };
 
 const CharacterResourcesSection = ({character, setCharacter}) => {
@@ -132,7 +132,7 @@ const CharacterResourcesSection = ({character, setCharacter}) => {
 
   const onCancelEdit = () => {
     setIsEditing(false);
-    setResources(copyResources(character))
+    setResources(copyResources(character));
   };
 
   return <Box p={1}>
@@ -153,4 +153,4 @@ const CharacterResourcesSection = ({character, setCharacter}) => {
       <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.focus}/></li>
     </ul>
   </Box>;
-}
+};

@@ -2,8 +2,7 @@ import {AppBar, Box, Button, createTheme, StyledEngineProvider, Toolbar, Typogra
 import {ThemeProvider} from "@mui/styles";
 
 import React from "react";
-import {BrowserRouter, Route, Switch, useHistory} from "react-router-dom";
-import {CompatRouter} from "react-router-dom-v5-compat";
+import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
 import CardPage from "../cards/CardDetailsPage/CardDetailsPage";
 import CardsPage from "../cards/CardsPage";
 import {CharacterPage} from "../character/CharacterPage/CharacterPage";
@@ -14,19 +13,19 @@ import {useStyles} from "../Styles";
 import "./App.css";
 
 const Navigation = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   return <Toolbar>
     <Box display="flex" justifyContent={"space-between"} width={1} alignItems={"center"}
          flexWrap={"wrap"} ml={-1}>
-      <Button color={"inherit"} onClick={() => history.push("/")}>
+      <Button color={"inherit"} onClick={() => navigate("/")}>
         <Typography variant="h4" style={{textTransform: "capitalize"}}>Alcheim
           Online</Typography>
       </Button>
       <Box>
-        <Button color="inherit" onClick={() => history.push("/cards")}>Cards</Button>
+        <Button color="inherit" onClick={() => navigate("/cards")}>Cards</Button>
         <Button color="inherit"
-                onClick={() => history.push("/characters")}>Characters</Button>
-        <Button color="inherit" onClick={() => history.push("/games")}>Games</Button>
+                onClick={() => navigate("/characters")}>Characters</Button>
+        <Button color="inherit" onClick={() => navigate("/games")}>Games</Button>
         <Button color="inherit" href={"/logout"}>Logout</Button>
       </Box>
     </Box>
@@ -48,20 +47,18 @@ const AppContent = () => {
   const classes = useStyles();
   return (<Box className="App">
       <BrowserRouter>
-        <CompatRouter>
-          <AppBar position={"relative"} className={classes.headerBar}>
-            <Navigation/>
-          </AppBar>
-          <Switch>
-            <Route path="/cards/:cardId"><CardPage/></Route>
-            <Route path="/cards"><CardsPage/></Route>
-            <Route path="/characters/:characterId"><CharacterPage/></Route>
-            <Route path="/characters"><CharactersPage/></Route>
-            <Route path="/games/:gameId"><GameDetailsPage/></Route>
-            <Route path="/games"><GamesPage/></Route>
-            <Route path="/"><CharactersPage/></Route>
-          </Switch>
-        </CompatRouter>
+        <AppBar position={"relative"} className={classes.headerBar}>
+          <Navigation/>
+        </AppBar>
+        <Routes>
+          <Route path="/cards/:cardId" element={<CardPage/>}/>
+          <Route path="/cards" element={<CardsPage/>}/>
+          <Route path="/characters/:characterId" element={<CharacterPage/>}/>
+          <Route path="/characters" element={<CharactersPage/>}/>
+          <Route path="/games/:gameId" element={<GameDetailsPage/>}/>
+          <Route path="/games" element={<GamesPage/>}/>
+          <Route path="/" element={<CharactersPage/>}/>
+        </Routes>
       </BrowserRouter>
     </Box>
   );

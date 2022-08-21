@@ -1,4 +1,4 @@
-import {useHistory, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import React, {useState} from "react";
 import {deleteCharacter, getCharacterById, replaceCharacter} from "../../../utilities/client";
 import {Box, CircularProgress, Container} from "@mui/material";
@@ -19,9 +19,9 @@ export const CharacterPage = () => {
 
   const [isEditing, setEditing] = useState(false);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const onDelete = () => deleteCharacter(character).then(() => history.push("/characters"));
+  const onDelete = () => deleteCharacter(character).then(() => navigate("/characters"));
 
   const onCancelEdit = ignored => {
     setEditing(false);

@@ -1,5 +1,5 @@
-import {Box, IconButton} from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import {Box, IconButton} from "@mui/material";
 import {MouseEventHandler} from "react";
 
 type CopyButtonParams = { disabled?: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined };

@@ -11,7 +11,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import {useHistory, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useGameWithId} from "./UseGameWithId";
 import React, {useState} from "react";
 import EditButtonRow from "../buttons/EditButtonRow/EditButtonRow";
@@ -31,7 +31,7 @@ import {useWebSocket} from "../shared/UseWebSocket";
 const GameDetailsPage = () => {
   const {gameId} = useParams();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [isEditing, setEditing] = useState(false);
 
@@ -74,7 +74,7 @@ const GameDetailsPage = () => {
       .then(response => response.json())
       .then(setGame);
   };
-  const onDelete = () => deleteGame(game).then(() => history.push("/games"));
+  const onDelete = () => deleteGame(game).then(() => navigate("/games"));
 
   const [isCharacterDrawerOpen, setCharacterDrawerOpen] = useState(false);
   const openCharacterDrawer = () => setCharacterDrawerOpen(true);
@@ -110,8 +110,6 @@ const GameDetailsPage = () => {
                                                        setCharacter={setSelectedCharacter}/>;
 
   const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ""}`, onDelete);
-
-
 
   return !players
     ? <span>"Loading..."</span>

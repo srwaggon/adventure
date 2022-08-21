@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import useCards from "./useCards";
 import CenteredGridWithAppBar from "../shared/CenteredGridWithAppBar";
 import AddButton from "../buttons/AddButton";
@@ -8,14 +8,14 @@ import {VisualCard} from "./VisualCard/VisualCard.tsx";
 
 const CardsPage = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const cards = useCards();
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
   const items = filterFunc(cards).map((card) =>
-    <Link to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
+    <Link key={card.id} to={`/cards/${card.id}`} style={{textDecoration: "none"}}>
       <VisualCard {...card} />
     </Link>
   );
@@ -23,7 +23,7 @@ const CardsPage = () => {
   const menuItems = (
     <>
       <CardFilter {...{setFilterFunc}} />
-      <AddButton onClick={() => history.push("/cards/new")}/>
+      <AddButton onClick={() => navigate("/cards/new")}/>
     </>
   );
 

@@ -1,7 +1,7 @@
-import React from "react";
 import {Box, Grid, Slider, Typography} from "@mui/material";
-import {styled} from "@mui/styles";
 import MuiInput from "@mui/material/Input";
+import {styled} from "@mui/styles";
+import React from "react";
 
 type propsType = { defaultValue: number, onChange: (value: number | number[]) => void }
 
@@ -17,7 +17,7 @@ const OpacityInput = ({defaultValue, onChange}: propsType) => {
   const setOpacity = (opacity: number | number[]) => {
     setValue(opacity);
     onChange(opacity);
-  }
+  };
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
     setOpacity(newValue);
@@ -70,7 +70,7 @@ const OpacityInput = ({defaultValue, onChange}: propsType) => {
         </Grid>
       </Grid>
     </Box>
-  </>
-}
+  </>;
+};
 
 export default OpacityInput;

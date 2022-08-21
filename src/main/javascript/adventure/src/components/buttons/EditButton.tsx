@@ -1,5 +1,5 @@
-import {Box, IconButton} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
+import {Box, IconButton} from "@mui/material";
 import {MouseEventHandler} from "react";
 
 type EditButtonParams = { disabled?: boolean, onClick: MouseEventHandler<HTMLButtonElement> | undefined };
