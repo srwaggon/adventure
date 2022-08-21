@@ -16,7 +16,7 @@ const CardTypeSelect = ({children, defaultValue, onSelect}) => {
       onChange: (event) => onSelect(event.target.value)
     }}>
       {children}
-      {cardTypes.map(quality => <MenuItem value={quality}>{prettify(quality)}</MenuItem>)}
+      {cardTypes.map(cardType => <MenuItem key={cardType} value={cardType}>{prettify(cardType)}</MenuItem>)}
     </Select>
   </FormControl>;
 };

@@ -24,7 +24,7 @@ export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
       }
     }}>
       {children}
-      {editions.map(edition => <MenuItem value={edition}>{prettify(edition.name)}</MenuItem>)}
+      {editions.map(edition => <MenuItem key={edition} value={edition}>{prettify(edition.name)}</MenuItem>)}
     </Select>
   </FormControl>;
 };
