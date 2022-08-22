@@ -10,6 +10,7 @@ public class Card implements Identified<String> {
   private String name;
   private CardType type;
   private CardQuality quality;
+  private boolean isFullArt = true;
   private String image;
   private String imageSize;
   private String body;
@@ -58,6 +59,14 @@ public class Card implements Identified<String> {
 
   public void setQuality(CardQuality quality) {
     this.quality = quality;
+  }
+
+  public boolean isFullArt() {
+    return isFullArt;
+  }
+
+  public void setFullArt(boolean fullArt) {
+    isFullArt = fullArt;
   }
 
   public String getImage() {

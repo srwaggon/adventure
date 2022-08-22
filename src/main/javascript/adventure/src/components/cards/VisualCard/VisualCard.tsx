@@ -1,7 +1,7 @@
 import {Box, Divider, Typography} from "@mui/material";
 import React, {ReactElement} from "react";
 import {applyTransforms} from "../../../card/Text";
-import {DARK_MODE_BLACK, getQualityColor, LIGHT_MODE_WHITE} from "../../../utilities/colors";
+import {DARK_MODE_BLACK, getQualityColor, LIGHT_MODE_WHITE, NEUTRAL_MODE_GREY} from "../../../utilities/colors";
 import {prettify} from "../../../utilities/kitchen_sink";
 import {CardQualityDot} from "./CardQualityDot";
 import {FlavorText} from "./FlavorText";
@@ -26,6 +26,7 @@ type VisualCardProps = {
   name?: string,
   image?: string,
   imageSize?: string,
+  fullArt?: boolean
   type?: string,
   body?: string,
   flavor?: string,
@@ -42,6 +43,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
     name = "",
     image = "",
     imageSize = "cover",
+    fullArt = true,
     type = "",
     body = "",
     flavor = "",
@@ -54,10 +56,11 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
 
   const height = 22.5;
   const width = height * .74;
-  const backgroundStyles = image && image !== "" ? {
-    backgroundImage: `url(${image})`,
-    backgroundSize: imageSize
-  } : {};
+  const backgroundStyles = {
+    backgroundImage: `url(${fullArt && image && image !== "" ? image
+      : "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo="})`,
+    backgroundSize: fullArt ? imageSize : "100%"
+  };
   const contentStyle = {
     ...backgroundStyles,
     height: `${height}rem`,
@@ -76,32 +79,53 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
   const bodyElements = applyTransforms(body);
   const backgroundColor = (darkText ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(bodyOpacity);
 
+  const CardPane = (props: any) => {
+    const {children, className, style, ...otherProps} = props;
+    return <Box
+      className={`visual-card-pane ${className}`}
+      p={0.5}
+      style={{
+        backgroundColor: backgroundColor,
+        border: `solid thin ${NEUTRAL_MODE_GREY}`,
+        borderRadius: "4px",
+        overflow: "hidden",
+        ...style
+      }}
+      {...otherProps}
+    >
+      {children}
+    </Box>;
+  };
+
   return (
     <Box className="visualcard">
       <Box className="visual-card-content" p={1} {...{style: contentStyle}}>
-        <div style={{flexGrow: 1}}/>
-
-        <Box
-          className={`visual-card-text-box ${darkTextModifier}`}
-          p={0.5}
+        {!fullArt && <CardPane
+          height={180}
           style={{
-            backgroundColor: backgroundColor,
-            borderRadius: "4px",
-            overflow: "hidden",
-          }}
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            borderColor: DARK_MODE_BLACK,
+          }}/>}
+
+        <Box flexGrow={fullArt ? 1 : 0} minHeight={10}/>
+
+        <CardPane
+          flexGrow={fullArt ? 0 : 1}
+          className={`visual-card-text-box ${darkTextModifier}`}
         >
 
           <Box className="flex-center-space-between" color={titleColor}>
-              <span
-                className={"visual-card-name"}
-                style={{
-                  textTransform: "capitalize",
-                  fontWeight: "bold",
-                }}
-                title={name}
-              >
-                {name}
-              </span>
+            <span
+              className={"visual-card-name"}
+              style={{
+                textTransform: "capitalize",
+                fontWeight: "bold",
+              }}
+              title={name}
+            >
+              {name}
+            </span>
             {quality && <CardQualityDot quality={quality}/>}
           </Box>
 
@@ -133,7 +157,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
             </Typography>
           </Box>}
 
-        </Box>
+        </CardPane>
       </Box>
     </Box>
   );

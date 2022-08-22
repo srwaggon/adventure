@@ -25,7 +25,7 @@
   background-position: center top;
 
   border-radius: .5rem;
-  border: solid thin black;
+  border: solid thin var(--dark-mode-black);
 
   font-size: 1rem;
 }

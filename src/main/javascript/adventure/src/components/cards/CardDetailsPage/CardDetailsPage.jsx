@@ -33,6 +33,7 @@ import {ZoomingToolTip} from "../../ZoomingToolTip";
 
 const newCard = () => ({
   name: "New Card",
+  fullArt: false,
   image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
   imageSize: "cover",
   type: "ABILITY",
@@ -207,6 +208,18 @@ const CardDetailsPage = () => {
                 onChange={event => setCard({...card, name: event.target.value})}
               />
 
+              <FormControlLabel
+                label="Full Art"
+                control={
+                  <Switch
+                    checked={card.fullArt}
+                    onChange={event => setCard({...card, fullArt: event.target.checked})}
+                    color="primary"
+                    inputProps={{"aria-label": "primary checkbox"}}
+                  />
+                }
+              />
+
               <AlcheimTextField
                 label={"Image URL"}
                 defaultValue={card.image}
@@ -257,7 +270,10 @@ const CardDetailsPage = () => {
                     checked={card.darkText}
                     onChange={event => setCard({...card, darkText: event.target.checked})}
                     color="primary"
-                    inputProps={{"aria-label": "primary checkbox"}}/>}/>
+                    inputProps={{"aria-label": "primary checkbox"}}
+                  />
+                }
+              />
             </Box>
           </Card>
           <Card>
