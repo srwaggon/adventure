@@ -219,11 +219,11 @@ const CardDetailsPage = () => {
                 onChange={event => setCard({...card, imageSize: event.target.value})}
               />
 
-              <CardQualitySelect defaultValue={card.quality} onSelect={quality => setCard({...card, quality})}/>
+              <CardQualitySelect value={card.quality} onSelect={quality => setCard({...card, quality})}/>
 
-              <CardTypeSelect defaultValue={card.type} onSelect={type => setCard({...card, type})}/>
+              <CardTypeSelect value={card.type} onSelect={type => setCard({...card, type})}/>
 
-              <CardEditionSelect defaultValue={card.editionId}
+              <CardEditionSelect value={card.editionId}
                                  onSelect={edition => setCard({...card, editionId: edition.id})}/>
 
               <AlcheimTextField

@@ -3,7 +3,7 @@ import useQualities from "../quality/UseQualities";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {prettify} from "../../utilities/kitchen_sink";
 
-const CardQualitySelect = ({defaultValue, onSelect, children}) => {
+const CardQualitySelect = ({value, onSelect, children}) => {
 
   const qualities = useQualities();
 
@@ -13,7 +13,7 @@ const CardQualitySelect = ({defaultValue, onSelect, children}) => {
     <InputLabel>{label}</InputLabel>
     <Select {...{
       label,
-      defaultValue,
+      value,
       onChange: (event) => onSelect(event.target.value)
     }}>
       {children}

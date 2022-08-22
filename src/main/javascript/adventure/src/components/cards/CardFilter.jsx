@@ -21,21 +21,21 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
-const NameFilter = ({onFilterName, defaultValue}) => <TextField
+const NameFilter = ({onFilterName, value}) => <TextField
   label="Name"
   variant="outlined"
   margin="dense"
   fullWidth
-  defaultValue={defaultValue}
+  value={value}
   onChange={(event) => onFilterName(event.target.value)}
 />;
 
-const TextFilter = ({onFilterText, defaultValue}) => <TextField
+const TextFilter = ({onFilterText, value}) => <TextField
   label="Text"
   variant="outlined"
   margin="dense"
   fullWidth
-  defaultValue={defaultValue}
+  value={value}
   onChange={(event) => onFilterText(event.target.value)}
 />;
 
@@ -109,20 +109,20 @@ const CardFilter = ({setFilterFunc}) => {
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <NameFilter
         onFilterName={onFilterName}
-        defaultValue={getName()}
+        value={getName()}
       />
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <TextFilter
         onFilterText={onFilterText}
-        defaultValue={getText()}
+        value={getText()}
       />
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
-        defaultValue={getQuality()}
+        value={getQuality()}
         onSelect={onFilterQuality}>
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
@@ -131,7 +131,7 @@ const CardFilter = ({setFilterFunc}) => {
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardTypeSelect
-        defaultValue={getType()}
+        value={getType()}
         onSelect={onFilterType}>
         <MenuItem value={"any"}>Any</MenuItem>
       </CardTypeSelect>
@@ -139,7 +139,7 @@ const CardFilter = ({setFilterFunc}) => {
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardEditionSelect
-        defaultValue={getEdition()}
+        value={getEdition()}
         onSelect={onFilterEdition}
       >
         <MenuItem value={"any"}>Any</MenuItem>

@@ -3,7 +3,7 @@ import useCardTypes from "./cardtype/UseCardTypes";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {prettify} from "../../utilities/kitchen_sink";
 
-const CardTypeSelect = ({children, defaultValue, onSelect}) => {
+const CardTypeSelect = ({children, value, onSelect}) => {
   const cardTypes = useCardTypes();
 
   const label = "Type";
@@ -12,7 +12,7 @@ const CardTypeSelect = ({children, defaultValue, onSelect}) => {
     <InputLabel>{label}</InputLabel>
     <Select {...{
       label,
-      defaultValue,
+      value,
       onChange: (event) => onSelect(event.target.value)
     }}>
       {children}

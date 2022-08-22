@@ -3,7 +3,7 @@ import React from "react";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {prettify} from "../../utilities/kitchen_sink";
 
-export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
+export const CardEditionSelect = ({children, value, onSelect}) => {
   const editions = useEditions();
 
   const editionsByName = editions.reduce((acc, edition) => {
@@ -17,7 +17,7 @@ export const CardEditionSelect = ({children, defaultValue, onSelect}) => {
     <InputLabel>{label}</InputLabel>
     <Select {...{
       label,
-      defaultValue,
+      value,
       onChange: (event) => {
         const value = event.target.value;
         onSelect(editionsByName[value] || value);
