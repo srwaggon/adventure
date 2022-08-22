@@ -45,7 +45,9 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
     <Divider/>
     <CardContent>
       <CenteredGrid>
-        {cardsToDisplay.map(card => <CharacterCard {...{card, onDelete, onPlay}} />)}
+        {cardsToDisplay.map(card => <CharacterCard {...{
+          card, onDelete: card.type !== "ACTION" && onDelete, onPlay
+        }} />)}
       </CenteredGrid>
     </CardContent>
   </>;

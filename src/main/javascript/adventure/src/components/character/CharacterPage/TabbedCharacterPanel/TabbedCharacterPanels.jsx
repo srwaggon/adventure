@@ -13,8 +13,7 @@ export const TabbedCharacterPanels = ({
   setCharacter,
   cards,
   setCards,
-  onPlay = () => {
-  }
+  onPlay
 }) => {
 
   const onDelete = (card) => setCards(cards.filter(c => c.id !== card.id));
