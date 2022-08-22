@@ -1,10 +1,11 @@
 import {Box, MenuItem, TextField} from "@mui/material";
 import CardTypeSelect from "./CardTypeSelect";
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import CardQualitySelect from "./CardQualitySelect";
 import CardEditionSelect from "./CardEditionSelect";
+import {useSearchParams} from "react-router-dom";
 
-const filterName = (name) => (card) => card.name.toLowerCase().includes(name);
+const filterName = (name) => (card) => card.name.toLowerCase().includes(name.toLowerCase());
 
 const filterType = (type) => (card) => "any" === type || type === card.type;
 
@@ -18,47 +19,85 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
+const NameFilter = ({onFilterName, defaultValue}) => <TextField
+  label="Name"
+  variant="outlined"
+  margin="dense"
+  fullWidth
+  defaultValue={defaultValue}
+  onChange={(event) => onFilterName(event.target.value)}
+/>;
+
 const CardFilter = ({setFilterFunc}) => {
 
-  const [filter, setFilter] = useState({
-    name: "",
-    type: "any",
-    quality: "any",
-    editionId: "any",
-  });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const getName = () => searchParams.get("name") || "";
+
+  const getType = () => searchParams.get("type") || "any";
+
+  const getQuality = () => searchParams.get("quality") || "any";
+
+  const getEdition = () => searchParams.get("edition") || "any";
+
+  const setParams = (params = {}) => {
+    setSearchParams({
+      name: (params && params.name) || "",
+      type: (params && params.type) || getType(),
+      quality: (params && params.quality) || getQuality(),
+      edition: (params && params.edition) || getEdition(),
+    });
+  };
+
+  useEffect(() => {
+    setParams({});
+  }, []);
 
   useEffect(() => {
     setFilterFunc(() => (cards) =>
       cards
-        .filter(filterName(filter.name))
-        .filter(filterType(filter.type))
-        .filter(filterQuality(filter.quality))
-        .filter(filterEdition(filter.editionId)),
+        .filter(filterName(getName()))
+        .filter(filterType(getType()))
+        .filter(filterQuality(getQuality()))
+        .filter(filterEdition(getEdition()))
     );
-  }, [filter.name, filter.type, filter.quality, filter.editionId, setFilterFunc]);
+  }, [searchParams]);
+
+  const onFilterName = name => {
+    setParams({name});
+  };
+
+  const onFilterType = type => {
+    setParams({type});
+  };
+
+  const onFilterQuality = (quality) => {
+    const qualityId = quality === "none" ? "none"
+      : quality === "any" ? "any"
+        : quality;
+    setParams({quality: qualityId});
+  };
+
+  function onFilterEdition(edition) {
+    const editionId = edition === "none" ? "none"
+      : edition === "any" ? "any"
+        : edition.id;
+    setParams({edition: editionId});
+  }
 
   return <Box display={"flex"} flexGrow={2} flexShrink={1} justifyContent={"flex-end"} flexWrap={"wrap"}>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
-      <TextField
-        label="Name"
-        variant="outlined"
-        margin="dense"
-        fullWidth
-        defaultValue={filter.term}
-        onChange={event => setFilter({...filter, name: event.target.value.toLowerCase()})}
+      <NameFilter
+        onFilterName={onFilterName}
+        defaultValue={getName()}
       />
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
-        defaultValue={"any"}
-        onSelect={(quality) => {
-          const qualityId = quality === "none" ? "none"
-            : quality === "any" ? "any"
-              : quality;
-          setFilter({...filter, quality: qualityId});
-        }}>
+        defaultValue={getQuality()}
+        onSelect={onFilterQuality}>
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
       </CardQualitySelect>
@@ -66,21 +105,17 @@ const CardFilter = ({setFilterFunc}) => {
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardTypeSelect
-        defaultValue={"any"}
-        onSelect={(type) => setFilter({...filter, type})}>
+        defaultValue={getType()}
+        onSelect={onFilterType}>
         <MenuItem value={"any"}>Any</MenuItem>
       </CardTypeSelect>
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardEditionSelect
-        defaultValue={"any"}
-        onSelect={(edition) => {
-          const editionId = edition === "none" ? "none"
-            : edition === "any" ? "any"
-              : edition.id;
-          setFilter({...filter, editionId: editionId});
-        }}>
+        defaultValue={getEdition()}
+        onSelect={onFilterEdition}
+      >
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
       </CardEditionSelect>
