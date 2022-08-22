@@ -5,7 +5,9 @@ import CardQualitySelect from "./CardQualitySelect";
 import CardEditionSelect from "./CardEditionSelect";
 import {useSearchParams} from "react-router-dom";
 
-const filterName = (name) => (card) => card.name.toLowerCase().includes(name.toLowerCase());
+const filterName = (name) => (card) => (card.name || "").toLowerCase().includes(name);
+
+const filterText = (text) => (card) => (card.body || "").toLowerCase().includes(text);
 
 const filterType = (type) => (card) => "any" === type || type === card.type;
 
@@ -28,11 +30,22 @@ const NameFilter = ({onFilterName, defaultValue}) => <TextField
   onChange={(event) => onFilterName(event.target.value)}
 />;
 
+const TextFilter = ({onFilterText, defaultValue}) => <TextField
+  label="Text"
+  variant="outlined"
+  margin="dense"
+  fullWidth
+  defaultValue={defaultValue}
+  onChange={(event) => onFilterText(event.target.value)}
+/>;
+
 const CardFilter = ({setFilterFunc}) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
   const getName = () => searchParams.get("name") || "";
+
+  const getText = () => searchParams.get("text") || "";
 
   const getType = () => searchParams.get("type") || "any";
 
@@ -43,6 +56,7 @@ const CardFilter = ({setFilterFunc}) => {
   const setParams = (params = {}) => {
     setSearchParams({
       name: (params && params.name) || "",
+      text: (params && params.text) || "",
       type: (params && params.type) || getType(),
       quality: (params && params.quality) || getQuality(),
       edition: (params && params.edition) || getEdition(),
@@ -56,7 +70,8 @@ const CardFilter = ({setFilterFunc}) => {
   useEffect(() => {
     setFilterFunc(() => (cards) =>
       cards
-        .filter(filterName(getName()))
+        .filter(filterName(getName().toLowerCase()))
+        .filter(filterText(getText().toLowerCase()))
         .filter(filterType(getType()))
         .filter(filterQuality(getQuality()))
         .filter(filterEdition(getEdition()))
@@ -65,6 +80,10 @@ const CardFilter = ({setFilterFunc}) => {
 
   const onFilterName = name => {
     setParams({name});
+  };
+
+  const onFilterText = text => {
+    setParams({text});
   };
 
   const onFilterType = type => {
@@ -91,6 +110,13 @@ const CardFilter = ({setFilterFunc}) => {
       <NameFilter
         onFilterName={onFilterName}
         defaultValue={getName()}
+      />
+    </Box>
+
+    <Box flexGrow={1} flexShrink={1} pl={1}>
+      <TextFilter
+        onFilterText={onFilterText}
+        defaultValue={getText()}
       />
     </Box>
 
