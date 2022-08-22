@@ -1,9 +1,10 @@
-import {Box, MenuItem, TextField} from "@mui/material";
+import {Box, IconButton, InputAdornment, MenuItem, TextField} from "@mui/material";
 import CardTypeSelect from "./CardTypeSelect";
 import React, {useEffect} from "react";
 import CardQualitySelect from "./CardQualitySelect";
 import CardEditionSelect from "./CardEditionSelect";
 import {useSearchParams} from "react-router-dom";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const filterName = (name) => (card) => (card.name || "").toLowerCase().includes(name);
 
@@ -21,6 +22,7 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
+
 const NameFilter = ({onFilterName, value}) => <TextField
   label="Name"
   variant="outlined"
@@ -28,6 +30,17 @@ const NameFilter = ({onFilterName, value}) => <TextField
   fullWidth
   value={value}
   onChange={(event) => onFilterName(event.target.value)}
+  InputProps={value && {
+    endAdornment: <InputAdornment position="end">
+      <IconButton
+        aria-label="clear"
+        onClick={() => onFilterName("")}
+        edge="end"
+      >
+        <ClearIcon/>
+      </IconButton>
+    </InputAdornment>
+  }}
 />;
 
 const TextFilter = ({onFilterText, value}) => <TextField
@@ -37,8 +50,18 @@ const TextFilter = ({onFilterText, value}) => <TextField
   fullWidth
   value={value}
   onChange={(event) => onFilterText(event.target.value)}
+  InputProps={value && {
+    endAdornment: <InputAdornment position="end">
+      <IconButton
+        aria-label="clear"
+        onClick={() => onFilterText("")}
+        edge="end"
+      >
+        <ClearIcon/>
+      </IconButton>
+    </InputAdornment>
+  }}
 />;
-
 const CardFilter = ({setFilterFunc}) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -97,12 +120,12 @@ const CardFilter = ({setFilterFunc}) => {
     setParams({quality: qualityId});
   };
 
-  function onFilterEdition(edition) {
+  const onFilterEdition = edition => {
     const editionId = edition === "none" ? "none"
       : edition === "any" ? "any"
         : edition.id;
     setParams({edition: editionId});
-  }
+  };
 
   return <Box display={"flex"} flexGrow={2} flexShrink={1} justifyContent={"flex-end"} flexWrap={"wrap"}>
 
