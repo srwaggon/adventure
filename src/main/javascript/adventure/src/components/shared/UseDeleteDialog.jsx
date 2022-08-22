@@ -2,10 +2,14 @@ import React, {useState} from "react";
 import {Button, Dialog, DialogActions, DialogTitle} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export function useDeleteDialog(title, onDelete) {
+export function useDeleteDialog(onDelete) {
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [text, setText] = useState("");
 
-  const openDialog = () => setDeleteDialogOpen(true);
+  const openDialog = (text) => () => {
+    setText(text);
+    setDeleteDialogOpen(true);
+  };
   const handleClose = () => setDeleteDialogOpen(false);
 
   const DeleteDialog = () => <Dialog
@@ -13,7 +17,7 @@ export function useDeleteDialog(title, onDelete) {
     onClose={handleClose}
   >
     <DialogTitle>
-      {title}
+      {text}
     </DialogTitle>
     <DialogActions>
       <Button autoFocus onClick={handleClose}>Cancel</Button>

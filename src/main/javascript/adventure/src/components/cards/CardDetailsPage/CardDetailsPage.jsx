@@ -131,7 +131,7 @@ const CardDetailsPage = () => {
     .catch(error => console.log(error));
   const onDelete = () => deleteCard(card).then(() => navigate("/cards"));
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete card ${card?.name || ""}?`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
 
   const setOpacity = (value) => {
     if (0 < value && value < 1) {
@@ -187,7 +187,7 @@ const CardDetailsPage = () => {
           onCancelEdit,
           onCopy,
           onSave,
-          onDelete: openDialog
+          onDelete: openDialog(`Delete card ${card?.name || ""}?`)
         }}/>
       </TitledAppBar>
       <Container>

@@ -16,7 +16,12 @@ export const TabbedCharacterPanels = ({
   onPlay
 }) => {
 
-  const onDelete = (card) => setCards(cards.filter(c => c.id !== card.id));
+  const onDelete = (card) => {
+    const cardsCopy = [...cards];
+    const cardIndex = cardsCopy.indexOf(card);
+    cardsCopy.splice(cardIndex, 1);
+    return setCards(cardsCopy);
+  };
 
   const [selectedTab, setSelectedTab] = useState(ATTRIBUTES_TAB);
 

@@ -109,7 +109,7 @@ const GameDetailsPage = () => {
   const drawerContent = <CharacterDetailsDrawerContent character={selectedCharacter}
                                                        setCharacter={setSelectedCharacter}/>;
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Delete Game ${game?.name || ""}`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
 
   return !players
     ? <span>"Loading..."</span>
@@ -123,7 +123,7 @@ const GameDetailsPage = () => {
               <Typography variant="h6">{title}</Typography>
             </Box>
             <EditButtonRow
-              onDelete={openDialog}
+              onDelete={openDialog(`Delete Game ${game?.name || ""}`)}
               onSave={onSave}
               onCancelEdit={onCancelEdit}
               onEdit={onEdit}

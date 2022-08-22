@@ -41,13 +41,15 @@ export const CharacterPage = () => {
 
   const characterPageState = {character, setCharacter, cards, setCards, isEditing, setEditing};
 
-  const {openDialog, DeleteDialog} = useDeleteDialog(`Really delete ${character?.name || ""}`, onDelete);
+  const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
 
   return !character
     ? <CircularProgress/>
     : <div>
       <TitledAppBar title={"Character Details"}>
-        <EditButtonRow {...{onEdit, onCancelEdit, onSave, onDelete: openDialog}}/>
+        <EditButtonRow {...{
+          onEdit, onCancelEdit, onSave, onDelete: openDialog(`Really delete ${character?.name || ""}`)
+        }}/>
       </TitledAppBar>
       <Container maxWidth={false}>
         <Box p={1}>

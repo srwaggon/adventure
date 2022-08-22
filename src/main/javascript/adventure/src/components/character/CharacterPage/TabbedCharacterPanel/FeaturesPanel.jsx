@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {CardContent, Divider, Tab, Tabs} from "@mui/material";
 import CenteredGrid from "../../../shared/CenteredGrid";
-import {CharacterCard} from "./CharacterCard";
+import {CharacterCardWithDeleteDialog} from "./CharacterCardWithDeleteDialog";
 
 export const FEATURES_TAB = "features";
 export const FeaturesPanel = ({cards, onDelete, onPlay, selectedTab}) => {
@@ -40,8 +40,14 @@ export const FeaturesPanel = ({cards, onDelete, onPlay, selectedTab}) => {
         {cards
           .filter(isFeature)
           .filter(bySubType)
-          .map(card => <CharacterCard {...{card, onDelete, onPlay}} />)}
+          .map(card =>
+            <CharacterCardWithDeleteDialog
+              key={card}
+              card={card}
+              onDelete={onDelete}
+              onPlay={onPlay}
+            />)}
       </CenteredGrid>
     </CardContent>
   </>;
-}
+};

@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import useCards from "../../../cards/useCards";
 import {CardContent, Divider, Tab, Tabs} from "@mui/material";
 import CenteredGrid from "../../../shared/CenteredGrid";
-import {CharacterCard} from "./CharacterCard";
+import {CharacterCardWithDeleteDialog} from "./CharacterCardWithDeleteDialog";
 
 export const ACTIONS_TAB = "abilities";
 export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
+
   const [selectedSubTab, setSelectedSubTab] = useState("all");
 
   const actionCards = useCards().filter(card => card.type === "ACTION");
@@ -45,9 +46,14 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
     <Divider/>
     <CardContent>
       <CenteredGrid>
-        {cardsToDisplay.map(card => <CharacterCard {...{
-          card, onDelete: card.type !== "ACTION" && onDelete, onPlay
-        }} />)}
+        {cardsToDisplay.map(
+          card =>
+            <CharacterCardWithDeleteDialog
+              key={card}
+              card={card}
+              onDelete={onDelete}
+              onPlay={onPlay}
+            />)}
       </CenteredGrid>
     </CardContent>
   </>;
