@@ -22,7 +22,6 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
-
 const NameFilter = ({onFilterName, value}) => <TextField
   label="Name"
   variant="outlined"
@@ -78,8 +77,8 @@ const CardFilter = ({setFilterFunc}) => {
 
   const setParams = (params = {}) => {
     setSearchParams({
-      name: (params && params.name) || "",
-      text: (params && params.text) || "",
+      name: params && params.name !== undefined && params.name !== null ? params.name : getName(),
+      text: params && params.text !== undefined && params.name !== null ? params.text : getText(),
       type: (params && params.type) || getType(),
       quality: (params && params.quality) || getQuality(),
       edition: (params && params.edition) || getEdition(),
@@ -101,26 +100,26 @@ const CardFilter = ({setFilterFunc}) => {
     );
   }, [searchParams]);
 
-  const onFilterName = name => {
+  const setName = name => {
     setParams({name});
   };
 
-  const onFilterText = text => {
+  const setText = text => {
     setParams({text});
   };
 
-  const onFilterType = type => {
+  const setType = type => {
     setParams({type});
   };
 
-  const onFilterQuality = (quality) => {
+  const setQuality = (quality) => {
     const qualityId = quality === "none" ? "none"
       : quality === "any" ? "any"
         : quality;
     setParams({quality: qualityId});
   };
 
-  const onFilterEdition = edition => {
+  const setEdition = edition => {
     const editionId = edition === "none" ? "none"
       : edition === "any" ? "any"
         : edition.id;
@@ -131,14 +130,14 @@ const CardFilter = ({setFilterFunc}) => {
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <NameFilter
-        onFilterName={onFilterName}
+        onFilterName={setName}
         value={getName()}
       />
     </Box>
 
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <TextFilter
-        onFilterText={onFilterText}
+        onFilterText={setText}
         value={getText()}
       />
     </Box>
@@ -146,7 +145,7 @@ const CardFilter = ({setFilterFunc}) => {
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardQualitySelect
         value={getQuality()}
-        onSelect={onFilterQuality}>
+        onSelect={setQuality}>
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
       </CardQualitySelect>
@@ -155,7 +154,7 @@ const CardFilter = ({setFilterFunc}) => {
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardTypeSelect
         value={getType()}
-        onSelect={onFilterType}>
+        onSelect={setType}>
         <MenuItem value={"any"}>Any</MenuItem>
       </CardTypeSelect>
     </Box>
@@ -163,7 +162,7 @@ const CardFilter = ({setFilterFunc}) => {
     <Box flexGrow={1} flexShrink={1} pl={1}>
       <CardEditionSelect
         value={getEdition()}
-        onSelect={onFilterEdition}
+        onSelect={setEdition}
       >
         <MenuItem value={"any"}>Any</MenuItem>
         <MenuItem value={"none"}>None</MenuItem>
