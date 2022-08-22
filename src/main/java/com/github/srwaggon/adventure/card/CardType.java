@@ -4,6 +4,7 @@ public enum CardType {
   ABILITY,
   ACTION,
   ARMOR,
+  ATTACK,
   CANTRIP, // consider migrating to a tag on spells
   CHARACTER,
   CLASS,
