@@ -62,7 +62,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
     backgroundImage: `url(${fullArt && image && image !== "" ? image
       : "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo="})`,
     backgroundSize: fullArt ? imageSize : "100%",
-    backgroundPosition: imagePosition,
+    backgroundPosition: fullArt ? imagePosition : "none",
   };
   const contentStyle = {
     ...backgroundStyles,
