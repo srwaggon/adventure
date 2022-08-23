@@ -8,12 +8,14 @@ import CardFilter from "../../cards/CardFilter";
 import {Link} from "react-router-dom";
 import {VisualCard} from "../../cards/VisualCard/VisualCard.tsx";
 
-const AddCardToCharacterCard = ({cards: characterCards, setCards: setCharacterCards}) => {
+const AddCardToCharacterCard = (props) => {
+  const {cards, setCards} = props;
+
   const allCards = useCards();
 
   const [filterFunc, setFilterFunc] = useState(() => x => x);
 
-  const addCardToCharacter = card => setCharacterCards([...characterCards, card]);
+  const addCardToCharacter = card => setCards([...cards, card]);
 
   const items = filterFunc(allCards).map((card) =>
     <Card key={card.id}>

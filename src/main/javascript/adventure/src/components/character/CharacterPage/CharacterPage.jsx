@@ -54,11 +54,13 @@ export const CharacterPage = () => {
       <Container maxWidth={false}>
         <Box p={1}>
           <CharacterDetailsContainer {...{character, setCharacter, onSave}}>
-            <TabbedCharacterPanels {...{character, setCharacter, cards, setCards}}/>
+            <TabbedCharacterPanels {...{
+              character, setCharacter, cards: cards.sort((a, b) => a.name > b.name ? 1 : -1), setCards
+            }}/>
           </CharacterDetailsContainer>
         </Box>
         {isEditing && <Box p={1}>
-          <AddCardToCharacterCard {...characterPageState}/>
+          <AddCardToCharacterCard cards={cards} setCards={setCards}/>
         </Box>}
       </Container>
       <DeleteDialog/>
