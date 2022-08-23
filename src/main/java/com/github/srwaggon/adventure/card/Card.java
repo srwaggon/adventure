@@ -12,8 +12,8 @@ public class Card implements Identified<String> {
   private CardQuality quality;
   private boolean isFullArt = true;
   private String image;
-  private String imageSize;
-  private String imagePosition;
+  private String imageSize = "cover";
+  private String imagePosition = "center";
   private String body;
   private String flavor;
   private String author;
