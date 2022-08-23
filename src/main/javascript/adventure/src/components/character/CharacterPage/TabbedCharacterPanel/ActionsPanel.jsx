@@ -4,7 +4,7 @@ import {CardContent, Divider, Tab, Tabs} from "@mui/material";
 import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCardWithDeleteDialog} from "./CharacterCardWithDeleteDialog";
 
-export const ACTIONS_TAB = "abilities";
+export const ACTIONS_TAB = "actions";
 export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
 
   const [selectedSubTab, setSelectedSubTab] = useState("all");
@@ -13,6 +13,8 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
 
   const isAction = (card) => [
       "ABILITY",
+      "ACTION",
+      "ATTACK",
       "FEAT",
       "REACTION",
       "WHIM"
@@ -22,13 +24,14 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
   const bySubType = (card) =>
     (selectedSubTab === "all") ||
     (selectedSubTab === "abilities" && card.type === "ABILITY") ||
+    (selectedSubTab === "attacks" && card.type === "ATTACK") ||
     (selectedSubTab === "feats" && card.type === "FEAT") ||
     (selectedSubTab === "reactions" && card.type === "REACTION") ||
     (selectedSubTab === "whims" && card.type === "WHIM");
 
   const cardsToDisplay = selectedSubTab === "actions"
     ? actionCards
-    : cards.filter(isAction).filter(bySubType);
+    : [...actionCards, ...cards].filter(isAction).filter(bySubType);
 
   return selectedTab === ACTIONS_TAB && <>
     <Tabs
@@ -39,6 +42,7 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
       <Tab label="All" value="all"/>
       <Tab label="Actions" value="actions"/>
       <Tab label="Abilities" value="abilities"/>
+      <Tab label="Attacks" value="attacks"/>
       <Tab label="Feats" value="feats"/>
       <Tab label="Reactions" value="reactions"/>
       <Tab label="Whims" value="whims"/>
