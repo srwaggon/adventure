@@ -102,6 +102,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
       <Box className="visual-card-content" p={1} {...{style: contentStyle}}>
         {!fullArt && <CardPane
           height={180}
+          flexGrow={1}
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
@@ -110,10 +111,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
 
         <Box flexGrow={fullArt ? 1 : 0} minHeight={10}/>
 
-        <CardPane
-          flexGrow={fullArt ? 0 : 1}
-          className={`visual-card-text-box ${darkTextModifier}`}
-        >
+        <CardPane className={`visual-card-text-box ${darkTextModifier}`}>
 
           <Box className="flex-center-space-between" color={titleColor}>
             <span
