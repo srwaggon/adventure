@@ -13,6 +13,7 @@ public class Card implements Identified<String> {
   private boolean isFullArt = true;
   private String image;
   private String imageSize;
+  private String imagePosition;
   private String body;
   private String flavor;
   private String author;
@@ -83,6 +84,14 @@ public class Card implements Identified<String> {
 
   public void setImageSize(String imageSize) {
     this.imageSize = imageSize;
+  }
+
+  public String getImagePosition() {
+    return imagePosition;
+  }
+
+  public void setImagePosition(String imagePosition) {
+    this.imagePosition = imagePosition;
   }
 
   public String getBody() {

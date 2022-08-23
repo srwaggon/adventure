@@ -26,6 +26,7 @@ type VisualCardProps = {
   name?: string,
   image?: string,
   imageSize?: string,
+  imagePosition?: string,
   fullArt?: boolean
   type?: string,
   body?: string,
@@ -43,6 +44,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
     name = "",
     image = "",
     imageSize = "cover",
+    imagePosition = "center top",
     fullArt = true,
     type = "",
     body = "",
@@ -59,7 +61,8 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
   const backgroundStyles = {
     backgroundImage: `url(${fullArt && image && image !== "" ? image
       : "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo="})`,
-    backgroundSize: fullArt ? imageSize : "100%"
+    backgroundSize: fullArt ? imageSize : "100%",
+    backgroundPosition: imagePosition,
   };
   const contentStyle = {
     ...backgroundStyles,
@@ -106,6 +109,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
+            backgroundPosition: imagePosition,
             borderColor: DARK_MODE_BLACK,
           }}/>}
 

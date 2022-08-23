@@ -36,6 +36,7 @@ const newCard = () => ({
   fullArt: false,
   image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
   imageSize: "cover",
+  imagePosition: "center top",
   type: "ABILITY",
   body: null,
   flavor: null,
@@ -230,6 +231,12 @@ const CardDetailsPage = () => {
                 label={"Image size"}
                 defaultValue={card.imageSize}
                 onChange={event => setCard({...card, imageSize: event.target.value})}
+              />
+
+              <AlcheimTextField
+                label={"Image position"}
+                defaultValue={card.imagePosition}
+                onChange={event => setCard({...card, imagePosition: event.target.value})}
               />
 
               <CardQualitySelect value={card.quality} onSelect={quality => setCard({...card, quality})}/>
