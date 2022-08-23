@@ -3,6 +3,7 @@ import useCards from "../../../cards/useCards";
 import {CardContent, Divider, Tab, Tabs} from "@mui/material";
 import CenteredGrid from "../../../shared/CenteredGrid";
 import {CharacterCardWithDeleteDialog} from "./CharacterCardWithDeleteDialog";
+import {byName} from "../../../../card/Cards";
 
 export const ACTIONS_TAB = "actions";
 export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
@@ -31,7 +32,7 @@ export const ActionsPanel = ({cards, onDelete, onPlay, selectedTab}) => {
 
   const cardsToDisplay = selectedSubTab === "actions"
     ? actionCards
-    : [...actionCards, ...cards].filter(isAction).filter(bySubType);
+    : [...actionCards, ...cards].sort(byName).filter(isAction).filter(bySubType);
 
   return selectedTab === ACTIONS_TAB && <>
     <Tabs

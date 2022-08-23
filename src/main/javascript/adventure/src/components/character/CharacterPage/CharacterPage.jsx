@@ -10,6 +10,7 @@ import {CharacterDetailsContainer} from "./CharacterDetailsContainer";
 import {useCharacter} from "../UseCharacter";
 import {useCharactersCards} from "../UseCharactersCards";
 import {useDeleteDialog} from "../../shared/UseDeleteDialog";
+import {byName} from "../../../card/Cards";
 
 export const CharacterPage = () => {
 
@@ -55,7 +56,7 @@ export const CharacterPage = () => {
         <Box p={1}>
           <CharacterDetailsContainer {...{character, setCharacter, onSave}}>
             <TabbedCharacterPanels {...{
-              character, setCharacter, cards: cards.sort((a, b) => a.name > b.name ? 1 : -1), setCards
+              character, setCharacter, cards: cards.sort(byName), setCards
             }}/>
           </CharacterDetailsContainer>
         </Box>
