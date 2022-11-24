@@ -5,20 +5,19 @@ import CenteredGridWithAppBar from "../shared/CenteredGridWithAppBar";
 import {postNewGame} from "../../utilities/client";
 import {useNavigate} from "react-router-dom";
 
-const GameBox = game => {
-  const navigate = useNavigate();
-  return <Box
-    p={1}
-    border={1}
-    onClick={() => navigate(`/games/${game.id}`)}
-  >
-    {game.name}
-  </Box>;
-};
-
 const GamesPage = () => {
 
   const navigate = useNavigate();
+
+  const GameBox = game => {
+    return <Box
+      p={1}
+      border={1}
+      onClick={() => navigate(`/games/${game.id}`)}
+    >
+      {game.name}
+    </Box>;
+  };
 
   const games = useCurrentPlayersGames();
 
