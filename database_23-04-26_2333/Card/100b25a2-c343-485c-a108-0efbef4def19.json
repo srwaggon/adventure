@@ -1,0 +1,21 @@
+{
+  "id": "100b25a2-c343-485c-a108-0efbef4def19",
+  "name": "Poisoned",
+  "type": "STATUS",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/13/a9/6c/13a96c7cfb5a19aa779611b9a2be2a64.jpg",
+  "imageSize": "100%",
+  "body": "Your dice pool for attack rolls and ability checks is reduced by 1. You take 1 poison damage each hour.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.5,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

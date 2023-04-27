@@ -1,0 +1,21 @@
+{
+  "id": "86d549f7-a32a-4771-97ff-6b68c8dab69e",
+  "name": "Longsword Weapon Specialization",
+  "type": "PROFICIENCY",
+  "quality": "RARE",
+  "image": "https://static.wikia.nocookie.net/minecraft-server-chronicles/images/6/6b/Bookreader506.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you successfully make an attack with a longsword, you may add 1 to the damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

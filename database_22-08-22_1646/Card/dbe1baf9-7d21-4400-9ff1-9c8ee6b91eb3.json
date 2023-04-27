@@ -1,0 +1,21 @@
+{
+  "id": "dbe1baf9-7d21-4400-9ff1-9c8ee6b91eb3",
+  "name": "Priest Class",
+  "type": "CLASS",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/8a/a4/5d/8aa45da1804aafb35cb15c7e7b733037.png",
+  "imageSize": "80%",
+  "body": "At the end of your turn, if you healed another character, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

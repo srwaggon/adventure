@@ -1,0 +1,21 @@
+{
+  "id": "0ce31f3d-a2ad-4369-95fa-44ae9e014df9",
+  "name": "Dazed",
+  "type": "STATUS",
+  "quality": "COMMON",
+  "image": "https://cdn.inprnt.com/thumbs/e7/bc/e7bc5dbd259d09594a478617775327fd.jpg?response-cache-control=max-age=2628000",
+  "imageSize": "183%",
+  "body": "Your dice pool for saves is reduced by 1 and attacks against you have their difficulty reduced by 1.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "f5334d87-6f77-4a91-b4a0-7c0b545dc794",
+  "name": "Blackpowder Bomb",
+  "type": "ITEM",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/a1/13/6f/a1136fd8aedad37f996ba710c994b3c5.jpg",
+  "imageSize": "105%",
+  "body": "Goes Boom",
+  "flavor": "Something about how goblins are terribly clever",
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

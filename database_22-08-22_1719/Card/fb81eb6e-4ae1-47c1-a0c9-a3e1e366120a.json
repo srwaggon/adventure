@@ -1,0 +1,21 @@
+{
+  "id": "fb81eb6e-4ae1-47c1-a0c9-a3e1e366120a",
+  "name": "Heavy Armor Mastery",
+  "type": "PROFICIENCY",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/1f/d9/b4/1fd9b46c145e6da5f9116478539b0ca2.png",
+  "imageSize": "100%",
+  "body": "While you are wearing heavy armor, bashing, piercing, and slashing damage that you take from non magical weapons is reduced by 3.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

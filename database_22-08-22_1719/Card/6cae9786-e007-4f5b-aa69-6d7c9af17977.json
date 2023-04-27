@@ -1,0 +1,22 @@
+{
+  "id": "6cae9786-e007-4f5b-aa69-6d7c9af17977",
+  "name": "Roguish Precision",
+  "type": "PASSIVE_ABILITY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/b1/3a/fb/b13afbf769ad8186bacd0ebc4ac2d4ca.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you successfully attack a target while you have advantage, you may add Dexterity[d10] to the damage.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

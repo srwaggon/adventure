@@ -1,0 +1,14 @@
+{
+  "id": "33f8ed4f-88af-43d7-9643-2ec08d7c4c03",
+  "name": "Iron Ore",
+  "type": "RESOURCE",
+  "quality": "UNCOMMON",
+  "image": "https://render.fineartamerica.com/images/rendered/default/greeting-card/images-medium-5/pieces-of-iron-ore-dorling-kindersleyuig.jpg?&targetx=-20&targety=0&imagewidth=540&imageheight=700&modelwidth=500&modelheight=700&backgroundcolor=50302F&orientation=1",
+  "imageSize": "100%",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "darkText": true
+}

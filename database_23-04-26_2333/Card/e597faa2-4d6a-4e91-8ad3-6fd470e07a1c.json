@@ -1,0 +1,22 @@
+{
+  "id": "e597faa2-4d6a-4e91-8ad3-6fd470e07a1c",
+  "name": "New Card",
+  "type": "PASSIVE_ABILITY",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/originals/8a/e0/70/8ae070b74d97acf70921888122cb9a7e.jpg",
+  "imageSize": "cover",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

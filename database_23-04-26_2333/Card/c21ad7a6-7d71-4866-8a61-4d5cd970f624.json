@@ -1,0 +1,22 @@
+{
+  "id": "c21ad7a6-7d71-4866-8a61-4d5cd970f624",
+  "name": "Earthshatter",
+  "type": "ATTACK",
+  "quality": "RARE",
+  "image": "https://media.discordapp.net/attachments/954643538342182924/1008673749668745296/unknown.jpeg",
+  "imageSize": "cover",
+  "body": "Pay 5 charge.\nCreatures in your reach that you can see make a Dexterity save or take damage equal to your Strength, become prone, and are dazed until their next turn.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

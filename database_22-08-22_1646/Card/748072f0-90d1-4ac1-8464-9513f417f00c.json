@@ -1,0 +1,22 @@
+{
+  "id": "748072f0-90d1-4ac1-8464-9513f417f00c",
+  "name": "Some anime bullshit",
+  "type": "ATTACK",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/736x/00/fe/fb/00fefbff4b1c7ea6f75461716ed589a6.jpg",
+  "imageSize": "cover",
+  "body": "Some anime bullshit deals arcane damage to target creature you can reach equal to the number of allies you can get to say \"UwU\" this turn.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": false
+}

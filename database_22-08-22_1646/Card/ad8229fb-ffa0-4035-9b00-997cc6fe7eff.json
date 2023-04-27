@@ -1,0 +1,21 @@
+{
+  "id": "ad8229fb-ffa0-4035-9b00-997cc6fe7eff",
+  "name": "Lich",
+  "type": "CREATURE",
+  "quality": "EPIC",
+  "image": "https://media.magic.wizards.com/image_legacy_migration/images/magic/daily/stf/stf97_iuyf5ved9baowe6yrlbvagsb.jpg",
+  "imageSize": "131%",
+  "body": "100❤️ 3\uD83D\uDEE1️ Immune to physical damage\n5⚔️ Necrotic Touch: Necrotic damage",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

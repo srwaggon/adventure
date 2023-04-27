@@ -1,0 +1,21 @@
+{
+  "id": "50d92598-09d9-4256-9c5d-d2c03ac43b13",
+  "name": "Spellcaster",
+  "type": "TRAIT",
+  "quality": "UNCOMMON",
+  "image": "https://www.wizardtower.com/blog/wp-content/uploads/2021/01/Tasha1.jpg",
+  "imageSize": "160%",
+  "body": "You may cast spells as an action.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

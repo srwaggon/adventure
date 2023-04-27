@@ -1,0 +1,21 @@
+{
+  "id": "464fe70b-b236-42b3-ac2a-048a16b5a71e",
+  "name": "Shortsword",
+  "type": "WEAPON",
+  "quality": "COMMON",
+  "image": "https://static.wikia.nocookie.net/penrith/images/4/49/Flying_sword.jpg",
+  "imageSize": "90%",
+  "body": "Deals 2 slashing damage.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.5,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

@@ -1,0 +1,13 @@
+{
+  "id": "f456c525-d6e3-422a-9dbd-0859fb7c024e",
+  "name": "Forest Affinity",
+  "type": "LAND",
+  "quality": "COMMON",
+  "image": "https://cdn.inprnt.com/thumbs/98/ff/98ff1197b812133398c5989f63b26a66.jpg?response-cache-control=max-age=2628000",
+  "imageSize": "175%",
+  "body": "Nature attacks and spells receive +1[d10] to rolls and +1 effect (e.g. +1 damage)",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "darkText": false
+}

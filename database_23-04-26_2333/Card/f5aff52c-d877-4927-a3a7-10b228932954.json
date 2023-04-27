@@ -1,0 +1,21 @@
+{
+  "id": "f5aff52c-d877-4927-a3a7-10b228932954",
+  "name": "Kobold",
+  "type": "CREATURE",
+  "quality": "COMMON",
+  "image": "https://cdn1.dotesports.com/wp-content/uploads/2021/06/30154447/Minion-of-the-Mighty.jpg",
+  "imageSize": "180%",
+  "body": "5❤️ 1\uD83D\uDEE1️\n3⚔️ Dagger\n3\uD83C\uDFAF Sling",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

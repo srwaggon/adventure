@@ -1,0 +1,21 @@
+{
+  "id": "0524ae6a-0551-4b37-abfc-2e34b626761b",
+  "name": "Red Dragon",
+  "type": "CREATURE",
+  "quality": "LEGENDARY",
+  "image": "https://cdn.discordapp.com/attachments/783098091603361842/824650624603914240/unknown.png",
+  "imageSize": "100%",
+  "body": "256❤️ 5\uD83D\uDEE1️ 1 Physical damage reduction \n10⚔️ Bite\n8\uD83C\uDFAF Breathe Fire: Red Dragon may attack all opponents dealing 5 + 10[d10] fire damage. Each opponent can reduce the damage they receive by a Dexterity save. Cooldown 3.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "8pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

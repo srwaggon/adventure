@@ -1,0 +1,22 @@
+{
+  "id": "8d570fe9-bb3e-4cfd-9f30-39a0d376b15b",
+  "name": "Restrain",
+  "type": "SPELL",
+  "quality": "UNCOMMON",
+  "image": "https://static3.cbrimages.com/wordpress/wp-content/uploads/2021/06/DD-Wizard-Abjuration.jpg",
+  "imageSize": "150%",
+  "body": "Pay 2 mana.\nA creature you can touch gains immobility for 1 turn.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

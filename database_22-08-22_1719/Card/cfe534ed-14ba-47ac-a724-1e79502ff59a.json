@@ -1,0 +1,21 @@
+{
+  "id": "cfe534ed-14ba-47ac-a724-1e79502ff59a",
+  "name": "Shortsword Weapon Focus",
+  "type": "PROFICIENCY",
+  "quality": "UNCOMMON",
+  "image": "https://media.wizards.com/images/magic/daily/ur/ur202_call.jpg",
+  "imageSize": "125%",
+  "body": "Whenever you are making an attack roll with a shortsword, you may add [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

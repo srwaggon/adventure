@@ -1,0 +1,22 @@
+{
+  "id": "36a33ed1-5024-489c-9f73-fc276d9cf22b",
+  "name": "Decisive Strike",
+  "type": "ATTACK",
+  "quality": "UNCOMMON",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/987326374559760414/unknown.png",
+  "imageSize": "177%",
+  "body": "Pay 2 charge.\nMake a standard melee attack and add 1 + Strength[d10] damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

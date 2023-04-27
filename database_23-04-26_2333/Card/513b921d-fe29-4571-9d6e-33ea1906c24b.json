@@ -1,0 +1,22 @@
+{
+  "id": "513b921d-fe29-4571-9d6e-33ea1906c24b",
+  "name": "Mage Hand",
+  "type": "CANTRIP",
+  "quality": "COMMON",
+  "image": "https://64.media.tumblr.com/f0b54411f8bd5c0ffd94c674165ae1c7/tumblr_p7c3v2n84a1vfnfp6o1_1280.jpg",
+  "imageSize": "135%",
+  "body": "You summon a spectral, floating hand within your touch range. You can use your action to control the hand that lasts until you can no longer see it or willingly dismiss it. It has your speed and can lift up to 10 pounds.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "8pt",
+  "bodyOpacity": 70.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

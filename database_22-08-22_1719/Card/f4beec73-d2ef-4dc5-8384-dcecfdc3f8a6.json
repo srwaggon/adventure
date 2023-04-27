@@ -1,0 +1,21 @@
+{
+  "id": "f4beec73-d2ef-4dc5-8384-dcecfdc3f8a6",
+  "name": "Leather Armor",
+  "type": "ARMOR",
+  "quality": "UNCOMMON",
+  "image": "https://cdna.artstation.com/p/assets/images/images/009/892/248/large/alexandre-douanier-la-03.jpg",
+  "imageSize": "100%",
+  "body": "Light armor\nDefense 1 (Attack rolls against the equipped character have +1 difficulty)",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

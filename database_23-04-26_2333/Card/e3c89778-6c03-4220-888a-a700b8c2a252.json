@@ -1,0 +1,22 @@
+{
+  "id": "e3c89778-6c03-4220-888a-a700b8c2a252",
+  "name": "New Card",
+  "type": "ATTACK",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/originals/c3/7b/2e/c37b2eee7335aaac9ea467d684dbc11f.jpg",
+  "imageSize": "cover",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

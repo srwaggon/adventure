@@ -1,0 +1,22 @@
+{
+  "id": "3327fd64-4ab4-4a6a-b8a2-b05f3b167327",
+  "name": "Charm",
+  "type": "ENCHANTMENT",
+  "quality": "RARE",
+  "image": "https://www.tribality.com/wp-content/uploads/2014/10/vampire2.jpg",
+  "imageSize": "170%",
+  "body": "Pay 1 mana.\nRoll Influence + Spellcasting. A creature you can touch becomes charmed by you for 1 hour per success. The creature can make a Resolve save to reduce the duration by 1 hour for each success.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

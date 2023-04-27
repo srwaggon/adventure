@@ -1,0 +1,22 @@
+{
+  "id": "c284bf00-e0a0-4440-890a-1c96a144e3d7",
+  "name": "Lightning Bolt",
+  "type": "SPELL",
+  "quality": "COMMON",
+  "image": "https://ih1.redbubble.net/image.620490877.2537/flat,750x,075,f-pad,750x1000,f8f8f8.jpg",
+  "imageSize": "104%",
+  "body": "Pay 1 mana.\nLightning Bolt deals 3 lightning damage to target creature you can see.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 50.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

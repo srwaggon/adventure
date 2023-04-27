@@ -1,0 +1,21 @@
+{
+  "id": "775874f3-0d9f-4370-9fb1-8e7201d2ff84",
+  "name": "Climbing Gear",
+  "type": "TOOL",
+  "quality": "UNCOMMON",
+  "image": "https://cdnb.artstation.com/p/assets/images/images/001/233/237/large/anna-steinbauer-seekthewilds-posting.jpg",
+  "imageSize": "177%",
+  "body": "Whenever you make a Climb check, you may add [d10] to the dice pool.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.5,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

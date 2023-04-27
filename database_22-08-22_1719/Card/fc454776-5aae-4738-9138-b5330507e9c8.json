@@ -1,0 +1,22 @@
+{
+  "id": "fc454776-5aae-4738-9138-b5330507e9c8",
+  "name": "Axe Weapon Mastery",
+  "type": "PROFICIENCY",
+  "quality": "EPIC",
+  "image": "https://www.wallpaperup.com/uploads/wallpapers/2013/07/12/117275/442377ca73c4fb425adb32e9066864f5.jpg",
+  "imageSize": "130%",
+  "body": "For each critical success while you are making an attack roll with an axe, you may roll an additional [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 100.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "1eb1dab8-66fd-44d7-9e72-7b7bd1b395f9",
+  "name": "Forcefield",
+  "type": "SPELL",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/fa/82/07/fa82073aad3d98ca9976435e7631cfe3.jpg",
+  "imageSize": "200%",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

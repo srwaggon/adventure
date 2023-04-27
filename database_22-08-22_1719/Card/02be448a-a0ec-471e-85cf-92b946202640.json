@@ -1,0 +1,21 @@
+{
+  "id": "02be448a-a0ec-471e-85cf-92b946202640",
+  "name": "Dash",
+  "type": "ACTION",
+  "quality": "COMMON",
+  "image": "https://cdna.artstation.com/p/assets/images/images/045/138/226/large/manuel-castanon-ninja-token.jpg",
+  "imageSize": "100%",
+  "body": "You gain movement equal to your base movement until the end of turn.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

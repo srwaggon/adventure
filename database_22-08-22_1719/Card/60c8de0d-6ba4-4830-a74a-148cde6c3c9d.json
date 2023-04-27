@@ -1,0 +1,21 @@
+{
+  "id": "60c8de0d-6ba4-4830-a74a-148cde6c3c9d",
+  "name": "New Card",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://www.belloflostsouls.net/wp-content/uploads/2019/03/dnd-table-splash-art-e1555918752586.jpg",
+  "imageSize": "160%",
+  "body": "Whenever you make a fun roll, you may add [d10] to the dice pool.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 100.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

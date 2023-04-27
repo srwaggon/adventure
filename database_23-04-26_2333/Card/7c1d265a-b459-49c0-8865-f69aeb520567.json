@@ -1,0 +1,21 @@
+{
+  "id": "7c1d265a-b459-49c0-8865-f69aeb520567",
+  "name": "Idk magic ring",
+  "type": "EQUIPMENT",
+  "quality": "RARE",
+  "image": "https://www.mtgnexus.com/img/gallery/2898-ring-of-gix-mobile.jpg",
+  "imageSize": "100%",
+  "body": "is good luck, idk, sell it maybe.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

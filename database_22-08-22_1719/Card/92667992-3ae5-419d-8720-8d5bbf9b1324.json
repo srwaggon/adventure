@@ -1,0 +1,21 @@
+{
+  "id": "92667992-3ae5-419d-8720-8d5bbf9b1324",
+  "name": "Persuasive",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/05/b7/21/05b72118277d82225acbaf7b1bf69fb0.jpg",
+  "imageSize": "160%",
+  "body": "Whenever you make a Persuasion check, you my add [d10] to your dice pool.",
+  "flavor": "Some things are better left unsaid.",
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "55203d68-e4cb-43b9-b899-d5dfd1106b6b",
+  "name": "Platemail Armor",
+  "type": "ARMOR",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/f3/f1/af/f3f1af95d8109eaedd285a3dace1f7a2.jpg",
+  "imageSize": "100%",
+  "body": "Heavy armor\nRequires Strength 3+ to equip.\nDefense 2 (Attack rolls against the equipped character have +2 difficulty)\nPhysical damage reduction 1 (Physical attack damage taken by the equipped character is reduced by 1)",
+  "flavor": "\"Ahck! An itch!\"",
+  "author": "Samuel Waggoner",
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "8pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

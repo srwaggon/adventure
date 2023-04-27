@@ -1,0 +1,21 @@
+{
+  "id": "6298e282-178f-4f4e-b6f4-9c09fa30075d",
+  "name": "Investigator",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://cdn.vox-cdn.com/uploads/chorus_image/image/68690645/Candlekeep_Mysteries___Key_Art__Artist_Credit_Clint_Cearley.0.jpg",
+  "imageSize": "150%",
+  "body": "Whenever you make an Investigation check, you my add [d10] to your dice pool.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 100.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

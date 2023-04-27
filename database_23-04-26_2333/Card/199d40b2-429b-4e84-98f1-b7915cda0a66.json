@@ -1,0 +1,21 @@
+{
+  "id": "199d40b2-429b-4e84-98f1-b7915cda0a66",
+  "name": "Death Knight Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://pbs.twimg.com/media/CXfvHZjVAAAFNJ0.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you take damage, you may choose to have the next damage you deal become necrotic damage in addition to its other damage types.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 90.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

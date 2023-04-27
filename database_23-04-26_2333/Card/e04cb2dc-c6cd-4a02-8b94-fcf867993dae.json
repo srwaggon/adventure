@@ -1,0 +1,22 @@
+{
+  "id": "e04cb2dc-c6cd-4a02-8b94-fcf867993dae",
+  "name": "Sleep",
+  "type": "ENCHANTMENT",
+  "quality": "UNCOMMON",
+  "image": "https://lh4.googleusercontent.com/proxy/u5mqzPWOlP5JcDjzpMk_p_nHj89E3gUiK-LOqpwDSLda4Xj4AQ7wj3PPmndenXnr9WTyzIHXoTmZRxEON31Xk4EyDYKTI2fce66W2DrOhY08ejEZ855D4X5VwBIoHHaQSMtza-capU2RBtupiLwuH2-H",
+  "imageSize": "200%",
+  "body": "Pay 1 mana.\nRoll Influence + Spellcasting. A creature you can touch is enchanted with sleep for 1 hour per success. The creature can make a Resolve save to reduce the duration by 1 hour for each success.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "8pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "224cea16-ecb5-4103-b41e-e9b6c213decf",
+  "name": "Portable Hole",
+  "type": "ITEM",
+  "quality": "RARE",
+  "image": "https://www.wizardslaboratory.com/wp-content/uploads/2018/05/portable_hole.jpg",
+  "imageSize": "cover",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

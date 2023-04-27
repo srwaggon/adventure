@@ -1,0 +1,22 @@
+{
+  "id": "62dd8dab-f767-4adb-b5ce-7b297823ddc2",
+  "name": "Devastating Strike",
+  "type": "ATTACK",
+  "quality": "UNCOMMON",
+  "image": "https://media.discordapp.net/attachments/954643538342182924/1010106676797505546/unknown.jpeg",
+  "imageSize": "cover",
+  "body": "Pay 3 charge.\nMake a standard unarmed attack.\nFinisher: If successful, this attack deals 1 additional damage for each topple counter on the defender. Remove all topple counters from the defender.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

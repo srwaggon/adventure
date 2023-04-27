@@ -1,0 +1,22 @@
+{
+  "id": "cce8749b-faa7-4ba6-857a-178b4109fe2e",
+  "name": "Sinister Strike",
+  "type": "ATTACK",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/da/65/e4/da65e4c7e4fbfe76dbf0b9a4d3bc9239.jpg",
+  "imageSize": "cover",
+  "body": "Chain\nPay 1 charge.\nMake a standard melee attack and add 1 to the damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

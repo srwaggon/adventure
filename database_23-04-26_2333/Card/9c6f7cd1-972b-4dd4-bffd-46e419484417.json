@@ -1,0 +1,21 @@
+{
+  "id": "9c6f7cd1-972b-4dd4-bffd-46e419484417",
+  "name": "Wounded",
+  "type": "STATUS",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/736x/3f/7e/5c/3f7e5cae511ba4af14309093656ed3cd--fantasy-rpg-fantasy-artwork.jpg",
+  "imageSize": "cover",
+  "body": "Your maximum Health is reduced by 1.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

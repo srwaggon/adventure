@@ -1,0 +1,21 @@
+{
+  "id": "7ef47c6d-6da5-481d-8a0e-c20fc3549f91",
+  "name": "Rogue Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://cdna.artstation.com/p/assets/images/images/001/707/750/large/magnus-noren-human-rogue1.jpg?1451399965",
+  "imageSize": "100%",
+  "body": "At the end of your turn, if you dealt damage to an opponent that you had advantage against, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

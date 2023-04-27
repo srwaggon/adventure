@@ -1,0 +1,21 @@
+{
+  "id": "1562a1c4-f22d-4cc8-814b-d72b210d48b1",
+  "name": "Polearm Weapon Focus",
+  "type": "PROFICIENCY",
+  "quality": "UNCOMMON",
+  "image": "https://pbs.twimg.com/media/Dl5OwVpUwAAjZFO.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you are making an attack roll with a polearm, you may add [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

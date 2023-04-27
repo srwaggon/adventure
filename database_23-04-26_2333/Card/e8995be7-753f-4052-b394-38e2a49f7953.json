@@ -1,0 +1,22 @@
+{
+  "id": "e8995be7-753f-4052-b394-38e2a49f7953",
+  "name": "Firebolt",
+  "type": "SPELL",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/736x/51/92/9e/51929ed4f9e5ac8c5fdbc50e5f405a72.jpg",
+  "imageSize": "100%",
+  "body": "Pay 1 mana.\nDeal 3 fire damage to any target you can see.",
+  "flavor": "\"Liar liar, pants on fire\"",
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

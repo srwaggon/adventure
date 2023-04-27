@@ -1,0 +1,22 @@
+{
+  "id": "68d29bf2-631d-48ea-9299-ff80e7ae4654",
+  "name": "Shortbow Weapon Focus",
+  "type": "PROFICIENCY",
+  "quality": "UNCOMMON",
+  "image": "https://www.mtgnexus.com/img/gallery/6117-elven-bow.jpg",
+  "imageSize": "110%",
+  "body": "Whenever you are making an attack roll with a shortbow, you may add [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

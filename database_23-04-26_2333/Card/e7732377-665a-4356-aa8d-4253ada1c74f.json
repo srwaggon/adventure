@@ -1,0 +1,21 @@
+{
+  "id": "e7732377-665a-4356-aa8d-4253ada1c74f",
+  "name": "Idk magic ring",
+  "type": "EQUIPMENT",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/e9/c3/c5/e9c3c5cec9b27f678d061525732fd216.jpg",
+  "imageSize": "120%",
+  "body": "is good luck, idk, sell it maybe.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

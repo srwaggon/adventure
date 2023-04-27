@@ -1,0 +1,22 @@
+{
+  "id": "3521688e-7329-4529-8b15-b92d05cc9a36",
+  "name": "Mana Potion",
+  "type": "CONSUMABLE",
+  "quality": "UNCOMMON",
+  "image": "https://i.redd.it/4crlf174ih711.jpg",
+  "imageSize": "105%",
+  "body": "Restore 3 mana.",
+  "flavor": "As filled with crunchy crystalline chunks as it is sparkly.",
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

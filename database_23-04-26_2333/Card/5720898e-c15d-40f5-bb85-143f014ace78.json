@@ -1,0 +1,21 @@
+{
+  "id": "5720898e-c15d-40f5-bb85-143f014ace78",
+  "name": "Mace",
+  "type": "WEAPON",
+  "quality": "COMMON",
+  "image": "https://static.wikia.nocookie.net/dnd4/images/1/1e/1e0542d25423e6194abfedb345a5ebb5.jpg",
+  "imageSize": "100%",
+  "body": "Deals 2 bashing damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.5,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

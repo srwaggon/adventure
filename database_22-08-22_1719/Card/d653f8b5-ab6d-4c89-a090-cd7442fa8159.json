@@ -1,0 +1,21 @@
+{
+  "id": "d653f8b5-ab6d-4c89-a090-cd7442fa8159",
+  "name": "Sorcerer Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://www.d20pfsrd.com/wp-content/uploads/sites/12/2017/03/sorceress_by_yamaorce-db2aktf.jpg",
+  "imageSize": "100%",
+  "body": "At the end of your turn, if you dealt magic damage to an opponent, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

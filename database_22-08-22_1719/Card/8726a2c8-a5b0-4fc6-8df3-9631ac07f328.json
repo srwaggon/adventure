@@ -1,0 +1,21 @@
+{
+  "id": "8726a2c8-a5b0-4fc6-8df3-9631ac07f328",
+  "name": "Quarterstaff",
+  "type": "WEAPON",
+  "quality": "COMMON",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/988571215612506132/unknown.png",
+  "imageSize": "110%",
+  "body": "Deals 2 bashing damage.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

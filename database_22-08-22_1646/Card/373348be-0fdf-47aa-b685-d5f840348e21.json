@@ -1,0 +1,22 @@
+{
+  "id": "373348be-0fdf-47aa-b685-d5f840348e21",
+  "name": "Axe Weapon Focus",
+  "type": "PROFICIENCY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/b4/c0/10/b4c010f4a40d61648075ce9b7fa85d3b.png",
+  "imageSize": "140%",
+  "body": "Whenever you are making an attack roll with an axe, you may add [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

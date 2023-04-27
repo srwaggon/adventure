@@ -1,0 +1,22 @@
+{
+  "id": "9eebe4b4-92de-493e-8d52-a25c6fdb086d",
+  "name": "New Card",
+  "type": "PASSIVE_ABILITY",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/736x/0e/9f/85/0e9f8551d4dce4bc1895ca93c655486d--mtg-art-fantasy-artwork.jpg",
+  "imageSize": "cover",
+  "body": null,
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

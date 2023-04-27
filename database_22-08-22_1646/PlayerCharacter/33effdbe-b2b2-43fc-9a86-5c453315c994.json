@@ -1,0 +1,84 @@
+{
+  "id": "33effdbe-b2b2-43fc-9a86-5c453315c994",
+  "name": "Seeker",
+  "portraitUrl": "https://cdn.discordapp.com/attachments/823445853024419880/827776745398337606/20210402_222825.png",
+  "strength": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "dexterity": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "constitution": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "presence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "influence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "composure": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "intelligence": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "wits": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "resolve": {
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "stamina": {
+    "value": 1,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "reputation": {
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "focus": {
+    "value": 1,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "health": {
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "confidence": {
+    "value": 1,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "mana": {
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "cards": [
+    "4e4b3d60-7923-4fcf-8358-cb1dc0b59072"
+  ],
+  "proficiencies": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "a381f53c-8cfc-42d8-bc3b-06245cdd9a9f",
+  "name": "Feat of Insight",
+  "type": "FEAT",
+  "quality": "LEGENDARY",
+  "image": "https://www.mtgnexus.com/img/gallery/4105-manifold-insights.jpg",
+  "imageSize": "177%",
+  "body": "Reroll target roll of your choice. You may choose which results to keep.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

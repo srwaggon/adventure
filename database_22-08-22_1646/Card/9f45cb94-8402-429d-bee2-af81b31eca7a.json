@@ -1,0 +1,21 @@
+{
+  "id": "9f45cb94-8402-429d-bee2-af81b31eca7a",
+  "name": "Polearm Weapon Mastery",
+  "type": "PROFICIENCY",
+  "quality": "EPIC",
+  "image": "https://i.pinimg.com/originals/67/83/c6/6783c633110a807d5a663ecf98b295ce.jpg",
+  "imageSize": "100%",
+  "body": "For each critical success while you are making an attack roll with a polearm, you may roll an additional [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

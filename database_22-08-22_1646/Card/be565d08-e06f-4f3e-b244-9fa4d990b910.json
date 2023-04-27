@@ -1,0 +1,21 @@
+{
+  "id": "be565d08-e06f-4f3e-b244-9fa4d990b910",
+  "name": "Bard Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://64.media.tumblr.com/09a9de162eac3c0212d182c42d439ef8/tumblr_orq4xpGQAa1uz4eopo1_1280.jpg",
+  "imageSize": "100%",
+  "body": "At the end of your turn, if you made a Charisma roll, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

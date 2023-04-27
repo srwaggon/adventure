@@ -1,0 +1,21 @@
+{
+  "id": "3bc765cb-5e8a-458b-b47b-c3fb395c9bdc",
+  "name": "Brainstorm",
+  "type": "SPELL",
+  "quality": "RARE",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/987321405886591016/unknown.png",
+  "imageSize": "120%",
+  "body": "Pay 1 mana.\nGain 3 charge. At the end of your next turn, lose any unspent charge from Brainstorm.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

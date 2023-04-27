@@ -1,0 +1,21 @@
+{
+  "id": "5e0193be-b2c9-499a-8ce1-519cb9e18bae",
+  "name": "Unarmored Defense",
+  "type": "PASSIVE_ABILITY",
+  "quality": "COMMON",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
+  "imageSize": "cover",
+  "body": "You may include your Condition in your Defense Score when you are unarmored. You may equip a shield without losing this benefit.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

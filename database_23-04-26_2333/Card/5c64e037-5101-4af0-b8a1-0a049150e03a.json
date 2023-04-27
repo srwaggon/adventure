@@ -1,0 +1,22 @@
+{
+  "id": "5c64e037-5101-4af0-b8a1-0a049150e03a",
+  "name": "Dispel",
+  "type": "SPELL",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/474x/64/8b/bb/648bbbd4ff174716a504e5a2820bf0d2.jpg",
+  "imageSize": "100%",
+  "body": "Pay 2 mana.\nDestroy target enchantment.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

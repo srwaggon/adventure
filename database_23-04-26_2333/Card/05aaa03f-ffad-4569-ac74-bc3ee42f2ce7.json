@@ -1,0 +1,22 @@
+{
+  "id": "05aaa03f-ffad-4569-ac74-bc3ee42f2ce7",
+  "name": "Insightful Mind",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://cdnb.artstation.com/p/assets/images/images/015/149/423/4k/paul-canavan-rhysticstudy-3840x2160.jpg",
+  "imageSize": "230%",
+  "body": "Once between each rest, you may restore 3 mana.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": false
+}

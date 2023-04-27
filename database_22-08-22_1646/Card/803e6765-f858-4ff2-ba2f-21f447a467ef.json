@@ -1,0 +1,21 @@
+{
+  "id": "803e6765-f858-4ff2-ba2f-21f447a467ef",
+  "name": "Dexterity Defense",
+  "type": "PASSIVE_ABILITY",
+  "quality": "COMMON",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
+  "imageSize": "cover",
+  "body": "You may include your Dexterity in your Defense Score when you are equipped with Light Armor or unarmored.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "4b23d479-9aa3-4a6a-a0d3-2674165d4b20",
+  "name": "Skeleton Assassin",
+  "type": "CREATURE",
+  "quality": "COMMON",
+  "image": "https://www.giantbomb.com/a/uploads/original/4/44493/1676227-skeletonfighter.jpg",
+  "imageSize": "cover",
+  "body": "❤️ 10\n⚔️ 4\n\uD83D\uDEE1️ 1",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

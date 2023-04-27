@@ -1,0 +1,339 @@
+{
+  "id": "58a2a31b-7c09-4223-9bdb-dc1837d190d5",
+  "name": "MyChar",
+  "portraitUrl": null,
+  "strength": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "dexterity": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "constitution": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "presence": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "influence": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "composure": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "intelligence": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "wits": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "resolve": {
+    "name": null,
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "stamina": {
+    "name": null,
+    "value": 2,
+    "minimum": 0,
+    "maximum": 1
+  },
+  "reputation": {
+    "name": null,
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "focus": {
+    "name": null,
+    "value": 1,
+    "minimum": 0,
+    "maximum": 1
+  },
+  "health": {
+    "name": null,
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "confidence": {
+    "name": null,
+    "value": 1,
+    "minimum": 0,
+    "maximum": 1
+  },
+  "mana": {
+    "name": null,
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "cards": [],
+  "proficiencies": [],
+  "skills": {
+    "greatweapon": {
+      "name": "greatweapon",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "sleight of hand": {
+      "name": "sleight of hand",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "perception": {
+      "name": "perception",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "blacksmithing": {
+      "name": "blacksmithing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "throwing": {
+      "name": "throwing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "tailoring": {
+      "name": "tailoring",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "brewing": {
+      "name": "brewing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "deception": {
+      "name": "deception",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "ranged": {
+      "name": "ranged",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "academic": {
+      "name": "academic",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "bladed": {
+      "name": "bladed",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "farming": {
+      "name": "farming",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "writing": {
+      "name": "writing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "stealth": {
+      "name": "stealth",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "cooking": {
+      "name": "cooking",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "hunting": {
+      "name": "hunting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "leatherworking": {
+      "name": "leatherworking",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "enchanting": {
+      "name": "enchanting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "lance": {
+      "name": "lance",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "nature": {
+      "name": "nature",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "blunt": {
+      "name": "blunt",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "survival": {
+      "name": "survival",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "carpentry": {
+      "name": "carpentry",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "animal handling": {
+      "name": "animal handling",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "medicine": {
+      "name": "medicine",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "history": {
+      "name": "history",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "mining": {
+      "name": "mining",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "engineering": {
+      "name": "engineering",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "acrobatics": {
+      "name": "acrobatics",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "religion": {
+      "name": "religion",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "persuasion": {
+      "name": "persuasion",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "insight": {
+      "name": "insight",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "woodcutting": {
+      "name": "woodcutting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "performance": {
+      "name": "performance",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "investigation": {
+      "name": "investigation",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "mercantile": {
+      "name": "mercantile",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "athletics": {
+      "name": "athletics",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "brawl": {
+      "name": "brawl",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "arcane": {
+      "name": "arcane",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "intimidation": {
+      "name": "intimidation",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    }
+  }
+}

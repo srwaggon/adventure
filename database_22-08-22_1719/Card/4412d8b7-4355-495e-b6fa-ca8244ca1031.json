@@ -1,0 +1,21 @@
+{
+  "id": "4412d8b7-4355-495e-b6fa-ca8244ca1031",
+  "name": "Mace Weapon Mastery",
+  "type": "PROFICIENCY",
+  "quality": "EPIC",
+  "image": "https://i.pinimg.com/736x/90/b9/8d/90b98d65b0baea3a6bd0b88782785ef7.jpg",
+  "imageSize": "100%",
+  "body": "For each critical success while you are making an attack roll with a mace, you may roll an additional [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

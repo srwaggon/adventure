@@ -1,0 +1,21 @@
+{
+  "id": "22c64387-3bc8-4d97-a518-1e5fc823b563",
+  "name": "Perceptive",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://www.wizardslaboratory.com/wp-content/uploads/2018/05/img_0354-3.jpg",
+  "imageSize": "100%",
+  "body": "Whenever you make a Perception check, you my add [d10] to your dice pool.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

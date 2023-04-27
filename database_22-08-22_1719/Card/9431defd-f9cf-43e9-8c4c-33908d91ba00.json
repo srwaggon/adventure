@@ -1,0 +1,21 @@
+{
+  "id": "9431defd-f9cf-43e9-8c4c-33908d91ba00",
+  "name": "True Strike",
+  "type": "SPELL",
+  "quality": "COMMON",
+  "image": "https://tabletopjoab.com/wp-content/uploads/2020/11/DnD-Strike-Combat-Art.jpg",
+  "imageSize": "175%",
+  "body": "Choose target creature. On your next turn, you have advantage on your next standard attack against that creature.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

@@ -1,0 +1,21 @@
+{
+  "id": "5705bc34-9814-49fb-8b31-87c1190f56b5",
+  "name": "Scholar",
+  "type": "TRAIT",
+  "quality": "RARE",
+  "image": "https://cdn.discordapp.com/attachments/954643538342182924/987325167426478130/unknown.png",
+  "imageSize": "150%",
+  "body": "When you make Intelligence checks, once per check, you may spend 1 Focus to add [d10].",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 1.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

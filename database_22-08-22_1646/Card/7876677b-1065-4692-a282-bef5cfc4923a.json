@@ -1,0 +1,21 @@
+{
+  "id": "7876677b-1065-4692-a282-bef5cfc4923a",
+  "name": "Light Armor Proficiency",
+  "type": "PROFICIENCY",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/6a/75/4b/6a754bac126af132059381469961d645.jpg",
+  "imageSize": "100%",
+  "body": "Bashing Resist 1 (While you are wearing light armor, bashing damage that you take from non magical sources is reduced by 1.)",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

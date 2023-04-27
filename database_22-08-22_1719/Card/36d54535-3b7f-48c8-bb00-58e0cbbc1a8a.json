@@ -1,0 +1,22 @@
+{
+  "id": "36d54535-3b7f-48c8-bb00-58e0cbbc1a8a",
+  "name": "Skullsplit",
+  "type": "ATTACK",
+  "quality": "COMMON",
+  "image": "https://static.wikia.nocookie.net/witcher/images/5/52/Gwent_cardart_scoiatael_dwarven_skirmisher.jpg",
+  "imageSize": "100%",
+  "body": "Pay 1 charge.\nMake a standard melee attack. If the attack succeeds, add 2 damage of the same type.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

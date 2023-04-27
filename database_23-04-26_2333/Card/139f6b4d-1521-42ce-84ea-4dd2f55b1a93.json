@@ -1,0 +1,22 @@
+{
+  "id": "139f6b4d-1521-42ce-84ea-4dd2f55b1a93",
+  "name": "Beatdown",
+  "type": "ATTACK",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/736x/43/e6/9c/43e69c4fcb7651966f7626a09192bd22.jpg",
+  "imageSize": "cover",
+  "body": "Pay 3 charge.\nStun 1\nFinisher: The defending character becomes toppled and gains a topple counter for each link in the chain attack.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

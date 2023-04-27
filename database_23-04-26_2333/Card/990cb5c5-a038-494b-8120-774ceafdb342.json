@@ -1,0 +1,21 @@
+{
+  "id": "990cb5c5-a038-494b-8120-774ceafdb342",
+  "name": "Chainmail Armor",
+  "type": "ARMOR",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/5f/d5/b8/5fd5b84935c00aefcafd216dc5b06638.jpg",
+  "imageSize": "110%",
+  "body": "Medium armor\nRequires Strength 2+ to equip.\nDefense 2 (Attack rolls against the equipped character have +2 difficulty)",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.6,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

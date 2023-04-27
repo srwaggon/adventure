@@ -1,0 +1,21 @@
+{
+  "id": "0196ccd7-23b4-4fc2-9563-a37a3220d294",
+  "name": "Necromancer Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://external-preview.redd.it/rSLe7hrzILYSZFheS4le1lTfTaDb1pIFMN5FpqnGFQQ.jpg?auto=webp&s=add6082c3c042a5dacb50fd7b4028d554adc6e26",
+  "imageSize": "100%",
+  "body": "At the end of your turn, if you dealt necrotic damage to an opponent, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

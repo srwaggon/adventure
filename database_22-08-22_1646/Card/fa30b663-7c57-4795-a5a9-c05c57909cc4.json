@@ -1,0 +1,21 @@
+{
+  "id": "fa30b663-7c57-4795-a5a9-c05c57909cc4",
+  "name": "Treasure",
+  "type": "TREASURE",
+  "quality": "RARE",
+  "image": "https://pbs.twimg.com/media/E6EEvwEWQAcj8SR.jpg",
+  "imageSize": "104%",
+  "body": "Gain 5[d10] gold pieces.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

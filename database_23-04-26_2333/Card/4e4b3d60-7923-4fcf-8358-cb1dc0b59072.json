@@ -1,0 +1,22 @@
+{
+  "id": "4e4b3d60-7923-4fcf-8358-cb1dc0b59072",
+  "name": "Torch",
+  "type": "ITEM",
+  "quality": "COMMON",
+  "image": "https://2.bp.blogspot.com/-nOw8qPiBJs0/WZMz4PNXbTI/AAAAAAAAJ-E/ZX14R-0AzwoCKdXmm9ojMqosMDqIwM1KQCLcBGAs/s1600/Efflam%2BMercier.jpg",
+  "imageSize": "160%",
+  "body": "Provides light nearby for 1 hour.",
+  "flavor": "\"You aren't afraid of the dark, are you?\"",
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": false,
+  "darkText": true
+}

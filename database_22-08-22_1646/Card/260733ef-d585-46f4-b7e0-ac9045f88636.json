@@ -1,0 +1,21 @@
+{
+  "id": "260733ef-d585-46f4-b7e0-ac9045f88636",
+  "name": "Charmed",
+  "type": "STATUS",
+  "quality": "RARE",
+  "image": "https://www.tribality.com/wp-content/uploads/2014/10/vampire2.jpg",
+  "imageSize": "270%",
+  "body": "A charmed creature can't attack the charmer or target the charmer with harmful abilities or magical effects.\n\nThe charmer has advantage on any ability check to interact socially with the creature.",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "8pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

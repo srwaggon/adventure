@@ -1,0 +1,21 @@
+{
+  "id": "4fb10278-2b03-41a2-bf18-68e1aaad1b3f",
+  "name": "Skeleton",
+  "type": "CREATURE",
+  "quality": "COMMON",
+  "image": "https://i.pinimg.com/originals/c1/d4/79/c1d4795050253f543400145ed18ac475.jpg",
+  "imageSize": "cover",
+  "body": "❤️ 10\n⚔️ 3\n\uD83D\uDEE1️ 1",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

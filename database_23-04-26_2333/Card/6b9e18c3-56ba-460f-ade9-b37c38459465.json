@@ -1,0 +1,21 @@
+{
+  "id": "6b9e18c3-56ba-460f-ade9-b37c38459465",
+  "name": "Gelatinous Cube",
+  "type": "CREATURE",
+  "quality": "RARE",
+  "image": "https://i0.wp.com/thegamehaus.com/wp-content/uploads/2021/07/Gelatinous-Cube-Adventures-in-the-Forgotten-Realms-MtG-Art.jpg",
+  "imageSize": "180%",
+  "body": "84❤️\n10⚔️ Absorb: Defender gets a tummyache",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

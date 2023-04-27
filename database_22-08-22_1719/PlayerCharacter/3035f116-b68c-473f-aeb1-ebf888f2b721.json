@@ -1,0 +1,387 @@
+{
+  "id": "3035f116-b68c-473f-aeb1-ebf888f2b721",
+  "name": "Character-san",
+  "portraitUrl": "https://i1.wp.com/nerdarchy.com/wp-content/uploads/2020/04/dd-fighters.jpg",
+  "strength": {
+    "name": "strength",
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "dexterity": {
+    "name": "dexterity",
+    "value": 3,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "constitution": {
+    "name": "constitution",
+    "value": 2,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "presence": {
+    "name": "presence",
+    "value": 2,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "influence": {
+    "name": "influence",
+    "value": 3,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "composure": {
+    "name": "composure",
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "intelligence": {
+    "name": "intelligence",
+    "value": 1,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "wits": {
+    "name": "wits",
+    "value": 3,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "resolve": {
+    "name": "resolve",
+    "value": 2,
+    "minimum": 1,
+    "maximum": 5
+  },
+  "stamina": {
+    "name": "stamina",
+    "value": 2,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "reputation": {
+    "name": "reputation",
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "focus": {
+    "name": "focus",
+    "value": 0,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "health": {
+    "name": "health",
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "confidence": {
+    "name": "confidence",
+    "value": 2,
+    "minimum": 0,
+    "maximum": 2
+  },
+  "mana": {
+    "name": "mana",
+    "value": 10,
+    "minimum": 0,
+    "maximum": 10
+  },
+  "cards": [
+    "c3c2fd9e-d50a-4af0-94d2-acb68e7ba3bb",
+    "c3c2fd9e-d50a-4af0-94d2-acb68e7ba3bb",
+    "27d6c16b-4232-47c5-ac19-bd90dea866a9",
+    "364f95b9-838a-4887-a053-6a0f5bf44c35",
+    "373348be-0fdf-47aa-b685-d5f840348e21",
+    "260733ef-d585-46f4-b7e0-ac9045f88636",
+    "f0449cbd-6c26-44d6-8c43-eb6c176036a8",
+    "0ce31f3d-a2ad-4369-95fa-44ae9e014df9",
+    "5c64e037-5101-4af0-b8a1-0a049150e03a",
+    "c1b1017f-cfc8-4cfa-806a-baddb948c292",
+    "88cfbff0-7d91-4510-b357-6728302495e7",
+    "33815448-77a5-404c-9a24-50aec00e4d67",
+    "cb5eb451-49f0-4af3-8a12-f5e45d66ff84",
+    "ab541add-2973-4a6c-a000-9a3e18d0e282",
+    "1eb1dab8-66fd-44d7-9e72-7b7bd1b395f9",
+    "0b5cfd87-e262-473d-9bda-f899517c9e1e",
+    "7f694355-0f33-4e74-bd45-b87c25c06a09",
+    "b9404aab-1ced-48cc-afb0-0b88204483c6",
+    "e7732377-665a-4356-aa8d-4253ada1c74f",
+    "6298e282-178f-4f4e-b6f4-9c09fa30075d",
+    "33f8ed4f-88af-43d7-9643-2ec08d7c4c03",
+    "f4beec73-d2ef-4dc5-8384-dcecfdc3f8a6",
+    "ad8229fb-ffa0-4035-9b00-997cc6fe7eff",
+    "86d549f7-a32a-4771-97ff-6b68c8dab69e",
+    "5720898e-c15d-40f5-bb85-143f014ace78",
+    "513b921d-fe29-4571-9d6e-33ea1906c24b",
+    "3521688e-7329-4529-8b15-b92d05cc9a36",
+    "bfa73e30-9f67-476e-b7a8-188e86c2776d",
+    "92667992-3ae5-419d-8720-8d5bbf9b1324",
+    "434758d2-6ae4-4d4a-9ac9-b34afebf287a",
+    "dbe1baf9-7d21-4400-9ff1-9c8ee6b91eb3",
+    "949b2de3-c347-410a-9dc9-28cdb8744be1",
+    "9151a819-be82-444a-bcad-9847a26d4c26",
+    "da05d0df-5d1f-4576-b45c-337a80417388",
+    "0524ae6a-0551-4b37-abfc-2e34b626761b",
+    "7ef47c6d-6da5-481d-8a0e-c20fc3549f91",
+    "1c4fa86c-4d43-422d-880c-522eb552c5bb",
+    "7e143f6a-aa76-4c18-8334-314579e7de7c",
+    "68d29bf2-631d-48ea-9299-ff80e7ae4654",
+    "385c368e-8829-49be-860f-908288b3b92e",
+    "9668412f-d2d2-4e12-b6f3-97decec18951",
+    "464fe70b-b236-42b3-ac2a-048a16b5a71e",
+    "5893471e-8326-4df0-aade-ab8906fb761b",
+    "fa30b663-7c57-4795-a5a9-c05c57909cc4",
+    "fa30b663-7c57-4795-a5a9-c05c57909cc4",
+    "fa30b663-7c57-4795-a5a9-c05c57909cc4",
+    "4d5a9681-15e2-40e2-a330-59f3f3c75fac"
+  ],
+  "proficiencies": [],
+  "skills": {
+    "greatweapon": {
+      "name": "greatweapon",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "sleight of hand": {
+      "name": "sleight of hand",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "perception": {
+      "name": "perception",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "blacksmithing": {
+      "name": "blacksmithing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "throwing": {
+      "name": "throwing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "tailoring": {
+      "name": "tailoring",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "brewing": {
+      "name": "brewing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "deception": {
+      "name": "deception",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "ranged": {
+      "name": "ranged",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "academic": {
+      "name": "academic",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "bladed": {
+      "name": "bladed",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "farming": {
+      "name": "farming",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "writing": {
+      "name": "writing",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "stealth": {
+      "name": "stealth",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "cooking": {
+      "name": "cooking",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "hunting": {
+      "name": "hunting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "leatherworking": {
+      "name": "leatherworking",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "enchanting": {
+      "name": "enchanting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "lance": {
+      "name": "lance",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "nature": {
+      "name": "nature",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "blunt": {
+      "name": "blunt",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "survival": {
+      "name": "survival",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "carpentry": {
+      "name": "carpentry",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "animal handling": {
+      "name": "animal handling",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "medicine": {
+      "name": "medicine",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "history": {
+      "name": "history",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "mining": {
+      "name": "mining",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "engineering": {
+      "name": "engineering",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "acrobatics": {
+      "name": "acrobatics",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "religion": {
+      "name": "religion",
+      "value": 1,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "persuasion": {
+      "name": "persuasion",
+      "value": 3,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "insight": {
+      "name": "insight",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "woodcutting": {
+      "name": "woodcutting",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "performance": {
+      "name": "performance",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "investigation": {
+      "name": "investigation",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "mercantile": {
+      "name": "mercantile",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "athletics": {
+      "name": "athletics",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "brawl": {
+      "name": "brawl",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "arcane": {
+      "name": "arcane",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "intimidation": {
+      "name": "intimidation",
+      "value": 0,
+      "minimum": 0,
+      "maximum": 5
+    }
+  }
+}

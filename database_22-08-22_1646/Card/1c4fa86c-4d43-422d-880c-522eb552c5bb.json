@@ -1,0 +1,22 @@
+{
+  "id": "1c4fa86c-4d43-422d-880c-522eb552c5bb",
+  "name": "Shell",
+  "type": "SPELL",
+  "quality": "RARE",
+  "image": "https://i.pinimg.com/originals/11/8f/80/118f80d5b6663e5f4a16ed101465a6ce.jpg",
+  "imageSize": "100%",
+  "body": "Pay 1 mana.\nRoll Resolve[d10]. Until your next turn, whenever you or any ally you can touch would take damage from a source you can see, prevent spell damage up to the number of successes.",
+  "flavor": null,
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "fullArt": true,
+  "darkText": true
+}

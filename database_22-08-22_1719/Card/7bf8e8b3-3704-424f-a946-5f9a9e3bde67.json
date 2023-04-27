@@ -1,0 +1,21 @@
+{
+  "id": "7bf8e8b3-3704-424f-a946-5f9a9e3bde67",
+  "name": "Wizard Class",
+  "type": "CLASS",
+  "quality": "RARE",
+  "image": "https://sagegamers.com/wp-content/uploads/2021/04/image1-7.jpg",
+  "imageSize": "100%",
+  "body": "At the end of your turn, if you paid mana to cast a spell, gain one charge.",
+  "flavor": null,
+  "author": null,
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 80.0,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": false
+}

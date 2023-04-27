@@ -1,0 +1,21 @@
+{
+  "id": "d9e505d6-296b-4d6c-84c7-e3412936090d",
+  "name": "Healing Potion",
+  "type": "CONSUMABLE",
+  "quality": "UNCOMMON",
+  "image": "https://i.pinimg.com/originals/ed/fb/02/edfb023fc8730e52974b69f6607cc8a4.jpg",
+  "imageSize": "100%",
+  "body": "Consume to restore 5 health.",
+  "flavor": "\"'Tis but a flesh wound.\"",
+  "author": "Samuel Waggoner",
+  "editionId": null,
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}

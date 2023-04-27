@@ -1,0 +1,21 @@
+{
+  "id": "385c368e-8829-49be-860f-908288b3b92e",
+  "name": "Shortbow Weapon Mastery",
+  "type": "PROFICIENCY",
+  "quality": "EPIC",
+  "image": "https://i.pinimg.com/originals/42/e7/0b/42e70b8797ed09637c8d8d9ede337383.jpg",
+  "imageSize": "102%",
+  "body": "For each critical success while you are making an attack roll with a shortbow, you may roll an additional [d10].",
+  "flavor": null,
+  "author": null,
+  "editionId": "508aacef-8590-4638-8487-cfa73fbcf339",
+  "fontSize": "10pt",
+  "bodyOpacity": 0.8,
+  "costInExperience": 0,
+  "prerequisites": {
+    "attributePrerequisites": [],
+    "skillPrerequisites": [],
+    "cardPrerequisites": []
+  },
+  "darkText": true
+}
