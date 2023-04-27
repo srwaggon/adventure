@@ -2,5 +2,6 @@
 
 set -ex
 
-mv database/ database_$(date +"%y-%m-%d_%H%M")/
+cp -r database/ database_$(date +"%y-%m-%d_%H%M")/
+rm -rf database/
 scp -r digitalocean:~/adventure/database .
