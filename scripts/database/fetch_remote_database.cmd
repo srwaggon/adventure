@@ -1,1 +1,1 @@
-wsl scripts/database/fetch_database.sh
+wsl scripts/database/fetch_remote_database.sh
