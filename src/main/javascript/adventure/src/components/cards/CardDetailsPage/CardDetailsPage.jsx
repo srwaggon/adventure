@@ -192,7 +192,7 @@ const CardDetailsPage = () => {
                      label="Full Art"
                      control={
                        <Switch
-                         checked={card?.fullArt || true}
+                         checked={card?.fullArt || false}
                          onChange={event => setCard(
                            {...card, fullArt: event.target.checked})}
                          color="primary"
@@ -262,7 +262,7 @@ const CardDetailsPage = () => {
                      label="Dark Text"
                      control={
                        <Switch
-                         checked={card?.darkText || true}
+                         checked={card?.darkText || false}
                          onChange={event => setCard(
                            {...card, darkText: event.target.checked})}
                          color="primary"
