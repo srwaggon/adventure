@@ -7,7 +7,9 @@ export const CardQualityDot = ({quality}) => {
 
   quality = quality || "COMMON";
 
-  return <Box width={10} height={10}>
+  return <Box width={19} height={19} display={"flex"} alignItems={"center"}
+              justifyContent={"center"}>
+    <Box width={10} height={10}>
     <span
       className="visual-card-quality-dot"
       style={{
@@ -17,5 +19,6 @@ export const CardQualityDot = ({quality}) => {
       }}
       title={prettify(quality)}
     />
+    </Box>
   </Box>;
 };
