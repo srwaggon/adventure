@@ -8,16 +8,16 @@ public class Card implements Identified<String> {
 
   private String id;
   private String name;
-  private CardType type;
-  private CardQuality quality;
+  private CardType type = CardType.ABILITY;
+  private CardQuality quality = CardQuality.COMMON;
   private boolean isFullArt = true;
   private String image;
   private String imageSize = "cover";
-  private String imagePosition = "center";
+  private String imagePosition = "center top";
   private String body;
   private String flavor;
   private String author;
-  private boolean isDarkText = false;
+  private boolean isDarkText = true;
   private UUID editionId;
   private String fontSize = "10pt";
   private double bodyOpacity = 80;

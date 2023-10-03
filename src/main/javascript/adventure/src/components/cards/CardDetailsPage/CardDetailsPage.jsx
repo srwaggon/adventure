@@ -23,7 +23,7 @@ import PrerequisitesAndCosts from "./Prerequisites";
 
 const newCard = () => ({
   name: "New Card",
-  fullArt: false,
+  fullArt: true,
   image: "https://cdn.discordapp.com/attachments/954643538342182924/963221684985409546/unknown.png",
   imageSize: "cover",
   imagePosition: "center top",
@@ -35,7 +35,7 @@ const newCard = () => ({
   fontSize: "10pt",
   edition: null,
   costInExperience: 0,
-  darkText: false,
+  darkText: true,
   bodyOpacity: 80,
   prerequisites: {
     "attributePrerequisites": [],
@@ -82,8 +82,11 @@ const CardDetailsPage = () => {
   const {name: author} = useCurrentPlayer();
 
   const [isEditing, setEditing] = useState(false);
+
   const onEdit = () => setEditing(true);
+
   const onCancelEdit = () => setEditing(false);
+
   const onCopy = () => postNewCard({...card, id: null, author})
     .then(response => {
       if (response.ok) {
@@ -92,6 +95,7 @@ const CardDetailsPage = () => {
       throw new Error(response.statusText);
     })
     .then(card => navigate(`/cards/${card.id}`));
+
   const onSave = () => (!card.id ? postNewCard({...card, author}) : replaceCard(card))
     .then(response => {
       setEditing(false);
@@ -102,6 +106,7 @@ const CardDetailsPage = () => {
     })
     .then(card => navigate(`/cards/${card.id}`))
     .catch(error => console.log(error));
+
   const onDelete = () => deleteCard(card).then(() => navigate("/cards"));
 
   const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
@@ -187,7 +192,7 @@ const CardDetailsPage = () => {
                      label="Full Art"
                      control={
                        <Switch
-                         checked={card.fullArt}
+                         checked={card?.fullArt || true}
                          onChange={event => setCard(
                            {...card, fullArt: event.target.checked})}
                          color="primary"
@@ -204,22 +209,23 @@ const CardDetailsPage = () => {
 
                    <AlcheimTextField
                      label={"Image size"}
-                     defaultValue={card.imageSize}
+                     defaultValue={card?.imageSize || "cover"}
                      onChange={event => setCard(
                        {...card, imageSize: event.target.value})}
                    />
 
                    <AlcheimTextField
                      label={"Image position"}
-                     defaultValue={card.imagePosition}
+                     defaultValue={card?.imagePosition || "center top"}
                      onChange={event => setCard(
                        {...card, imagePosition: event.target.value})}
                    />
 
-                   <CardQualitySelect value={card.quality} onSelect={quality => setCard(
+                   <CardQualitySelect value={card?.quality || "COMMON"}
+                                      onSelect={quality => setCard(
                      {...card, quality})}/>
 
-                   <CardTypeSelect value={card.type}
+                   <CardTypeSelect value={card?.type || "ABILITY"}
                                    onSelect={type => setCard({...card, type})}/>
 
                    <CardEditionSelect value={card.editionId}
@@ -228,12 +234,12 @@ const CardDetailsPage = () => {
 
                    <AlcheimTextField
                      label={"Font Size"}
-                     defaultValue={card.fontSize}
+                     defaultValue={card?.fontSize || "10pt"}
                      onChange={event => setCard(
                        {...card, fontSize: event.target.value})}
                    />
 
-                   <OpacityInput defaultValue={card.bodyOpacity} onChange={setOpacity}/>
+                   <OpacityInput defaultValue={card?.bodyOpacity || "80"} onChange={setOpacity}/>
 
                    <AlcheimTextField
                      label={"Body"}
@@ -256,7 +262,7 @@ const CardDetailsPage = () => {
                      label="Dark Text"
                      control={
                        <Switch
-                         checked={card.darkText}
+                         checked={card?.darkText || true}
                          onChange={event => setCard(
                            {...card, darkText: event.target.checked})}
                          color="primary"
