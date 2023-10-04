@@ -1,4 +1,4 @@
-import {Box, Card, Container, FormControlLabel, Switch, Typography} from "@mui/material";
+import {Box, Card, Container} from "@mui/material";
 import {VisualCard} from "../VisualCard/VisualCard.tsx";
 import React, {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
@@ -10,16 +10,10 @@ import {
   replaceCard
 } from "../../../utilities/client";
 import EditButtonRow from "../../buttons/EditButtonRow/EditButtonRow";
-import CardTypeSelect from "../CardTypeSelect";
 import TitledAppBar from "../../shared/TitledAppBar";
 import useCurrentPlayer from "../../player/UseCurrentPlayer";
-import CardQualitySelect from "../CardQualitySelect";
 import {useDeleteDialog} from "../../shared/UseDeleteDialog";
-import CardEditionSelect from "../CardEditionSelect";
-import OpacityInput from "./OpacityInput";
-import AlcheimTextField from "../../input/AlcheimTextField";
-import {ZoomingToolTip} from "../../ZoomingToolTip";
-import PrerequisitesAndCosts from "./Prerequisites";
+import {CardDetailsTabNavigation} from "./CardDetailsTabNavigation";
 
 const newCard = () => ({
   name: "New Card",
@@ -111,13 +105,6 @@ const CardDetailsPage = () => {
 
   const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
 
-  const setOpacity = (value) => {
-    if (0 < value && value < 1) {
-      value *= 100;
-    }
-    setCard({...card, bodyOpacity: value});
-  };
-
   const setCostInExperience = event => {
     const costInExperienceCost = event.target.value;
     const costInExperienceValue = parseInt(costInExperienceCost);
@@ -170,131 +157,24 @@ const CardDetailsPage = () => {
              }}/>
            </TitledAppBar>
            <Container>
-             <Box
-               p={4}
-               display="flex"
-               flexDirection="row"
-               justifyContent="space-evenly"
-               flexWrap="wrap">
+             <Box pt={4}
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-evenly"
+                  flexWrap="wrap">
 
-               <ZoomingToolTip>
-                 <VisualCard {...card}/>
-               </ZoomingToolTip>
-
+               <VisualCard {...card}/>
+               <Box sx={{m: 2}}/>
                <Card>
-                 <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
-                   <Typography variant={"h4"}>Data</Typography>
-
-                   <AlcheimTextField
-                     label={"Name"}
-                     defaultValue={card.name}
-                     onChange={event => setCard({...card, name: event.target.value})}
-                   />
-
-                   <CardQualitySelect
-                     value={card?.quality || "COMMON"}
-                     onSelect={quality => setCard(
-                       {...card, quality})}
-                   />
-
-                   <CardTypeSelect
-                     value={card?.type || "ABILITY"}
-                     onSelect={type => setCard({...card, type})}
-                   />
-
-                   <CardEditionSelect
-                     value={card.editionId}
-                     onSelect={edition => setCard(
-                       {...card, editionId: edition.id})}
-                   />
-
-                   <AlcheimTextField
-                     label={"Body"}
-                     multiline
-                     rows={4}
-                     defaultValue={card.body}
-                     onChange={event => setCard({...card, body: event.target.value})}
-                   />
-
-                   <AlcheimTextField
-                     label={"Flavor"}
-                     multiline
-                     rows={2}
-                     defaultValue={card.flavor}
-                     onChange={event => setCard(
-                       {...card, flavor: event.target.value})}
-                   />
-
-                 </Box>
+                 <CardDetailsTabNavigation {...{
+                   cardPrerequisites,
+                   isEditing,
+                   removeCardPrerequisite,
+                   card,
+                   setCard,
+                   setCostInExperience
+                 }}/>
                </Card>
-
-               <Card>
-                 <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
-
-                   <Typography variant={"h4"}>Appearance</Typography>
-
-                   <FormControlLabel
-                     label="Full Art"
-                     control={
-                       <Switch
-                         checked={card?.fullArt || false}
-                         onChange={event => setCard(
-                           {...card, fullArt: event.target.checked})}
-                         color="primary"
-                         inputProps={{"aria-label": "primary checkbox"}}
-                       />
-                     }
-                   />
-
-                   <AlcheimTextField
-                     label={"Image URL"}
-                     defaultValue={card.image}
-                     onChange={event => setCard({...card, image: event.target.value})}
-                   />
-
-                   <AlcheimTextField
-                     label={"Image size"}
-                     defaultValue={card?.imageSize || "cover"}
-                     onChange={event => setCard(
-                       {...card, imageSize: event.target.value})}
-                   />
-
-                   <AlcheimTextField
-                     label={"Image position"}
-                     defaultValue={card?.imagePosition || "center top"}
-                     onChange={event => setCard(
-                       {...card, imagePosition: event.target.value})}
-                   />
-
-                   <FormControlLabel
-                     label="Dark Text"
-                     control={
-                       <Switch
-                         checked={card?.darkText || false}
-                         onChange={event => setCard(
-                           {...card, darkText: event.target.checked})}
-                         color="primary"
-                         inputProps={{"aria-label": "primary checkbox"}}
-                       />
-                     }
-                   />
-
-                   <OpacityInput defaultValue={card?.bodyOpacity || "80"} onChange={setOpacity}/>
-
-                   <AlcheimTextField
-                     label={"Font Size"}
-                     defaultValue={card?.fontSize || "10pt"}
-                     onChange={event => setCard(
-                       {...card, fontSize: event.target.value})}
-                   />
-
-                 </Box>
-               </Card>
-
-               <PrerequisitesAndCosts {...{
-                 cardPrerequisites, isEditing, removeCardPrerequisite, card, setCard,
-                 setCostInExperience
-               }} />
              </Box>
            </Container>
            <DeleteDialog/>
