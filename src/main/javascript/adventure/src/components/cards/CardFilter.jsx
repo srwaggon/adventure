@@ -126,47 +126,54 @@ const CardFilter = ({setFilterFunc}) => {
     setParams({edition: editionId});
   };
 
-  return <Box display={"flex"} flexGrow={2} flexShrink={1} justifyContent={"flex-end"} flexWrap={"wrap"}>
+  return <Box display={"flex"} flexGrow={2} flexWrap={"wrap"}>
 
-    <Box flexGrow={1} flexShrink={1} pl={1}>
-      <NameFilter
-        onFilterName={setName}
-        value={getName()}
-      />
-    </Box>
+    <Box display={"flex"} flexDirection={"column"} width={"100%"}>
+      <Box maxWidth={"100%"} display={"flex"} flexDirection={"row"} justifyContents={"space-evenly"}
+           flexWrap={"wrap"} gap={1}>
+        <Box display={"flex"} flexGrow={1} minWidth={200}>
+          <NameFilter
+            onFilterName={setName}
+            value={getName()}
+          />
+        </Box>
+        <Box display={"flex"} flexGrow={1} minWidth={200}>
+          <TextFilter
+            onFilterText={setText}
+            value={getText()}
+          />
+        </Box>
+      </Box>
 
-    <Box flexGrow={1} flexShrink={1} pl={1}>
-      <TextFilter
-        onFilterText={setText}
-        value={getText()}
-      />
-    </Box>
+      <Box maxWidth={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"}
+           flexWrap={"wrap"} gap={1}>
+        <Box display={"flex"} flexGrow={1} minWidth={200}>
+          <CardQualitySelect
+            value={getQuality()}
+            onSelect={setQuality}>
+            <MenuItem value={"any"}>Any</MenuItem>
+            <MenuItem value={"none"}>None</MenuItem>
+          </CardQualitySelect>
+        </Box>
 
-    <Box flexGrow={1} flexShrink={1} pl={1}>
-      <CardQualitySelect
-        value={getQuality()}
-        onSelect={setQuality}>
-        <MenuItem value={"any"}>Any</MenuItem>
-        <MenuItem value={"none"}>None</MenuItem>
-      </CardQualitySelect>
-    </Box>
+        <Box display={"flex"} flexGrow={1} minWidth={200}>
+          <CardTypeSelect
+            value={getType()}
+            onSelect={setType}>
+            <MenuItem value={"any"}>Any</MenuItem>
+          </CardTypeSelect>
+        </Box>
 
-    <Box flexGrow={1} flexShrink={1} pl={1}>
-      <CardTypeSelect
-        value={getType()}
-        onSelect={setType}>
-        <MenuItem value={"any"}>Any</MenuItem>
-      </CardTypeSelect>
-    </Box>
-
-    <Box flexGrow={1} flexShrink={1} pl={1}>
-      <CardEditionSelect
-        value={getEdition()}
-        onSelect={setEdition}
-      >
-        <MenuItem value={"any"}>Any</MenuItem>
-        <MenuItem value={"none"}>None</MenuItem>
-      </CardEditionSelect>
+        <Box display={"flex"} flexGrow={1} minWidth={200}>
+          <CardEditionSelect
+            value={getEdition()}
+            onSelect={setEdition}
+          >
+            <MenuItem value={"any"}>Any</MenuItem>
+            <MenuItem value={"none"}>None</MenuItem>
+          </CardEditionSelect>
+        </Box>
+      </Box>
     </Box>
 
   </Box>;
