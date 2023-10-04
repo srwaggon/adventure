@@ -1,14 +1,11 @@
 import {Box, Grid, Slider, Typography} from "@mui/material";
 import MuiInput from "@mui/material/Input";
-import {styled} from "@mui/styles";
 import React from "react";
 
 type propsType = { defaultValue: number, onChange: (value: number | number[]) => void }
 
 // @ts-ignore
-const Input = styled(MuiInput)`
-  width: 42px;
-`;
+const Input = MuiInput;
 
 const OpacityInput = ({defaultValue, onChange}: propsType) => {
   const [value, setValue] = React.useState<number | string | Array<number | string>>(

@@ -1,5 +1,13 @@
-import {AppBar, Box, Button, createTheme, StyledEngineProvider, Toolbar, Typography} from "@mui/material";
-import {ThemeProvider} from "@mui/styles";
+import {
+    AppBar,
+    Box,
+    Button,
+    createTheme,
+    StyledEngineProvider,
+    ThemeProvider,
+    Toolbar,
+    Typography
+} from "@mui/material";
 
 import React from "react";
 import {BrowserRouter, Route, Routes, useNavigate} from "react-router-dom";
@@ -9,7 +17,6 @@ import {CharacterPage} from "../character/CharacterPage/CharacterPage";
 import {CharactersPage} from "../character/CharactersPage/CharactersPage";
 import GameDetailsPage from "../game/GameDetailsPage";
 import GamesPage from "../game/GamesPage";
-import {useStyles} from "../Styles";
 import "./App.css";
 
 const Navigation = () => {
@@ -44,10 +51,9 @@ class JsonMessage {
 }
 
 const AppContent = () => {
-  const classes = useStyles();
   return (<Box className="App">
       <BrowserRouter>
-        <AppBar position={"relative"} className={classes.headerBar}>
+          <AppBar position={"relative"}>
           <Navigation/>
         </AppBar>
         <Routes>

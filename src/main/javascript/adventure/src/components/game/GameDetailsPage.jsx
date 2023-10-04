@@ -1,15 +1,15 @@
 import {
-  AppBar,
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  TextField,
-  Toolbar,
-  Typography,
+    AppBar,
+    Box,
+    Button,
+    Divider,
+    Drawer,
+    List,
+    ListItem,
+    ListItemText,
+    TextField,
+    Toolbar,
+    Typography,
 } from "@mui/material";
 import {useNavigate, useParams} from "react-router-dom";
 import {useGameWithId} from "./UseGameWithId";
@@ -22,10 +22,12 @@ import {CharacterDetailsContainer} from "../character/CharacterPage/CharacterDet
 import CenteredGrid from "../shared/CenteredGrid";
 import clsx from "clsx";
 import SendButton from "../buttons/SendButton";
-import {drawerWidth, useStyles} from "../Styles";
+import {drawerWidth} from "../Styles";
 import {useDeleteDialog} from "../shared/UseDeleteDialog";
 import {useCharactersCards} from "../character/UseCharactersCards";
-import {TabbedCharacterPanels} from "../character/CharacterPage/TabbedCharacterPanel/TabbedCharacterPanels";
+import {
+    TabbedCharacterPanels
+} from "../character/CharacterPage/TabbedCharacterPanel/TabbedCharacterPanels";
 import {useWebSocket} from "../shared/UseWebSocket";
 
 const GameAppBar = ({
@@ -159,19 +161,24 @@ const GameDetailsPage = () => {
   const openCharacterDrawer = () => setCharacterDrawerOpen(true);
   const closeCharacterDrawer = () => setCharacterDrawerOpen(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
-  const classes = useStyles();
 
   const {openDialog, DeleteDialog} = useDeleteDialog(onDelete);
 
   return (
     <Box>
-      <GameAppBar {...{classes, closeCharacterDrawer, game, isCharacterDrawerOpen, onCancelEdit, onEdit, onSave, openCharacterDrawer, openDialog, title,}} />
+        <GameAppBar {...{
+            closeCharacterDrawer,
+            game,
+            isCharacterDrawerOpen,
+            onCancelEdit,
+            onEdit,
+            onSave,
+            openCharacterDrawer,
+            openDialog,
+            title,
+        }} />
 
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: isCharacterDrawerOpen,
-        })}
-      >
+        <main>
         <Box>
           <CenteredGrid>
             {!players ? <span>"Loading..."</span> : players.map((player) => <Box p={1} border={1}>{player}</Box>)}
@@ -179,7 +186,12 @@ const GameDetailsPage = () => {
         </Box>
       </main>
 
-      <CharacterDrawer {...{isCharacterDrawerOpen, classes, selectedCharacter, setSelectedCharacter, sendPayload}} />
+        <CharacterDrawer {...{
+            isCharacterDrawerOpen,
+            selectedCharacter,
+            setSelectedCharacter,
+            sendPayload
+        }} />
 
       {webSocket.current && <Button onClick={() => sendPayload(selectedCharacter.cards[0])}>greeting</Button>}
 
