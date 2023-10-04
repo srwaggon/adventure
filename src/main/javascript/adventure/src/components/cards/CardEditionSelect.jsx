@@ -22,10 +22,10 @@ export const CardEditionSelect = (props) => {
     <InputLabel>{label}</InputLabel>
     <Select {...{
       label,
-      value,
+      value: editions.length ? value : "",
       onChange: (event) => {
-        const value = event.target.value;
-        onSelect(editionsById[value] || value);
+        const editionId = event.target.value;
+        onSelect(editionsById[editionId] || editionId);
       },
       inputProps: {readOnly: !isEditing}
     }}>

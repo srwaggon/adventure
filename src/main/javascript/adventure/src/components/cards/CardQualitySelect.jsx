@@ -13,7 +13,7 @@ const CardQualitySelect = ({value, onSelect, children}) => {
     <InputLabel>{label}</InputLabel>
     <Select {...{
       label,
-      value,
+      value: qualities.length ? value : "",
       onChange: (event) => onSelect(event.target.value)
     }}>
       {children}
