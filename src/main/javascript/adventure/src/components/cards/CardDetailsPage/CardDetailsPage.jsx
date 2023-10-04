@@ -170,23 +170,68 @@ const CardDetailsPage = () => {
              }}/>
            </TitledAppBar>
            <Container>
-             <Box p={4} display="flex" flexDirection="row" justifyContent="space-evenly"
-                  flexWrap="wrap">
+             <Box
+               p={4}
+               display="flex"
+               flexDirection="row"
+               justifyContent="space-evenly"
+               flexWrap="wrap">
+
                <ZoomingToolTip>
                  <VisualCard {...card}/>
                </ZoomingToolTip>
+
                <Card>
                  <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
-
-                   <Typography variant={"h4"}>
-                     Appearance
-                   </Typography>
+                   <Typography variant={"h4"}>Data</Typography>
 
                    <AlcheimTextField
                      label={"Name"}
                      defaultValue={card.name}
                      onChange={event => setCard({...card, name: event.target.value})}
                    />
+
+                   <CardQualitySelect
+                     value={card?.quality || "COMMON"}
+                     onSelect={quality => setCard(
+                       {...card, quality})}
+                   />
+
+                   <CardTypeSelect
+                     value={card?.type || "ABILITY"}
+                     onSelect={type => setCard({...card, type})}
+                   />
+
+                   <CardEditionSelect
+                     value={card.editionId}
+                     onSelect={edition => setCard(
+                       {...card, editionId: edition.id})}
+                   />
+
+                   <AlcheimTextField
+                     label={"Body"}
+                     multiline
+                     rows={4}
+                     defaultValue={card.body}
+                     onChange={event => setCard({...card, body: event.target.value})}
+                   />
+
+                   <AlcheimTextField
+                     label={"Flavor"}
+                     multiline
+                     rows={2}
+                     defaultValue={card.flavor}
+                     onChange={event => setCard(
+                       {...card, flavor: event.target.value})}
+                   />
+
+                 </Box>
+               </Card>
+
+               <Card>
+                 <Box p={4} display="flex" flexDirection="column" width={"20rem"}>
+
+                   <Typography variant={"h4"}>Appearance</Typography>
 
                    <FormControlLabel
                      label="Full Art"
@@ -221,43 +266,6 @@ const CardDetailsPage = () => {
                        {...card, imagePosition: event.target.value})}
                    />
 
-                   <CardQualitySelect value={card?.quality || "COMMON"}
-                                      onSelect={quality => setCard(
-                     {...card, quality})}/>
-
-                   <CardTypeSelect value={card?.type || "ABILITY"}
-                                   onSelect={type => setCard({...card, type})}/>
-
-                   <CardEditionSelect value={card.editionId}
-                                      onSelect={edition => setCard(
-                                        {...card, editionId: edition.id})}/>
-
-                   <AlcheimTextField
-                     label={"Font Size"}
-                     defaultValue={card?.fontSize || "10pt"}
-                     onChange={event => setCard(
-                       {...card, fontSize: event.target.value})}
-                   />
-
-                   <OpacityInput defaultValue={card?.bodyOpacity || "80"} onChange={setOpacity}/>
-
-                   <AlcheimTextField
-                     label={"Body"}
-                     multiline
-                     rows={4}
-                     defaultValue={card.body}
-                     onChange={event => setCard({...card, body: event.target.value})}
-                   />
-
-                   <AlcheimTextField
-                     label={"Flavor"}
-                     multiline
-                     rows={2}
-                     defaultValue={card.flavor}
-                     onChange={event => setCard(
-                       {...card, flavor: event.target.value})}
-                   />
-
                    <FormControlLabel
                      label="Dark Text"
                      control={
@@ -270,8 +278,19 @@ const CardDetailsPage = () => {
                        />
                      }
                    />
+
+                   <OpacityInput defaultValue={card?.bodyOpacity || "80"} onChange={setOpacity}/>
+
+                   <AlcheimTextField
+                     label={"Font Size"}
+                     defaultValue={card?.fontSize || "10pt"}
+                     onChange={event => setCard(
+                       {...card, fontSize: event.target.value})}
+                   />
+
                  </Box>
                </Card>
+
                <PrerequisitesAndCosts {...{
                  cardPrerequisites, isEditing, removeCardPrerequisite, card, setCard,
                  setCostInExperience
