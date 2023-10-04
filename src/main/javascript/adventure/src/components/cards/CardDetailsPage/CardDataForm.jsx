@@ -26,7 +26,7 @@ export const CardDataForm = (props) => {
     />
 
     <CardEditionSelect
-      value={card.editionId}
+      value={card.editionId || ""}
       onSelect={edition => setCard(
         {...card, editionId: edition.id})}
     />

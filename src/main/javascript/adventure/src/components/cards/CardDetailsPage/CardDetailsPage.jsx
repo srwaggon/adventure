@@ -27,7 +27,7 @@ const newCard = () => ({
   author: null,
   quality: "COMMON",
   fontSize: "10pt",
-  edition: null,
+  editionId: "",
   costInExperience: 0,
   darkText: true,
   bodyOpacity: 80,
@@ -167,11 +167,11 @@ const CardDetailsPage = () => {
                <Box sx={{m: 2}}/>
                <Card>
                  <CardDetailsTabNavigation {...{
-                   cardPrerequisites,
-                   isEditing,
-                   removeCardPrerequisite,
                    card,
                    setCard,
+                   isEditing,
+                   cardPrerequisites,
+                   removeCardPrerequisite,
                    setCostInExperience
                  }}/>
                </Card>

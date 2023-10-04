@@ -3,11 +3,15 @@ import React from "react";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {prettify} from "../../utilities/kitchen_sink";
 
+const asMenuItem = edition => {
+  return <MenuItem key={edition} value={edition.id}>{prettify(edition.name)}</MenuItem>;
+};
+
 export const CardEditionSelect = ({children, value, onSelect}) => {
   const editions = useEditions();
 
-  const editionsByName = editions.reduce((acc, edition) => {
-    acc[edition.name] = edition;
+  const editionsById = editions.reduce((acc, edition) => {
+    acc[edition.id] = edition;
     return acc;
   }, {});
 
@@ -20,11 +24,11 @@ export const CardEditionSelect = ({children, value, onSelect}) => {
       value,
       onChange: (event) => {
         const value = event.target.value;
-        onSelect(editionsByName[value] || value);
+        onSelect(editionsById[value] || value);
       }
     }}>
       {children}
-      {editions.map(edition => <MenuItem key={edition} value={edition}>{prettify(edition.name)}</MenuItem>)}
+      {editions.map(asMenuItem)}
     </Select>
   </FormControl>;
 };
