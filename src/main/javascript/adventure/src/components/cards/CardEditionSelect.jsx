@@ -7,7 +7,8 @@ const asMenuItem = edition => {
   return <MenuItem key={edition} value={edition.id}>{prettify(edition.name)}</MenuItem>;
 };
 
-export const CardEditionSelect = ({children, value, onSelect}) => {
+export const CardEditionSelect = (props) => {
+  const {children, value, isEditing = true, onSelect} = props;
   const editions = useEditions();
 
   const editionsById = editions.reduce((acc, edition) => {
@@ -25,7 +26,8 @@ export const CardEditionSelect = ({children, value, onSelect}) => {
       onChange: (event) => {
         const value = event.target.value;
         onSelect(editionsById[value] || value);
-      }
+      },
+      inputProps: {readOnly: !isEditing}
     }}>
       {children}
       {editions.map(asMenuItem)}
