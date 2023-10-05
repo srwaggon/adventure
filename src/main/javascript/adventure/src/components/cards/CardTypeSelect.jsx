@@ -13,6 +13,7 @@ const CardTypeSelect = ({children, value, onSelect}) => {
     <Select {...{
       label,
       value: cardTypes.length ? value : "",
+      size: "small",
       onChange: (event) => onSelect(event.target.value)
     }}>
       {children}

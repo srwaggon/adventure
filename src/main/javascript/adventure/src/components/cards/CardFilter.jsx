@@ -1,10 +1,11 @@
-import {Box, IconButton, InputAdornment, MenuItem, TextField} from "@mui/material";
+import {Box, IconButton, InputAdornment, MenuItem} from "@mui/material";
 import CardTypeSelect from "./CardTypeSelect";
 import React, {useEffect} from "react";
 import CardQualitySelect from "./CardQualitySelect";
 import CardEditionSelect from "./CardEditionSelect";
 import {useSearchParams} from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
+import AlcheimTextField from "../input/AlcheimTextField";
 
 const filterName = (name) => (card) => (card.name || "").toLowerCase().includes(name);
 
@@ -22,11 +23,8 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
-const NameFilter = ({onFilterName, value}) => <TextField
+const NameFilter = ({onFilterName, value}) => <AlcheimTextField
   label="Name"
-  variant="outlined"
-  margin="dense"
-  fullWidth
   value={value}
   onChange={(event) => onFilterName(event.target.value)}
   InputProps={value && {
@@ -42,11 +40,8 @@ const NameFilter = ({onFilterName, value}) => <TextField
   }}
 />;
 
-const TextFilter = ({onFilterText, value}) => <TextField
+const TextFilter = ({onFilterText, value}) => <AlcheimTextField
   label="Text"
-  variant="outlined"
-  margin="dense"
-  fullWidth
   value={value}
   onChange={(event) => onFilterText(event.target.value)}
   InputProps={value && {

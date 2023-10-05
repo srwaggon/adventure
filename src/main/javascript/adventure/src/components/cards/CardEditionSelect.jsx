@@ -23,6 +23,7 @@ export const CardEditionSelect = (props) => {
     <Select {...{
       label,
       value: editions.length ? value : "",
+      size: "small",
       onChange: (event) => {
         const editionId = event.target.value;
         onSelect(editionsById[editionId] || editionId);

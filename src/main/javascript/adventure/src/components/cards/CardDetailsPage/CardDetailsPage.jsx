@@ -47,8 +47,7 @@ const CardDetailsPage = () => {
                       justifyContent="space-evenly"
                       flexWrap="wrap">
                    <VisualCard {...card}/>
-                   <Box sx={{m: 2}}/>
-                   <CardDetailsTabNavigation {...{isEditing}}/>
+                   <CardDetailsTabNavigation/>
                  </Box>
                </Container>
              </EditingContext.Provider>

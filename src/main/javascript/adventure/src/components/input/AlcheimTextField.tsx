@@ -1,15 +1,16 @@
 import {TextField, TextFieldProps} from "@mui/material";
 import React from "react";
 
-type AlcheimTextFieldParams = JSX.IntrinsicAttributes & TextFieldProps & { isEditing?: boolean };
+type AlcheimTextFieldParams = JSX.IntrinsicAttributes & TextFieldProps & { readOnly?: boolean };
 
 const AlcheimTextField = (props: AlcheimTextFieldParams) => {
-    const {isEditing = true} = props;
+    const {readOnly} = props;
   return <TextField
     variant={"outlined"}
     fullWidth
+    size={"small"}
     margin={"dense"}
-    inputProps={{readOnly: !isEditing}}
+    inputProps={{readOnly}}
     {...props}
   />
 }
