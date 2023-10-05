@@ -1,7 +1,13 @@
 import {Box, TextField, Typography} from "@mui/material";
-import React from "react";
+import React, {useContext} from "react";
+import {CardContext} from "./CardContext";
+import {EditingContext} from "./EditingContext";
 
-export const CostsForm = ({card, setCard, isEditing}) => {
+export const CostsForm = () => {
+
+  const [card, setCard] = useContext(CardContext);
+
+  const [isEditing] = useContext(EditingContext);
 
     const setCostInExperience = event => {
       const costInExperienceCost = event.target.value;

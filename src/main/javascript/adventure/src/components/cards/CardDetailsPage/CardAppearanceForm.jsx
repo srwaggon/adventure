@@ -1,10 +1,12 @@
 import {Box, FormControlLabel, Switch} from "@mui/material";
 import AlcheimTextField from "../../input/AlcheimTextField";
 import OpacityInput from "./OpacityInput";
-import React from "react";
+import React, {useContext} from "react";
+import {CardContext} from "./CardContext";
 
-export const CardAppearanceForm = (props) => {
-  const {card, setCard} = props;
+export const CardAppearanceForm = () => {
+
+  const [card, setCard] = useContext(CardContext);
 
   const setOpacity = (value) => {
     if (0 < value && value < 1) {

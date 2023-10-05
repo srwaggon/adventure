@@ -11,19 +11,20 @@ import {
   Tooltip,
   Typography
 } from "@mui/material";
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import AlcheimTextField from "../../input/AlcheimTextField";
 import useCards from "../useCards";
 import {VisualCard} from "../VisualCard/VisualCard";
 import {getCardsByIds} from "../../../utilities/client";
+import {CardContext} from "./CardContext";
+import {EditingContext} from "./EditingContext";
 
-const PrerequisitesForm = (props) => {
-  const {
-    isEditing,
-    card,
-    setCard
-  } = props;
+const PrerequisitesForm = () => {
+
+  const [card, setCard] = useContext(CardContext);
+
+  const [isEditing] = useContext(EditingContext);
 
   const [cardPrerequisites, setCardPrerequisites] = useState([]);
 

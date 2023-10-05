@@ -4,8 +4,10 @@ import {useNavigate} from "react-router-dom";
 import CardQualitySelect from "../CardQualitySelect";
 import CardTypeSelect from "../CardTypeSelect";
 import CardEditionSelect from "../CardEditionSelect";
-import React from "react";
+import React, {useContext} from "react";
 import AddButton from "../../buttons/AddButton";
+import {CardContext} from "./CardContext";
+import {EditingContext} from "./EditingContext";
 
 const AddEditionButton = () => {
   const navigate = useNavigate();
@@ -16,8 +18,12 @@ const AddEditionButton = () => {
   }/>;
 };
 
-export const CardDataForm = (props) => {
-  const {card, setCard, isEditing} = props;
+export const CardDataForm = () => {
+
+  const [card, setCard] = useContext(CardContext);
+
+  const [isEditing] = useContext(EditingContext);
+
   return <Box display="flex" flexDirection="column">
     <AlcheimTextField
       label={"Name"}
