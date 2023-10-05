@@ -27,10 +27,7 @@ export const CardDetailsTabNavigation = (props) => {
     );
   };
 
-  const {
-    card, setCard, cardPrerequisites, isEditing, removeCardPrerequisite,
-    setCostInExperience
-  } = props;
+  const {card, setCard, isEditing} = props;
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -69,13 +66,10 @@ export const CardDetailsTabNavigation = (props) => {
           <CardAppearanceForm {...{card, setCard}} />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <PrerequisitesForm {...{
-            cardPrerequisites, isEditing, removeCardPrerequisite, card, setCard,
-            setCostInExperience
-          }} />
+          <PrerequisitesForm {...{card, setCard, isEditing}} />
         </TabPanel>
         <TabPanel value={value} index={3} dir={theme.direction}>
-          <CostsForm {...{isEditing, card, setCard, setCostInExperience}} />
+          <CostsForm {...{card, setCard, isEditing}} />
         </TabPanel>
       </Box>
     </Box>

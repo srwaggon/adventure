@@ -11,20 +11,51 @@ import {
   Tooltip,
   Typography
 } from "@mui/material";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import AlcheimTextField from "../../input/AlcheimTextField";
 import useCards from "../useCards";
 import {VisualCard} from "../VisualCard/VisualCard";
+import {getCardsByIds} from "../../../utilities/client";
 
 const PrerequisitesForm = (props) => {
   const {
-    cardPrerequisites,
     isEditing,
-    removeCardPrerequisite,
     card,
     setCard
   } = props;
+
+  const [cardPrerequisites, setCardPrerequisites] = useState([]);
+
+  useEffect(() => {
+    if (!card) {
+      return;
+    }
+    const prerequisites = card.prerequisites || {};
+    const cardPrerequisites = prerequisites.cardPrerequisites || [];
+
+    if (cardPrerequisites.length > 0) {
+      getCardsByIds(cardPrerequisites)
+        .then(response => response.json())
+        .then(json => setCardPrerequisites(json));
+    }
+  }, [card, setCardPrerequisites]);
+
+  const removeCardPrerequisite = (cardPrerequisite) => {
+    const {prerequisites, ...other} = card;
+    const {cardPrerequisites, ...otherPrerequisites} = prerequisites;
+    const filteredCardPrerequisites = cardPrerequisites.filter(
+      cp => cp !== cardPrerequisite.id);
+    const newCard = {
+      ...other,
+      prerequisites: {
+        ...otherPrerequisites,
+        cardPrerequisites: filteredCardPrerequisites
+      }
+    };
+    setCard(newCard);
+    setCardPrerequisites(filteredCardPrerequisites);
+  };
 
   return <Box display="flex" flexDirection="column">
     <Typography variant={"h5"}>Attributes</Typography>
