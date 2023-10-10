@@ -1,22 +1,19 @@
-import {Box, Grid, Slider, Typography} from "@mui/material";
+import {Box, Grid, InputLabel, Slider} from "@mui/material";
 import MuiInput from "@mui/material/Input";
-import React from "react";
+import React, {useContext} from "react";
+import {CardContext} from "./CardContext";
 
-type propsType = { defaultValue: number, onChange: (value: number | number[]) => void }
+const OpacityInput = () => {
 
-// @ts-ignore
-const Input = MuiInput;
+  const [card, setCard] = useContext<any>(CardContext);
 
-const OpacityInput = ({defaultValue, onChange}: propsType) => {
-  const [value, setValue] = React.useState<number | string | Array<number | string>>(
-    defaultValue * (0 < defaultValue && defaultValue <= 1 ? 100 : 1));
+  const clamp = (value: number) => Math.max(0, value, Math.min(value, 100));
 
-  const setOpacity = (opacity: number | number[]) => {
-    setValue(opacity);
-    onChange(opacity);
+  const setOpacity = (opacity: number) => {
+    setCard({...card, bodyOpacity: clamp(opacity)});
   };
 
-  const handleSliderChange = (event: Event, newValue: number | number[]) => {
+  const handleSliderChange: any = (event: Event, newValue: number) => {
     setOpacity(newValue);
   };
 
@@ -25,25 +22,18 @@ const OpacityInput = ({defaultValue, onChange}: propsType) => {
   };
 
   const handleBlur = () => {
-    if (value < 0) {
-      setOpacity(0);
-    } else if (value > 100) {
-      setOpacity(100);
-    }
+    setOpacity(card?.bodyOpacity);
   };
 
   return <>
     <Box>
-      <Typography id="input-slider" gutterBottom>
-        Opacity
-      </Typography>
+      <InputLabel>Opacity</InputLabel>
       <Grid container spacing={2} alignItems="center">
         <Grid item xs>
           <Slider
             aria-label="Opacity"
-            value={typeof value === "number" ? value : 0}
+            value={card?.bodyOpacity}
             onChange={handleSliderChange}
-            aria-labelledby="input-slider"
             step={10}
             marks
             min={0}
@@ -51,8 +41,8 @@ const OpacityInput = ({defaultValue, onChange}: propsType) => {
           />
         </Grid>
         <Grid item>
-          <Input
-            value={value}
+          <MuiInput
+            value={clamp(card?.bodyOpacity)}
             size="small"
             onChange={handleInputChange}
             onBlur={handleBlur}

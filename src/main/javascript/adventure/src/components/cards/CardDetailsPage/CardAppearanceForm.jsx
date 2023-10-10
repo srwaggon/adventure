@@ -10,13 +10,6 @@ export const CardAppearanceForm = () => {
 
   const [card, setCard] = useContext(CardContext);
 
-  const setOpacity = (value) => {
-    if (0 < value && value < 1) {
-      value *= 100;
-    }
-    setCard({...card, bodyOpacity: value});
-  };
-
   return <Box display="flex" flexDirection="column">
 
     <AlcheimArtToggleButtons/>
@@ -43,7 +36,7 @@ export const CardAppearanceForm = () => {
 
     <AlcheimTextBrightnessToggle/>
 
-    <OpacityInput defaultValue={card?.bodyOpacity || "80"} onChange={setOpacity}/>
+    <OpacityInput/>
 
     <AlcheimTextField
       label={"Font Size"}
