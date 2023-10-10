@@ -2,7 +2,7 @@ import {Box, IconButton, InputAdornment, MenuItem} from "@mui/material";
 import CardTypeSelect from "./CardTypeSelect";
 import React, {useEffect} from "react";
 import CardQualitySelect from "./CardQualitySelect";
-import CardEditionSelect from "./CardEditionSelect";
+import EditionSelect from "./EditionSelect";
 import {useSearchParams} from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import AlcheimTextField from "../input/AlcheimTextField";
@@ -160,13 +160,13 @@ const CardFilter = ({setFilterFunc}) => {
         </Box>
 
         <Box display={"flex"} flexGrow={1} minWidth={200}>
-          <CardEditionSelect
+            <EditionSelect
             value={getEdition()}
             onSelect={setEdition}
           >
             <MenuItem value={"any"}>Any</MenuItem>
             <MenuItem value={"none"}>None</MenuItem>
-          </CardEditionSelect>
+            </EditionSelect>
         </Box>
       </Box>
     </Box>

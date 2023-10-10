@@ -1,28 +1,14 @@
 import {Box} from "@mui/material";
 import AlcheimTextField from "../../input/AlcheimTextField";
-import {useNavigate} from "react-router-dom";
 import CardQualitySelect from "../CardQualitySelect";
 import CardTypeSelect from "../CardTypeSelect";
-import CardEditionSelect from "../CardEditionSelect";
 import React, {useContext} from "react";
-import AddButton from "../../buttons/AddButton";
 import {CardContext} from "./CardContext";
-import {EditingContext} from "./EditingContext";
-
-const AddEditionButton = () => {
-  const navigate = useNavigate();
-
-  return <AddButton onClick={() =>
-    // navigate("/editions/new")
-    alert("Creating new editions is not yet implemented.")
-  }/>;
-};
+import CardEditionSelect from "./CardEditionSelect";
 
 export const CardDataForm = () => {
 
   const [card, setCard] = useContext(CardContext);
-
-  const [isEditing] = useContext(EditingContext);
 
   return <Box display="flex" flexDirection="column">
     <AlcheimTextField
@@ -42,15 +28,7 @@ export const CardDataForm = () => {
       onSelect={type => setCard({...card, type})}
     />
 
-    <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
-      <CardEditionSelect
-        value={card.editionId || ""}
-        onSelect={edition => setCard(
-          {...card, editionId: edition.id})}
-      />
-
-      {isEditing && <AddEditionButton/>}
-    </Box>
+      <CardEditionSelect/>
 
     <AlcheimTextField
       label={"Body"}

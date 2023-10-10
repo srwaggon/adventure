@@ -7,7 +7,7 @@ const asMenuItem = edition => {
   return <MenuItem key={edition} value={edition.id}>{prettify(edition.name)}</MenuItem>;
 };
 
-export const CardEditionSelect = (props) => {
+export const EditionSelect = (props) => {
   const {children, value, isEditing = true, onSelect} = props;
   const editions = useEditions();
 
@@ -36,4 +36,4 @@ export const CardEditionSelect = (props) => {
   </FormControl>;
 };
 
-export default CardEditionSelect;
+export default EditionSelect;
