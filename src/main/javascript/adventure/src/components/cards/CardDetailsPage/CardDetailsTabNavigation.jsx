@@ -2,7 +2,7 @@ import {Box, Card, Tab, Tabs, Typography, useTheme} from "@mui/material";
 import React from "react";
 import {CardDataForm} from "./CardDataForm";
 import {CardAppearanceForm} from "./CardAppearanceForm";
-import PrerequisitesForm from "./PrerequisitesForm";
+import PrerequisitesForm from "./Prerequisites/PrerequisitesForm";
 import {CostsForm} from "./CostsForm";
 
 export const CardDetailsTabNavigation = () => {
