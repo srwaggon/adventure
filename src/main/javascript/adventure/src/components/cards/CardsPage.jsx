@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import useCards from "./useCards";
-import CenteredGridWithAppBar from "../shared/CenteredGridWithAppBar";
-import AddButton from "../buttons/AddButton";
 import CardFilter from "./CardFilter";
 import {VisualCard} from "./VisualCard/VisualCard.tsx";
+import {Box, Button, Card, CardContent} from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import TitledAppBar from "../shared/TitledAppBar";
+import CenteredGrid from "../shared/CenteredGrid";
 
 const CardsPage = () => {
 
@@ -20,17 +22,31 @@ const CardsPage = () => {
     </Link>
   );
 
-  const menuItems = (
-    <>
-      <CardFilter {...{setFilterFunc}} />
-      <AddButton onClick={() => navigate("/cards/new")}/>
-    </>
-  );
-
   return (
-    <CenteredGridWithAppBar title={"Cards"} menuItems={menuItems}>
-      {items}
-    </CenteredGridWithAppBar>
+    <>
+      <TitledAppBar title={"Cards"}>
+        <Box display={"flex"} justifyContent="end">
+          <Button variant="contained"
+                  startIcon={<AddCircleIcon/>}
+                  onClick={() => navigate("/cards/new")}
+          >
+            New Card
+          </Button>
+        </Box>
+      </TitledAppBar>
+
+      <Box m={1}>
+        <Card>
+          <CardContent>
+            <CardFilter {...{setFilterFunc}} />
+          </CardContent>
+        </Card>
+      </Box>
+
+      <CenteredGrid>
+        {items}
+      </CenteredGrid>
+    </>
   );
 };
 
