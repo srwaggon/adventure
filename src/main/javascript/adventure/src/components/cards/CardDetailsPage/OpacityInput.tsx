@@ -10,7 +10,8 @@ const OpacityInput = () => {
   const clamp = (value: number) => Math.max(0, value, Math.min(value, 100));
 
   const setOpacity = (opacity: number) => {
-    setCard({...card, appearance: {...card.appearance, bodyOpacity: clamp(opacity)}});
+    const bodyOpacity = clamp(opacity);
+    setCard({...card, appearance: {...card.appearance, bodyOpacity}});
   };
 
   const handleSliderChange: any = (event: Event, newValue: number) => {

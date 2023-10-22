@@ -15,6 +15,8 @@ import "./VisualCard.css";
 import {Card} from "../../../card/Cards";
 
 const getClampedBodyOpacity = (bodyOpacity: number) => {
+  console.log(bodyOpacity);
+
   if (bodyOpacity > 100) {
     bodyOpacity %= 100;
   }
@@ -51,8 +53,6 @@ type VisualCardProps = {
   }
 }
 
-const DEFAULT_OPACITY = 80;
-
 const DEFAULT_FONT_SIZE = "10pt";
 
 const LEATHER_BACKGROUND = "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo=";
@@ -86,7 +86,9 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
   const typeText = prettify(card.getType() || "ABILITY");
   const bodyElements = applyTransforms(card.getBody() || "");
 
-  const backgroundColor = (appearance.isDarkText() ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(!appearance.isFullArt() ? 100 : appearance.getBodyOpacity() || DEFAULT_OPACITY);
+  const bodyOpacity = !appearance.isFullArt() ? 100 : appearance.getBodyOpacity();
+
+  const backgroundColor = (appearance.isDarkText() ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(bodyOpacity);
 
   const CardPane = (props: any) => {
     const {children, className, style, ...otherProps} = props;

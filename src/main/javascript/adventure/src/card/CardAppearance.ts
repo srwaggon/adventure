@@ -26,7 +26,7 @@ export class CardAppearance {
 
   public isDarkText = () => this._appearance.darkText == true;
 
-  public getBodyOpacity = () => this._appearance.bodyOpacity || 100;
+  public getBodyOpacity = () => this._appearance.bodyOpacity || 0;
 
   public getFontSize = () => this._appearance.fontSize || "10pt";
 
