@@ -22,7 +22,7 @@ const OpacityInput = () => {
   };
 
   const handleBlur = () => {
-    setOpacity(card?.appearance.bodyOpacity);
+    setOpacity(card?.appearance?.bodyOpacity);
   };
 
   return <>

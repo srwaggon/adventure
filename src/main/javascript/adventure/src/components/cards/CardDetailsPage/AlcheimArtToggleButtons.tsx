@@ -13,7 +13,7 @@ const AlcheimArtToggleButtons = () => {
 
   return (
     <AlcheimToggleButtons
-      value={card?.appearance.fullArt || false}
+      value={card?.appearance?.fullArt || false}
       buttons={buttons}
       onChange={(value) => setCard({
         ...card,
