@@ -10,7 +10,7 @@ const OpacityInput = () => {
   const clamp = (value: number) => Math.max(0, value, Math.min(value, 100));
 
   const setOpacity = (opacity: number) => {
-    setCard({...card, bodyOpacity: clamp(opacity)});
+    setCard({...card, appearance: {...card.appearance, bodyOpacity: clamp(opacity)}});
   };
 
   const handleSliderChange: any = (event: Event, newValue: number) => {
@@ -22,7 +22,7 @@ const OpacityInput = () => {
   };
 
   const handleBlur = () => {
-    setOpacity(card?.bodyOpacity);
+    setOpacity(card?.appearance.bodyOpacity);
   };
 
   return <>
@@ -32,7 +32,7 @@ const OpacityInput = () => {
         <Grid item xs>
           <Slider
             aria-label="Opacity"
-            value={card?.bodyOpacity}
+            value={card?.appearance.bodyOpacity}
             onChange={handleSliderChange}
             step={10}
             marks
@@ -42,7 +42,7 @@ const OpacityInput = () => {
         </Grid>
         <Grid item>
           <MuiInput
-            value={clamp(card?.bodyOpacity)}
+            value={clamp(card?.appearance.bodyOpacity)}
             size="small"
             onChange={handleInputChange}
             onBlur={handleBlur}

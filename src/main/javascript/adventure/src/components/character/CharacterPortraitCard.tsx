@@ -38,7 +38,12 @@ export const CharacterPortraitCard = ({
   return <Card>
     <VisualCard
       name={characterName}
-      image={_portraitUrl}
+      type={"CHARACTER"}
+      appearance={{
+        fullArt: true,
+        image: _portraitUrl,
+        darkText: true,
+      }}
     />
     {onSave && <Row width={284}>
       {!isEditing ?

@@ -13,9 +13,12 @@ const AlcheimTextBrightnessToggle = () => {
 
   return (
     <AlcheimToggleButtons
-      value={card?.darkText || false}
+      value={card?.appearance.darkText || false}
       buttons={buttons}
-      onChange={(value) => setCard({...card, darkText: value === 'true'})}
+      onChange={(value) => setCard({
+        ...card,
+        appearance: {...card.appearance, darkText: value === 'true'}
+      })}
     />
   );
 

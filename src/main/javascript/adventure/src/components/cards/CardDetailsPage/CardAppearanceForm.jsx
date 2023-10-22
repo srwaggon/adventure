@@ -16,22 +16,23 @@ export const CardAppearanceForm = () => {
 
     <AlcheimTextField
       label={"Image URL"}
-      defaultValue={card.image}
-      onChange={event => setCard({...card, image: event.target.value})}
+      defaultValue={card?.appearance.image}
+      onChange={event => setCard(
+        {...card, appearance: {...card.appearance, image: event.target.value}})}
     />
 
     <AlcheimTextField
       label={"Image position"}
-      defaultValue={card?.imagePosition || "center top"}
+      defaultValue={card?.appearance.imagePosition || "center top"}
       onChange={event => setCard(
-        {...card, imagePosition: event.target.value})}
+        {...card, appearance: {...card.appearance, imagePosition: event.target.value}})}
     />
 
     <AlcheimTextField
       label={"Image size"}
-      defaultValue={card?.imageSize || "cover"}
+      defaultValue={card?.appearance.imageSize || "cover"}
       onChange={event => setCard(
-        {...card, imageSize: event.target.value})}
+        {...card, appearance: {...card.appearance, imageSize: event.target.value}})}
     />
 
     <AlcheimTextBrightnessToggle/>
@@ -40,9 +41,9 @@ export const CardAppearanceForm = () => {
 
     <AlcheimTextField
       label={"Font Size"}
-      defaultValue={card?.fontSize || "10pt"}
+      defaultValue={card?.appearance.fontSize || "10pt"}
       onChange={event => setCard(
-        {...card, fontSize: event.target.value})}
+        {...card, appearance: {...card.appearance, fontSize: event.target.value}})}
     />
 
   </Box>;

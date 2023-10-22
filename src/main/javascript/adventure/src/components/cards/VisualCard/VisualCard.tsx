@@ -1,11 +1,18 @@
 import {Box, Divider, Typography} from "@mui/material";
 import React, {ReactElement} from "react";
 import {applyTransforms} from "../../../card/Text";
-import {DARK_MODE_BLACK, getQualityColor, LIGHT_MODE_WHITE, NEUTRAL_MODE_GREY} from "../../../utilities/colors";
+import {
+  DARK_MODE_BLACK,
+  getQualityColor,
+  LIGHT_MODE_WHITE,
+  NEUTRAL_MODE_GREY
+} from "../../../utilities/colors";
 import {prettify} from "../../../utilities/kitchen_sink";
 import {CardQualityDot} from "./CardQualityDot";
 import {FlavorText} from "./FlavorText";
 import "./VisualCard.css";
+
+import {Card} from "../../../card/Cards";
 
 const getClampedBodyOpacity = (bodyOpacity: number) => {
   if (bodyOpacity > 100) {
@@ -24,45 +31,46 @@ const getOpacityHex = (bodyOpacity: number) => {
 
 type VisualCardProps = {
   name?: string,
-  image?: string,
-  imageSize?: string,
-  imagePosition?: string,
-  fullArt?: boolean
+
   type?: string,
   body?: string,
   flavor?: string,
   author?: string,
-  darkText?: boolean,
   quality?: string,
-  bodyOpacity?: number,
-  fontSize?: string,
+
+  appearance: {
+    fullArt?: boolean
+
+    image?: string,
+    imageSize?: string,
+    imagePosition?: string,
+
+    darkText?: boolean,
+    fontSize?: string,
+    bodyOpacity?: number,
+  }
 }
 
+const DEFAULT_OPACITY = 80;
+
+const DEFAULT_FONT_SIZE = "10pt";
+
+const DEFAULT_IMAGE_SIZE = "cover";
+const DEFAULT_IMAGE_POSITION = "center top";
+
+const LEATHER_BACKGROUND = "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo=";
 export const VisualCard = (props: VisualCardProps): ReactElement => {
 
-  const {
-    name = "",
-    image = "",
-    imageSize = "cover",
-    imagePosition = "center top",
-    fullArt = true,
-    type = "",
-    body = "",
-    flavor = "",
-    author = "",
-    darkText = false,
-    quality = null,
-    bodyOpacity = 80,
-    fontSize = "10pt",
-  } = props;
+  const card = new Card(props);
+  const appearance = card.getAppearance();
+  const cardImage = appearance.getImage();
 
   const height = 22.5;
   const width = height * .74;
   const backgroundStyles = {
-    backgroundImage: `url(${fullArt && image && image !== "" ? image
-      : "https://media.istockphoto.com/photos/old-book-cover-picture-id922784228?k=20&m=922784228&s=612x612&w=0&h=NOOwTDKNBUuFCWWW2DFNdr48Uen2mK1FJ_E4AMZhGCo="})`,
-    backgroundSize: fullArt ? imageSize : "100%",
-    backgroundPosition: fullArt ? imagePosition : "none",
+    backgroundImage: `url(${appearance.isFullArt() && cardImage && cardImage !== "" ? cardImage : LEATHER_BACKGROUND})`,
+    backgroundSize: appearance.isFullArt() ? appearance.getImageSize() : "100%",
+    backgroundPosition: appearance.isFullArt() ? appearance.getImagePosition() : "none",
   };
   const contentStyle = {
     ...backgroundStyles,
@@ -70,17 +78,18 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
     width: `${width}rem`,
   };
 
-  const darkTextModifier = darkText ? "dark-mode" : "light-mode";
+  const darkTextModifier = appearance.isDarkText() ? "dark-mode" : "light-mode";
 
-  const titleColor = quality && quality !== "COMMON"
-    ? getQualityColor(quality)
-    : darkText
+  const titleColor = card.getQuality() && !card.isCommon()
+    ? getQualityColor(card.getQuality())
+    : appearance.isDarkText()
       ? LIGHT_MODE_WHITE
       : DARK_MODE_BLACK;
 
-  const typeText = prettify(type);
-  const bodyElements = applyTransforms(body);
-  const backgroundColor = (darkText ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(bodyOpacity);
+  const typeText = prettify(card.getType() || "ABILITY");
+  const bodyElements = applyTransforms(card.getBody() || "");
+
+  const backgroundColor = (appearance.isDarkText() ? DARK_MODE_BLACK : LIGHT_MODE_WHITE) + getOpacityHex(!appearance.isFullArt() ? 100 : appearance.getBodyOpacity() || DEFAULT_OPACITY);
 
   const CardPane = (props: any) => {
     const {children, className, style, ...otherProps} = props;
@@ -88,7 +97,7 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
       className={`visual-card-pane ${className}`}
       p={0.5}
       style={{
-        backgroundColor: backgroundColor,
+        backgroundColor,
         border: `solid thin ${NEUTRAL_MODE_GREY}`,
         borderRadius: "4px",
         overflow: "hidden",
@@ -103,17 +112,17 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
   return (
     <Box className="visualcard">
       <Box className="visual-card-content" p={1} {...{style: contentStyle}}>
-        {!fullArt && <CardPane
+        {!appearance.isFullArt() && <CardPane
           height={180}
           flexGrow={1}
           style={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${appearance.getImage()})`,
             backgroundSize: "cover",
-            backgroundPosition: imagePosition,
+            backgroundPosition: appearance.getImagePosition(),
             borderColor: DARK_MODE_BLACK,
           }}/>}
 
-        <Box flexGrow={fullArt ? 1 : 0} minHeight={10}/>
+        <Box flexGrow={appearance.isFullArt() ? 1 : 0} minHeight={10}/>
 
         <CardPane className={`visual-card-text-box ${darkTextModifier}`}>
 
@@ -124,18 +133,18 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
                 textTransform: "capitalize",
                 fontWeight: "bold",
               }}
-              title={name}
+              title={card.getName()}
             >
-              {name}
+              {card.getName()}
             </span>
-            {quality && <CardQualityDot quality={quality}/>}
+            {card.getQuality() && <CardQualityDot quality={card.getQuality()}/>}
           </Box>
 
           <Box className="flex-center-space-between">
             <span
               className={"visual-card-type"}
               style={{
-                fontSize: "10pt",
+                fontSize: DEFAULT_FONT_SIZE,
                 fontWeight: 500,
                 textTransform: "capitalize",
               }}
@@ -145,17 +154,19 @@ export const VisualCard = (props: VisualCardProps): ReactElement => {
             </span>
           </Box>
 
-          {(body || flavor) && <Box>
+          {(card.getBody() || card.getFlavor()) && <Box>
             <Box mt={"0.25rem"} mb={"0.25rem"}><Divider/></Box>
 
             <Typography variant={"body2"} sx={{lineHeight: 1.2}}>
-              {body && <div className="visual-card-body-text" title={body} style={{fontSize}}>
+              {card.getBody() && <div className="visual-card-body-text" title={card.getBody()}
+                                      style={{fontSize: appearance.getFontSize()}}>
                 <span>{bodyElements}</span>
               </div>}
 
-              {(body && flavor) && <Box mt={"0.5rem"}/>}
+              {(card.getBody() && card.getFlavor()) && <Box mt={"0.5rem"}/>}
 
-              {flavor && <FlavorText fontSize={fontSize}>{flavor}</FlavorText>}
+              {card.getFlavor() &&
+                <FlavorText fontSize={appearance.getFontSize()}>{card.getFlavor()}</FlavorText>}
             </Typography>
           </Box>}
 
