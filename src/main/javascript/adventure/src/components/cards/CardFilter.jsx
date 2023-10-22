@@ -123,7 +123,7 @@ const CardFilter = ({setFilterFunc}) => {
 
   return <Box display={"flex"} flexGrow={2} flexWrap={"wrap"}>
 
-    <Box display={"flex"} flexDirection={"column"} width={"100%"}>
+    <Box display={"flex"} flexDirection={"column"} width={"100%"} gap={1}>
       <Box maxWidth={"100%"} display={"flex"} flexDirection={"row"} justifyContents={"space-evenly"}
            flexWrap={"wrap"} gap={1}>
         <Box display={"flex"} flexGrow={1} minWidth={200}>
@@ -140,9 +140,14 @@ const CardFilter = ({setFilterFunc}) => {
         </Box>
       </Box>
 
-      <Box maxWidth={"100%"} display={"flex"} flexDirection={"row"} justifyContent={"space-evenly"}
-           flexWrap={"wrap"} gap={1}>
-        <Box display={"flex"} flexGrow={1} minWidth={200}>
+      <Box maxWidth={"100%"}
+           display={"flex"}
+           flexDirection={"row"}
+           justifyContent={"space-evenly"}
+           flexWrap={"wrap"}
+           gap={1}
+      >
+        <Box display={"flex"} flexGrow={1} minWidth={250}>
           <CardQualitySelect
             value={getQuality()}
             onSelect={setQuality}>
@@ -151,7 +156,7 @@ const CardFilter = ({setFilterFunc}) => {
           </CardQualitySelect>
         </Box>
 
-        <Box display={"flex"} flexGrow={1} minWidth={200}>
+        <Box display={"flex"} flexGrow={1} minWidth={250}>
           <CardTypeSelect
             value={getType()}
             onSelect={setType}>
@@ -159,7 +164,7 @@ const CardFilter = ({setFilterFunc}) => {
           </CardTypeSelect>
         </Box>
 
-        <Box display={"flex"} flexGrow={1} minWidth={200}>
+        <Box display={"flex"} flexGrow={1} minWidth={250}>
             <EditionSelect
             value={getEdition()}
             onSelect={setEdition}
