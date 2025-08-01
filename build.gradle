@@ -61,6 +61,10 @@ task buildReactApp(type: YarnTask, dependsOn: 'npmInstall') {
     args = ['build']
 }
 
+task startDevServer(type: YarnTask, dependsOn: 'npmInstall') {
+    args = ['start']
+}
+
 //clean.delete << file('src/main/javascript/adventure/build')
 //clean.delete << file('src/main/javascript/adventure/node_modules')
 clean.delete << file('src/main/resources/static')
