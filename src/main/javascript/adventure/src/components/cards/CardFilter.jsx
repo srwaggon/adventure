@@ -1,11 +1,12 @@
 import {Box, IconButton, InputAdornment, MenuItem} from "@mui/material";
 import CardTypeSelect from "./CardTypeSelect";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import CardQualitySelect from "./CardQualitySelect";
 import EditionSelect from "./EditionSelect";
 import {useSearchParams} from "react-router-dom";
 import ClearIcon from "@mui/icons-material/Clear";
 import AlcheimTextField from "../input/AlcheimTextField";
+import useDebounce from "../input/useDebounce";
 
 const filterName = (name) => (card) => (card.name || "").toLowerCase().includes(name);
 
@@ -23,39 +24,57 @@ const filterEdition = (editionId) => (card) =>
   || ("none" === editionId && card.editionId === null)
   || editionId === card.editionId;
 
-const NameFilter = ({onFilterName, value}) => <AlcheimTextField
-  label="Name"
-  value={value}
-  onChange={(event) => onFilterName(event.target.value)}
-  InputProps={value && {
-    endAdornment: <InputAdornment position="end">
-      <IconButton
-        aria-label="clear"
-        onClick={() => onFilterName("")}
-        edge="end"
-      >
-        <ClearIcon/>
-      </IconButton>
-    </InputAdornment>
-  }}
-/>;
+const NameFilter = ({onFilterName, value}) => {
+  const [state_value, setStateValue] = useState(value);
+  const debouncedChange = useDebounce(onFilterName, 500);
+  const setValue = (value) => {
+    setStateValue(value);
+    debouncedChange(value);
+  };
+  const onChange = (event) => setValue(event.target.value);
+  return (<AlcheimTextField
+    label="Name"
+    value={state_value}
+    onChange={onChange}
+    InputProps={state_value && {
+      endAdornment: <InputAdornment position="end">
+        <IconButton
+          aria-label="clear"
+          onClick={() => setValue("")}
+          edge="end"
+        >
+          <ClearIcon/>
+        </IconButton>
+      </InputAdornment>
+    }}
+  />);
+};
 
-const TextFilter = ({onFilterText, value}) => <AlcheimTextField
-  label="Text"
-  value={value}
-  onChange={(event) => onFilterText(event.target.value)}
-  InputProps={value && {
-    endAdornment: <InputAdornment position="end">
-      <IconButton
-        aria-label="clear"
-        onClick={() => onFilterText("")}
-        edge="end"
-      >
-        <ClearIcon/>
-      </IconButton>
-    </InputAdornment>
-  }}
-/>;
+const TextFilter = ({onFilterText, value}) => {
+  const [stateValue, setStateValue] = useState(value);
+  const debouncedChange = useDebounce(onFilterText, 500);
+  const setValue = (value) => {
+    setStateValue(value);
+    debouncedChange(value);
+  }
+  const onChange = (event) => setValue(event.target.value);
+  return (<AlcheimTextField
+    label="Text"
+    value={stateValue}
+    onChange={onChange}
+    InputProps={stateValue && {
+      endAdornment: <InputAdornment position="end">
+        <IconButton
+          aria-label="clear"
+          onClick={() => setValue("")}
+          edge="end"
+        >
+          <ClearIcon/>
+        </IconButton>
+      </InputAdornment>
+    }}
+  />);
+}
 const CardFilter = ({setFilterFunc}) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -72,12 +91,14 @@ const CardFilter = ({setFilterFunc}) => {
 
   const setParams = (params = {}) => {
     setSearchParams({
-      name: params && params.name !== undefined && params.name !== null ? params.name : getName(),
-      text: params && params.text !== undefined && params.name !== null ? params.text : getText(),
-      type: (params && params.type) || getType(),
-      quality: (params && params.quality) || getQuality(),
-      edition: (params && params.edition) || getEdition(),
-    });
+                      name: params && params.name !== undefined && params.name !== null
+                            ? params.name : getName(),
+                      text: params && params.text !== undefined && params.name !== null
+                            ? params.text : getText(),
+                      type: (params && params.type) || getType(),
+                      quality: (params && params.quality) || getQuality(),
+                      edition: (params && params.edition) || getEdition(),
+                    });
   };
 
   useEffect(() => {
@@ -109,15 +130,15 @@ const CardFilter = ({setFilterFunc}) => {
 
   const setQuality = (quality) => {
     const qualityId = quality === "none" ? "none"
-      : quality === "any" ? "any"
-        : quality;
+                                         : quality === "any" ? "any"
+                                                             : quality;
     setParams({quality: qualityId});
   };
 
   const setEdition = edition => {
     const editionId = edition === "none" ? "none"
-      : edition === "any" ? "any"
-        : edition.id;
+                                         : edition === "any" ? "any"
+                                                             : edition.id;
     setParams({edition: editionId});
   };
 
