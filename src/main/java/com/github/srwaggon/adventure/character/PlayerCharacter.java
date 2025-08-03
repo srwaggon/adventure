@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 
 import com.github.srwaggon.adventure.util.Identified;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,8 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private final List<String> proficiencies = Lists.newArrayList();
 
+  private final List<Value<?>> properties = new ArrayList<>();
+
   private final Map<String, CharacterValue> skills =
       Arrays.stream(BuiltinSkill.values())
           .map(BuiltinSkill::getName)
@@ -45,6 +48,20 @@ public class PlayerCharacter implements Identified<UUID> {
           .collect(Collectors.toMap(CharacterValue::getName, Function.identity()));
 
   public PlayerCharacter() {
+    for (String attributeName : new String[]{
+        "strength",
+        "agility",
+        "endurance",
+        "intelligence",
+        "wisdom",
+        "luck"
+    }) {
+      properties.add(new Value<>(attributeName, "string", 1,
+          new Value<>("type", "string", "attribute"),
+          new Value<>("minimum", "integer", 0),
+          new Value<>("maximum", "integer", 5)
+      ));
+    }
   }
 
   @Override
@@ -143,5 +160,9 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public Map<String, CharacterValue> getSkills() {
     return skills;
+  }
+
+  public List<Value<?>> getProperties() {
+    return properties;
   }
 }
