@@ -16,7 +16,7 @@ export class CardAppearance {
     this._appearance = appearance || {};
   }
 
-  public isFullArt = () => this._appearance.fullArt == true;
+  public isFullArt = () => this._appearance.fullArt === true;
 
   public getImage = () => this._appearance.image || "";
 
@@ -24,7 +24,7 @@ export class CardAppearance {
 
   public getImagePosition = () => this._appearance.imagePosition || "center top";
 
-  public isDarkText = () => this._appearance.darkText == true;
+  public isDarkText = () => this._appearance.darkText === true;
 
   public getBodyOpacity = () => this._appearance.bodyOpacity || 0;
 
