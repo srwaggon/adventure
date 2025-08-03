@@ -24,6 +24,9 @@ public class Value<T> {
     Collections.addAll(this.properties, properties);
   }
 
+  public Value() {
+  }
+
   public String getName() {
     return name;
   }

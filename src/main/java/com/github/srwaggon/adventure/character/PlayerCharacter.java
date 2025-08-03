@@ -17,15 +17,6 @@ public class PlayerCharacter implements Identified<UUID> {
   private UUID id = UUID.randomUUID();
   private String name = "New Character";
   private String portraitUrl = "https://i1.wp.com/nerdarchy.com/wp-content/uploads/2020/04/dd-fighters.jpg";
-  private final CharacterValue strength = new CharacterValue("strength", 1, 5, 1);
-  private final CharacterValue dexterity = new CharacterValue("dexterity", 1, 5, 1);
-  private final CharacterValue constitution = new CharacterValue("constitution", 1, 5, 1);
-  private final CharacterValue presence = new CharacterValue("presence", 1, 5, 1);
-  private final CharacterValue influence = new CharacterValue("influence", 1, 5, 1);
-  private final CharacterValue composure = new CharacterValue("composure", 1, 5, 1);
-  private final CharacterValue intelligence = new CharacterValue("intelligence", 1, 5, 1);
-  private final CharacterValue wits = new CharacterValue("wits", 1, 5, 1);
-  private final CharacterValue resolve = new CharacterValue("resolve", 1, 5, 1);
 
   private final CharacterValue stamina = new CharacterValue("stamina", 0, 2, 1);
   private final CharacterValue reputation = new CharacterValue("reputation", 0, 10, 10);
@@ -39,7 +30,7 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private final List<String> proficiencies = Lists.newArrayList();
 
-  private final List<Value<?>> properties = new ArrayList<>();
+  private List<Value<?>> properties = new ArrayList<>();
 
   private final Map<String, CharacterValue> skills =
       Arrays.stream(BuiltinSkill.values())
@@ -54,6 +45,7 @@ public class PlayerCharacter implements Identified<UUID> {
         "endurance",
         "intelligence",
         "wisdom",
+        "charisma",
         "luck"
     }) {
       properties.add(new Value<>(attributeName, "string", 1,
@@ -88,42 +80,6 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public void setPortraitUrl(String portraitUrl) {
     this.portraitUrl = portraitUrl;
-  }
-
-  public CharacterValue getStrength() {
-    return strength;
-  }
-
-  public CharacterValue getDexterity() {
-    return dexterity;
-  }
-
-  public CharacterValue getConstitution() {
-    return constitution;
-  }
-
-  public CharacterValue getPresence() {
-    return presence;
-  }
-
-  public CharacterValue getInfluence() {
-    return influence;
-  }
-
-  public CharacterValue getComposure() {
-    return composure;
-  }
-
-  public CharacterValue getIntelligence() {
-    return intelligence;
-  }
-
-  public CharacterValue getWits() {
-    return wits;
-  }
-
-  public CharacterValue getResolve() {
-    return resolve;
   }
 
   public CharacterValue getStamina() {
@@ -164,5 +120,9 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public List<Value<?>> getProperties() {
     return properties;
+  }
+
+  public void setProperties(List<Value<?>> properties) {
+    this.properties = properties;
   }
 }

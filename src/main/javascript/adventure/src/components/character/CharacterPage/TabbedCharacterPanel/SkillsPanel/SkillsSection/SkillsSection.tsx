@@ -94,8 +94,10 @@ const SkillsSection = (props: SkillsSectionProps) => {
               <li>
                 <CharacterAttribute
                   isEditing={isEditingSkills}
-                  valueName={skill.name}
-                  characterValue={skill}
+                  name={skill.name}
+                  value={skill.value}
+                  maximum={skill.maximum}
+                  minimum={skill.minimum}
                   setValue={setSkillValue(skill.name)}
                 />
               </li>

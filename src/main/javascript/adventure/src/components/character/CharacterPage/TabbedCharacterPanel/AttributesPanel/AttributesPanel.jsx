@@ -1,12 +1,19 @@
 import React, {useState} from "react";
 import {Box, Divider, Typography} from "@mui/material";
 import {CharacterResource} from "./CharacterResource";
-import {CharacterAttribute} from "./CharacterAttribute";
 
 import "./AttributesPanel.css";
 import EditButtonRow from "../../../../buttons/EditButtonRow/EditButtonRow";
 import {Row} from "../../../../Row/Row";
 import {replaceCharacter} from "../../../../../utilities/client";
+import {
+  copyCharacterProperties,
+  isAttributeWithName,
+  isNamed,
+  updateValue
+} from "../../../../../property";
+import {arrayRemove} from "../../../../../utilities/arrays";
+import {Attribute} from "./Attribute";
 
 export const ATTRIBUTES_TAB = "attributes";
 export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
@@ -21,45 +28,32 @@ export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
 
 const copyCharacterValue = characterValue => ({...characterValue});
 
-const copyCharacterAttributes = ({
-  strength, dexterity, constitution,
-  presence, influence, composure,
-  intelligence, wits, resolve
-}) => {
-  return {
-    strength: copyCharacterValue(strength),
-    dexterity: copyCharacterValue(dexterity),
-    constitution: copyCharacterValue(constitution),
-    presence: copyCharacterValue(presence),
-    influence: copyCharacterValue(influence),
-    composure: copyCharacterValue(composure),
-    intelligence: copyCharacterValue(intelligence),
-    wits: copyCharacterValue(wits),
-    resolve: copyCharacterValue(resolve)
-  };
-};
-
 const CharacterAttributesSection = ({character, setCharacter}) => {
 
-  const [attributes, setAttributes] = useState(copyCharacterAttributes(character));
+  const [properties, setProperties] = useState(copyCharacterProperties(character));
 
   const [isEditing, setIsEditing] = useState(false);
 
-  const CharacterAttributeWrapper = ({attribute}) => {
+  const AttributeWrapper = ({attribute}) => {
+
+    if (attribute === undefined) {
+      return undefined;
+    }
 
     const setAttributeValue = (attribute) => {
       return (value) => {
-        attribute.value = value;
-        const newAttributes = {...attributes};
-        newAttributes[attribute.name] = attribute;
-        setAttributes(newAttributes);
+        const oldAttributeProperty = properties.find(isNamed(attribute.name));
+        const newProperties = arrayRemove(properties, oldAttributeProperty);
+        newProperties.push(updateValue(attribute, value));
+        setProperties([...newProperties]);
       };
     };
 
-    return <CharacterAttribute
+    return <Attribute
+      attribute={attribute}
       isEditing={isEditing}
-      valueName={attribute.name}
-      characterValue={attribute}
+      name={attribute.name}
+      value={properties.find(isNamed(attribute.name)).value}
       setValue={setAttributeValue(attribute)}
     />;
   };
@@ -70,12 +64,13 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
 
   const onCancelEdit = () => {
     setIsEditing(false);
-    setAttributes(copyCharacterAttributes(character));
+    setProperties(copyCharacterProperties(character));
   };
 
   const onSave = () => {
     setIsEditing(false);
-    replaceCharacter({...character, ...attributes})
+    const updatedCharacter = {...character, properties: properties};
+    replaceCharacter(updatedCharacter)
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
@@ -92,15 +87,27 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
       />
     </Row>
     <ul className={"character-attributes-list"}>
-      <li><CharacterAttributeWrapper attribute={attributes.strength}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.dexterity}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.constitution}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.presence}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.influence}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.composure}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.intelligence}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.wits}/></li>
-      <li><CharacterAttributeWrapper attribute={attributes.resolve}/></li>
+      <li>
+        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('strength'))}/>
+      </li>
+      <li>
+        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('agility'))}/>
+      </li>
+      <li>
+        <AttributeWrapper
+          attribute={character.properties.find(isAttributeWithName('endurance'))}/></li>
+      <li>
+        <AttributeWrapper
+          attribute={character.properties.find(isAttributeWithName('intelligence'))}/></li>
+      <li>
+        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('wisdom'))}/>
+      </li>
+      <li>
+        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('charisma'))}/>
+      </li>
+      <li>
+        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('luck'))}/>
+      </li>
     </ul>
   </Box>;
 };
@@ -145,12 +152,24 @@ const CharacterResourcesSection = ({character, setCharacter}) => {
       />
     </Row>
     <ul className={"character-attributes-list"}>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.health}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.stamina}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.reputation}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.confidence}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.mana}/></li>
-      <li><CharacterResource {...{character, setCharacter, isEditing}} resource={resources.focus}/></li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.health}/>
+      </li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}}
+                           resource={resources.stamina}/></li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}}
+                           resource={resources.reputation}/></li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}}
+                           resource={resources.confidence}/></li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.mana}/>
+      </li>
+      <li>
+        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.focus}/>
+      </li>
     </ul>
   </Box>;
 };

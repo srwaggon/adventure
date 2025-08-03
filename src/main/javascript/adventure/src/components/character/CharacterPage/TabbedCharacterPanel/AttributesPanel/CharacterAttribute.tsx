@@ -1,46 +1,41 @@
 import {AddBox, Backspace} from "@mui/icons-material";
 
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
-
 import {Box, Button, IconButton} from "@mui/material";
 import React from "react";
 
 import {D10Icon} from "../../../../icons/DiceIcons";
 import {Row} from "../../../../Row/Row";
+import {DotArray} from "./DotArray";
 
-type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
-
-type CharacterAttributeParams = { valueName: string; isEditing: boolean; characterValue: CharacterValue; setValue: (value: number) => void; };
+type CharacterAttributeParams = {
+  name: string;
+  value: number;
+  minimum: number;
+  maximum: number;
+  isEditing: boolean;
+  setValue: (value: number) => void;
+};
 
 export const CharacterAttribute = (props: CharacterAttributeParams) => {
-  const {valueName, isEditing, characterValue, setValue} = props;
-
-  const increaseValue = () => {
-    setValue(characterValue.value + 1);
-  };
-
-  const reduceValue = () => {
-    setValue(characterValue.value - 1);
-  };
+  const {name, isEditing, value, setValue, minimum, maximum} = props;
 
   // @ts-ignore
-  const ReduceButton = isEditing && characterValue.value > characterValue.minimum && <IconButton
+  const ReduceButton = isEditing && value > minimum && <IconButton
     checked={false}
     color={"primary"}
     size={"small"}
     style={{marginLeft: "-4px", padding: 0}}
-    onClick={reduceValue}
+    onClick={() => setValue(value - 1)}
   ><Backspace/></IconButton>;
 
   // @ts-ignore
-  const IncreaseButton = isEditing && characterValue.value < characterValue.maximum && <IconButton
+  const IncreaseButton = isEditing && value < maximum && <IconButton
     checked={false}
     color={"primary"}
     size={"small"}
     style={{margin: "-2px", padding: 0}}
     fullWidth={true}
-    onClick={increaseValue}
+    onClick={() => setValue(value + 1)}
   ><AddBox/></IconButton>;
 
   return (
@@ -48,13 +43,13 @@ export const CharacterAttribute = (props: CharacterAttributeParams) => {
       <Box flexGrow={1}>
         <Button fullWidth={true} startIcon={<D10Icon/>}>
           <Box width={"100%"} style={{textTransform: "capitalize", textAlign: "left"}}>
-            {valueName}
+            {name}
           </Box>
         </Button>
       </Box>
       <Box width={"105px"}>
 
-        <DotArray {...{name: valueName, value: characterValue.value}} />
+        <DotArray {...{name: name, value: value}} />
 
         {ReduceButton}
 
@@ -63,25 +58,4 @@ export const CharacterAttribute = (props: CharacterAttributeParams) => {
       </Box>
     </Row>
   );
-};
-
-const DotArray = (props: any) => {
-  const {name, value} = props;
-  const dottedDots = Math.max(5, value);
-  const oneEach: any = Array(dottedDots).keys();
-  return <>
-    {[...oneEach]
-      .map((int) =>
-        <IconButton
-          key={`dot-${name}-${int}`}
-          color={"default"}
-          size={"small"}
-          style={{margin: "-2px", padding: 0}}
-        >
-          {int < value
-            ? <FiberManualRecordIcon/>
-            : <FiberManualRecordOutlinedIcon/>}
-        </IconButton>
-      )}
-  </>;
 };
