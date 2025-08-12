@@ -6,14 +6,8 @@ import "./AttributesPanel.css";
 import EditButtonRow from "../../../../buttons/EditButtonRow/EditButtonRow";
 import {Row} from "../../../../Row/Row";
 import {replaceCharacter} from "../../../../../utilities/client";
-import {
-  copyCharacterProperties,
-  isAttributeWithName,
-  isNamed,
-  updateValue
-} from "../../../../../property";
-import {arrayRemove} from "../../../../../utilities/arrays";
-import {Attribute} from "./Attribute";
+import {copyCharacterProperties, isAttributeWithName} from "../../../../../property";
+import {AttributeWrapper} from "./AttributeWrapper";
 
 export const ATTRIBUTES_TAB = "attributes";
 export const AttributesPanel = ({character, setCharacter, selectedTab}) => {
@@ -33,30 +27,6 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
   const [properties, setProperties] = useState(copyCharacterProperties(character));
 
   const [isEditing, setIsEditing] = useState(false);
-
-  const AttributeWrapper = ({attribute}) => {
-
-    if (attribute === undefined) {
-      return undefined;
-    }
-
-    const setAttributeValue = (attribute) => {
-      return (value) => {
-        const oldAttributeProperty = properties.find(isNamed(attribute.name));
-        const newProperties = arrayRemove(properties, oldAttributeProperty);
-        newProperties.push(updateValue(attribute, value));
-        setProperties([...newProperties]);
-      };
-    };
-
-    return <Attribute
-      attribute={attribute}
-      isEditing={isEditing}
-      name={attribute.name}
-      value={properties.find(isNamed(attribute.name)).value}
-      setValue={setAttributeValue(attribute)}
-    />;
-  };
 
   const onEdit = () => {
     setIsEditing(true);
@@ -86,29 +56,29 @@ const CharacterAttributesSection = ({character, setCharacter}) => {
         onSave={onSave}
       />
     </Row>
-    <ul className={"character-attributes-list"}>
-      <li>
-        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('strength'))}/>
-      </li>
-      <li>
-        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('agility'))}/>
-      </li>
-      <li>
-        <AttributeWrapper
-          attribute={character.properties.find(isAttributeWithName('endurance'))}/></li>
-      <li>
-        <AttributeWrapper
-          attribute={character.properties.find(isAttributeWithName('intelligence'))}/></li>
-      <li>
-        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('wisdom'))}/>
-      </li>
-      <li>
-        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('charisma'))}/>
-      </li>
-      <li>
-        <AttributeWrapper attribute={character.properties.find(isAttributeWithName('luck'))}/>
-      </li>
-    </ul>
+    <Row>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('strength'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('agility'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('endurance'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('intelligence'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('wisdom'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('charisma'))}/>
+      <AttributeWrapper
+        {...{isEditing, properties, setProperties}}
+        attribute={character.properties.find(isAttributeWithName('luck'))}/>
+    </Row>
   </Box>;
 };
 
@@ -153,22 +123,34 @@ const CharacterResourcesSection = ({character, setCharacter}) => {
     </Row>
     <ul className={"character-attributes-list"}>
       <li>
-        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.health}/>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.health}/>
       </li>
       <li>
-        <CharacterResource {...{character, setCharacter, isEditing}}
-                           resource={resources.stamina}/></li>
-      <li>
-        <CharacterResource {...{character, setCharacter, isEditing}}
-                           resource={resources.reputation}/></li>
-      <li>
-        <CharacterResource {...{character, setCharacter, isEditing}}
-                           resource={resources.confidence}/></li>
-      <li>
-        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.mana}/>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.stamina}/>
       </li>
       <li>
-        <CharacterResource {...{character, setCharacter, isEditing}} resource={resources.focus}/>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.reputation}/>
+      </li>
+      <li>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.confidence}/>
+      </li>
+      <li>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.mana}/>
+      </li>
+      <li>
+        <CharacterResource
+          {...{character, setCharacter, isEditing}}
+          resource={resources.focus}/>
       </li>
     </ul>
   </Box>;

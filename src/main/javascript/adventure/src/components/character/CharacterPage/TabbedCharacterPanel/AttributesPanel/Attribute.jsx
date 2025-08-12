@@ -1,10 +1,10 @@
 import {findSubPropertyWithName} from "../../../../../property";
 import {Box, Button, IconButton} from "@mui/material";
 import {AddBox, Backspace} from "@mui/icons-material";
-import {Row} from "../../../../Row/Row";
 import {D10Icon} from "../../../../icons/DiceIcons";
 import {DotArray} from "./DotArray";
 import React from "react";
+import {Column} from "../../../../Column/Column";
 
 export const Attribute = (props) => {
   const {
@@ -39,23 +39,35 @@ export const Attribute = (props) => {
                          ><AddBox/></IconButton>;
 
   return attribute ?
-         <Row className="character-attribute">
-           <Box flexGrow={1}>
-             <Button fullWidth={true} startIcon={<D10Icon/>}>
-               <Box width={"100%"} style={{textTransform: "capitalize", textAlign: "left"}}>
-                 {name}
-               </Box>
+         <Column className="character-attribute">
+           <Box style={{
+             border: "solid thin grey",
+             borderRadius: "4px",
+             margin: "2px",
+             width: "120px",
+           }}>
+             <Button
+               fullWidth={true}
+               startIcon={<D10Icon/>}
+               style={{
+                 textTransform: "capitalize",
+                 width: "100%"
+               }}
+             >
+               {name}
              </Button>
-           </Box>
-           <Box width={"105px"}>
-             <Box>
+             <Box
+               flexGrow={1}
+               style={{
+                 justifyItems: "center",
+                 padding: "6px 8px",
+               }}
+             >
                <DotArray {...{name: name, value: value}} />
-
                {ReduceButton}
-
                {IncreaseButton}
              </Box>
            </Box>
-         </Row>
+         </Column>
                    : undefined;
 };

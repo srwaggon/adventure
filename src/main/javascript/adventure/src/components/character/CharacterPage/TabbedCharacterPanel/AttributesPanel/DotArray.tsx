@@ -1,4 +1,4 @@
-import {IconButton} from "@mui/material";
+import {Box, IconButton} from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import FiberManualRecordOutlinedIcon from "@mui/icons-material/FiberManualRecordOutlined";
 import React from "react";
@@ -7,7 +7,7 @@ export const DotArray = (props: any) => {
   const {name, value} = props;
   const dottedDots = Math.max(5, value);
   const oneEach: any = Array(dottedDots).keys();
-  return <>
+  return <Box>
     {[...oneEach]
       .map((int) =>
         <IconButton
@@ -21,5 +21,5 @@ export const DotArray = (props: any) => {
             : <FiberManualRecordOutlinedIcon/>}
         </IconButton>
       )}
-  </>;
+  </Box>;
 };
