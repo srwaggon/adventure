@@ -14,5 +14,6 @@ docker run \
   --rm \
   --detach \
   --volume database:/database \
+  --publish 8080:8080 \
   --publish 8443:8443 \
   swaggoner/adventure

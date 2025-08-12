@@ -22,7 +22,7 @@ public class SecurityOAuth2Configuration {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-    if (environment.acceptsProfiles("prod")) {
+    if (environment.acceptsProfiles("production")) {
       http.requiresChannel(channel -> channel.anyRequest().requiresSecure());
     }
 
