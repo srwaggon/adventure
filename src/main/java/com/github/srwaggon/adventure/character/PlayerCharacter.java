@@ -31,6 +31,7 @@ public class PlayerCharacter implements Identified<UUID> {
   public PlayerCharacter() {
     addAttributes();
     addResources();
+    addSkills();
   }
 
   private void addAttributes() {
@@ -65,6 +66,17 @@ public class PlayerCharacter implements Identified<UUID> {
               new Value<>("maximum", "integer", 10)
           ));
     }
+  }
+
+  private void addSkills() {
+    Arrays.stream(BuiltinSkill.values())
+        .map(BuiltinSkill::getName)
+        .map(skillName -> new Value<>(skillName, "string", 0,
+            new Value<>("type", "string", "skill"),
+            new Value<>("minimum", "integer", 0),
+            new Value<>("maximum", "integer", 5)
+        ))
+        .forEach(properties::add);
   }
 
   @Override
