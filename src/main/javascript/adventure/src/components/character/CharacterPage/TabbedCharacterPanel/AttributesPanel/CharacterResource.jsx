@@ -2,58 +2,46 @@ import {replaceCharacter} from "../../../../../utilities/client";
 import {Box, IconButton, LinearProgress} from "@mui/material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import {AddBox, Backspace} from "@mui/icons-material";
 import React from "react";
 import {Row} from "../../../../Row/Row";
+import {IncreaseMaximumButton} from "./IncreaseMaximumButton";
+import {DecreaseMaximumButton} from "./DecreaseMaximumButton";
+import {isNamed, updateValue} from "../../../../../property";
+import {arrayRemove} from "../../../../../utilities/arrays";
 
-const DecreaseMaximumButton = ({character, setCharacter, resource}) => {
-  const decreaseMaximum = () => {
-    resource.maximum -= 1;
-    resource.value = Math.min(resource.value, resource.maximum);
-    setCharacter({...character});
-  };
+export const CharacterResource = (props) => {
+  const {
+    resource,
+    character,
+    setCharacter,
+    isEditing,
+    properties,
+    setProperties
+  } = props;
 
-  return <IconButton
-    checked={false}
-    color={"primary"}
-    size={"small"}
-    style={{margin: "-4px"}}
-    onClick={decreaseMaximum}
-  ><Backspace/></IconButton>;
-};
+  if (resource === undefined) {
+    return undefined;
+  }
 
-const IncreaseMaximumButton = ({character, setCharacter, resource}) => {
-  const increaseMaximum = () => {
-    const value = resource.value;
-    const max = resource.maximum;
-    resource.value = value + (value === max ? 1 : 0);
-    resource.maximum += 1;
-    setCharacter({...character});
-  };
+  const setCharacterResource = (number) => {
+    const newValue = resource.value + (number < resource.value ? -1 : 1);
 
-  return <IconButton
-    checked={false}
-    color={"primary"}
-    size={"small"}
-    style={{margin: "-4px"}}
-    fullWidth={true}
-    onClick={increaseMaximum}
-  ><AddBox/></IconButton>;
-};
+    const oldProperty = properties.find(isNamed(resource.name));
+    arrayRemove(properties, oldProperty).push(updateValue(resource, newValue));
+    const newProperties = [...properties];
+    setProperties(newProperties);
 
-export const CharacterResource = ({character, setCharacter, isEditing, resource}) => {
-  const max = resource.maximum;
-  const value = resource.value;
+    character.properties = newProperties;
 
-  const setCharacterResource = number => {
-    resource.value += number < resource.value ? -1 : 1;
-    character[resource.name] = resource;
     replaceCharacter(character)
       .then(response => response.json())
       .then(character => {
         setCharacter(character);
       });
   };
+
+  const max = properties.find(isNamed(resource.name)).properties.find(isNamed("maximum")).value;
+  const value = properties.find(isNamed(resource.name)).value;
 
   return (
     <Box>
@@ -76,11 +64,33 @@ export const CharacterResource = ({character, setCharacter, isEditing, resource}
             size={"small"}
             style={{margin: "-4px"}}
             onClick={(ignored) => setCharacterResource(int)}
-          >{int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
-          </IconButton>)}
+          >
+            {int < value ? <CheckBoxIcon/> : <CheckBoxOutlineBlankIcon/>}
+          </IconButton>
+      )}
 
-      {isEditing && max > 0 && <DecreaseMaximumButton {...{character, setCharacter, resource}}/>}
-      {isEditing && <IncreaseMaximumButton {...{character, setCharacter, resource}}/>}
+      {
+        isEditing && max > 0 &&
+        <DecreaseMaximumButton {...{
+          character,
+          setCharacter,
+          resource,
+          properties,
+          setProperties,
+        }}
+        />
+      }
+      {
+        isEditing &&
+        <IncreaseMaximumButton {...{
+          character,
+          setCharacter,
+          resource,
+          properties,
+          setProperties,
+        }}
+        />
+      }
     </Box>
   );
 };

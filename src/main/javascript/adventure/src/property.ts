@@ -5,12 +5,12 @@ type Property = {
   properties: Property[]
 };
 
-export const isAttribute = (property: Property) => property.properties.filter(
-  subProperty => subProperty.name === 'type' && subProperty.value === 'attribute');
-
 export const isNamed = (name: string) => (property: Property) => property.name === `${name}`;
+export const isTyped = (type: string) => (property: Property) => property.type === `${type}`;
+export const hasValue = (value: any) => (property: Property) => property.value === value;
 
-export const isAttributeWithName = (name: string) => (property: Property) => isNamed(name)(property) && isAttribute(property);
+export const hasTypeProperty = (type: String) => (property: Property) => property.properties.filter(
+  subProperty => isNamed('type')(subProperty) && hasValue(type)(subProperty));
 
 export const findSubPropertyWithName = (name: string) => (property: Property) => property.properties.find(isNamed(name))
 
@@ -34,3 +34,12 @@ export const updateValue = (property: Property, value: any) => {
   newProperty.value = value;
   return newProperty;
 };
+
+
+export const isAttribute = (property: Property) => hasTypeProperty('attribute')(property);
+
+export const isAttributeWithName = (name: string) => (property: Property) => isNamed(name)(property) && isAttribute(property);
+
+export const isResource = (property: Property) => hasTypeProperty('resource')(property);
+
+export const isResourceWithName = (name: string) => (property: Property) => isNamed(name)(property) && isResource(property);

@@ -18,14 +18,6 @@ public class PlayerCharacter implements Identified<UUID> {
   private String name = "New Character";
   private String portraitUrl = "https://i1.wp.com/nerdarchy.com/wp-content/uploads/2020/04/dd-fighters.jpg";
 
-  private final CharacterValue stamina = new CharacterValue("stamina", 0, 2, 1);
-  private final CharacterValue reputation = new CharacterValue("reputation", 0, 10, 10);
-  private final CharacterValue focus = new CharacterValue("focus", 0, 2, 1);
-
-  private final CharacterValue health = new CharacterValue("health", 0, 10, 10);
-  private final CharacterValue confidence = new CharacterValue("confidence", 0, 2, 1);
-  private final CharacterValue mana = new CharacterValue("mana", 0, 10, 10);
-
   private final List<String> cards = Lists.newArrayList();
 
   private final List<String> proficiencies = Lists.newArrayList();
@@ -39,6 +31,11 @@ public class PlayerCharacter implements Identified<UUID> {
           .collect(Collectors.toMap(CharacterValue::getName, Function.identity()));
 
   public PlayerCharacter() {
+    addAttributes();
+    addResources();
+  }
+
+  private void addAttributes() {
     for (String attributeName : new String[]{
         "strength",
         "agility",
@@ -48,11 +45,27 @@ public class PlayerCharacter implements Identified<UUID> {
         "charisma",
         "luck"
     }) {
-      properties.add(new Value<>(attributeName, "string", 1,
-          new Value<>("type", "string", "attribute"),
-          new Value<>("minimum", "integer", 0),
-          new Value<>("maximum", "integer", 5)
-      ));
+      properties.add(
+          new Value<>(attributeName, "string", 1,
+              new Value<>("type", "string", "attribute"),
+              new Value<>("minimum", "integer", 0),
+              new Value<>("maximum", "integer", 5)
+          ));
+    }
+  }
+
+  private void addResources() {
+    for (String attributeName : new String[]{
+        "health",
+        "stamina",
+        "charge"
+    }) {
+      properties.add(
+          new Value<>(attributeName, "string", 10,
+              new Value<>("type", "string", "resource"),
+              new Value<>("minimum", "integer", 0),
+              new Value<>("maximum", "integer", 10)
+          ));
     }
   }
 
@@ -82,32 +95,8 @@ public class PlayerCharacter implements Identified<UUID> {
     this.portraitUrl = portraitUrl;
   }
 
-  public CharacterValue getStamina() {
-    return stamina;
-  }
-
-  public CharacterValue getConfidence() {
-    return confidence;
-  }
-
-  public CharacterValue getFocus() {
-    return focus;
-  }
-
-  public CharacterValue getHealth() {
-    return health;
-  }
-
-  public CharacterValue getReputation() {
-    return reputation;
-  }
-
   public List<String> getCards() {
     return cards;
-  }
-
-  public CharacterValue getMana() {
-    return mana;
   }
 
   public List<String> getProficiencies() {
