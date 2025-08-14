@@ -20,8 +20,6 @@ public class PlayerCharacter implements Identified<UUID> {
 
   private final List<String> cards = Lists.newArrayList();
 
-  private final List<String> proficiencies = Lists.newArrayList();
-
   private List<Value<?>> properties = new ArrayList<>();
 
   private final Map<String, CharacterValue> skills =
@@ -97,10 +95,6 @@ public class PlayerCharacter implements Identified<UUID> {
 
   public List<String> getCards() {
     return cards;
-  }
-
-  public List<String> getProficiencies() {
-    return proficiencies;
   }
 
   public Map<String, CharacterValue> getSkills() {

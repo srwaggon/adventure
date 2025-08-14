@@ -43,9 +43,6 @@ export const deleteCard = _delete(cardsEndpoint);
 export const getCardTypes = _get(`${cardsEndpoint}/types`);
 export const getCardQualities = _get(`${cardsEndpoint}/qualities`);
 
-const proficienciesEndpoint = '/api/proficiencies';
-export const getAllProficiencies = _getAll(proficienciesEndpoint);
-
 const gamesEndpoint = '/api/games';
 export const getAllGames = _getAll(gamesEndpoint);
 export const getGameById = _getById(gamesEndpoint);
@@ -80,8 +77,6 @@ export const client = {
   postNewCard,
   replaceCard,
   deleteCard,
-
-  getAllProficiencies,
 
   getAllGames,
   getGameById,
