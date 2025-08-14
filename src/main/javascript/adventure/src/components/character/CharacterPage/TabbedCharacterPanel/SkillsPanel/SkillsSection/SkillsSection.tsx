@@ -7,10 +7,19 @@ import {Row} from "../../../../../Row/Row";
 
 import {CharacterAttribute} from "../../AttributesPanel/CharacterAttribute";
 import "./SkillsSection.css";
+import {
+  copyCharacterProperties,
+  findSubPropertyWithName,
+  isSkill,
+  Property
+} from "../../../../../../property";
 
 type CharacterValue = { name: string, value: number, minimum: number, maximum: number };
 type CharacterSkills = { [key: string]: CharacterValue }
-type Character = { skills: CharacterSkills };
+type Character = {
+  skills: CharacterSkills,
+  properties: Property[],
+};
 type SkillsSectionProps = { character: Character, setCharacter: (character: Character) => void };
 
 const newSkill = (skillName: string) => ({name: skillName, value: 0, minimum: 0, maximum: 5});
@@ -47,6 +56,8 @@ const SkillsSection = (props: SkillsSectionProps) => {
   const [isEditingSkills, setEditingSkills] = useState(false);
 
   const [skills, setSkills] = useState(copySkills(character.skills));
+
+  const [properties, setProperties] = useState(copyCharacterProperties(character));
 
   const setSkillValue = (skillName: string) => {
     return (value: number) => {
@@ -87,8 +98,9 @@ const SkillsSection = (props: SkillsSectionProps) => {
       <Box display="flex" flexWrap="wrap" flexDirection={"column"}>
         <ul className={"character-skills-list"}>
 
-          {Object.values(skills || {})
-            .filter((skill: CharacterValue) => isEditingSkills || skill.value > 0)
+          {properties
+            .filter(isSkill)
+            .filter((skill: Property) => isEditingSkills || skill.value > 0)
             .sort(isEditingSkills ? byName : byRankThenName)
             .map((skill) =>
               <li>
@@ -96,8 +108,8 @@ const SkillsSection = (props: SkillsSectionProps) => {
                   isEditing={isEditingSkills}
                   name={skill.name}
                   value={skill.value}
-                  maximum={skill.maximum}
-                  minimum={skill.minimum}
+                  maximum={(findSubPropertyWithName("maximum")(skill) || {value: 0}).value}
+                  minimum={(findSubPropertyWithName("minimum")(skill) || {value: 0}).value}
                   setValue={setSkillValue(skill.name)}
                 />
               </li>
