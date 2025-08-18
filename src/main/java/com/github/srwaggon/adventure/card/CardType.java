@@ -8,6 +8,7 @@ public enum CardType {
   CANTRIP, // consider migrating to a tag on spells
   CHARACTER,
   CLASS,
+  CRAFTING_RECIPE,
   CONSUMABLE,
   CREATURE,
   CURRENCY,
